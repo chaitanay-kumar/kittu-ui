@@ -137,9 +137,9 @@ const CoverArtwork: React.FC = () => (
 );
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({
-  name = 'Kittu UI contributors',
+  name = 'Kit UI contributors',
   username = '@kittu-ui',
-  description = 'Building Kittu UI. Engineer.',
+  description = 'Building Kit UI. Engineer.',
   followers = '200K',
   posts = '72',
   website = 'github.com/chaitanay-kumar/kittu-ui',

@@ -57,7 +57,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "Compose prompts with attachments and suggestions, preserving drafts through failure and cancellation.",
     "category": "Forms",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -439,7 +439,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "A draggable bottom sheet with snap positions, native modal focus containment, and keyboard resizing.",
     "category": "Overlays",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -648,7 +648,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "Deliberate confirmation with visible hold progress, early cancellation, and async recovery.",
     "category": "Buttons",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -663,7 +663,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "An expandable summary with linked detail controls and async action feedback.",
     "category": "Feedback",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -723,7 +723,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "A searchable command dialog with arrow navigation, disabled commands, and async feedback.",
     "category": "Navigation",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -795,7 +795,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "id": "login",
     "name": "Login",
     "tagline": "Refined authentication card with validation & social SSO",
-    "description": "A production-ready authentication card built with the Kittu UI form system, featuring password show/hide, remember me, validation states, and social logins.",
+    "description": "A production-ready authentication card built with the Kit UI form system, featuring password show/hide, remember me, validation states, and social logins.",
     "category": "Auth",
     "badges": [
       "Authentication",
@@ -1146,8 +1146,8 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
   {
     "id": "pricing",
     "name": "Pricing",
-    "tagline": "Minimal two-tier pricing that belongs in Kittu UI",
-    "description": "A minimal two-tier pricing component for Kittu UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.",
+    "tagline": "Minimal two-tier pricing that belongs in Kit UI",
+    "description": "A minimal two-tier pricing component for Kit UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.",
     "category": "Motion",
     "badges": [
       "Light + Dark",
@@ -1390,7 +1390,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "A validated file queue with image previews, real handler progress, abort signals, and retry.",
     "category": "Forms",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -1578,7 +1578,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "Swipe to reveal item actions, with explicit keyboard-accessible controls and retry feedback.",
     "category": "Feedback",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -1623,7 +1623,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "description": "Navigate events with a native range control, previous/next buttons, and spoken event details.",
     "category": "Navigation",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],

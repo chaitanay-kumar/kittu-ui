@@ -1,8 +1,12 @@
-# Kittu UI
+# Kit UI
 
-**Small details. Lasting impressions.**
+**Nimble by nature. Precise by design.**
 
-An independent UI component collection for React and Angular, with TypeScript, tactile interactions, live demos, source ownership, and an original Kittu Ant mascot.
+An independent UI component collection for React and Angular, with TypeScript, tactile interactions, live demos, source ownership, and an original Kit Fox mascot.
+
+Inspired by the kit fox: nimble interactions, precise feedback, and components that adapt to their environment. See the [brand philosophy](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/BRAND.md).
+
+The public name is now **Kit UI**. Repository URLs, the `kittu-ui-angular` package, and existing `Kittu*` exports/selectors remain compatible; the visual rebrand does not require consumers to rename their imports.
 
 [Explore the website](https://chaitanay-kumar.github.io/kittu-ui/) · [Browse components](https://chaitanay-kumar.github.io/kittu-ui/components/) · [Contribute](CONTRIBUTING.md)
 
@@ -21,7 +25,7 @@ An independent UI component collection for React and Angular, with TypeScript, t
 
 The website shell uses React. Angular previews run actual Angular components in isolated frames; the Angular library has no React runtime dependency. An explicit `?framework=angular` or `?framework=react` link overrides the saved framework preference. Switching on a component page preserves its selection and sidebar search.
 
-### Eight original Kittu components
+### Eight original Kit components
 
 | Component | Interaction |
 | --- | --- |
@@ -160,4 +164,4 @@ More detail: [Architecture](https://github.com/chaitanay-kumar/kittu-ui/blob/fea
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, React and Angular authoring, generated-file rules, checks, and pull requests. Contributions should support keyboard, touch, reduced motion, visible focus, responsive layouts, and both themes where applicable.
 
-Kittu UI is independently derived from the MIT-licensed EasyUI project and has no affiliation with or endorsement from its upstream maintainers. Preserve [LICENSE](LICENSE) and the [verbatim upstream MIT notice](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/licenses/UPSTREAM-MIT.txt) when redistributing substantial portions. [ATTRIBUTION.md](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/ATTRIBUTION.md) documents the import and independence.
+Kit UI is independently derived from the MIT-licensed EasyUI project and has no affiliation with or endorsement from its upstream maintainers. Preserve [LICENSE](LICENSE) and the [verbatim upstream MIT notice](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/licenses/UPSTREAM-MIT.txt) when redistributing substantial portions. [ATTRIBUTION.md](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/ATTRIBUTION.md) documents the import and independence.

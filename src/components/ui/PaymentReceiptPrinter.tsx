@@ -107,7 +107,7 @@ export interface PaymentReceiptPrinterProps {
 
 export const PaymentReceiptPrinter: React.FC<PaymentReceiptPrinterProps> = ({
   status: controlledStatus,
-  merchant = 'Kittu UI Store',
+  merchant = 'Kit UI Store',
   merchantSubtext = 'Source Component Registry',
   merchantLogo,
   orderNumber = '#4821',
@@ -151,7 +151,7 @@ export const PaymentReceiptPrinter: React.FC<PaymentReceiptPrinterProps> = ({
     : item
     ? [item]
     : [
-        { name: 'Kittu UI Pro Subscription', price: '$200.00', quantity: 1, tag: 'Annual' },
+        { name: 'Kit UI Pro Subscription', price: '$200.00', quantity: 1, tag: 'Annual' },
       ];
 
   // Derive date string
@@ -528,7 +528,7 @@ export const PaymentReceiptPrinter: React.FC<PaymentReceiptPrinterProps> = ({
               </div>
             )}
 
-            {/* Friendly Message & Kittu UI Stamp */}
+            {/* Friendly Message & Kit UI Stamp */}
             <div className="pt-2 text-center text-[9px] opacity-70">
               <p className="font-medium">{message}</p>
               <p className="text-[8px] opacity-50 mt-0.5">AUTH #99824 · KITTU_UI ECOSYSTEM</p>

@@ -31,8 +31,8 @@ export function FAQSection() {
       items={[
         {
           id: '1',
-          question: 'What is Kittu UI?',
-          answer: 'Kittu UI is an open-source collection of micro-animated, tactile React components distributed via the shadcn-compatible GitHub registry.',
+          question: 'What is Kit UI?',
+          answer: 'Kit UI is an open-source collection of micro-animated, tactile React components distributed via the shadcn-compatible GitHub registry.',
         },
         {
           id: '2',
@@ -69,5 +69,5 @@ export function FAQSection() {
 - Semantic buttons with `aria-expanded` and `aria-controls`.
 - Accordion content panels have `role="region"` and `aria-labelledby`.
 - Space and Enter keys expand and collapse items.
-- Focus outline follows Kittu UI's Sky-400 focus ring standard.
+- Focus outline follows Kit UI's Sky-400 focus ring standard.
 - Respects `prefers-reduced-motion`.

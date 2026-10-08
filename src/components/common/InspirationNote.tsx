@@ -102,11 +102,11 @@ export const InspirationNote: React.FC = () => {
 
               {/* Full Inspiration & Attribution Note */}
               <p className="text-xs leading-relaxed text-text-secondary">
-                The components on Kittu UI are built from scratch and are inspired by designs, interactions, and ideas found across the internet. They are created for learning, experimentation, and the UI community, and are not intended to intentionally copy or claim ownership of anyone else’s work.
+                The components on Kit UI are built from scratch and are inspired by designs, interactions, and ideas found across the internet. They are created for learning, experimentation, and the UI community, and are not intended to intentionally copy or claim ownership of anyone else’s work.
               </p>
 
               <p className="text-xs leading-relaxed text-text-secondary">
-                If you believe a component, image, design, or other material on Kittu UI belongs to you and has been used without proper credit, please reach out to us. We’re happy to review the concern and, where appropriate, provide proper attribution or remove the material.
+                If you believe a component, image, design, or other material on Kit UI belongs to you and has been used without proper credit, please reach out to us. We’re happy to review the concern and, where appropriate, provide proper attribution or remove the material.
               </p>
 
               {/* Minimal inline write us redirection */}
@@ -123,7 +123,7 @@ export const InspirationNote: React.FC = () => {
 
               {/* Respect Footer Note */}
               <p className="text-[11px] leading-relaxed text-text-muted pt-0.5">
-                We respect the work of designers and developers and want Kittu UI to be a place for sharing and building, not taking credit for someone else’s work.
+                We respect the work of designers and developers and want Kit UI to be a place for sharing and building, not taking credit for someone else’s work.
               </p>
             </div>
           </motion.div>

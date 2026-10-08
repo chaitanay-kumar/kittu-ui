@@ -22,7 +22,7 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onBrowse }) => {
           </h2>
 
           <p className="mt-6 text-[15px] sm:text-[16px] text-text-secondary max-w-md mx-auto leading-relaxed">
-            Kittu UI gives you the pieces. You decide what to build.
+            Kit UI gives you the pieces. You decide what to build.
           </p>
 
           <div className="mt-10 sm:mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">

@@ -79,7 +79,7 @@ export const DocsPage: React.FC<DocsPageProps> = ({
                 onClick={onNavigateHome}
                 className="hover:text-text-primary transition-colors shrink-0"
               >
-                Kittu UI
+                Kit UI
               </button>
               <span className="text-text-subtle">/</span>
               <button

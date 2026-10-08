@@ -1,4 +1,4 @@
-# Kittu original components
+# Kit original components
 
 These eight additions follow the upstream source-plus-metadata convention. Run `npm run component:sync` after edits; the catalog, registry, raw source JSON, sitemap, and llms.txt derive from those files. Interactive examples live in `src/components/docs/KittuDemos.tsx` and appear in the directory and detail pages. Each metadata file documents props and usage.
 
@@ -36,8 +36,8 @@ Smart Upload and AI Prompt Composer do not send data unless an application provi
 
 ## Themes, motion, and deployment
 
-New components use `src/lib/kittu-controls.css` and theme variables with fallbacks. Visible focus, wrapping content, native controls, status announcements, and reduced-motion rules are shared. Include the generated companion stylesheet when copying source manually; registry installation includes it automatically. The Kittu Ant is an original SVG with generated PNG install icons and a social card.
+New components use `src/lib/kittu-controls.css` and theme variables with fallbacks. Visible focus, wrapping content, native controls, status announcements, and reduced-motion rules are shared. Include the generated companion stylesheet when copying source manually; registry installation includes it automatically. The Kit Fox is an original SVG with generated PNG install icons and a social card.
 
-There is no deployed Kittu UI domain. URLs default to `http://localhost:5173`, with indexing disabled. Set `VITE_SITE_URL` to the real origin when available, then regenerate and build with that same environment variable. The destination registry's default-branch installation commands become usable only after the branch is merged. No npm package publication is part of this handoff.
+The website is hosted at `https://chaitanay-kumar.github.io/kittu-ui/`. Local URLs default to `http://localhost:5173`, with indexing disabled. The Pages workflow supplies the public site URL and base path for deployment. The destination registry's default-branch installation commands become usable only after the branch is merged. No npm package publication is part of this handoff.
 
-Inherited code-snippet demos use `example-client`, `example-model`, and reserved `example.com` URLs as illustrations. They do not describe a Kittu UI SDK or hosted AI service.
+Inherited code-snippet demos use `example-client`, `example-model`, and reserved `example.com` URLs as illustrations. They do not describe a Kit UI SDK or hosted AI service.

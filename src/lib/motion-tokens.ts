@@ -1,7 +1,7 @@
 import type { Transition } from "framer-motion";
 
 /**
- * Kittu UI Motion Design Tokens
+ * Kit UI Motion Design Tokens
  * Philosophy: Soft + physical + immediate + controlled
  *
  * Tuning philosophy (Apple HIG-inspired):

@@ -5,7 +5,7 @@ export function reportClientError(error: unknown, source: string, details?: stri
   if (typeof window === 'undefined') return;
 
   const normalized = error instanceof Error ? error : new Error(String(error));
-  console.error('Kittu UI client error', {
+  console.error('Kit UI client error', {
     source,
     error_name: normalized.name,
     error_message: truncate(normalized.message || 'Unknown client error', 180),

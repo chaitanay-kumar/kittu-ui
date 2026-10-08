@@ -28,7 +28,7 @@ export interface ComponentProp {
 }
 
 /**
- * Human-written metadata for an Kittu UI component.
+ * Human-written metadata for an Kit UI component.
  * Slugs, dependencies, source paths, and CLI commands are auto-derived.
  */
 export interface KittuUIComponentMeta {
@@ -46,7 +46,7 @@ export interface KittuUIComponentMeta {
 }
 
 /**
- * Complete component catalog entry used across the Kittu UI website.
+ * Complete component catalog entry used across the Kit UI website.
  * Contains human-written metadata + auto-derived attributes.
  */
 export interface KittuComponentMeta {

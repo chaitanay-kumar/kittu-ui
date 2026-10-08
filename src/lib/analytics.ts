@@ -128,7 +128,7 @@ export function trackEvent(eventName: string, eventParams?: Record<string, any>)
 }
 
 /**
- * Custom React hook for tracking route and view changes across the Kittu UI application.
+ * Custom React hook for tracking route and view changes across the Kit UI application.
  * Automatically initializes GA and captures page views on mount and URL/view updates.
  */
 export function useAnalyticsTracker(state?: {
@@ -150,11 +150,11 @@ export function useAnalyticsTracker(state?: {
     }
 
     // Set document title according to active section
-    let pageTitle = 'Kittu UI — Small details. Lasting impressions.';
+    let pageTitle = 'Kit UI — Nimble by nature. Precise by design.';
     if (state?.activeView === 'docs') {
-      pageTitle = `Documentation - ${state.activeDocTopic || 'Introduction'} | Kittu UI`;
+      pageTitle = `Documentation - ${state.activeDocTopic || 'Introduction'} | Kit UI`;
     } else if (state?.activeView === 'components') {
-      pageTitle = `Components (Page ${state.componentPage || 1}) | Kittu UI`;
+      pageTitle = `Components (Page ${state.componentPage || 1}) | Kit UI`;
     }
 
     trackPageView(computedPath, pageTitle);

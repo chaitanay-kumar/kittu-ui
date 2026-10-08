@@ -1,7 +1,7 @@
 {
   "name": "kittu-ui-angular",
   "version": "0.1.0",
-  "description": "Native standalone Angular components for Kittu UI",
+  "description": "Native standalone Angular components for Kit UI",
   "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/chaitanay-kumar/kittu-ui.git", "directory": "packages/angular" },
   "peerDependencies": { "@angular/core": "^20.0.0 || ^21.0.0 || ^22.0.0", "@angular/common": "^20.0.0 || ^21.0.0 || ^22.0.0", "rxjs": "^7.8.0" },

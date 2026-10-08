@@ -649,7 +649,7 @@ const ScrollProgressNavShowcase: React.FC = () => {
             <span className="text-[10px] font-mono text-white/50 uppercase">01 Overview</span>
             <h4 className="text-sm font-semibold text-[#FAFAFA]">Edge First Motion Architecture</h4>
             <p className="text-xs text-[#A1A1A1] leading-relaxed">
-              Kittu UI is engineered from the ground up for minimal latency, zero-jank spring physics, and Apple-grade micro interactions.
+              Kit UI is engineered from the ground up for minimal latency, zero-jank spring physics, and Apple-grade micro interactions.
             </p>
           </div>
 
@@ -1453,7 +1453,7 @@ func main() {
         return (
           <div className="py-12 flex flex-col items-center justify-center gap-4 min-h-[340px]">
             <DynamicIsland
-              name="Kittu UI contributors"
+              name="Kit UI contributors"
               role="Frontend Developer"
               description="Building thoughtful interfaces with React, Next.js, and Framer Motion."
               statusText="Available for hire"
@@ -1644,7 +1644,7 @@ func main() {
                 <FormItem>
                   <FormLabel required>Project Name</FormLabel>
                   <FormControl>
-                    <Input defaultValue="Kittu UI Studio" placeholder="Enter project name" />
+                    <Input defaultValue="Kit UI Studio" placeholder="Enter project name" />
                   </FormControl>
                   <FormDescription>Visible across your team members.</FormDescription>
                 </FormItem>
@@ -1710,22 +1710,22 @@ func main() {
               items={[
                 {
                   id: 'faq-1',
-                  question: 'How do I add Kittu UI components to my existing project?',
+                  question: 'How do I add Kit UI components to my existing project?',
                   answer: 'You can install any component directly using the official shadcn CLI: "npx shadcn@latest add chaitanay-kumar/kittu-ui/<component-name>". The source code and required dependencies are added directly to your repository.',
                   category: 'Installation',
                   badge: 'CLI',
                 },
                 {
                   id: 'faq-2',
-                  question: 'What makes Kittu UI animations feel natural?',
-                  answer: 'Kittu UI uses physical spring simulations rather than standard CSS bezier ease curves. Transitions are configured with calibrated mass, damping, and stiffness tokens defined in "lib/motion-tokens.ts".',
+                  question: 'What makes Kit UI animations feel natural?',
+                  answer: 'Kit UI uses physical spring simulations rather than standard CSS bezier ease curves. Transitions are configured with calibrated mass, damping, and stiffness tokens defined in "lib/motion-tokens.ts".',
                   category: 'Animation',
                   badge: 'Physics',
                 },
                 {
                   id: 'faq-3',
-                  question: 'Is Kittu UI compatible with React 19 and Tailwind CSS?',
-                  answer: 'Yes! Kittu UI components are built natively with React 19, TypeScript, and modern Tailwind CSS utility classes.',
+                  question: 'Is Kit UI compatible with React 19 and Tailwind CSS?',
+                  answer: 'Yes! Kit UI components are built natively with React 19, TypeScript, and modern Tailwind CSS utility classes.',
                   category: 'Stack',
                 },
               ]}
@@ -1736,11 +1736,11 @@ func main() {
         return (
           <div className="py-4 w-full flex justify-center">
             <PaymentReceiptPrinter
-              merchant="Kittu UI Store"
+              merchant="Kit UI Store"
               merchantSubtext="Source Component Registry"
               orderNumber="#4821"
               items={[
-                { name: 'Kittu UI Pro License', price: '$200.00', quantity: 1, tag: 'Annual' },
+                { name: 'Kit UI Pro License', price: '$200.00', quantity: 1, tag: 'Annual' },
                 { name: 'Framer Motion Pack', price: '$20.00', quantity: 1, description: 'Micro-interactions & physics' },
               ]}
               subtotal="$220.00"
@@ -2454,7 +2454,7 @@ func main() {
 
           {/* Minimal Footer */}
           <div className="px-5 sm:px-6 py-3 bg-[#0B0B0B] border-t border-[#1F1F1F] flex items-center justify-between text-xs text-[#6B6B6B] shrink-0">
-            <span className="hidden sm:inline">Kittu UI Component Documentation</span>
+            <span className="hidden sm:inline">Kit UI Component Documentation</span>
             <span className="sm:hidden font-mono text-[11px]">kittu-ui/{component.id}</span>
             <button
               type="button"

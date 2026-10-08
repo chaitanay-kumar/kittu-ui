@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "brand:generate": "node scripts/generate-brand-assets.mjs",
     "dev": "vite",
     "build": "npm run angular:build && npm run component:sync && tsc -b && vite build && npm run prerender && npm run seo:audit",
     "prerender": "node --import ./scripts/register-assets.mjs --import tsx scripts/prerender.ts",

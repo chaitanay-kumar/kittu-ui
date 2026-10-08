@@ -1,6 +1,6 @@
-# Kittu UI Architecture & Automatic Registry System
+# Kit UI Architecture & Automatic Registry System
 
-Kittu UI is built on a **Single Source of Truth** architecture. Developers never manually maintain JSON registry files, copy-paste code into catalog arrays, or maintain hardcoded install commands in multiple files.
+Kit UI is built on a **Single Source of Truth** architecture. Developers never manually maintain JSON registry files, copy-paste code into catalog arrays, or maintain hardcoded install commands in multiple files.
 
 ```text
 Component Source (.tsx) + Component Metadata (.meta.ts)
@@ -43,7 +43,7 @@ Component Source (.tsx) + Component Metadata (.meta.ts)
 
 ## Multi-File Component Support
 
-Kittu UI supports complex components split across multiple files. You can create a dedicated folder inside `src/components/ui/`:
+Kit UI supports complex components split across multiple files. You can create a dedicated folder inside `src/components/ui/`:
 
 ```text
 src/components/ui/my-complex-widget/

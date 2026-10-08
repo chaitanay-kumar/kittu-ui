@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Buttons",
   "tagline": "Deliberate confirmation with visible hold progress, early cancellation, and async recovery.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

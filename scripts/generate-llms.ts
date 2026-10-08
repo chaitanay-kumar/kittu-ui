@@ -32,7 +32,7 @@ export function generateLlmsTxt(): void {
     }
   }
 
-  const content = `# Kittu UI
+  const content = `# Kit UI
 
 > Production-ready, beautifully crafted animated UI components built with React, Tailwind CSS, and Framer Motion for modern web applications. Open source, copy-paste ownership with zero configuration via shadcn CLI.
 
@@ -62,7 +62,7 @@ ${ANGULAR_COMPONENTS.map(component => `- [${component.name} for Angular](${SITE_
 
 ## Resources
 
-- [Kittu UI Website](${SITE_URL}/): Official website and interactive live demos.
+- [Kit UI Website](${SITE_URL}/): Official website and interactive live demos.
 - [GitHub Repository](https://github.com/chaitanay-kumar/kittu-ui): Source code, issues, and contributions.
 - [Component Registry](${SITE_URL}/registry.json): Standard shadcn/ui compatible registry definition.
 - [Sitemap](${SITE_URL}/sitemap.xml): Search engine and crawler index of all public URLs.

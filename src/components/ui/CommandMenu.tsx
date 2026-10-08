@@ -273,7 +273,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({
                   <span className="font-mono bg-[#0E0E0E] border border-[#1F1F1F] px-1 rounded text-[10px] text-[#A1A1A1]">↵</span> select
                 </span>
               </div>
-              <span className="text-[#6B6B6B]">Kittu UI</span>
+              <span className="text-[#6B6B6B]">Kit UI</span>
             </div>
           </motion.div>
         </div>

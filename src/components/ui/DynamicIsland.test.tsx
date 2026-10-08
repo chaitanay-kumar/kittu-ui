@@ -10,7 +10,7 @@ afterEach(() => {
 
 describe('DynamicIsland', () => {
   it('renders collapsed by default with avatar and expand button', () => {
-    render(<DynamicIsland name="Kittu UI contributors" role="Frontend Developer" />);
+    render(<DynamicIsland name="Kit UI contributors" role="Frontend Developer" />);
 
     // Region is accessible
     expect(screen.getByRole('region', { name: 'Dynamic Island' })).toBeInTheDocument();
@@ -32,8 +32,8 @@ describe('DynamicIsland', () => {
   it('clicking + expands the island into the summary state', () => {
     render(
       <DynamicIsland
-        name="Kittu UI contributors"
-        greeting="Hello, I'm Kittu UI contributors"
+        name="Kit UI contributors"
+        greeting="Hello, I'm Kit UI contributors"
         role="Frontend Developer"
       />
     );
@@ -42,7 +42,7 @@ describe('DynamicIsland', () => {
     fireEvent.click(expandButton);
 
     // Summary text appears
-    expect(screen.getByText("Hello, I'm Kittu UI contributors")).toBeInTheDocument();
+    expect(screen.getByText("Hello, I'm Kit UI contributors")).toBeInTheDocument();
 
     // Action buttons appear
     expect(screen.getByRole('button', { name: 'View profile' })).toBeInTheDocument();
@@ -53,7 +53,7 @@ describe('DynamicIsland', () => {
   it('clicking the profile action opens the profile state with full details', () => {
     render(
       <DynamicIsland
-        name="Kittu UI contributors"
+        name="Kit UI contributors"
         role="Frontend Developer"
         description="Building thoughtful interfaces with React and Next.js."
         statusText="Available for hire"
@@ -69,7 +69,7 @@ describe('DynamicIsland', () => {
     fireEvent.click(profileButton);
 
     // Profile details are shown
-    expect(screen.getByRole('heading', { level: 4, name: 'Kittu UI contributors' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 4, name: 'Kit UI contributors' })).toBeInTheDocument();
     expect(screen.getByText('Frontend Developer')).toBeInTheDocument();
     expect(screen.getByText('Building thoughtful interfaces with React and Next.js.')).toBeInTheDocument();
     expect(screen.getByText('Available for hire')).toBeInTheDocument();
@@ -83,8 +83,8 @@ describe('DynamicIsland', () => {
   it('clicking the back button in profile returns to expanded state', () => {
     render(
       <DynamicIsland
-        name="Kittu UI contributors"
-        greeting="Hello, I'm Kittu UI contributors"
+        name="Kit UI contributors"
+        greeting="Hello, I'm Kit UI contributors"
         defaultState="profile"
       />
     );
@@ -93,7 +93,7 @@ describe('DynamicIsland', () => {
     fireEvent.click(backButton);
 
     // Returns to expanded view
-    expect(screen.getByText("Hello, I'm Kittu UI contributors")).toBeInTheDocument();
+    expect(screen.getByText("Hello, I'm Kit UI contributors")).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'View profile' })).toBeInTheDocument();
   });
 
@@ -130,7 +130,7 @@ describe('DynamicIsland', () => {
   it('clicking back in share dock returns to expanded state', () => {
     render(
       <DynamicIsland
-        greeting="Hello, I'm Kittu UI contributors"
+        greeting="Hello, I'm Kit UI contributors"
         defaultState="share"
       />
     );
@@ -139,14 +139,14 @@ describe('DynamicIsland', () => {
     fireEvent.click(backButton);
 
     // Returns to expanded state
-    expect(screen.getByText("Hello, I'm Kittu UI contributors")).toBeInTheDocument();
+    expect(screen.getByText("Hello, I'm Kit UI contributors")).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Share links' })).toBeInTheDocument();
   });
 
   it('pressing Escape collapses the island from any open state', () => {
     render(
       <DynamicIsland
-        name="Kittu UI contributors"
+        name="Kit UI contributors"
         defaultState="expanded"
       />
     );
@@ -166,7 +166,7 @@ describe('DynamicIsland', () => {
     render(
       <div>
         <div data-testid="outside-element">Outside</div>
-        <DynamicIsland name="Kittu UI contributors" defaultState="expanded" />
+        <DynamicIsland name="Kit UI contributors" defaultState="expanded" />
       </div>
     );
 
@@ -229,12 +229,12 @@ describe('DynamicIsland', () => {
     render(
       <DynamicIsland
         avatar="https://example.com/avatar.jpg"
-        avatarAlt="Kittu UI contributors avatar"
+        avatarAlt="Kit UI contributors avatar"
         defaultState="collapsed"
       />
     );
 
-    const img = screen.getByRole('img', { name: 'Kittu UI contributors avatar' });
+    const img = screen.getByRole('img', { name: 'Kit UI contributors avatar' });
     expect(img).toHaveAttribute('src', 'https://example.com/avatar.jpg');
   });
 

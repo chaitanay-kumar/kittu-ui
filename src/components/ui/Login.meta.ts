@@ -2,14 +2,14 @@ import type { KittuUIComponentMeta } from '../../types/component';
 
 const meta: KittuUIComponentMeta = {
   title: 'Login',
-  description: 'A production-ready authentication card built with the Kittu UI form system, featuring password show/hide, remember me, validation states, and social logins.',
+  description: 'A production-ready authentication card built with the Kit UI form system, featuring password show/hide, remember me, validation states, and social logins.',
   category: 'Auth',
   tagline: 'Refined authentication card with validation & social SSO',
   badges: ['Authentication', 'Forms', 'Responsive', 'Accessible'],
   featured: true,
   createdAt: '2026-08-19',
   features: [
-    'Built with Kittu UI Form & Button architecture',
+    'Built with Kit UI Form & Button architecture',
     'Interactive password visibility toggle with Lucide icons',
     'Form validation for required fields & email regex format',
     'Spring-animated error banners and inline field alerts',
@@ -19,7 +19,7 @@ const meta: KittuUIComponentMeta = {
   ],
   props: [
     { name: 'title', type: 'string', default: "'Welcome back'", description: 'Primary card title text' },
-    { name: 'description', type: 'string', default: "'Sign in to access your Kittu UI workspace'", description: 'Subtitle description below the title' },
+    { name: 'description', type: 'string', default: "'Sign in to access your Kit UI workspace'", description: 'Subtitle description below the title' },
     { name: 'logo', type: 'React.ReactNode', default: '<SparklesIcon />', description: 'Brand badge or logo displayed at the top' },
     { name: 'error', type: 'string | null', default: 'null', description: 'Server-side or authentication error banner message' },
     { name: 'isLoading', type: 'boolean', default: 'false', description: 'Submitting state displaying loader on submit button' },

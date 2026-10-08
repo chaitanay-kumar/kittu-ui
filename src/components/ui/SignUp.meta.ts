@@ -19,7 +19,7 @@ const meta: KittuUIComponentMeta = {
   ],
   props: [
     { name: 'title', type: 'string', default: "'Create an account'", description: 'Primary card title text' },
-    { name: 'description', type: 'string', default: "'Join Kittu UI to access components and templates'", description: 'Subtitle description below the title' },
+    { name: 'description', type: 'string', default: "'Join Kit UI to access components and templates'", description: 'Subtitle description below the title' },
     { name: 'logo', type: 'React.ReactNode', default: '<SparklesIcon />', description: 'Brand badge or logo displayed at the top' },
     { name: 'error', type: 'string | null', default: 'null', description: 'Server-side registration error banner message' },
     { name: 'isLoading', type: 'boolean', default: 'false', description: 'Submitting state displaying loader on submit button' },

@@ -303,7 +303,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "Compose prompts with attachments and suggestions, preserving drafts through failure and cancellation.",
     "category": "Forms",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -405,7 +405,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "modelName",
         "type": "string",
-        "default": "'Kittu AI 2.0'",
+        "default": "'Kit AI 2.0'",
         "description": "Model identifier badge displayed in header"
       },
       {
@@ -446,7 +446,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Respects reduced motion preferences through soft, non-intrusive physics springs"
     ],
     "createdAt": "2026-09-21",
-    "usageCode": "import { AIResponse, AIResponseHeader, AIResponseContent, AIResponseSources, AIResponseActions } from \"@/components/ui/ai-response\";\n\nexport function Demo() {\n  return (\n    <AIResponse\n      status=\"complete\"\n      modelName=\"Claude 3.7 Sonnet\"\n      content=\"Here is a verified solution using **Kittu UI** motion tokens:\\n\\n```typescript\\nimport { motionTransitions } from '@/lib/motion-tokens';\\n\\nexport const config = motionTransitions.springSnappy;\\n```\"\n      sources={[\n        { id: 1, title: \"Kittu UI Motion Tokens\", url: \"https://kittu-ui.pro/docs\" },\n        { id: 2, title: \"Framer Motion Spring Spec\", url: \"https://www.framer.com/motion/\" }\n      ]}\n      onRegenerate={() => console.log('Regenerating...')}\n    />\n  );\n}",
+    "usageCode": "import { AIResponse, AIResponseHeader, AIResponseContent, AIResponseSources, AIResponseActions } from \"@/components/ui/ai-response\";\n\nexport function Demo() {\n  return (\n    <AIResponse\n      status=\"complete\"\n      modelName=\"Claude 3.7 Sonnet\"\n      content=\"Here is a verified solution using **Kit UI** motion tokens:\\n\\n```typescript\\nimport { motionTransitions } from '@/lib/motion-tokens';\\n\\nexport const config = motionTransitions.springSnappy;\\n```\"\n      sources={[\n        { id: 1, title: \"Kit UI Motion Tokens\", url: \"https://kittu-ui.pro/docs\" },\n        { id: 2, title: \"Framer Motion Spring Spec\", url: \"https://www.framer.com/motion/\" }\n      ]}\n      onRegenerate={() => console.log('Regenerating...')}\n    />\n  );\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -1143,7 +1143,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible loading state with integrated monochrome spinner & aria-busy",
       "Left and right icon slots with automatic sizing and gap alignment",
       "Full width layout support (fullWidth)",
-      "Strictly adheres to Kittu UI monochrome dark palette and sky focus ring"
+      "Strictly adheres to Kit UI monochrome dark palette and sky focus ring"
     ],
     "props": [
       {
@@ -1328,7 +1328,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "accessibility": [
       "The trigger is keyboard accessible via Enter and Space keys",
       "Reduced motion preference automatically disables the fast car animation and smoke effects",
-      "The overlay background respects the current Kittu UI theme (light/dark)"
+      "The overlay background respects the current Kit UI theme (light/dark)"
     ],
     "createdAt": "2026-09-08",
     "usageCode": "import { CarSmokePageTransition } from \"@/components/ui/car-smoke-page-transition\";\n\nexport function Demo() {\n  return (\n    <CarSmokePageTransition\n      onTransitionComplete={() => {\n        // Navigate to new page after animation completes\n        window.location.href = \"/about\";\n      }}\n    >\n      <button className=\"bg-[#FAFAFA] text-[#050505] hover:bg-white px-4 py-2 rounded-md font-medium transition-colors\">\n        Start Journey\n      </button>\n    </CarSmokePageTransition>\n  );\n}",
@@ -1437,7 +1437,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Action buttons include aria-label descriptors for screen reader compatibility"
     ],
     "createdAt": "2026-09-21",
-    "usageCode": "import { Chat, type ChatMessageItem } from \"@/components/ui/chat\";\n\nexport function Demo() {\n  const messages: ChatMessageItem[] = [\n    { id: '1', role: 'user', content: 'Can you show me how to style Kittu UI tables?', timestamp: '10:40 AM' },\n    { id: '2', role: 'assistant', content: 'Certainly! Kittu UI tables use the semantic --border and --surface tokens.', timestamp: '10:41 AM' },\n  ];\n\n  return (\n    <Chat\n      messages={messages}\n      onSendMessage={(text) => console.log('Send:', text)}\n    />\n  );\n}",
+    "usageCode": "import { Chat, type ChatMessageItem } from \"@/components/ui/chat\";\n\nexport function Demo() {\n  const messages: ChatMessageItem[] = [\n    { id: '1', role: 'user', content: 'Can you show me how to style Kit UI tables?', timestamp: '10:40 AM' },\n    { id: '2', role: 'assistant', content: 'Certainly! Kit UI tables use the semantic --border and --surface tokens.', timestamp: '10:41 AM' },\n  ];\n\n  return (\n    <Chat\n      messages={messages}\n      onSendMessage={(text) => console.log('Send:', text)}\n    />\n  );\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -2555,7 +2555,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Persistent spatial continuity for the avatar across collapsed and profile states",
       "Fully accessible keyboard navigation with Escape key dismissal and click-outside collapse",
       "Configurable social dock supporting predefined platform detection and custom links",
-      "Light and dark mode compatibility adhering strictly to the Kittu UI design token system",
+      "Light and dark mode compatibility adhering strictly to the Kit UI design token system",
       "Respects prefers-reduced-motion media query with instant fallback states"
     ],
     "props": [
@@ -2574,7 +2574,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "name",
         "type": "string",
-        "default": "'Kittu UI contributors'",
+        "default": "'Kit UI contributors'",
         "description": "Display name in expanded and profile views"
       },
       {
@@ -2658,7 +2658,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Respects prefers-reduced-motion query by eliminating spring animations"
     ],
     "createdAt": "2026-10-05",
-    "usageCode": "import { DynamicIsland } from \"@/components/ui/dynamic-island\";\n\nexport function Demo() {\n  return (\n    <DynamicIsland\n      name=\"Kittu UI contributors\"\n      role=\"Frontend Developer\"\n      description=\"Building thoughtful interfaces with React and Next.js.\"\n      statusText=\"Available for hire\"\n      socials={{\n        github: \"https://github.com/chaitanay-kumar\",\n        x: \"https://x.com\",\n        linkedin: \"https://linkedin.com\",\n        instagram: \"https://instagram.com\",\n        email: \"mailto:hello@example.com\",\n      }}\n    />\n  );\n}",
+    "usageCode": "import { DynamicIsland } from \"@/components/ui/dynamic-island\";\n\nexport function Demo() {\n  return (\n    <DynamicIsland\n      name=\"Kit UI contributors\"\n      role=\"Frontend Developer\"\n      description=\"Building thoughtful interfaces with React and Next.js.\"\n      statusText=\"Available for hire\"\n      socials={{\n        github: \"https://github.com/chaitanay-kumar\",\n        x: \"https://x.com\",\n        linkedin: \"https://linkedin.com\",\n        instagram: \"https://instagram.com\",\n        email: \"mailto:hello@example.com\",\n      }}\n    />\n  );\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -2683,7 +2683,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "A draggable bottom sheet with snap positions, native modal focus containment, and keyboard resizing.",
     "category": "Overlays",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -3055,7 +3055,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Respects prefers-reduced-motion media query"
     ],
     "createdAt": "2026-08-19",
-    "usageCode": "import { FAQ } from \"@/components/ui/faq\";\n\nexport function Demo() {\n  return (\n    <FAQ\n      allowMultiple\n      searchable\n      items={[\n        {\n          id: \"1\",\n          question: \"What makes Kittu UI different?\",\n          answer: \"Kittu UI is distributed directly into your codebase via the official shadcn CLI, powered by spring physics rather than rigid ease-in-out transitions.\"\n        },\n        {\n          id: \"2\",\n          question: \"Can I customize the styling?\",\n          answer: \"Yes! All components are built with standard Tailwind CSS utility classes and clean React TypeScript code with zero proprietary wrappers.\"\n        }\n      ]}\n    />\n  );\n}",
+    "usageCode": "import { FAQ } from \"@/components/ui/faq\";\n\nexport function Demo() {\n  return (\n    <FAQ\n      allowMultiple\n      searchable\n      items={[\n        {\n          id: \"1\",\n          question: \"What makes Kit UI different?\",\n          answer: \"Kit UI is distributed directly into your codebase via the official shadcn CLI, powered by spring physics rather than rigid ease-in-out transitions.\"\n        },\n        {\n          id: \"2\",\n          question: \"Can I customize the styling?\",\n          answer: \"Yes! All components are built with standard Tailwind CSS utility classes and clean React TypeScript code with zero proprietary wrappers.\"\n        }\n      ]}\n    />\n  );\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -3184,7 +3184,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     ],
     "accessibility": [
       "Escape key listener automatically dismisses focus mode and restores full viewport opacity",
-      "Focus rings remain strictly compliant with Kittu UI sky-400 tokens"
+      "Focus rings remain strictly compliant with Kit UI sky-400 tokens"
     ],
     "createdAt": "2026-08-21",
     "usageCode": "import { FocusMode } from \"@/components/ui/focus-mode\";\n\nexport function Demo() {\n  return (\n    <FocusMode\n      items={[\n        {\n          id: \"mrr\",\n          title: \"Monthly Recurring Revenue\",\n          metric: \"$148,290\",\n          delta: \"+18.4%\",\n          content: <p>Enterprise plan renewals</p>\n        }\n      ]}\n    />\n  );\n}",
@@ -3229,7 +3229,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Spring-animated validation errors and password visibility toggle",
       "Tactile check, radio dot, and toggle switch spring physics",
       "Accessible ARIA semantics, required asterisks, and keyboard navigation",
-      "Strict monochrome dark styling matching Kittu UI surface elevation tokens"
+      "Strict monochrome dark styling matching Kit UI surface elevation tokens"
     ],
     "props": [
       {
@@ -3325,7 +3325,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "brand",
         "type": "React.ReactNode",
-        "default": "<Kittu UILogo />",
+        "default": "<Kit UILogo />",
         "description": "Brand / Logo element or text component"
       },
       {
@@ -3869,7 +3869,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "Deliberate confirmation with visible hold progress, early cancellation, and async recovery.",
     "category": "Buttons",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -3934,7 +3934,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "An expandable summary with linked detail controls and async action feedback.",
     "category": "Feedback",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -4284,7 +4284,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "A searchable command dialog with arrow navigation, disabled commands, and async feedback.",
     "category": "Navigation",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -4345,7 +4345,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "features": [
       "Ripple originates from the actual press point",
       "Slow secondary wave remains below the label and icon",
-      "Primary and secondary variants match Kittu UI button surfaces"
+      "Primary and secondary variants match Kit UI button surfaces"
     ],
     "props": [
       {
@@ -4672,7 +4672,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "id": "login",
     "name": "Login",
     "tagline": "Refined authentication card with validation & social SSO",
-    "description": "A production-ready authentication card built with the Kittu UI form system, featuring password show/hide, remember me, validation states, and social logins.",
+    "description": "A production-ready authentication card built with the Kit UI form system, featuring password show/hide, remember me, validation states, and social logins.",
     "category": "Auth",
     "badges": [
       "Authentication",
@@ -4682,7 +4682,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     ],
     "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/login",
     "features": [
-      "Built with Kittu UI Form & Button architecture",
+      "Built with Kit UI Form & Button architecture",
       "Interactive password visibility toggle with Lucide icons",
       "Form validation for required fields & email regex format",
       "Spring-animated error banners and inline field alerts",
@@ -4700,7 +4700,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "description",
         "type": "string",
-        "default": "'Sign in to access your Kittu UI workspace'",
+        "default": "'Sign in to access your Kit UI workspace'",
         "description": "Subtitle description below the title"
       },
       {
@@ -4800,7 +4800,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Porcelain-white macOS folder silhouette with 3D flap hinge and cards peeking from pocket",
       "Interactive hover parallax lifts cards and tilts folder flap in 3D perspective",
       "Opens into a minimal, seamless card grid with Apple fluid spring easing",
-      "Crisp pure white icons and Kittu UI dark surface harmony"
+      "Crisp pure white icons and Kit UI dark surface harmony"
     ],
     "props": [
       {
@@ -5295,7 +5295,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     ],
     "accessibility": [
       "ARIA live role=\"button\" with dynamic aria-busy during loading",
-      "Focus-visible ring conforming to Kittu UI accessibility tokens",
+      "Focus-visible ring conforming to Kit UI accessibility tokens",
       "Screen readers announce state changes without losing focus target"
     ],
     "createdAt": "2026-08-21",
@@ -5570,7 +5570,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/neon-edge-button",
     "features": [
       "Travelling light follows the button perimeter instead of animating border color",
-      "Neutral glow keeps the effect aligned with Kittu UI surfaces",
+      "Neutral glow keeps the effect aligned with Kit UI surfaces",
       "Still reads as a polished button when motion is disabled"
     ],
     "props": [
@@ -5716,7 +5716,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Pure floating spring-physics entities for each character with custom mass and damping",
       "Continuous pointer proximity repulsion without React state re-renders (zero-jank 60fps)",
       "Mobile-first tactile tap impulse feedback for touch screens",
-      "Strictly adheres to Kittu UI dark neutral palette and Sky-400 focus ring",
+      "Strictly adheres to Kit UI dark neutral palette and Sky-400 focus ring",
       "Full accessibility support with screen reader announcements and semantic heading hierarchy",
       "Seamless prefers-reduced-motion fallback disabling continuous movement"
     ],
@@ -6316,7 +6316,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "merchant",
         "type": "string",
-        "default": "'Kittu UI Store'",
+        "default": "'Kit UI Store'",
         "description": "Store or company name on receipt header"
       },
       {
@@ -6483,7 +6483,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Semantic document structure with compliant contrast ratios"
     ],
     "createdAt": "2026-08-20",
-    "usageCode": "import { PaymentReceiptPrinter } from \"@/components/ui/payment-receipt-printer\";\n\nexport function Demo() {\n  return (\n    <PaymentReceiptPrinter\n      merchant=\"Kittu UI Store\"\n      orderNumber=\"#4821\"\n      items={[\n        { name: \"Kittu UI Pro License\", price: \"$200.00\", quantity: 1 },\n        { name: \"Framer Motion Pack\", price: \"$20.00\", quantity: 1 },\n      ]}\n      subtotal=\"$220.00\"\n      total=\"$220.00\"\n      paymentMethod=\"Apple Pay •••• 4242\"\n      message=\"Thank you for your order!\"\n    />\n  );\n}",
+    "usageCode": "import { PaymentReceiptPrinter } from \"@/components/ui/payment-receipt-printer\";\n\nexport function Demo() {\n  return (\n    <PaymentReceiptPrinter\n      merchant=\"Kit UI Store\"\n      orderNumber=\"#4821\"\n      items={[\n        { name: \"Kit UI Pro License\", price: \"$200.00\", quantity: 1 },\n        { name: \"Framer Motion Pack\", price: \"$20.00\", quantity: 1 },\n      ]}\n      subtotal=\"$220.00\"\n      total=\"$220.00\"\n      paymentMethod=\"Apple Pay •••• 4242\"\n      message=\"Thank you for your order!\"\n    />\n  );\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -6578,7 +6578,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "merchantName",
         "type": "string",
-        "default": "'Kittu UI Cloud'",
+        "default": "'Kit UI Cloud'",
         "description": "Merchant or brand organization name"
       },
       {
@@ -6862,8 +6862,8 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
   {
     "id": "pricing",
     "name": "Pricing",
-    "tagline": "Minimal two-tier pricing that belongs in Kittu UI",
-    "description": "A minimal two-tier pricing component for Kittu UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.",
+    "tagline": "Minimal two-tier pricing that belongs in Kit UI",
+    "description": "A minimal two-tier pricing component for Kit UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.",
     "category": "Motion",
     "badges": [
       "Light + Dark",
@@ -6875,10 +6875,10 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/pricing",
     "features": [
       "Two side-by-side pricing cards (Free + Pro) that collapse to a single column on mobile",
-      "Strictly uses Kittu UI design tokens — no hardcoded theme colors, automatic light / dark adaptation",
+      "Strictly uses Kit UI design tokens — no hardcoded theme colors, automatic light / dark adaptation",
       "Typography and hierarchy communicate the tier difference; no badges, countdowns, or \"best value\" stamps",
       "Pro card receives a subtle surface elevation in light mode and a brighter surface in dark mode",
-      "Pro CTA uses an animated gradient base that drifts on hover (3.6s ease-in-out, background-position slide) plus a one-pass shimmer beam (1.6s) and a subtle scale lift (1.015) — same Kittu UI gradient vocabulary as the existing Button.tsx \"gradient\" variant",
+      "Pro CTA uses an animated gradient base that drifts on hover (3.6s ease-in-out, background-position slide) plus a one-pass shimmer beam (1.6s) and a subtle scale lift (1.015) — same Kit UI gradient vocabulary as the existing Button.tsx \"gradient\" variant",
       "Free CTA mirrors the secondary/outline button tone for clear hierarchy",
       "Subtle border-color hover, spring enter animation, and focus-visible ring",
       "Respects prefers-reduced-motion by disabling non-essential motion"
@@ -6887,14 +6887,14 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "freeTier",
         "type": "PricingTier",
-        "default": "Kittu UI defaults",
-        "description": "Configuration object for the Free tier — { name, tagline, price, cadence, features, ctaLabel, onCtaClick }. Optional: the component ships with sensible Kittu UI defaults."
+        "default": "Kit UI defaults",
+        "description": "Configuration object for the Free tier — { name, tagline, price, cadence, features, ctaLabel, onCtaClick }. Optional: the component ships with sensible Kit UI defaults."
       },
       {
         "name": "proTier",
         "type": "PricingTier",
-        "default": "Kittu UI defaults",
-        "description": "Configuration object for the Pro tier — same shape as freeTier. Optional: defaults to the Kittu UI Pro tier ($29, one-time payment)."
+        "default": "Kit UI defaults",
+        "description": "Configuration object for the Pro tier — same shape as freeTier. Optional: defaults to the Kit UI Pro tier ($29, one-time payment)."
       },
       {
         "name": "reverse",
@@ -6935,7 +6935,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "prefers-reduced-motion disables enter, hover, and y-translation motion"
     ],
     "createdAt": "2026-09-03",
-    "usageCode": "import { Pricing } from \"@/components/ui/pricing\";\n\nexport function Demo() {\n  // Renders the Kittu UI default Free + Pro pair out of the box.\n  return <Pricing />;\n}",
+    "usageCode": "import { Pricing } from \"@/components/ui/pricing\";\n\nexport function Demo() {\n  // Renders the Kit UI default Free + Pro pair out of the box.\n  return <Pricing />;\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -6984,7 +6984,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "name",
         "type": "string",
-        "default": "'Kittu UI contributors'",
+        "default": "'Kit UI contributors'",
         "description": "Display name shown in the detail panel header"
       },
       {
@@ -6996,7 +6996,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "description",
         "type": "string",
-        "default": "'Building Kittu UI. Engineer.'",
+        "default": "'Building Kit UI. Engineer.'",
         "description": "Biographical text shown under the name"
       },
       {
@@ -7045,7 +7045,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "prefers-reduced-motion fallback: spring tap on the action button is disabled"
     ],
     "createdAt": "2026-08-31",
-    "usageCode": "import { ProfileCard } from \"@/components/ui/profile-card\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-md mx-auto\">\n      <ProfileCard\n        name=\"Kittu UI contributors\"\n        username=\"@kittu-ui\"\n        description=\"Building Kittu UI. Engineer.\"\n        followers=\"200K\"\n        posts=\"72\"\n        website=\"github.com/chaitanay-kumar/kittu-ui\"\n        onAction={() => console.log('Follow clicked')}\n      />\n    </div>\n  );\n}",
+    "usageCode": "import { ProfileCard } from \"@/components/ui/profile-card\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-md mx-auto\">\n      <ProfileCard\n        name=\"Kit UI contributors\"\n        username=\"@kittu-ui\"\n        description=\"Building Kit UI. Engineer.\"\n        followers=\"200K\"\n        posts=\"72\"\n        website=\"github.com/chaitanay-kumar/kittu-ui\"\n        onAction={() => console.log('Follow clicked')}\n      />\n    </div>\n  );\n}",
     "dependencies": [
       "framer-motion"
     ],
@@ -8078,7 +8078,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "description",
         "type": "string",
-        "default": "'Join Kittu UI to access components and templates'",
+        "default": "'Join Kit UI to access components and templates'",
         "description": "Subtitle description below the title"
       },
       {
@@ -8428,7 +8428,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "A validated file queue with image previews, real handler progress, abort signals, and retry.",
     "category": "Forms",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -9570,7 +9570,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "Swipe to reveal item actions, with explicit keyboard-accessible controls and retry feedback.",
     "category": "Feedback",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],
@@ -9787,7 +9787,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
     "description": "Navigate events with a native range control, previous/next buttons, and spoken event details.",
     "category": "Navigation",
     "badges": [
-      "Kittu Original",
+      "Kit Original",
       "Keyboard",
       "Reduced Motion"
     ],

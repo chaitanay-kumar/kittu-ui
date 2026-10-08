@@ -179,7 +179,7 @@ export default function AngularExperience({
                   Build with Angular.
                 </h1>
                 <p className="text-text-secondary">
-                  Eight standalone components, familiar Kittu details.
+                  116 standalone components, precise by design.
                 </p>
               </header>
               <SetupGuide />
@@ -204,11 +204,10 @@ export default function AngularExperience({
           ) : unsupported ? (
             <section className="kittu-surface kittu-stack">
               <h1 className="text-2xl">
-                This component is currently available in React.
+                Component not found.
               </h1>
               <p className="text-text-secondary">
-                Angular support starts with the eight original Kittu components.
-                This component has not been ported.
+                Choose a component from the Angular catalog.
               </p>
               <div className="kittu-row">
                 <button
@@ -307,10 +306,10 @@ export default function AngularExperience({
             <>
               <header className="space-y-5 text-center max-w-2xl mx-auto">
                 <p className="text-xs uppercase tracking-widest text-text-muted">
-                  Kittu UI · Angular
+                  Kit UI · Angular
                 </p>
                 <h1 className="text-4xl sm:text-6xl font-medium tracking-tight">
-                  Small details.
+                  Nimble by nature.
                   <br />
                   Native Angular.
                 </h1>

@@ -17,7 +17,7 @@ const meta: KittuUIComponentMeta = {
     'Full keyboard navigation, Escape key dismiss, and aria-expanded accessibility',
   ],
   props: [
-    { name: 'brand', type: 'React.ReactNode', default: '<Kittu UILogo />', description: 'Brand / Logo element or text component' },
+    { name: 'brand', type: 'React.ReactNode', default: '<Kit UILogo />', description: 'Brand / Logo element or text component' },
     { name: 'brandHref', type: 'string', default: "'/'", description: 'Root link destination for the brand logo' },
     { name: 'items', type: 'NavItem[]', default: 'Default items array', description: 'Array of navigation links with label, href, badge, icon' },
     { name: 'cta', type: 'React.ReactNode', default: '<GetStartedButton />', description: 'Right-hand side action slot / CTA button' },

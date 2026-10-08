@@ -43,8 +43,8 @@ export function Demo() {
       items={[
         {
           id: "1",
-          question: "What makes Kittu UI different?",
-          answer: "Kittu UI is distributed directly into your codebase via the official shadcn CLI, powered by spring physics rather than rigid ease-in-out transitions."
+          question: "What makes Kit UI different?",
+          answer: "Kit UI is distributed directly into your codebase via the official shadcn CLI, powered by spring physics rather than rigid ease-in-out transitions."
         },
         {
           id: "2",

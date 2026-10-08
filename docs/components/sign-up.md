@@ -45,7 +45,7 @@ export function SignUpPage() {
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `title` | `string` | `'Create an account'` | Card header title text. |
-| `description` | `string` | `'Join Kittu UI to access components and templates'` | Subtitle description text. |
+| `description` | `string` | `'Join Kit UI to access components and templates'` | Subtitle description text. |
 | `logo` | `React.ReactNode` | `<SparklesIcon />` | Custom logo/icon displayed at top. |
 | `error` | `string \| null` | `null` | Server-side registration error message. |
 | `isLoading` | `boolean` | `false` | Submitting state with button loader. |

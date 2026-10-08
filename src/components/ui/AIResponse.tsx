@@ -768,7 +768,7 @@ export interface AIResponseProps {
 export const AIResponse: React.FC<AIResponseProps> = ({
   content = '',
   status = 'complete',
-  modelName = 'Kittu AI 2.0',
+  modelName = 'Kit AI 2.0',
   sources = [],
   accentColor,
   onRegenerate,

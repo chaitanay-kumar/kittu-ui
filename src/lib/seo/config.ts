@@ -1,13 +1,13 @@
 import { SITE_URL, IS_PUBLIC_SITE } from '../site-url';
 /**
- * Kittu UI — Global SEO Configuration
+ * Kit UI — Global SEO Configuration
  * Central single source of truth for site metadata, Open Graph, Twitter/X, and indexing policies.
  */
 
 export const SEO_CONFIG = {
-  siteName: 'Kittu UI',
-  titleTemplate: '%s — Kittu UI',
-  defaultTitle: 'Kittu UI — Small details. Lasting impressions.',
+  siteName: 'Kit UI',
+  titleTemplate: '%s — Kit UI',
+  defaultTitle: 'Kit UI — Nimble by nature. Precise by design.',
   defaultDescription:
     'Tactile React and native Angular components with accessible interactions, shared themes, and source ownership.',
   siteUrl: SITE_URL,
@@ -15,10 +15,10 @@ export const SEO_CONFIG = {
   ogImageType: 'image/webp',
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  ogImageAlt: 'Kittu UI — Small details. Lasting impressions.',
+  ogImageAlt: 'Kit UI — Nimble by nature. Precise by design.',
   twitterCard: 'summary_large_image',
   twitterHandle: '',
-  author: 'Kittu UI contributors',
+  author: 'Kit UI contributors',
   repository: 'https://github.com/chaitanay-kumar/kittu-ui',
   locale: 'en_US',
   themeColor: '#050505',
@@ -34,7 +34,7 @@ export const SEO_CONFIG = {
     'shadcn/ui compatible',
     'Modern React UI',
     'Interactive components',
-    'Kittu UI'
+    'Kit UI'
   ],
   robots: {
     index: IS_PUBLIC_SITE,

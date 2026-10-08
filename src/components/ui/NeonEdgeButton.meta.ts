@@ -10,7 +10,7 @@ const meta: KittuUIComponentMeta = {
   createdAt: '2026-08-28',
   features: [
     'Travelling light follows the button perimeter instead of animating border color',
-    'Neutral glow keeps the effect aligned with Kittu UI surfaces',
+    'Neutral glow keeps the effect aligned with Kit UI surfaces',
     'Still reads as a polished button when motion is disabled',
   ],
   props: [

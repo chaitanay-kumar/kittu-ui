@@ -17,9 +17,9 @@ const meta: KittuUIComponentMeta = {
     'Respects prefers-reduced-motion: spring tap is skipped entirely on the action button',
   ],
   props: [
-    { name: 'name', type: 'string', default: "'Kittu UI contributors'", description: 'Display name shown in the detail panel header' },
+    { name: 'name', type: 'string', default: "'Kit UI contributors'", description: 'Display name shown in the detail panel header' },
     { name: 'username', type: 'string', default: "'@kittu-ui'", description: 'Handle rendered as the small caption under the name' },
-    { name: 'description', type: 'string', default: "'Building Kittu UI. Engineer.'", description: 'Biographical text shown under the name' },
+    { name: 'description', type: 'string', default: "'Building Kit UI. Engineer.'", description: 'Biographical text shown under the name' },
     { name: 'followers', type: 'string', default: "'200K'", description: 'Pre-formatted follower count' },
     { name: 'posts', type: 'string', default: "'72'", description: 'Pre-formatted post count' },
     { name: 'website', type: 'string', default: "'github.com/chaitanay-kumar/kittu-ui'", description: 'Website domain — link href is auto-prefixed with https://' },
@@ -41,9 +41,9 @@ export function Demo() {
   return (
     <div className="w-full max-w-md mx-auto">
       <ProfileCard
-        name="Kittu UI contributors"
+        name="Kit UI contributors"
         username="@kittu-ui"
-        description="Building Kittu UI. Engineer."
+        description="Building Kit UI. Engineer."
         followers="200K"
         posts="72"
         website="github.com/chaitanay-kumar/kittu-ui"

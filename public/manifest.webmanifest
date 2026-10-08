@@ -1,7 +1,7 @@
 {
-  "name": "Kittu UI — Small details. Lasting impressions.",
-  "short_name": "Kittu UI",
-  "description": "Production-ready, beautifully crafted animated UI components built with React, Tailwind CSS, and Framer Motion.",
+  "name": "Kit UI — Nimble by nature. Precise by design.",
+  "short_name": "Kit UI",
+  "description": "React and native Angular components with precise feedback, thoughtful motion, and adaptable layouts.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050505",
@@ -33,5 +33,9 @@
       "purpose": "any"
     }
   ],
-  "categories": ["developer-tools", "productivity", "utilities"]
+  "categories": [
+    "developer-tools",
+    "productivity",
+    "utilities"
+  ]
 }

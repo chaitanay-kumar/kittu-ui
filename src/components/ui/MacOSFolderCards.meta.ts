@@ -11,7 +11,7 @@ const meta: KittuUIComponentMeta = {
     'Porcelain-white macOS folder silhouette with 3D flap hinge and cards peeking from pocket',
     'Interactive hover parallax lifts cards and tilts folder flap in 3D perspective',
     'Opens into a minimal, seamless card grid with Apple fluid spring easing',
-    'Crisp pure white icons and Kittu UI dark surface harmony',
+    'Crisp pure white icons and Kit UI dark surface harmony',
   ],
   props: [
     { name: 'folderTitle', type: 'string', default: "'Components'", description: 'Title label of the folder icon' },

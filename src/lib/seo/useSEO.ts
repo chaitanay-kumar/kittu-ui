@@ -44,8 +44,8 @@ export function useSEO({
     const activeComponent = selectedComponent || selectedModalComponent;
     if (framework === 'angular') {
       const component = ANGULAR_COMPONENTS.find(item => item.id === activeComponent?.id);
-      const title = component ? `${component.name} for Angular — Kittu UI` : activeView === 'docs' ? 'Angular Setup — Kittu UI' : 'Angular Components — Kittu UI';
-      const description = component?.description || `${ANGULAR_COMPONENTS.length} native standalone Angular components with signal inputs, accessible interactions, and shared Kittu UI themes.`;
+      const title = component ? `${component.name} for Angular — Kit UI` : activeView === 'docs' ? 'Angular Setup — Kit UI' : 'Angular Components — Kit UI';
+      const description = component?.description || `${ANGULAR_COMPONENTS.length} native standalone Angular components with signal inputs, accessible interactions, and shared Kit UI themes.`;
       const canonical = getCanonicalUrl(typeof window === 'undefined' ? '/' : stripBasePath(window.location.pathname)) + '?framework=angular';
       updatePageMetadata({ title, description, canonical, ogTitle: title, ogDescription: description, ogType: 'website', noindex: !!activeComponent && !component,
         structuredData: { '@context':'https://schema.org', '@type':'SoftwareSourceCode', name:title, description, url:canonical, programmingLanguage:'TypeScript', runtimePlatform:'Angular 20, 21, 22', codeRepository:SEO_CONFIG.repository },
@@ -55,11 +55,11 @@ export function useSEO({
 
     if (activeView === 'component-not-found' || activeView === 'route-not-found') {
       updatePageMetadata({
-        title: 'Page Not Found — Kittu UI',
-        description: 'The requested Kittu UI page could not be found.',
+        title: 'Page Not Found — Kit UI',
+        description: 'The requested Kit UI page could not be found.',
         canonical: getCanonicalUrl('/'),
-        ogTitle: 'Page Not Found — Kittu UI',
-        ogDescription: 'The requested Kittu UI page could not be found.',
+        ogTitle: 'Page Not Found — Kit UI',
+        ogDescription: 'The requested Kit UI page could not be found.',
         ogType: 'website',
         noindex: true,
       });
@@ -97,13 +97,13 @@ export function useSEO({
     if (activeView === 'components') {
       const pageTitle =
         componentPage > 1
-          ? `All React Components (Page ${componentPage}) — Kittu UI`
-          : 'All React Components — Kittu UI';
+          ? `All React Components (Page ${componentPage}) — Kit UI`
+          : 'All React Components — Kit UI';
       const canonical = getCanonicalUrl(
         componentPage > 1 ? `components/page/${componentPage}` : 'components'
       );
       const description =
-        'Explore Kittu UI complete collection of production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.';
+        'Explore Kit UI complete collection of production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.';
 
       // Lazily import the full catalog only when generating the components-page
       // catalog schema. This keeps the initial app-shell bundle free of
@@ -128,7 +128,7 @@ export function useSEO({
             ...SEO_CONFIG.keywords,
           ],
           breadcrumbs: [
-            { name: 'Kittu UI', item: SEO_CONFIG.siteUrl },
+            { name: 'Kit UI', item: SEO_CONFIG.siteUrl },
             { name: 'Components', item: canonical },
           ],
           structuredData,
@@ -151,7 +151,7 @@ export function useSEO({
           ...SEO_CONFIG.keywords,
         ],
         breadcrumbs: [
-          { name: 'Kittu UI', item: SEO_CONFIG.siteUrl },
+          { name: 'Kit UI', item: SEO_CONFIG.siteUrl },
           { name: 'Components', item: canonical },
         ],
       });
@@ -171,7 +171,7 @@ export function useSEO({
       ogDescription: SEO_CONFIG.defaultDescription,
       ogType: 'website',
       keywords: [...SEO_CONFIG.keywords],
-      breadcrumbs: [{ name: 'Kittu UI', item: homeCanonical }],
+      breadcrumbs: [{ name: 'Kit UI', item: homeCanonical }],
       structuredData: {
         '@context': 'https://schema.org',
         '@graph': [websiteSchema, orgSchema],

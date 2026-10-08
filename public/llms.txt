@@ -1,4 +1,4 @@
-# Kittu UI
+# Kit UI
 
 > Production-ready, beautifully crafted animated UI components built with React, Tailwind CSS, and Framer Motion for modern web applications. Open source, copy-paste ownership with zero configuration via shadcn CLI.
 
@@ -70,7 +70,7 @@
 - [Liquid Toggle](http://localhost:5173/components/liquid-toggle): A toggle with a liquid/blob-like transition. The internal shape deforms organically as it travels from off to on — stretching along the travel axis and settling into a natural blob shape rather than simply translating.
 - [Loader](http://localhost:5173/components/loader): A minimal, purpose-driven loading indicator with 4 calm, non-anxious motion variants.
 - [LockInput](http://localhost:5173/components/lock-input): A text input whose focus state subtly "locks" into place — a focus ring scales in from the center and the border tweens to active, giving the impression that the input snaps closed on itself.
-- [Login](http://localhost:5173/components/login): A production-ready authentication card built with the Kittu UI form system, featuring password show/hide, remember me, validation states, and social logins.
+- [Login](http://localhost:5173/components/login): A production-ready authentication card built with the Kit UI form system, featuring password show/hide, remember me, validation states, and social logins.
 - [macOS Folder Cards](http://localhost:5173/components/mac-os-folder-cards): An authentic porcelain-white macOS Finder folder icon that unrolls interactive cards with fluid Apple spring physics.
 - [Magnetic Button](http://localhost:5173/components/magnetic-button): A responsive button with subtle proximity-based physics that pulls towards the cursor on hover and snaps back on departure.
 - [Meteors](http://localhost:5173/components/meteors): A lightweight, highly aesthetic animated meteor shower effect that streams diagonal glowing celestial light beams across cards, badges, hero containers, and call-to-action sections.
@@ -94,7 +94,7 @@
 - [Peek Card](http://localhost:5173/components/peek-card): An origin-anchored contextual preview popover that emerges directly from target triggers on hover or tap with smart collision edge detection and rich metadata summaries.
 - [Pill Navigation](http://localhost:5173/components/pill-navigation): A restrained segmented navigation control with shared pill layout morphing and nested submenu dropdown support.
 - [PressButton](http://localhost:5173/components/press-button): A button that compresses slightly on press and settles with a tiny natural overshoot for a tactile, physical feel.
-- [Pricing](http://localhost:5173/components/pricing): A minimal two-tier pricing component for Kittu UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.
+- [Pricing](http://localhost:5173/components/pricing): A minimal two-tier pricing component for Kit UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.
 - [Profile Card](http://localhost:5173/components/profile-card): A premium dark social profile card with a painted blue cover-art panel, action row, and a detail panel with avatar, verified name, bio, follower stats, and outbound website link.
 - [Pull to Refresh](http://localhost:5173/components/pull-to-refresh): A physical pull-to-refresh component and container featuring realistic elastic resistance curves, smooth cubic bezier line chart visualization with interactive point scrubbing, high/low metrics, and seamless light & dark mode compatibility.
 - [Rainbow Button](http://localhost:5173/components/rainbow-button): A vibrant button featuring an animated chromatic rainbow gradient border, dynamic 3D surface reflections, and an ambient blurred rainbow underglow.
@@ -258,7 +258,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 
 ## Resources
 
-- [Kittu UI Website](http://localhost:5173/): Official website and interactive live demos.
+- [Kit UI Website](http://localhost:5173/): Official website and interactive live demos.
 - [GitHub Repository](https://github.com/chaitanay-kumar/kittu-ui): Source code, issues, and contributions.
 - [Component Registry](http://localhost:5173/registry.json): Standard shadcn/ui compatible registry definition.
 - [Sitemap](http://localhost:5173/sitemap.xml): Search engine and crawler index of all public URLs.

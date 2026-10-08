@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Navigation",
   "tagline": "A searchable command dialog with arrow navigation, disabled commands, and async feedback.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

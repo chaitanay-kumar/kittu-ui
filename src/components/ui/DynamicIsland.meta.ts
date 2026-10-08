@@ -13,13 +13,13 @@ const meta: KittuUIComponentMeta = {
     'Persistent spatial continuity for the avatar across collapsed and profile states',
     'Fully accessible keyboard navigation with Escape key dismissal and click-outside collapse',
     'Configurable social dock supporting predefined platform detection and custom links',
-    'Light and dark mode compatibility adhering strictly to the Kittu UI design token system',
+    'Light and dark mode compatibility adhering strictly to the Kit UI design token system',
     'Respects prefers-reduced-motion media query with instant fallback states',
   ],
   props: [
     { name: 'avatar', type: 'string', default: 'undefined', description: 'URL of user avatar image' },
     { name: 'avatarAlt', type: 'string', default: 'undefined', description: 'Alt text for the avatar image' },
-    { name: 'name', type: 'string', default: "'Kittu UI contributors'", description: 'Display name in expanded and profile views' },
+    { name: 'name', type: 'string', default: "'Kit UI contributors'", description: 'Display name in expanded and profile views' },
     { name: 'role', type: 'string', default: "'Frontend Developer'", description: 'Subtitle or profession title' },
     { name: 'description', type: 'string', default: "'Building thoughtful interfaces...'", description: 'Bio or description text rendered in profile view' },
     { name: 'greeting', type: 'string', default: "'Hello, I am [name]'", description: 'Custom message displayed in expanded state' },
@@ -45,7 +45,7 @@ const meta: KittuUIComponentMeta = {
 export function Demo() {
   return (
     <DynamicIsland
-      name="Kittu UI contributors"
+      name="Kit UI contributors"
       role="Frontend Developer"
       description="Building thoughtful interfaces with React and Next.js."
       statusText="Available for hire"

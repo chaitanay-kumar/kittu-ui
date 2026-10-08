@@ -17,7 +17,7 @@ export default function ChatPreview({ isHovered = false }: ComponentPreviewProps
         {/* User Message */}
         <div className="flex items-start justify-end gap-1.5">
           <div className="rounded-xl rounded-tr-none bg-surface-raised border border-border px-2.5 py-1.5 text-[11px] text-text-primary max-w-[200px] shadow-xs">
-            How do I add Kittu UI components?
+            How do I add Kit UI components?
           </div>
           <div className="w-5 h-5 rounded-md bg-surface-raised border border-border flex items-center justify-center text-text-primary shrink-0">
             <User className="w-2.5 h-2.5" />

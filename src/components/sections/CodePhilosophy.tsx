@@ -47,7 +47,7 @@ export const CodePhilosophy: React.FC = () => {
 
             <div className="space-y-3 text-sm text-text-secondary leading-relaxed">
               <p>
-                Kittu UI gives you the source. No locked packages, runtime bloat, or brittle wrappers.
+                Inspired by the kit fox, Kit UI values nimble interactions, precise feedback, and components that adapt to their environment.
               </p>
               <p>
                 Copy the component directly into your repository. Modify the spring stiffness, adjust the surface alphas, and tailor every interaction to match your product's voice.

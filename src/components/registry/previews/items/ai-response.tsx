@@ -21,7 +21,7 @@ export default function AIResponsePreview({ isHovered = false }: ComponentPrevie
         <div className="flex items-center justify-between border-b border-border/50 pb-2.5">
           <div className="flex items-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5 text-foreground/80 stroke-[2]" />
-            <span className="text-xs font-medium text-foreground tracking-tight">Kittu AI</span>
+            <span className="text-xs font-medium text-foreground tracking-tight">Kit AI</span>
             <span className="text-[11px] text-muted-foreground font-normal">
               — v2.0
             </span>

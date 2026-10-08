@@ -19,7 +19,7 @@ export const DocCollaboration: React.FC<DocCollaborationProps> = ({ onNavigateSe
           Contributing Guide
         </h1>
         <p className="text-[15px] text-text-secondary leading-relaxed max-w-2xl">
-          Learn how to add new components and contribute to Kittu UI. Because of our automated single source of truth engine, adding a component takes just two files and a few minutes.
+          Learn how to add new components and contribute to Kit UI. Because of our automated single source of truth engine, adding a component takes just two files and a few minutes.
         </p>
       </header>
 

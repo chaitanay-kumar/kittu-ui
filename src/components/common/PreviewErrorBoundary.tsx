@@ -26,7 +26,7 @@ export class PreviewErrorBoundary extends Component<
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Log isolated preview errors for debugging without crashing the host app
     console.warn(
-      `[Kittu UI Preview Error] Failed to render preview for "${this.props.componentId || 'unknown'}":`,
+      `[Kit UI Preview Error] Failed to render preview for "${this.props.componentId || 'unknown'}":`,
       error,
       errorInfo
     );

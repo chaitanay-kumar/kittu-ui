@@ -29,14 +29,14 @@ describe('AIResponse component', () => {
           { id: 1, title: 'Test Documentation', url: 'https://example.com' },
         ]}
       >
-        <AIResponseHeader title="Kittu AI" modelBadge="Claude 3.7" />
+        <AIResponseHeader title="Kit AI" modelBadge="Claude 3.7" />
         <AIResponseContent />
         <AIResponseSources defaultExpanded={true} />
         <AIResponseActions />
       </AIResponse>
     );
 
-    expect(screen.getByText('Kittu AI')).toBeInTheDocument();
+    expect(screen.getByText('Kit AI')).toBeInTheDocument();
     expect(screen.getByText('Claude 3.7')).toBeInTheDocument();
     expect(screen.getByText('bold text')).toBeInTheDocument();
     expect(screen.getByText('inline code')).toBeInTheDocument();

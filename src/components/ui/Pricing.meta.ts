@@ -3,17 +3,17 @@ import type { KittuUIComponentMeta } from '../../types/component';
 const meta: KittuUIComponentMeta = {
   title: 'Pricing',
   description:
-    'A minimal two-tier pricing component for Kittu UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.',
+    'A minimal two-tier pricing component for Kit UI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.',
   category: 'Motion',
-  tagline: 'Minimal two-tier pricing that belongs in Kittu UI',
+  tagline: 'Minimal two-tier pricing that belongs in Kit UI',
   badges: ['Light + Dark', 'Themed', 'Responsive', 'Accessible', 'Reduced Motion'],
   createdAt: '2026-09-03',
   features: [
     'Two side-by-side pricing cards (Free + Pro) that collapse to a single column on mobile',
-    'Strictly uses Kittu UI design tokens — no hardcoded theme colors, automatic light / dark adaptation',
+    'Strictly uses Kit UI design tokens — no hardcoded theme colors, automatic light / dark adaptation',
     'Typography and hierarchy communicate the tier difference; no badges, countdowns, or "best value" stamps',
     'Pro card receives a subtle surface elevation in light mode and a brighter surface in dark mode',
-    'Pro CTA uses an animated gradient base that drifts on hover (3.6s ease-in-out, background-position slide) plus a one-pass shimmer beam (1.6s) and a subtle scale lift (1.015) — same Kittu UI gradient vocabulary as the existing Button.tsx "gradient" variant',
+    'Pro CTA uses an animated gradient base that drifts on hover (3.6s ease-in-out, background-position slide) plus a one-pass shimmer beam (1.6s) and a subtle scale lift (1.015) — same Kit UI gradient vocabulary as the existing Button.tsx "gradient" variant',
     'Free CTA mirrors the secondary/outline button tone for clear hierarchy',
     'Subtle border-color hover, spring enter animation, and focus-visible ring',
     'Respects prefers-reduced-motion by disabling non-essential motion',
@@ -22,16 +22,16 @@ const meta: KittuUIComponentMeta = {
     {
       name: 'freeTier',
       type: 'PricingTier',
-      default: 'Kittu UI defaults',
+      default: 'Kit UI defaults',
       description:
-        'Configuration object for the Free tier — { name, tagline, price, cadence, features, ctaLabel, onCtaClick }. Optional: the component ships with sensible Kittu UI defaults.',
+        'Configuration object for the Free tier — { name, tagline, price, cadence, features, ctaLabel, onCtaClick }. Optional: the component ships with sensible Kit UI defaults.',
     },
     {
       name: 'proTier',
       type: 'PricingTier',
-      default: 'Kittu UI defaults',
+      default: 'Kit UI defaults',
       description:
-        'Configuration object for the Pro tier — same shape as freeTier. Optional: defaults to the Kittu UI Pro tier ($29, one-time payment).',
+        'Configuration object for the Pro tier — same shape as freeTier. Optional: defaults to the Kit UI Pro tier ($29, one-time payment).',
     },
     {
       name: 'reverse',
@@ -74,7 +74,7 @@ const meta: KittuUIComponentMeta = {
   usageCode: `import { Pricing } from "@/components/ui/pricing";
 
 export function Demo() {
-  // Renders the Kittu UI default Free + Pro pair out of the box.
+  // Renders the Kit UI default Free + Pro pair out of the box.
   return <Pricing />;
 }`,
 };

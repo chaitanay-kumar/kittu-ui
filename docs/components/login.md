@@ -1,10 +1,10 @@
 # Login
 
-A production-ready authentication card built with the Kittu UI form system, featuring password show/hide, remember me, validation states, and social logins.
+A production-ready authentication card built with the Kit UI form system, featuring password show/hide, remember me, validation states, and social logins.
 
 ## Features
 
-- **Form System Architecture:** Built entirely on top of the modular Kittu UI `Form` and `Button` systems.
+- **Form System Architecture:** Built entirely on top of the modular Kit UI `Form` and `Button` systems.
 - **Password Visibility:** One-click eye icon toggles password visibility.
 - **Client-side Validation:** Validates required fields and email regex format before calling `onSubmit`.
 - **Server Alert Banner:** Smooth spring-animated top alert banner for server authentication errors.
@@ -46,7 +46,7 @@ export function LoginPage() {
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `title` | `string` | `'Welcome back'` | Card heading title text. |
-| `description` | `string` | `'Sign in to access your Kittu UI workspace'` | Subtitle description below the title. |
+| `description` | `string` | `'Sign in to access your Kit UI workspace'` | Subtitle description below the title. |
 | `logo` | `React.ReactNode` | `<SparklesIcon />` | Custom logo or brand badge element. |
 | `error` | `string \| null` | `null` | Server-side authentication error banner. |
 | `isLoading` | `boolean` | `false` | Shows loading spinner on submit button. |

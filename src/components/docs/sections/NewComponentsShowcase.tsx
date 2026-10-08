@@ -62,7 +62,7 @@ import {
 
 const SAMPLE_RESPONSE_MARKDOWN = `# Component Analysis & Optimization
 
-Based on the verified codebase audit, here is the recommended architecture for **Kittu UI** motion integration:
+Based on the verified codebase audit, here is the recommended architecture for **Kit UI** motion integration:
 
 > All spring transitions must be imported directly from the unified motion tokens file to maintain 60fps hardware acceleration and physical consistency.
 
@@ -113,7 +113,7 @@ export const AIResponseLiveShowcase: React.FC = () => {
   const sampleSources = [
     {
       id: 1,
-      title: 'Kittu UI Motion System Documentation',
+      title: 'Kit UI Motion System Documentation',
       url: 'https://github.com/chaitanay-kumar/kittu-ui',
       snippet: 'Specifications for springSnappy, springGentle, and hardware-accelerated physics.',
       sourceType: 'doc',
@@ -229,7 +229,7 @@ const SAMPLE_COMPONENTS_DATA: ComponentRecord[] = [
     downloads: '14,280',
     bundleSize: '3.4 KB',
     rating: 4.9,
-    author: 'Kittu UI Core',
+    author: 'Kit UI Core',
     dependencies: ['framer-motion', 'lucide-react'],
   },
   {
@@ -240,7 +240,7 @@ const SAMPLE_COMPONENTS_DATA: ComponentRecord[] = [
     downloads: '18,920',
     bundleSize: '4.8 KB',
     rating: 5.0,
-    author: 'Kittu UI Core',
+    author: 'Kit UI Core',
     dependencies: ['framer-motion', 'lucide-react'],
   },
   {
@@ -251,7 +251,7 @@ const SAMPLE_COMPONENTS_DATA: ComponentRecord[] = [
     downloads: '12,450',
     bundleSize: '4.1 KB',
     rating: 4.9,
-    author: 'Kittu UI Core',
+    author: 'Kit UI Core',
     dependencies: ['framer-motion', 'lucide-react'],
   },
   {
@@ -262,7 +262,7 @@ const SAMPLE_COMPONENTS_DATA: ComponentRecord[] = [
     downloads: '9,830',
     bundleSize: '3.1 KB',
     rating: 4.8,
-    author: 'Kittu UI Core',
+    author: 'Kit UI Core',
     dependencies: ['framer-motion', 'lucide-react'],
   },
   {
@@ -295,7 +295,7 @@ const SAMPLE_COMPONENTS_DATA: ComponentRecord[] = [
     downloads: '29,300',
     bundleSize: '2.6 KB',
     rating: 4.9,
-    author: 'Kittu UI Core',
+    author: 'Kit UI Core',
     dependencies: ['framer-motion', 'lucide-react'],
   },
   {
@@ -317,7 +317,7 @@ const SAMPLE_COMPONENTS_DATA: ComponentRecord[] = [
     downloads: '51,200',
     bundleSize: '1.4 KB',
     rating: 5.0,
-    author: 'Kittu UI Core',
+    author: 'Kit UI Core',
     dependencies: ['framer-motion'],
   },
   {
@@ -510,7 +510,7 @@ const INITIAL_CHAT_MESSAGES: ChatMessageItem[] = [
   {
     id: 'msg-1',
     role: 'user',
-    content: 'Can you show me how to compose an accessible data table in Kittu UI?',
+    content: 'Can you show me how to compose an accessible data table in Kit UI?',
     author: 'Alex',
     timestamp: '10:41 AM',
     status: 'delivered',
@@ -518,7 +518,7 @@ const INITIAL_CHAT_MESSAGES: ChatMessageItem[] = [
   {
     id: 'msg-2',
     role: 'assistant',
-    content: `Certainly! Kittu UI provides a fully compound \`<DataTable>\` component with sorting, searching, selection, and responsive pagination:
+    content: `Certainly! Kit UI provides a fully compound \`<DataTable>\` component with sorting, searching, selection, and responsive pagination:
 
 \`\`\`tsx
 <DataTable data={users} columns={columns}>
@@ -530,7 +530,7 @@ const INITIAL_CHAT_MESSAGES: ChatMessageItem[] = [
 \`\`\`
 
 It adheres to strict monochromatic styling and supports full keyboard navigation out of the box.`,
-    author: 'Kittu AI Assistant',
+    author: 'Kit AI Assistant',
     timestamp: '10:42 AM',
     status: 'delivered',
   },
@@ -567,8 +567,8 @@ export const ChatLiveShowcase: React.FC = () => {
       const botMsg: ChatMessageItem = {
         id: `msg-${Date.now() + 1}`,
         role: 'assistant',
-        content: `Acknowledged! I received your instruction regarding: "${text.slice(0, 40)}${text.length > 40 ? '...' : ''}". The Kittu UI component library has synchronized these updates with zero breaking changes.`,
-        author: 'Kittu AI Assistant',
+        content: `Acknowledged! I received your instruction regarding: "${text.slice(0, 40)}${text.length > 40 ? '...' : ''}". The Kit UI component library has synchronized these updates with zero breaking changes.`,
+        author: 'Kit AI Assistant',
         timestamp: 'Just now',
         status: 'delivered',
       };
@@ -591,7 +591,7 @@ export const ChatLiveShowcase: React.FC = () => {
       {
         id: `welcome-${Date.now()}`,
         role: 'assistant',
-        content: 'Hello! I am your Kittu UI assistant. How can I assist you with your component design today?',
+        content: 'Hello! I am your Kit UI assistant. How can I assist you with your component design today?',
         timestamp: 'Just now',
       },
     ]);
@@ -852,7 +852,7 @@ export const CrossComponentLiveShowcase: React.FC = () => {
       {/* Simulated Chat Message */}
       <div className="flex items-start justify-end gap-2.5">
         <div className="rounded-2xl rounded-tr-none bg-surface-raised border border-border p-3 text-xs text-text-primary max-w-md shadow-xs">
-          Analyze the new Kittu AI components and provide a structured metrics comparison.
+          Analyze the new Kit AI components and provide a structured metrics comparison.
         </div>
         <div className="w-7 h-7 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-text-primary shrink-0 text-xs">
           You
@@ -885,12 +885,12 @@ export const CrossComponentLiveShowcase: React.FC = () => {
           content={
             pipelineState === 'executing'
               ? ''
-              : `I have completed the system audit across the **4 new Kittu UI components**. All components adhere to the monochromatic design tokens and feature 0 third-party styling lock-ins.
+              : `I have completed the system audit across the **4 new Kit UI components**. All components adhere to the monochromatic design tokens and feature 0 third-party styling lock-ins.
 
 ### Component Telemetry Overview`
           }
           sources={[
-            { id: 1, title: 'Kittu UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kittu-ui' },
+            { id: 1, title: 'Kit UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kittu-ui' },
             { id: 2, title: 'Bundlephobia Web Audit', url: 'https://bundlephobia.com' },
           ]}
         >
@@ -911,7 +911,7 @@ export const CrossComponentLiveShowcase: React.FC = () => {
 
           <AIResponseSources
             sources={[
-              { id: 1, title: 'Kittu UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kittu-ui' },
+              { id: 1, title: 'Kit UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kittu-ui' },
               { id: 2, title: 'Bundlephobia Web Audit', url: 'https://bundlephobia.com' },
             ]}
           />

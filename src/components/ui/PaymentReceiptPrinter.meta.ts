@@ -18,7 +18,7 @@ const meta: KittuUIComponentMeta = {
   ],
   props: [
     { name: 'status', type: "'idle' | 'printing' | 'completed' | 'success'", default: "'idle'", description: 'Current lifecycle state of payment and printing' },
-    { name: 'merchant', type: 'string', default: "'Kittu UI Store'", description: 'Store or company name on receipt header' },
+    { name: 'merchant', type: 'string', default: "'Kit UI Store'", description: 'Store or company name on receipt header' },
     { name: 'merchantSubtext', type: 'string', default: "'Source Component Registry'", description: 'Location or subtitle below merchant name' },
     { name: 'merchantLogo', type: 'ReactNode', default: 'undefined', description: 'Custom logo icon rendered in receipt header' },
     { name: 'orderNumber', type: 'string', default: "'#4821'", description: 'Unique order or invoice tracking reference' },
@@ -57,10 +57,10 @@ const meta: KittuUIComponentMeta = {
 export function Demo() {
   return (
     <PaymentReceiptPrinter
-      merchant="Kittu UI Store"
+      merchant="Kit UI Store"
       orderNumber="#4821"
       items={[
-        { name: "Kittu UI Pro License", price: "$200.00", quantity: 1 },
+        { name: "Kit UI Pro License", price: "$200.00", quantity: 1 },
         { name: "Framer Motion Pack", price: "$20.00", quantity: 1 },
       ]}
       subtotal="$220.00"

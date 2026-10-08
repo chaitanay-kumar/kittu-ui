@@ -11,7 +11,7 @@ export default function Preview({ isHovered = false }: ComponentPreviewProps) {
             >
               <div className="flex items-center gap-1.5">
                 <span className="w-4 h-4 rounded bg-white/10 flex items-center justify-center text-[8px] font-bold text-white">E</span>
-                <span className="text-[11px] font-semibold text-white">Kittu UI</span>
+                <span className="text-[11px] font-semibold text-white">Kit UI</span>
               </div>
               <div className="flex items-center gap-1 text-[10px] text-[#6B6B6B]">
                 <span className="text-white font-medium bg-[#141414] px-1.5 py-0.5 rounded border border-[#1F1F1F]">Docs</span>

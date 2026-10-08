@@ -19,7 +19,7 @@ export const DocSEO: React.FC<DocSEOProps> = ({ onNavigateSection }) => {
           Automated SEO System
         </h1>
         <p className="text-[15px] text-text-secondary leading-relaxed max-w-2xl">
-          Every component in Kittu UI inherits search engine optimization automatically—including dynamic document titles, canonical URLs, XML sitemaps, Open Graph preview cards, and schema.org JSON-LD structured data.
+          Every component in Kit UI inherits search engine optimization automatically—including dynamic document titles, canonical URLs, XML sitemaps, Open Graph preview cards, and schema.org JSON-LD structured data.
         </p>
       </header>
 
@@ -82,7 +82,7 @@ export const DocSEO: React.FC<DocSEOProps> = ({ onNavigateSection }) => {
             <p className="text-[13px] text-text-secondary leading-relaxed">
               Generates accurate navigation trails (
               <code className="text-text-primary font-mono text-[12px]">
-                Kittu UI → Components → Magnetic Button
+                Kit UI → Components → Magnetic Button
               </code>
               ) and technical documentation timestamps.
             </p>

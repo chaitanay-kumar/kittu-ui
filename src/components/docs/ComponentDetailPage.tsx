@@ -838,7 +838,7 @@ const ScrollProgressNavShowcase: React.FC = () => {
             <span className="text-[10px] font-mono text-white/50 uppercase">01 Overview</span>
             <h4 className="text-sm font-semibold text-[#FAFAFA]">Edge First Motion Architecture</h4>
             <p className="text-xs text-[#A1A1A1] leading-relaxed">
-              Kittu UI is engineered from the ground up for minimal latency, zero-jank spring physics, and Apple-grade micro interactions.
+              Kit UI is engineered from the ground up for minimal latency, zero-jank spring physics, and Apple-grade micro interactions.
             </p>
           </div>
 
@@ -1405,7 +1405,7 @@ const CarSmokePageTransitionShowcase: React.FC = () => {
         </span>
       </div>
 
-      {/* Minimal Kittu UI Inline Segmented Controls */}
+      {/* Minimal Kit UI Inline Segmented Controls */}
       <div className="flex flex-wrap items-center justify-center gap-3 p-1.5 rounded-2xl bg-surface-raised border border-border text-xs font-mono">
         {/* Direction Toggle */}
         <div className="flex items-center p-0.5 rounded-xl bg-surface border border-border">
@@ -2182,7 +2182,7 @@ const completion = await client.completions.create({
           <div className="py-12 flex flex-col items-center justify-center gap-4 min-h-[340px]">
             <DynamicIsland
               key={demoKey}
-              name="Kittu UI contributors"
+              name="Kit UI contributors"
               role="Frontend Developer"
               description="Building thoughtful interfaces with React, Next.js, and Framer Motion."
               statusText="Available for hire"
@@ -2368,7 +2368,7 @@ const completion = await client.completions.create({
                 <FormItem>
                   <FormLabel required>Project Name</FormLabel>
                   <FormControl>
-                    <Input defaultValue="Kittu UI Studio" placeholder="Enter project name" />
+                    <Input defaultValue="Kit UI Studio" placeholder="Enter project name" />
                   </FormControl>
                   <FormDescription>Visible across your team members.</FormDescription>
                 </FormItem>
@@ -2433,7 +2433,7 @@ const completion = await client.completions.create({
               items={[
                 {
                   id: 'faq-1',
-                  question: 'How do I add Kittu UI components to my existing project?',
+                  question: 'How do I add Kit UI components to my existing project?',
                   answer:
                     'You can install any component directly using the official shadcn CLI: "npx shadcn@latest add chaitanay-kumar/kittu-ui/<component-name>".',
                   category: 'Installation',
@@ -2441,9 +2441,9 @@ const completion = await client.completions.create({
                 },
                 {
                   id: 'faq-2',
-                  question: 'What makes Kittu UI animations feel natural?',
+                  question: 'What makes Kit UI animations feel natural?',
                   answer:
-                    'Kittu UI uses physical spring simulations rather than standard CSS bezier ease curves.',
+                    'Kit UI uses physical spring simulations rather than standard CSS bezier ease curves.',
                   category: 'Animation',
                   badge: 'Physics',
                 },
@@ -2456,11 +2456,11 @@ const completion = await client.completions.create({
           <div className="py-4 w-full flex justify-center">
             <PaymentReceiptPrinter
               key={demoKey}
-              merchant="Kittu UI Store"
+              merchant="Kit UI Store"
               merchantSubtext="Source Component Registry"
               orderNumber="#4821"
               items={[
-                { name: 'Kittu UI Pro License', price: '$200.00', quantity: 1, tag: 'Annual' },
+                { name: 'Kit UI Pro License', price: '$200.00', quantity: 1, tag: 'Annual' },
                 { name: 'Framer Motion Pack', price: '$20.00', quantity: 1, description: 'Micro-interactions & physics' },
               ]}
               subtotal="$220.00"
@@ -2786,7 +2786,7 @@ const completion = await client.completions.create({
                   timestamp: 'Just now',
                   action: 'Production Deploy v3.2.0',
                   description: 'Upgraded Web Audio synthesizer engine and added spring tokens.',
-                  author: 'Kittu UI contributors M.',
+                  author: 'Kit UI contributors M.',
                   details: { diff: '+ import { motionTransitions } from "@/lib/motion-tokens";' },
                 },
                 {
@@ -2942,9 +2942,9 @@ const completion = await client.completions.create({
           <div className="w-full max-w-md mx-auto">
             <ProfileCard
               key={demoKey}
-              name="Kittu UI contributors"
+              name="Kit UI contributors"
               username="@kittu-ui"
-              description="Building Kittu UI. Engineer."
+              description="Building Kit UI. Engineer."
               followers="200K"
               posts="72"
               website="github.com/chaitanay-kumar/kittu-ui"

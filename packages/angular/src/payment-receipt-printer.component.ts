@@ -21,5 +21,5 @@ import type { KittuItem } from './port-types';
 `
 })
 export class KittuPaymentReceiptPrinterComponent {
-readonly label=input('Your receipt');readonly merchant=input('Kittu workspace');readonly reference=input('Receipt preview');readonly currency=input('USD');readonly items=input<KittuItem[]>([{id:'subscription',label:'Workspace plan',value:24}]);readonly total=input(24);readonly disabled=input(false);readonly printed=model(false);
+readonly label=input('Your receipt');readonly merchant=input('Kit workspace');readonly reference=input('Receipt preview');readonly currency=input('USD');readonly items=input<KittuItem[]>([{id:'subscription',label:'Workspace plan',value:24}]);readonly total=input(24);readonly disabled=input(false);readonly printed=model(false);
 }

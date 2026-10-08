@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Navigation",
   "tagline": "Navigate events with a native range control, previous/next buttons, and spoken event details.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

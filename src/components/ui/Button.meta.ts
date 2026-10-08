@@ -15,7 +15,7 @@ const meta: KittuUIComponentMeta = {
     'Accessible loading state with integrated monochrome spinner & aria-busy',
     'Left and right icon slots with automatic sizing and gap alignment',
     'Full width layout support (fullWidth)',
-    'Strictly adheres to Kittu UI monochrome dark palette and sky focus ring',
+    'Strictly adheres to Kit UI monochrome dark palette and sky focus ring',
   ],
   props: [
     { name: 'variant', type: "'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'success' | 'link' | 'gradient'", default: "'primary'", description: 'Visual presentation style' },

@@ -144,7 +144,7 @@ export const AllComponentsPage: React.FC<AllComponentsPageProps> = ({
             onClick={onNavigateHome}
             className="hover:text-text-primary transition-colors focus-ring rounded cursor-pointer"
           >
-            Kittu UI
+            Kit UI
           </button>
           <span aria-hidden>/</span>
           <span className="text-text-secondary">All components</span>

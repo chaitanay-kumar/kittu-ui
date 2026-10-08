@@ -35,7 +35,7 @@ export const DocMotionSystem: React.FC<DocMotionSystemProps> = ({ onNavigateSect
           Motion Tokens &amp; Physics Curves
         </h1>
         <p className="text-[15px] text-text-secondary leading-relaxed max-w-2xl">
-          Kittu UI standardizes animation through calibrated spring physics curves and bezier easing tokens. Consistent physical stiffness, damping, and mass ensure every interaction feels organic and responsive.
+          Kit UI standardizes animation through calibrated spring physics curves and bezier easing tokens. Consistent physical stiffness, damping, and mass ensure every interaction feels organic and responsive.
         </p>
       </header>
 
@@ -167,7 +167,7 @@ export function InteractiveCard() {
       <section className="p-4 rounded-lg border border-border bg-surface space-y-1.5">
         <h3 className="text-[13px] font-semibold text-text-primary">Reduced Motion Support</h3>
         <p className="text-[13px] text-text-secondary leading-relaxed">
-          Kittu UI components automatically detect and respect{' '}
+          Kit UI components automatically detect and respect{' '}
           <code className="text-text-primary font-mono bg-surface-raised border border-border px-1 rounded text-[12px]">
             prefers-reduced-motion: reduce
           </code>

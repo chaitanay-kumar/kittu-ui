@@ -142,7 +142,7 @@ ${entries
 
 // Allow direct CLI invocation
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  console.log('🗺️ Kittu UI Dynamic Sitemap Generator');
+  console.log('🗺️ Kit UI Dynamic Sitemap Generator');
   console.log('------------------------------------');
   generateSitemap();
   console.log('✨ Sitemap generation completed!');

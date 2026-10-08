@@ -22,7 +22,7 @@ const meta: KittuUIComponentMeta = {
   ],
   accessibility: [
     'Escape key listener automatically dismisses focus mode and restores full viewport opacity',
-    'Focus rings remain strictly compliant with Kittu UI sky-400 tokens',
+    'Focus rings remain strictly compliant with Kit UI sky-400 tokens',
   ],
   usageCode: `import { FocusMode } from "@/components/ui/focus-mode";
 

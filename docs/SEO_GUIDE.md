@@ -1,12 +1,12 @@
-# Kittu UI — Production SEO & SEO Audit Documentation
+# Kit UI — Production SEO & SEO Audit Documentation
 
-This document describes the SEO architecture, dynamic metadata pipeline, structured data (JSON-LD) generation, sitemap automation, and CLI audit tooling for Kittu UI.
+This document describes the SEO architecture, dynamic metadata pipeline, structured data (JSON-LD) generation, sitemap automation, and CLI audit tooling for Kit UI.
 
 ---
 
 ## 1. Architecture Overview
 
-Kittu UI utilizes a centralized, modular SEO system located at `src/lib/seo/`:
+Kit UI utilizes a centralized, modular SEO system located at `src/lib/seo/`:
 
 ```text
 src/lib/seo/
@@ -79,7 +79,7 @@ Running `npm run component:sync` performs:
 
 ## 4. Structured Data (JSON-LD) Implementation
 
-Kittu UI embeds valid JSON-LD schemas compliant with Google Search recommendations:
+Kit UI embeds valid JSON-LD schemas compliant with Google Search recommendations:
 
 ### A. WebSite & Organization
 - Embedded on the homepage and root `index.html`.
@@ -92,8 +92,8 @@ Kittu UI embeds valid JSON-LD schemas compliant with Google Search recommendatio
 ### C. BreadcrumbList
 - Generated for every component and documentation topic:
   ```text
-  Kittu UI → Components → Magnetic Button
-  Kittu UI → Documentation → Motion System & Animation Tokens
+  Kit UI → Components → Magnetic Button
+  Kit UI → Documentation → Motion System & Animation Tokens
   ```
 
 ### D. TechArticle
@@ -103,7 +103,7 @@ Kittu UI embeds valid JSON-LD schemas compliant with Google Search recommendatio
 
 ## 5. Internal Linking & Related Components
 
-Kittu UI features an automated contextual component recommender (`getRelatedComponents`):
+Kit UI features an automated contextual component recommender (`getRelatedComponents`):
 - Pairs complementary categories (e.g. Buttons with Forms & Overlays; Navigation with Tabs & Docks).
 - Embedded within the Component Detail Modal to maximize organic crawl depth and internal link equity without altering existing page layout.
 
@@ -139,7 +139,7 @@ Category Breakdown:
 
 ✓ Passed Checks: 38
 ========================================================
-Kittu UI passed all essential SEO audit criteria successfully!
+Kit UI passed all essential SEO audit criteria successfully!
 ```
 
 ---

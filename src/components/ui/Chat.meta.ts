@@ -36,8 +36,8 @@ const meta: KittuUIComponentMeta = {
 
 export function Demo() {
   const messages: ChatMessageItem[] = [
-    { id: '1', role: 'user', content: 'Can you show me how to style Kittu UI tables?', timestamp: '10:40 AM' },
-    { id: '2', role: 'assistant', content: 'Certainly! Kittu UI tables use the semantic --border and --surface tokens.', timestamp: '10:41 AM' },
+    { id: '1', role: 'user', content: 'Can you show me how to style Kit UI tables?', timestamp: '10:40 AM' },
+    { id: '2', role: 'assistant', content: 'Certainly! Kit UI tables use the semantic --border and --surface tokens.', timestamp: '10:41 AM' },
   ];
 
   return (

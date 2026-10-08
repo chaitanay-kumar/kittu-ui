@@ -14,7 +14,7 @@ const meta: KittuUIComponentMeta = {
     'Spring-animated validation errors and password visibility toggle',
     'Tactile check, radio dot, and toggle switch spring physics',
     'Accessible ARIA semantics, required asterisks, and keyboard navigation',
-    'Strict monochrome dark styling matching Kittu UI surface elevation tokens',
+    'Strict monochrome dark styling matching Kit UI surface elevation tokens',
   ],
   props: [
     { name: 'onSubmit', type: '(e: FormEvent) => void', default: 'undefined', description: 'Form submission handler' },

@@ -467,7 +467,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = ${JSON.stringify(entries, 
 }
 
 async function main() {
-  console.log('🚀 Kittu UI Registry & Catalog Generator');
+  console.log('🚀 Kit UI Registry & Catalog Generator');
   console.log('----------------------------------------');
   try {
     const components = await discoverComponents();

@@ -77,7 +77,7 @@ export interface PullToRefreshProps extends React.HTMLAttributes<HTMLDivElement>
   disabled?: boolean;
   /** Custom indicator renderer */
   pullIndicator?: (state: PullState) => React.ReactNode;
-  /** Show the built-in minimal Kittu UI indicator (default: true) */
+  /** Show the built-in minimal Kit UI indicator (default: true) */
   showDefaultIndicator?: boolean;
   /** Child content to be pulled. If omitted, renders the default financial statistics card */
   children?: React.ReactNode;
@@ -606,7 +606,7 @@ export const PullToRefresh: React.FC<PullToRefreshProps> = ({
         await new Promise((resolve) => setTimeout(resolve, 1100));
         // Fluctuate prices realistically. The sign of the change drives the
         // chart's semantic coloring — red (`#ef4444`) on a downtick, monochrome
-        // (`#E5E5E5`) on an uptick — matching Kittu UI's directional convention.
+        // (`#E5E5E5`) on an uptick — matching Kit UI's directional convention.
         setDemoValues((prev) => {
           const deltaMultiplier = Math.random() * 0.035 - 0.018;
           const base1D = prev['1D'].value * (1 + deltaMultiplier);

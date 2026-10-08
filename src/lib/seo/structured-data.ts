@@ -40,7 +40,7 @@ export function generateWebSiteSchema(): Record<string, any> {
 }
 
 /**
- * Organization schema for Kittu UI.
+ * Organization schema for Kit UI.
  */
 export function generateOrganizationSchema(): Record<string, any> {
   return {
@@ -76,14 +76,14 @@ export function generateBreadcrumbSchema(
 }
 
 /**
- * SoftwareApplication & ItemPage schema for individual Kittu UI components.
+ * SoftwareApplication & ItemPage schema for individual Kit UI components.
  * Accepts the lightweight ComponentCatalogIndex type so that schema can be
  * generated without loading the full component catalog into the initial bundle.
  */
 export function generateComponentSchema(component: ComponentCatalogIndex): Record<string, any> {
   const canonical = getCanonicalUrl(`components/${component.id}`);
   const breadcrumbList = generateBreadcrumbSchema([
-    { name: 'Kittu UI', item: SEO_CONFIG.siteUrl },
+    { name: 'Kit UI', item: SEO_CONFIG.siteUrl },
     { name: 'Components', item: getCanonicalUrl('components') },
     { name: component.name, item: canonical },
   ]);
@@ -118,7 +118,7 @@ export function generateComponentSchema(component: ComponentCatalogIndex): Recor
       {
         '@type': 'TechArticle',
         '@id': `${canonical}#article`,
-        headline: `${component.name} Component for React — Kittu UI`,
+        headline: `${component.name} Component for React — Kit UI`,
         description: component.description,
         url: canonical,
         datePublished: component.createdAt
@@ -156,7 +156,7 @@ export function generateDocArticleSchema(topic: {
 }): Record<string, any> {
   const canonical = getCanonicalUrl(`docs/${topic.id}`);
   const breadcrumbs = generateBreadcrumbSchema([
-    { name: 'Kittu UI', item: SEO_CONFIG.siteUrl },
+    { name: 'Kit UI', item: SEO_CONFIG.siteUrl },
     { name: 'Documentation', item: getCanonicalUrl('docs') },
     { name: topic.title.split('—')[0].trim(), item: canonical },
   ]);
@@ -201,7 +201,7 @@ export function generateComponentCatalogSchema(
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Kittu UI Component Library',
+    name: 'Kit UI Component Library',
     description: 'A curated collection of animated, accessible React components built with Tailwind CSS and Framer Motion.',
     url: canonical,
     numberOfItems: components.length,

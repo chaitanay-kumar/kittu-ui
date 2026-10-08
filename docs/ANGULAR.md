@@ -1,4 +1,4 @@
-# Kittu UI for Angular
+# Kit UI for Angular
 
 The website's React / Angular switch selects a framework-specific catalog, documentation, source, and live demos. Angular demos bootstrap Angular 20 in isolated preview frames; the documentation shell remains React. All 116 catalog components have native standalone Angular implementations without a React runtime dependency. See [the Angular catalog guide](ANGULAR_CATALOG.md) for API and rendering differences.
 

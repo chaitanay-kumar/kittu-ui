@@ -155,7 +155,7 @@ function buildHtml(
 
 export async function prerenderAllRoutes(): Promise<void> {
   console.log('\n========================================================');
-  console.log('       KITTU_UI HYDRATION-SAFE STATIC PRE-RENDERER       ');
+  console.log('       KIT_UI HYDRATION-SAFE STATIC PRE-RENDERER       ');
   console.log('========================================================\n');
 
   if (!fs.existsSync(TEMPLATE_PATH)) {
@@ -211,9 +211,9 @@ export async function prerenderAllRoutes(): Promise<void> {
   routes.push({
     path: '/components',
     outputPath: path.join(DIST_DIR, 'components', 'index.html'),
-    title: 'All React Components — Kittu UI',
+    title: 'All React Components — Kit UI',
     description:
-      'Explore Kittu UI complete collection of production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.',
+      'Explore Kit UI complete collection of production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.',
     canonical: componentsCanonical,
     structuredData: catalogSchema,
     element: catalogElement,
@@ -226,10 +226,10 @@ export async function prerenderAllRoutes(): Promise<void> {
     routes.push({
       path: '/docs',
       outputPath: path.join(DIST_DIR, 'docs', 'index.html'),
-      title: 'Documentation — Kittu UI',
-      description: 'Comprehensive documentation and guides for Kittu UI components, motion systems, and architecture.',
+      title: 'Documentation — Kit UI',
+      description: 'Comprehensive documentation and guides for Kit UI components, motion systems, and architecture.',
       canonical: docsCanonical,
-      structuredData: generateDocArticleSchema({ id: 'introduction', title: 'Documentation — Kittu UI', description: 'Comprehensive documentation and guides for Kittu UI.' }),
+      structuredData: generateDocArticleSchema({ id: 'introduction', title: 'Documentation — Kit UI', description: 'Comprehensive documentation and guides for Kit UI.' }),
       element: docsElement,
     });
     for (const topicId of docTopicIds) {
@@ -263,9 +263,9 @@ export async function prerenderAllRoutes(): Promise<void> {
       routes.push({
         path: routePath,
         outputPath: path.join(DIST_DIR, 'components', 'page', String(page), 'index.html'),
-        title: `All React Components (Page ${page}) — Kittu UI`,
+        title: `All React Components (Page ${page}) — Kit UI`,
         description:
-          'Explore Kittu UI production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.',
+          'Explore Kit UI production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.',
         canonical: getCanonicalUrl(`components/page/${page}`),
         structuredData: generateComponentCatalogSchema(KITTU_COMPONENTS, page),
         element: makePrerenderElement(routePath),

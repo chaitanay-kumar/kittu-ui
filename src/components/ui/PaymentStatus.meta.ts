@@ -24,7 +24,7 @@ const meta: KittuUIComponentMeta = {
     { name: 'paymentMethod', type: 'string', default: "'Apple Pay'", description: 'Payment gateway or card provider' },
     { name: 'last4', type: 'string', default: "'4242'", description: 'Last 4 digits of card or account' },
     { name: 'items', type: 'PaymentReceiptItem[]', default: '[...]', description: 'Itemized purchase items for detailed receipt view' },
-    { name: 'merchantName', type: 'string', default: "'Kittu UI Cloud'", description: 'Merchant or brand organization name' },
+    { name: 'merchantName', type: 'string', default: "'Kit UI Cloud'", description: 'Merchant or brand organization name' },
     { name: 'onRetry', type: '() => void', default: 'undefined', description: 'Callback fired when user clicks Try Again' },
     { name: 'onChangePaymentMethod', type: '() => void', default: 'undefined', description: 'Callback fired when user changes card method' },
   ],

@@ -46,7 +46,7 @@ export function getCanonicalUrl(pathOrHash = ''): string {
 }
 
 /**
- * Formats a page title with the standardized Kittu UI suffix.
+ * Formats a page title with the standardized Kit UI suffix.
  */
 export function formatPageTitle(pageTitle?: string): string {
   if (!pageTitle || pageTitle === SEO_CONFIG.siteName) {
@@ -60,34 +60,34 @@ export function formatPageTitle(pageTitle?: string): string {
  */
 export const DOC_TOPICS_SEO: Record<string, { title: string; description: string; keywords: string[] }> = {
   introduction: {
-    title: 'Introduction to Kittu UI — Architecture & Philosophy',
-    description: 'Discover Kittu UI: a modern React component library crafted with Tailwind CSS, Framer Motion, and shadcn/ui principles for fluid, high-performance UI.',
-    keywords: ['Kittu UI introduction', 'React UI library', 'Framer Motion components', 'Tailwind CSS system', 'Modern web components'],
+    title: 'Introduction to Kit UI — Architecture & Philosophy',
+    description: 'Discover Kit UI: a modern React component library crafted with Tailwind CSS, Framer Motion, and shadcn/ui principles for fluid, high-performance UI.',
+    keywords: ['Kit UI introduction', 'React UI library', 'Framer Motion components', 'Tailwind CSS system', 'Modern web components'],
   },
   'quick-start': {
-    title: 'Quick Start Guide — Kittu UI',
-    description: 'Get started with Kittu UI in minutes. Learn how to install dependencies, copy components via CLI or registry, and integrate motion tokens into your project.',
-    keywords: ['Kittu UI installation', 'Quick start', 'CLI setup', 'React setup', 'Tailwind CSS config'],
+    title: 'Quick Start Guide — Kit UI',
+    description: 'Get started with Kit UI in minutes. Learn how to install dependencies, copy components via CLI or registry, and integrate motion tokens into your project.',
+    keywords: ['Kit UI installation', 'Quick start', 'CLI setup', 'React setup', 'Tailwind CSS config'],
   },
   architecture: {
-    title: 'Architecture & Design Tokens — Kittu UI',
-    description: 'Deep dive into Kittu UI design system architecture, monochrome color tokens, typography scales, elevation surfaces, and spring physics tokens.',
-    keywords: ['Design tokens', 'Kittu UI architecture', 'Spring physics', 'Monochrome design system', 'UI token specification'],
+    title: 'Architecture & Design Tokens — Kit UI',
+    description: 'Deep dive into Kit UI design system architecture, monochrome color tokens, typography scales, elevation surfaces, and spring physics tokens.',
+    keywords: ['Design tokens', 'Kit UI architecture', 'Spring physics', 'Monochrome design system', 'UI token specification'],
   },
   'motion-system': {
-    title: 'Motion System & Animation Tokens — Kittu UI',
-    description: 'Master Kittu UI spring physics, hardware acceleration, layout animations, and accessible prefers-reduced-motion patterns.',
+    title: 'Motion System & Animation Tokens — Kit UI',
+    description: 'Master Kit UI spring physics, hardware acceleration, layout animations, and accessible prefers-reduced-motion patterns.',
     keywords: ['Motion tokens', 'Framer Motion', 'Spring animation', 'Reduced motion', 'Micro-interactions'],
   },
   collaboration: {
-    title: 'Collaboration & Contribution Guide — Kittu UI',
-    description: 'Learn how to build, test, document, and contribute new components to Kittu UI using automated registry generation and design tokens.',
-    keywords: ['Contribute to Kittu UI', 'Component creation', 'Registry generator', 'UI development workflow'],
+    title: 'Collaboration & Contribution Guide — Kit UI',
+    description: 'Learn how to build, test, document, and contribute new components to Kit UI using automated registry generation and design tokens.',
+    keywords: ['Contribute to Kit UI', 'Component creation', 'Registry generator', 'UI development workflow'],
   },
   seo: {
-    title: 'Automated SEO & Audit System — Kittu UI',
-    description: 'Explore Kittu UI automated SEO engine: single source of truth metadata, dynamic sitemaps, canonicals, schema.org JSON-LD, and 44-point CLI health audit.',
-    keywords: ['Kittu UI SEO', 'Automated SEO', 'Schema.org JSON-LD', 'Dynamic Sitemap', 'SEO health audit', 'React SEO'],
+    title: 'Automated SEO & Audit System — Kit UI',
+    description: 'Explore Kit UI automated SEO engine: single source of truth metadata, dynamic sitemaps, canonicals, schema.org JSON-LD, and 44-point CLI health audit.',
+    keywords: ['Kit UI SEO', 'Automated SEO', 'Schema.org JSON-LD', 'Dynamic Sitemap', 'SEO health audit', 'React SEO'],
   },
 };
 
@@ -112,7 +112,7 @@ export function getDocTopicSEO(topicId = 'introduction'): PageSEOMeta {
     ogType: 'article',
     keywords: [...topic.keywords, ...SEO_CONFIG.keywords],
     breadcrumbs: [
-      { name: 'Kittu UI', item: SEO_CONFIG.siteUrl },
+      { name: 'Kit UI', item: SEO_CONFIG.siteUrl },
       { name: 'Documentation', item: getCanonicalUrl('docs') },
       { name: topic.title.split('—')[0].trim(), item: canonical },
     ],
@@ -120,16 +120,16 @@ export function getDocTopicSEO(topicId = 'introduction'): PageSEOMeta {
 }
 
 /**
- * Generates SEO metadata for any Kittu UI component.
+ * Generates SEO metadata for any Kit UI component.
  * Accepts the lightweight ComponentCatalogIndex type so that
  * metadata can be computed without loading the full component catalog.
  */
 export function getComponentSEO(component: ComponentCatalogIndex): PageSEOMeta {
-  const compTitle = `${component.name} Component for React — Kittu UI`;
+  const compTitle = `${component.name} Component for React — Kit UI`;
   const canonical = getCanonicalUrl(`components/${component.id}`);
   const description =
     component.description ||
-    `A responsive, accessible React ${component.name.toLowerCase()} component from Kittu UI with customizable styles, states, and spring physics animations.`;
+    `A responsive, accessible React ${component.name.toLowerCase()} component from Kit UI with customizable styles, states, and spring physics animations.`;
 
   const keywords = Array.from(
     new Set([
@@ -139,7 +139,7 @@ export function getComponentSEO(component: ComponentCatalogIndex): PageSEOMeta {
       ...component.badges,
       'Framer Motion',
       'Tailwind CSS',
-      'Kittu UI',
+      'Kit UI',
     ])
   );
 
@@ -152,7 +152,7 @@ export function getComponentSEO(component: ComponentCatalogIndex): PageSEOMeta {
     ogType: 'website',
     keywords,
     breadcrumbs: [
-      { name: 'Kittu UI', item: SEO_CONFIG.siteUrl },
+      { name: 'Kit UI', item: SEO_CONFIG.siteUrl },
       { name: 'Components', item: getCanonicalUrl('components') },
       { name: component.name, item: canonical },
     ],

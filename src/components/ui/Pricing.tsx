@@ -6,9 +6,9 @@ import { Check } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motionTransitions } from '../../lib/motion-tokens';
 
-// Pro CTA — a quiet, premium Kittu UI surface.
+// Pro CTA — a quiet, premium Kit UI surface.
 //
-// The Pro button is a solid Kittu UI monochrome surface with a
+// The Pro button is a solid Kit UI monochrome surface with a
 // *very* subtle inner gradient that gives it a polished-metal feel,
 // plus a one-pass shimmer on hover that mirrors the existing
 // Button.tsx "gradient" variant.  No blue, no neon, no rainbow —
@@ -145,7 +145,7 @@ export interface PricingProps extends Omit<React.HTMLAttributes<HTMLElement>, 'c
   className?: string;
 }
 
-// Default tier data — matches the Kittu UI pricing story so the component
+// Default tier data — matches the Kit UI pricing story so the component
 // renders meaningful content out of the box.
 const DEFAULT_FREE_TIER: PricingTier = {
   name: 'Free',
@@ -292,7 +292,7 @@ function PricingCard({
         })}
       </ul>
 
-      {/* CTA — reuses the existing Kittu UI button system via button element
+      {/* CTA — reuses the existing Kit UI button system via button element
           styled to match Button.tsx "default" / "secondary" appearance. */}
       <button
         type="button"
@@ -305,7 +305,7 @@ function PricingCard({
           'active:scale-[0.98]',
           'hover:scale-[1.015]',
           featured
-            ? // Pro CTA — solid Kittu UI monochrome surface in the
+            ? // Pro CTA — solid Kit UI monochrome surface in the
               // gradient Button variant style, with a subtle
               // always-on inner sheen (Layer 1) and a one-pass
               // white shimmer on hover (Layer 2).  The sheen and

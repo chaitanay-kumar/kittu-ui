@@ -19,7 +19,7 @@ export const DocQuickStart: React.FC<DocQuickStartProps> = ({ onNavigateSection 
           Quick Start
         </h1>
         <p className="text-[15px] text-text-secondary leading-relaxed max-w-2xl">
-          Get started with Kittu UI in under 2 minutes. Install components directly into any React project using the shadcn CLI or copy the raw source code.
+          Get started with Kit UI in under 2 minutes. Install components directly into any React project using the shadcn CLI or copy the raw source code.
         </p>
       </header>
 

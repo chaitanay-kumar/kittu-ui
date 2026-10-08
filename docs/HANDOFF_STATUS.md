@@ -4,8 +4,8 @@ Work is on `feat/kittu-ui-library`, based on the destination's original `main` h
 
 ## Delivered
 
-- Kittu UI identity throughout source, documentation, metadata, manifests, registry commands, internal prefixes, and generated outputs.
-- Original vector Kittu Ant with replacement logo, favicon, install icons, footer mascot, and social card.
+- Kit UI identity throughout source, documentation, metadata, manifests, registry commands, internal prefixes, and generated outputs.
+- Original vector Kit Fox with replacement logo, favicon, install icons, footer mascot, and social card.
 - Eight new components, metadata, live directory/detail demos, prop documentation, and a transport integration guide in `docs/KITTU_COMPONENTS.md`.
 - Registry/source output regeneration, stale source pruning, sitemap, llms.txt, and 136 statically rendered routes.
 - Shared responsive light/dark styles, focus indicators, reduced motion, keyboard alternatives, and cancellation/retry handling.
@@ -35,7 +35,7 @@ GitHub CLI is installed but unauthenticated. A real Git push access check failed
 
 ## Angular extension
 
-Added native Angular 22 standalone ports of all eight Kittu originals under `packages/angular`. The React catalog still includes 116 components. The website header now switches between React and Angular, persists preferences, supports explicit framework links, and displays framework-specific catalogs, demos, source, setup, and input/output documentation. Other React components explicitly indicate unavailable Angular ports.
+Added native Angular 22 standalone ports of all eight Kit originals under `packages/angular`. The React catalog still includes 116 components. The website header now switches between React and Angular, persists preferences, supports explicit framework links, and displays framework-specific catalogs, demos, source, setup, and input/output documentation. Other React components explicitly indicate unavailable Angular ports.
 
 `npm run angular:build` generates the Angular Package Format library, native demo frames, source JSON, and `public/downloads/kittu-ui-angular-0.1.0.tgz`. The website and package include shared styles and MIT notices. `npm run dev` runs this generation automatically. See `docs/ANGULAR.md` for integration details and limitations.
 
@@ -64,3 +64,9 @@ Component detail pages now retain the same searchable navigation shell in both f
 ## GitHub Pages hosting
 
 Git authentication is connected and the implementation branch has been pushed. Pages is configured for GitHub Actions at `https://chaitanay-kumar.github.io/kittu-ui/`, with deployment allowed from `main` and `feat/kittu-ui-library`. The workflow builds the full website; path handling supports the repository prefix while retaining local root hosting. Validation includes 117 passing unit tests, production build and 289 SEO checks, lint with inherited warnings, and two desktop/mobile Pages artifact checks covering deep links, refresh, framework switching, navigation, source JSON, and downloads. See `docs/HOSTING.md` for operations and static hosting limitations.
+
+## Kit UI rebrand
+
+The product is now **Kit UI**, inspired by the kit fox (*Vulpes macrotis*): “Nimble by nature. Precise by design.” An original geometric fox replaces the ant in navigation, footer, favicon, install icons, and social artwork. UI copy, documentation, manifests, metadata, generated sources, and discovery files use the new public name. See `docs/BRAND.md` and run `npm run brand:generate` to regenerate the artwork.
+
+Repository/Pages URLs, package names, `Kittu*` exports, and selectors remain compatible. MIT license files are unchanged. Validation: 117 unit tests, 32 React/Angular interaction and navigation browser checks, four desktop/mobile light/dark branding checks, production build, and 289 SEO checks pass; lint has only inherited warnings. Main-branch README and contribution documentation have also been updated.

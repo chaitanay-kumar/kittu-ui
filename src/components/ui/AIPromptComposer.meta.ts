@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Forms",
   "tagline": "Compose prompts with attachments and suggestions, preserving drafts through failure and cancellation.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

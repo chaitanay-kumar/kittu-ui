@@ -1,4 +1,4 @@
-# Kittu UI Premium Component Design System
+# Kit UI Premium Component Design System
 
 ## Purpose
 

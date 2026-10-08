@@ -46,7 +46,7 @@ export const GlassNavbar: React.FC<GlassNavbarProps> = ({
       <div className="w-7 h-7 rounded-lg bg-[#141414] border border-[#1F1F1F] flex items-center justify-center font-bold text-xs text-[#FAFAFA]">
         E
       </div>
-      <span className="font-semibold text-sm tracking-tight text-[#FAFAFA]">Kittu UI</span>
+      <span className="font-semibold text-sm tracking-tight text-[#FAFAFA]">Kit UI</span>
     </div>
   ),
   brandHref = '/',

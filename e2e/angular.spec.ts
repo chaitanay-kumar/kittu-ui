@@ -50,7 +50,7 @@ test("framework switch persists, filters catalog, and restores React detail", as
   const switches = page.getByRole("group", { name: "Component framework" });
   await switches.getByRole("button", { name: "Angular", exact: true }).click();
   await expect(
-    page.getByRole("heading", { name: /Small details.*Native Angular/ }),
+    page.getByRole("heading", { name: /Nimble by nature.*Native Angular/ }),
   ).toBeVisible();
   await page.reload();
   await expect(

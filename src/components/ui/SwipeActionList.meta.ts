@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Feedback",
   "tagline": "Swipe to reveal item actions, with explicit keyboard-accessible controls and retry feedback.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

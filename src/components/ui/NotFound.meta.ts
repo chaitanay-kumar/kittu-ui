@@ -13,7 +13,7 @@ const meta: KittuUIComponentMeta = {
     'Pure floating spring-physics entities for each character with custom mass and damping',
     'Continuous pointer proximity repulsion without React state re-renders (zero-jank 60fps)',
     'Mobile-first tactile tap impulse feedback for touch screens',
-    'Strictly adheres to Kittu UI dark neutral palette and Sky-400 focus ring',
+    'Strictly adheres to Kit UI dark neutral palette and Sky-400 focus ring',
     'Full accessibility support with screen reader announcements and semantic heading hierarchy',
     'Seamless prefers-reduced-motion fallback disabling continuous movement',
   ],

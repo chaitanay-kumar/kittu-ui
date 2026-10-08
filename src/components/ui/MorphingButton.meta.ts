@@ -24,7 +24,7 @@ const meta: KittuUIComponentMeta = {
   ],
   accessibility: [
     'ARIA live role="button" with dynamic aria-busy during loading',
-    'Focus-visible ring conforming to Kittu UI accessibility tokens',
+    'Focus-visible ring conforming to Kit UI accessibility tokens',
     'Screen readers announce state changes without losing focus target',
   ],
   usageCode: `import { MorphingButton } from "@/components/ui/morphing-button";

@@ -51,7 +51,7 @@ export function Header() {
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `brand` | `React.ReactNode` | `<Kittu UILogo />` | Custom logo/brand element or text rendered on the left. |
+| `brand` | `React.ReactNode` | `<Kit UILogo />` | Custom logo/brand element or text rendered on the left. |
 | `brandHref` | `string` | `'/'` | Destination URL for the brand link. |
 | `items` | `NavItem[]` | `Default items` | Array of navigation links (`label`, `href`, `icon`, `badge`, `external`, `onClick`). |
 | `cta` | `React.ReactNode` | `<GetStartedButton />` | Action slot or button rendered on the right side. |
@@ -92,7 +92,7 @@ You can pass custom icons, badges, and external links in the `items` array:
 - Semantic `<header>` and `<nav>` with `aria-label="Main Navigation"`.
 - `aria-expanded` and `aria-label` attributes on the mobile menu toggle.
 - Escape key listener automatically closes the open mobile menu.
-- Keyboard `:focus-visible` states use Kittu UI's restrained Sky-400 focus ring.
+- Keyboard `:focus-visible` states use Kit UI's restrained Sky-400 focus ring.
 
 ## Notes
 

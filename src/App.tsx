@@ -426,7 +426,7 @@ function AppContent({ initialPath }: AppProps = {}) {
                 <div className="space-y-2">
                   <h1 className="text-xl font-bold text-text-primary tracking-tight">Page Not Found</h1>
                   <p className="text-xs text-text-secondary leading-relaxed">
-                    No Kittu UI page exists at{' '}
+                    No Kit UI page exists at{' '}
                     <code className="px-1.5 py-0.5 rounded bg-surface-hover text-rose-500 font-mono">
                       {invalidRoutePath || 'this URL'}
                     </code>

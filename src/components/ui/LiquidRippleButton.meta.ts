@@ -10,7 +10,7 @@ const meta: KittuUIComponentMeta = {
   features: [
     'Ripple originates from the actual press point',
     'Slow secondary wave remains below the label and icon',
-    'Primary and secondary variants match Kittu UI button surfaces',
+    'Primary and secondary variants match Kit UI button surfaces',
   ],
   props: [
     { name: 'children', type: 'ReactNode', default: "'Run interaction'", description: 'Button content' },

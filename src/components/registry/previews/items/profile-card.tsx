@@ -15,9 +15,9 @@ export default function Preview(_props: ComponentPreviewProps) {
                 style={{ width: 586, transform: 'scale(0.36)' }}
               >
                 <ProfileCard
-                  name="Kittu UI contributors"
+                  name="Kit UI contributors"
                   username="@kittu-ui"
-                  description="Building Kittu UI. Engineer."
+                  description="Building Kit UI. Engineer."
                   followers="200K"
                   posts="72"
                   website="github.com/chaitanay-kumar/kittu-ui"

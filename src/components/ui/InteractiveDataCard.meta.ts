@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Feedback",
   "tagline": "An expandable summary with linked detail controls and async action feedback.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

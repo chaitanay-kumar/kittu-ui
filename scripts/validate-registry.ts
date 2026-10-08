@@ -36,7 +36,7 @@ interface RegistrySchema {
 }
 
 function validateRegistry(): void {
-  console.log('🔍 Kittu UI Registry & Catalog Validator');
+  console.log('🔍 Kit UI Registry & Catalog Validator');
   console.log('---------------------------------------');
 
   const errors: string[] = [];

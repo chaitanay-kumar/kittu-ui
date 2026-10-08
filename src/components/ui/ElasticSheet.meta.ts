@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Overlays",
   "tagline": "A draggable bottom sheet with snap positions, native modal focus containment, and keyboard resizing.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

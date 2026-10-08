@@ -88,17 +88,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             href={withBasePath('/')}
             onClick={(e) => handleLinkClick(e, onNavigateHome || onNavigateComponents)}
             className="flex items-center gap-2 group cursor-pointer focus-ring rounded-md py-1"
-            aria-label="Kittu UI Home"
+            aria-label="Kit UI Home"
           >
             <img
               src={withBasePath('/logo.png')}
-              alt="Kittu UI Logo"
+              alt="Kit UI Logo"
               width="22"
               height="22"
               className="w-[22px] h-[22px] object-contain group-hover:scale-105 transition-transform duration-200 invert dark:invert-0"
             />
             <span className="hidden sm:inline text-sm font-medium text-text-primary font-mono group-hover:text-accent transition-colors">
-              Kittu UI
+              Kit UI
             </span>
           </a>
         </motion.div>

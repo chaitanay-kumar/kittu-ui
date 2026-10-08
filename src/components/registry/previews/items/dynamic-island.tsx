@@ -6,7 +6,7 @@ export default function DynamicIslandPreview({ isHovered = false }: ComponentPre
     <div className="h-56 flex flex-col items-center justify-center p-4">
       <DynamicIsland
         state={isHovered ? 'expanded' : 'collapsed'}
-        name="Kittu UI contributors"
+        name="Kit UI contributors"
         role="Frontend Developer"
         statusText="Online"
         description="Building thoughtful interfaces with React and Next.js."

@@ -10,7 +10,7 @@ A unified, production-ready Button component supporting 8 visual variants, 4 siz
 - **Loading State:** Integrated monochrome spinner (`isLoading`) with `aria-busy="true"` and customizable loading text.
 - **Icon Slots:** First-class support for `leftIcon`, `rightIcon`, and icon-only buttons.
 - **Full Width:** `fullWidth` prop expands the button to 100% width of parent containers.
-- **Monochrome Dark Palette:** Adheres strictly to Kittu UI's dark slate elevation system and focus tokens.
+- **Monochrome Dark Palette:** Adheres strictly to Kit UI's dark slate elevation system and focus tokens.
 
 ## Installation
 

@@ -158,7 +158,7 @@ function renderPlatformIcon(item: DynamicIslandSocialItem): React.ReactNode {
 export const DynamicIsland: React.FC<DynamicIslandProps> = ({
   avatar,
   avatarAlt,
-  name = 'Kittu UI contributors',
+  name = 'Kit UI contributors',
   role = 'Frontend Developer',
   description = 'Building thoughtful interfaces with React, Next.js, and Framer Motion.',
   greeting,
@@ -270,7 +270,7 @@ export const DynamicIsland: React.FC<DynamicIslandProps> = ({
     return items;
   }, [socials]);
 
-  // Spring physics matching Kittu UI motion philosophy
+  // Spring physics matching Kit UI motion philosophy
   const springTransition = shouldReduceMotion
     ? { duration: 0 }
     : {
@@ -284,7 +284,7 @@ export const DynamicIsland: React.FC<DynamicIslandProps> = ({
     ? { duration: 0 }
     : { duration: 0.2, ease: [0.22, 1, 0.36, 1] as const };
 
-  const effectiveGreeting = greeting || (name ? `Hello, I'm ${name}` : 'Welcome to Kittu UI');
+  const effectiveGreeting = greeting || (name ? `Hello, I'm ${name}` : 'Welcome to Kit UI');
 
   // Avatar component with layoutId for spatial continuity
   const renderAvatar = (sizeClass: string, isProfile = false) => {

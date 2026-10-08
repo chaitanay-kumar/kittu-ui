@@ -122,7 +122,7 @@ export function runSEOAudit(): AuditReport {
 
   if (indexExists) {
     const indexHtml = fs.readFileSync(INDEX_HTML_PATH, 'utf-8');
-    check('Metadata', indexHtml.includes('<title>Kittu UI'), 'CRITICAL', 'index.html has valid document title', 'index.html missing <title>', 'index.html');
+    check('Metadata', indexHtml.includes('<title>Kit UI'), 'CRITICAL', 'index.html has valid document title', 'index.html missing <title>', 'index.html');
     check('Metadata', indexHtml.includes('name="description"'), 'CRITICAL', 'index.html has meta description', 'index.html missing meta description', 'index.html');
     check('Metadata', indexHtml.includes('rel="canonical"'), 'CRITICAL', 'index.html has canonical URL link', 'index.html missing canonical URL link', 'index.html');
     check('Metadata', indexHtml.includes('rel="describedby"'), 'WARNING', 'index.html declares describedby relation to /llms.txt', 'index.html missing link rel="describedby" href="/llms.txt"', 'index.html');
@@ -284,7 +284,7 @@ export function runSEOAudit(): AuditReport {
 
   if (llmsExists) {
     const llmsContent = fs.readFileSync(llmsPath, 'utf-8');
-    check('AI & LLM Discoverability', llmsContent.startsWith('# Kittu UI'), 'CRITICAL', '/llms.txt contains standard H1 title (# Kittu UI)', 'public/llms.txt missing standard # Kittu UI header', 'public/llms.txt');
+    check('AI & LLM Discoverability', llmsContent.startsWith('# Kit UI'), 'CRITICAL', '/llms.txt contains standard H1 title (# Kit UI)', 'public/llms.txt missing standard # Kit UI header', 'public/llms.txt');
     check('AI & LLM Discoverability', llmsContent.includes('## Documentation') && llmsContent.includes('## Components'), 'WARNING', '/llms.txt includes curated sections for Documentation and Components', 'public/llms.txt missing required sections', 'public/llms.txt');
     check('AI & LLM Discoverability', llmsContent.includes(`${SITE_URL}/`), 'WARNING', '/llms.txt uses absolute URLs for all authoritative resources', 'public/llms.txt missing absolute URLs', 'public/llms.txt');
   }
@@ -469,7 +469,7 @@ export function printAuditReport(): void {
     console.log('❌ SEO Build Guard failed due to critical SEO errors.\n');
     process.exit(1);
   } else {
-    console.log('✨ Kittu UI passed all essential SEO audit criteria successfully!\n');
+    console.log('✨ Kit UI passed all essential SEO audit criteria successfully!\n');
   }
 }
 

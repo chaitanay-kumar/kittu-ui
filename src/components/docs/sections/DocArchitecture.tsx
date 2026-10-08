@@ -19,7 +19,7 @@ export const DocArchitecture: React.FC<DocArchitectureProps> = ({ onNavigateSect
           Registry Architecture
         </h1>
         <p className="text-[15px] text-text-secondary leading-relaxed max-w-2xl">
-          Kittu UI eliminates manual registry maintenance. Automated scripts scan TypeScript AST imports, parse prop definitions, package dependencies, and synchronize the shadcn registry and website catalog in real time.
+          Kit UI eliminates manual registry maintenance. Automated scripts scan TypeScript AST imports, parse prop definitions, package dependencies, and synchronize the shadcn registry and website catalog in real time.
         </p>
       </header>
 

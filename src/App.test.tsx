@@ -11,7 +11,7 @@ describe('App Routing and Navigation', () => {
   it('renders homepage showcase by default on root path', async () => {
     render(<App />);
 
-    expect(screen.getAllByText('Kittu UI').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Kit UI').length).toBeGreaterThan(0);
     expect(screen.getByRole('navigation', { name: 'Main Navigation' })).toBeInTheDocument();
   });
 

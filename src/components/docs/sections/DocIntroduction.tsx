@@ -19,13 +19,13 @@ export const DocIntroduction: React.FC<DocIntroductionProps> = ({ onNavigateSect
           Introduction
         </h1>
         <p className="text-[15px] text-text-secondary leading-relaxed max-w-2xl">
-          Kittu UI is an open-source library of micro-animated React components distributed via the official{' '}
-          <strong className="text-text-primary font-medium">shadcn GitHub Registry</strong>. It combines realistic spring physics, dark-mode aesthetics, and full source code ownership.
+          Kit UI brings precise, adaptable interactions to React and native Angular applications.
+          Inspired by the kit fox, it favors clear feedback, purposeful motion, and full source ownership.
         </p>
       </header>
 
       <p className="text-sm text-text-secondary">
-        Kittu UI is independently maintained. Read the{' '}
+        Kit UI is independently maintained. Read the{' '}
         <a className="underline focus-ring" href="https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/ATTRIBUTION.md">origin and license attribution</a>.
       </p>
 

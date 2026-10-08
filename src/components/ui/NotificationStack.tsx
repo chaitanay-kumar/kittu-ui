@@ -32,7 +32,7 @@ export const NotificationStack: React.FC<NotificationStackProps> = ({
     {
       id: '2',
       title: 'Component Synced',
-      description: 'magnetic-button synced from Kittu UI GitHub registry.',
+      description: 'magnetic-button synced from Kit UI GitHub registry.',
       type: 'info',
       time: '2m ago',
     },

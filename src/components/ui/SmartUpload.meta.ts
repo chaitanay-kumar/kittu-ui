@@ -5,7 +5,7 @@ const meta: KittuUIComponentMeta = {
   "category": "Forms",
   "tagline": "A validated file queue with image previews, real handler progress, abort signals, and retry.",
   "badges": [
-    "Kittu Original",
+    "Kit Original",
     "Keyboard",
     "Reduced Motion"
   ],

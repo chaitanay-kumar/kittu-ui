@@ -33,7 +33,7 @@ const meta: KittuUIComponentMeta = {
   accessibility: [
     'The trigger is keyboard accessible via Enter and Space keys',
     'Reduced motion preference automatically disables the fast car animation and smoke effects',
-    'The overlay background respects the current Kittu UI theme (light/dark)',
+    'The overlay background respects the current Kit UI theme (light/dark)',
   ],
   usageCode: `import { CarSmokePageTransition } from "@/components/ui/car-smoke-page-transition";
 
