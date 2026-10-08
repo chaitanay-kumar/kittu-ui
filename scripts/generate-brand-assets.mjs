@@ -20,7 +20,7 @@ ico.writeUInt16LE(1, 2); ico.writeUInt16LE(1, 4); ico.writeUInt16LE(1, 10);
 ico.writeUInt16LE(32, 12); ico.writeUInt32LE(png.length, 14); ico.writeUInt32LE(22, 18);
 fs.writeFileSync(new URL('favicon.ico', directory), Buffer.concat([ico, png]));
 const count = JSON.parse(fs.readFileSync(new URL('../registry.json', import.meta.url), 'utf8')).items.length;
-const fox = canonical.replace(/<svg[^>]*>|<\/svg>|<title>.*?<\/title>/g, '').replace('#1d241f', '#b95636');
+const fox = canonical.replace(/<svg[^>]*>|<\/svg>|<title>.*?<\/title>/g, '').replace('#1d241f', '#b95636').trim();
 const social = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
 <rect width="1200" height="630" fill="#f5f2e9"/>
 <path d="M840 0V630M0 510H1200" stroke="#1d241f" stroke-opacity=".12"/>
