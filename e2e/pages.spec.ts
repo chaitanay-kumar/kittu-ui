@@ -28,6 +28,7 @@ test('project Pages supports deep links, frameworks, navigation and downloads', 
   await expect(page.getByRole('button', { name: /Open elastic sheet/ })).toBeVisible();
   await toggle.getByRole('button', { name: 'Angular', exact: true }).click();
   await expect(page.frameLocator('iframe').locator('kittu-elastic-sheet')).toBeVisible();
+  await page.getByRole('tab', { name: 'Code', exact: true }).click();
   await expect(page.getByText('elastic-sheet.component.ts', { exact: true })).toBeVisible();
   for (const resource of ['/kittu-ui/source/elastic-sheet.json', '/kittu-ui/angular-source/elastic-sheet.json', '/kittu-ui/downloads/kittu-ui-angular-0.1.0.tgz']) {
     expect((await request.get(resource)).status()).toBe(200);

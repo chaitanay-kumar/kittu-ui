@@ -35,12 +35,11 @@ for (const [id, name] of components) {
         .locator("body")
         .evaluate((body) => body.scrollWidth <= window.innerWidth + 1),
     ).toBe(true);
-    await expect(
-      page.getByText(`${id}.component.ts`, { exact: true }),
-    ).toBeVisible();
     await page
       .locator("iframe")
       .screenshot({ path: testInfo.outputPath(`${id}-angular.png`) });
+    await page.getByRole('tab', { name: 'Code', exact: true }).click();
+    await expect(page.getByText(`${id}.component.ts`, { exact: true })).toBeVisible();
     expect(errors).toEqual([]);
   });
 }

@@ -8,6 +8,7 @@ import {
 import { useFramework } from "../../lib/framework/FrameworkProvider";
 import { copyToClipboard } from "../../lib/utils";
 import { AngularPreview } from "./AngularPreview";
+import { ComponentContentTabs, type ComponentContentTab } from "../docs/ComponentContentTabs";
 
 function CodeBlock({ code, label }: { code: string; label: string }) {
   const [status, setStatus] = useState("");
@@ -143,14 +144,21 @@ export default function AngularExperience({
   onSelect,
   onBrowse,
   embedded = false,
+  activeTab: controlledTab,
+  onTabChange,
 }: {
   view: string;
   id?: string | null;
   onSelect: (id: string) => void;
   onBrowse: () => void;
   embedded?: boolean;
+  activeTab?: ComponentContentTab;
+  onTabChange?: (tab: ComponentContentTab) => void;
 }) {
   const [query, setQuery] = useState("");
+  const [internalTab, setInternalTab] = useState<ComponentContentTab>('preview');
+  const activeTab = controlledTab ?? internalTab;
+  const selectTab = onTabChange ?? setInternalTab;
   const { setFramework } = useFramework();
   const entry = ANGULAR_COMPONENTS.find((c) => c.id === id);
   const unsupported =
@@ -246,7 +254,8 @@ export default function AngularExperience({
                   {entry.description}
                 </p>
               </header>
-              <section className="space-y-3" aria-label="Angular live preview">
+              <ComponentContentTabs activeTab={activeTab} onChange={selectTab} />
+              {activeTab === 'preview' && <section id="component-panel-preview" role="tabpanel" aria-labelledby="component-tab-preview" tabIndex={0} className="space-y-3 focus-ring">
                 <h2 className="text-xl font-semibold">Try it</h2>
                 <p className="text-xs text-text-muted">
                   Running the Angular component. Demos with requests simulate
@@ -259,15 +268,18 @@ export default function AngularExperience({
                     name={entry.name}
                   />
                 </div>
-              </section>
-              <SetupGuide />
-              <section className="space-y-4">
+              </section>}
+              {activeTab === 'usage' && <section id="component-panel-usage" role="tabpanel" aria-labelledby="component-tab-usage" tabIndex={0} className="space-y-4 focus-ring">
                 <h2 className="text-xl font-semibold">Usage</h2>
                 <CodeBlock
                   label="example.component.ts"
                   code={angularUsage(entry)}
                 />
-              </section>
+              </section>}
+              {activeTab === 'code' && <section id="component-panel-code" role="tabpanel" aria-labelledby="component-tab-code" tabIndex={0} className="focus-ring">
+                <AngularSource key={entry.id} id={entry.id} />
+              </section>}
+              <SetupGuide />
               <section className="space-y-4">
                 <h2 className="text-xl font-semibold">Inputs and outputs</h2>
                 <ul className="space-y-2 text-sm">
@@ -290,7 +302,6 @@ export default function AngularExperience({
                   ))}
                 </ul>
               </section>
-              <AngularSource key={entry.id} id={entry.id} />
             </>
           ) : (
             <>

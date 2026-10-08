@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-40 w-full pointer-events-none">
       {/* Top dock — three independent pills, side by side, evenly distributed */}
-      <div className="w-full flex items-center justify-between gap-2 px-3 sm:px-5 pt-3 sm:pt-4 pointer-events-none">
+      <div className="w-full h-[68px] sm:h-[72px] flex items-start justify-between gap-2 px-3 sm:px-5 pt-3 sm:pt-4 pointer-events-none">
         {/* Pill 1 — Logo (left) */}
         <motion.div
           {...pillMotion}

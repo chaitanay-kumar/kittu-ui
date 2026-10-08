@@ -34,4 +34,6 @@ Other action components accept callbacks and expose pending, success, and failur
 
 Framework preferences persist in local storage; an explicit `?framework=angular` or `?framework=react` link takes precedence. Both frameworks cover the same catalog IDs. Angular pages are client-rendered; existing static documentation rendering continues to cover React routes. Angular previews load their runtime only when opened.
 
+Component pages share Preview, Usage, and Code tabs in both frameworks. The selected tab and searchable sidebar persist when switching frameworks. Preview runs the native component, Usage shows the framework-specific example, and Code loads the component source with shared dependencies and styles. Tabs support arrow keys, Home, and End; source failures offer a retry action.
+
 The demo bundle currently includes the Angular compiler to load the package's partial compilation. Applications using Angular's normal production build link the library themselves. No Angular SSR or additional framework support is claimed.

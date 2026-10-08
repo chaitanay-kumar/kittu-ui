@@ -32,6 +32,7 @@ import { trackTracwellEvent } from '../../lib/tracwell-client';
 import { isComponentNew } from '../../lib/components';
 import { useComponentSource } from '../../lib/source-loader';
 import { useFramework } from '../../lib/framework/FrameworkProvider';
+import { ComponentContentTabs, type ComponentContentTab } from './ComponentContentTabs';
 import { NewBadge } from '../common/NewBadge';
 import { useTheme } from '../../lib/theme/useTheme';
 import type { ThinkingOrbState } from '../ui/ThinkingOrb';
@@ -291,7 +292,7 @@ export async function preloadComponentDemo(componentId: string): Promise<void> {
   }
 }
 
-export type MainTab = 'preview' | 'usage' | 'code' | 'props' | 'accessibility';
+export type MainTab = ComponentContentTab;
 export type PkgManager = 'pnpm' | 'npm' | 'yarn' | 'bun';
 
 export interface ComponentDetailPageProps {
@@ -3510,7 +3511,7 @@ const completion = await client.completions.create({
             <article className="space-y-8">
               {framework === 'angular' ? (
                 <Suspense fallback={<div className="min-h-48" aria-busy="true" />}>
-                  <AngularExperience embedded view="component-detail" id={component.id} onSelect={onSelectComponent} onBrowse={onNavigateComponents} />
+                  <AngularExperience embedded view="component-detail" id={component.id} activeTab={activeTab} onTabChange={setActiveTab} onSelect={onSelectComponent} onBrowse={onNavigateComponents} />
                 </Suspense>
               ) : <>
               {/* Header: Title and Description in the Dollar-Cost Averaging minimal card aesthetic */}
@@ -3529,28 +3530,17 @@ const completion = await client.completions.create({
               </div>
 
               {/* ========================================================================= */}
-              {/* MINIMAL GLASS TABS: Using AnimatedTabs Component                           */}
+              {/* Shared React / Angular documentation tabs                                 */}
               {/* ========================================================================= */}
               <div className="flex items-center justify-start gap-4 pt-1">
-                <AnimatedTabs
-                  tabs={[
-                    { id: 'preview', label: 'Preview' },
-                    { id: 'usage', label: 'Usage' },
-                    { id: 'code', label: 'Code' },
-                  ]}
-                  activeTab={activeTab}
-                  onChange={(tabId: string) => setActiveTab(tabId as MainTab)}
-                  variant="glass"
-                  renderContent={false}
-                  layoutId={`detail-glass-tab-${component.id}`}
-                />
+                <ComponentContentTabs activeTab={activeTab} onChange={setActiveTab} />
               </div>
 
               {/* ========================================================================= */}
               {/* TAB VIEW 1: PREVIEW (Interactive Surface Box in #F1F1F2 / #18181B)        */}
               {/* ========================================================================= */}
               {activeTab === 'preview' && (
-                <div id="preview-section" className="space-y-6">
+                <div id="component-panel-preview" role="tabpanel" aria-labelledby="component-tab-preview" tabIndex={0} className="space-y-6 focus-ring">
                   {/* Main Interactive Stage Box — matching frontpage card aesthetic */}
                   <div className="relative rounded-[26px] bg-[#F1F1F2] dark:bg-[#18181B] p-2.5 sm:p-3 border border-black/[0.04] dark:border-white/[0.06] shadow-xs flex flex-col">
                     {/* Top Bar inside the preview card */}
@@ -3640,7 +3630,7 @@ const completion = await client.completions.create({
               {/* TAB VIEW 2: USAGE                                                         */}
               {/* ========================================================================= */}
               {activeTab === 'usage' && (
-                <div id="usage-section" className="space-y-6">
+                <div id="component-panel-usage" role="tabpanel" aria-labelledby="component-tab-usage" tabIndex={0} className="space-y-6 focus-ring">
                   <div className="rounded-[26px] bg-[#F1F1F2] dark:bg-[#18181B] p-4 sm:p-6 border border-black/[0.04] dark:border-white/[0.06] space-y-6 shadow-xs">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-xs px-1">
@@ -3696,7 +3686,7 @@ const completion = await client.completions.create({
               {/* TAB VIEW 3: CODE (Source)                                                 */}
               {/* ========================================================================= */}
               {activeTab === 'code' && (
-                <div id="code-section" className="space-y-3">
+                <div id="component-panel-code" role="tabpanel" aria-labelledby="component-tab-code" tabIndex={0} className="space-y-3 focus-ring">
                   <div className="rounded-[26px] bg-[#F1F1F2] dark:bg-[#18181B] p-4 sm:p-6 border border-black/[0.04] dark:border-white/[0.06] space-y-3 shadow-xs">
                     <div className="flex items-center justify-between text-xs px-1">
                       <span className="text-text-primary font-medium font-mono">
