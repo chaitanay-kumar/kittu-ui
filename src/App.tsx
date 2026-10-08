@@ -10,6 +10,10 @@ import { useSEO } from './lib/seo';
 import { scrollToTop } from './lib/utils';
 import { AlertCircle, ArrowLeft, Grid } from 'lucide-react';
 import { lazyWithPreload } from './lib/lazy-preload';
+import { FrameworkProvider, useFramework } from './lib/framework/FrameworkProvider';
+import { ANGULAR_COMPONENTS } from './lib/framework/angular-catalog';
+
+const AngularExperience = lazyWithPreload(() => import('./components/angular/AngularExperience'));
 
 import { HeroSection as HeroSectionComponent } from './components/sections/HeroSection';
 
@@ -184,7 +188,8 @@ export interface AppProps {
   initialPath?: string;
 }
 
-export function App({ initialPath }: AppProps = {}) {
+function AppContent({ initialPath }: AppProps = {}) {
+  const { framework } = useFramework();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [routeState, setRouteState] = useState<RouteState>(() => {
     return parseRouteFromUrl(initialPath);
@@ -201,6 +206,7 @@ export function App({ initialPath }: AppProps = {}) {
 
   // Dynamic SEO metadata & JSON-LD management
   useSEO({
+    framework,
     activeView,
     componentPage,
     activeDocTopic,
@@ -214,6 +220,15 @@ export function App({ initialPath }: AppProps = {}) {
 
   const navigate = useCallback(
     (path: string, replace = false) => {
+      if (framework === 'angular') {
+        const url = new URL(path, window.location.origin);
+        url.searchParams.set('framework', 'angular');
+        path = url.pathname + url.search + url.hash;
+      } else {
+        const url = new URL(path, window.location.origin);
+        url.searchParams.set('framework', 'react');
+        path = url.pathname + url.search + url.hash;
+      }
       if (replace) {
         window.history.replaceState(null, '', path);
       } else {
@@ -221,7 +236,7 @@ export function App({ initialPath }: AppProps = {}) {
       }
       syncUrlState();
     },
-    [syncUrlState]
+    [syncUrlState, framework]
   );
 
   useEffect(() => {
@@ -337,7 +352,11 @@ export function App({ initialPath }: AppProps = {}) {
       />
 
       {/* Main View Router */}
-      {activeView === 'showcase' ? (
+      {framework === 'angular' ? (
+        <Suspense fallback={<main className="min-h-[70vh]" aria-busy="true" />}>
+          <AngularExperience view={activeView} id={selectedComponent?.id || invalidComponentSlug} onSelect={handleSelectComponentById} onBrowse={() => handleNavigateAllComponents(1)} />
+        </Suspense>
+      ) : activeView === 'showcase' ? (
         <main>
           {/* Hero */}
           <HeroSection
@@ -454,6 +473,7 @@ export function App({ initialPath }: AppProps = {}) {
       {isSearchOpen && (
         <Suspense fallback={null}>
           <SpotlightSearch
+            items={framework === 'angular' ? ANGULAR_COMPONENTS.map(component => ({ id: component.id, title: component.name, category: 'Components', description: component.description, action: () => handleSelectComponentById(component.id) })) : undefined}
             open={isSearchOpen}
             onOpenChange={setIsSearchOpen}
             onSelectComponent={handleSelectComponentById}
@@ -465,4 +485,7 @@ export function App({ initialPath }: AppProps = {}) {
   );
 }
 
+export function App(props: AppProps = {}) {
+  return <FrameworkProvider><AppContent {...props} /></FrameworkProvider>;
+}
 export default App;

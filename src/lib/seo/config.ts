@@ -9,7 +9,7 @@ export const SEO_CONFIG = {
   titleTemplate: '%s — Kittu UI',
   defaultTitle: 'Kittu UI — Small details. Lasting impressions.',
   defaultDescription:
-    'Production-ready animated UI components built with React, Tailwind CSS, and Framer Motion for modern web apps.',
+    'Tactile React and native Angular components with accessible interactions, shared themes, and source ownership.',
   siteUrl: SITE_URL,
   ogImage: `${SITE_URL}/og-image.webp`,
   ogImageType: 'image/webp',
@@ -24,6 +24,7 @@ export const SEO_CONFIG = {
   themeColor: '#050505',
   keywords: [
     'React components',
+    'Angular components',
     'UI library',
     'Framer Motion',
     'Tailwind CSS',

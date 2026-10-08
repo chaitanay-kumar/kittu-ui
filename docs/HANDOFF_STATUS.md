@@ -25,10 +25,20 @@ Validated using Node 22.23.3 on Windows:
 
 ## Remaining constraints
 
-No production domain or npm package is published. Site URLs explicitly default to local development, with indexing disabled. Configure `VITE_SITE_URL` in the shell or production environment file before generating a hosted build. Node 22.15 or newer is required.
+No production domain or npm package is published. Site URLs explicitly default to local development, with indexing disabled. Configure `VITE_SITE_URL` in the shell or production environment file before generating a hosted build. Angular support now requires Node 22.22.3+, 24.15+, or 26+ within the supported major versions.
 
 Smart Upload and AI Prompt Composer demos simulate transport locally. Applications supply their own handlers and server-side validation; no storage or AI service is included. Example-client snippets and `example.com` URLs are illustrations.
 
 Browser validation used Microsoft Edge with mobile emulation. Physical-device and Safari/Firefox verification remain outside this session's coverage. JSDOM emits expected canvas-not-implemented messages for inherited canvas previews, while the tests pass.
 
 GitHub CLI is installed but unauthenticated. A real Git push access check failed with `Invalid username or token`; no successful remote write has been claimed. Complete `gh auth login` and `gh auth setup-git`, then push the local branch. GitHub-registry install commands targeting the default branch become available after merge to `main`.
+
+## Angular extension
+
+Added native Angular 22 standalone ports of all eight Kittu originals under `packages/angular`. The React catalog still includes 116 components. The website header now switches between React and Angular, persists preferences, supports explicit framework links, and displays framework-specific catalogs, demos, source, setup, and input/output documentation. Other React components explicitly indicate unavailable Angular ports.
+
+`npm run angular:build` generates the Angular Package Format library, native demo frames, source JSON, and `public/downloads/kittu-ui-angular-0.1.0.tgz`. The website and package include shared styles and MIT notices. `npm run dev` runs this generation automatically. See `docs/ANGULAR.md` for integration details and limitations.
+
+Validation now includes 115 passing unit tests across 13 files, strict Angular library/demo compilation, and a separate consumer installation of the tarball that compiles all eight selectors with strict templates. Lint passes with the same 21 inherited warnings. Production rendering and all 289 SEO checks pass. All 48 browser checks pass across both frameworks on desktop and mobile emulation.
+
+Angular previews run actual Angular components in isolated frames; the site shell stays React. Angular documentation is client-rendered. Preview bundles currently include the Angular compiler; consuming applications use their own production linker. The tarball is local and has not been published to npm. Transport demos remain local simulations.

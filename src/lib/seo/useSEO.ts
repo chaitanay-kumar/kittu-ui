@@ -16,8 +16,10 @@ import {
 } from './structured-data';
 import { updatePageMetadata } from './metadata';
 import type { ComponentCatalogIndex } from '../../types/component';
+import { ANGULAR_COMPONENTS } from '../framework/angular-catalog';
 
 interface UseSEOProps {
+  framework?: 'react' | 'angular';
   activeView: 'showcase' | 'components' | 'docs' | 'component-detail' | 'component-not-found' | 'route-not-found';
   componentPage?: number;
   activeDocTopic?: string;
@@ -30,6 +32,7 @@ interface UseSEOProps {
  * canonical links, social tags, and JSON-LD structured data with current route state.
  */
 export function useSEO({
+  framework = 'react',
   activeView,
   componentPage = 1,
   activeDocTopic = 'introduction',
@@ -38,6 +41,16 @@ export function useSEO({
 }: UseSEOProps): void {
   useEffect(() => {
     const activeComponent = selectedComponent || selectedModalComponent;
+    if (framework === 'angular') {
+      const component = ANGULAR_COMPONENTS.find(item => item.id === activeComponent?.id);
+      const title = component ? `${component.name} for Angular — Kittu UI` : activeView === 'docs' ? 'Angular Setup — Kittu UI' : 'Angular Components — Kittu UI';
+      const description = component?.description || 'Eight native standalone Angular components with signal inputs, accessible interactions, and shared Kittu UI themes.';
+      const canonical = getCanonicalUrl(typeof window === 'undefined' ? '/' : window.location.pathname) + '?framework=angular';
+      updatePageMetadata({ title, description, canonical, ogTitle: title, ogDescription: description, ogType: 'website', noindex: !!activeComponent && !component,
+        structuredData: { '@context':'https://schema.org', '@type':'SoftwareSourceCode', name:title, description, url:canonical, programmingLanguage:'TypeScript', runtimePlatform:'Angular 22', codeRepository:SEO_CONFIG.repository },
+      });
+      return;
+    }
 
     if (activeView === 'component-not-found' || activeView === 'route-not-found') {
       updatePageMetadata({
@@ -94,7 +107,9 @@ export function useSEO({
       // Lazily import the full catalog only when generating the components-page
       // catalog schema. This keeps the initial app-shell bundle free of
       // the 386 KB components-data.ts module.
+      let cancelled = false;
       import('../../components/registry/components-data').then(({ KITTU_COMPONENTS }) => {
+        if (cancelled) return;
         const structuredData = generateComponentCatalogSchema(KITTU_COMPONENTS, componentPage);
 
         updatePageMetadata({
@@ -139,7 +154,7 @@ export function useSEO({
           { name: 'Components', item: canonical },
         ],
       });
-      return;
+      return () => { cancelled = true; };
     }
 
     // 4. Showcase / Homepage
@@ -163,5 +178,5 @@ export function useSEO({
     };
 
     updatePageMetadata(homeMeta);
-  }, [activeView, componentPage, activeDocTopic, selectedModalComponent, selectedComponent]);
+  }, [framework, activeView, componentPage, activeDocTopic, selectedModalComponent, selectedComponent]);
 }

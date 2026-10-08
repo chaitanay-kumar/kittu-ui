@@ -34,6 +34,13 @@ dist-ssr
 coverage/
 test-results/
 playwright-report/
+packages/angular-demo/.generated/
+packages/angular/styles.css
+packages/angular/LICENSE
+packages/angular/UPSTREAM-MIT.txt
+public/angular-demo/
+public/downloads/
+public/angular-source/
 
 # OS files
 Thumbs.db

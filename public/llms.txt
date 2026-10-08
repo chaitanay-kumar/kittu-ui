@@ -134,6 +134,20 @@
 - [VelocityToast](http://localhost:5173/components/velocity-toast): A toast that enters with velocity and settles, with a progress indicator that responds naturally — pauses on hover, resumes with no jump, and eases slightly in the final 10% so dismissal feels intentional.
 - [Wallet Card](http://localhost:5173/components/wallet-card): A premium dark wallet card with a blue radial-gradient surface, live balance display, iOS-style toggle, and a primary action button. The card surface responds to the pointer with a soft cyan shine driven entirely by MotionValues.
 
+## Angular
+
+Eight original Kittu components also have native standalone Angular implementations. Use the framework switch to change the catalog, code, setup guidance, and live demos. Angular 22.2+ and RxJS 7.8+ are required. The Angular package is a downloadable tarball, not a published npm package.
+
+- [Angular setup](http://localhost:5173/docs/quick-start?framework=angular): Download and install the local package and its global stylesheet.
+- [Elastic Sheet for Angular](http://localhost:5173/components/elastic-sheet?framework=angular): A draggable native modal sheet with keyboard resizing and snap positions.
+- [Smart Upload for Angular](http://localhost:5173/components/smart-upload?framework=angular): Validated file queues, previews, progress, cancellation, and fresh retries.
+- [Liquid Command Palette for Angular](http://localhost:5173/components/liquid-command-palette?framework=angular): Search commands with keyboard navigation, disabled entries, and async recovery.
+- [Hold-to-Confirm for Angular](http://localhost:5173/components/hold-to-confirm?framework=angular): Deliberate pointer and keyboard confirmation with visible progress and retry.
+- [Swipe Action List for Angular](http://localhost:5173/components/swipe-action-list?framework=angular): Swipe to reveal actions, with keyboard buttons, loading, and failure recovery.
+- [Interactive Data Card for Angular](http://localhost:5173/components/interactive-data-card?framework=angular): Expandable summaries and projected details with asynchronous actions.
+- [Timeline Scrubber for Angular](http://localhost:5173/components/timeline-scrubber?framework=angular): Explore events with native range navigation and readable event announcements.
+- [AI Prompt Composer for Angular](http://localhost:5173/components/ai-prompt-composer?framework=angular): Draft prompts with suggestions and attachments; preserve work on cancellation or failure.
+
 ## Resources
 
 - [Kittu UI Website](http://localhost:5173/): Official website and interactive live demos.

@@ -136,7 +136,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
                 <p className="max-w-xs text-sm leading-5 text-text-muted">
                   Open-source, thoughtful components
-                  <br className="sm:hidden" /> for modern React interfaces
+                  <br className="sm:hidden" /> for React and Angular interfaces
                 </p>
               </div>
 

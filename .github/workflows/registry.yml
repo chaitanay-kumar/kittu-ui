@@ -44,3 +44,6 @@ jobs:
 
       - name: Run build
         run: npm run build
+
+      - name: Verify Angular package in a separate consumer
+        run: npm run test:angular-package

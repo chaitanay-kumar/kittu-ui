@@ -1,4 +1,5 @@
 import './load-site-env';
+import { ANGULAR_COMPONENTS } from '../src/lib/framework/angular-catalog';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -51,6 +52,13 @@ export function generateLlmsTxt(): void {
 ### Component Index
 
 ${componentList}
+
+## Angular
+
+Eight original Kittu components also have native standalone Angular implementations. Use the framework switch to change the catalog, code, setup guidance, and live demos. Angular 22.2+ and RxJS 7.8+ are required. The Angular package is a downloadable tarball, not a published npm package.
+
+- [Angular setup](${SITE_URL}/docs/quick-start?framework=angular): Download and install the local package and its global stylesheet.
+${ANGULAR_COMPONENTS.map(component => `- [${component.name} for Angular](${SITE_URL}/components/${component.id}?framework=angular): ${component.description}`).join('\n')}
 
 ## Resources
 

@@ -6,6 +6,7 @@ import { GITHUB_URL } from '../../lib/constants';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from '../../lib/theme/useTheme';
 import { motionTransitions } from '../../lib/motion-tokens';
+import { FrameworkSwitch } from './FrameworkSwitch';
 
 export interface NavbarProps {
   onOpenSearch: () => void;
@@ -169,6 +170,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         </motion.div>
 
       </div>
+
+      <div className="flex justify-center pt-3 pointer-events-auto"><FrameworkSwitch /></div>
 
       {/* Mobile Backdrop to close menu when tapping outside */}
       <AnimatePresence>
