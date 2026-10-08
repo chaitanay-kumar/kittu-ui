@@ -27,6 +27,14 @@ jobs:
       - name: Generate and validate registry
         run: npm run component:sync
 
+      - name: Verify generated Angular catalog and exports
+        run: |
+          npm run angular:sync
+          if [ -n "$(git status --porcelain -- packages/angular/src packages/angular/catalog.json packages/angular-demo/src/ports.ts src/lib/framework/angular-ports.ts)" ]; then
+            echo "::error::Angular generated files are out of sync. Run npm run angular:sync and commit its outputs."
+            exit 1
+          fi
+
       - name: Verify generated registry files are committed and in sync
         run: |
           git diff --exit-code registry.json src/components/registry/components-data.ts src/components/registry/catalog-index.ts public/source || (

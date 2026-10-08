@@ -19,7 +19,7 @@ npx shadcn@latest add chaitanay-kumar/kittu-ui/elastic-sheet
 
 ## Kittu originals
 
-Use the **React / Angular** switch in the website header. The choice persists across reloads; share Angular links with `?framework=angular`. React includes 116 components; Angular currently includes the eight Kittu originals below, with native Angular previews, source, input/output documentation, and usage examples. Other components explicitly indicate that an Angular port is unavailable.
+Use the **React / Angular** switch in the website header. The choice persists across reloads; share Angular links with `?framework=angular`. Both catalogs include 116 components, with native Angular previews, source, input/output documentation, and usage examples. Angular APIs use data inputs, projected content, and output events; CSS/Canvas visual adaptations differ from React. See [the Angular catalog guide](docs/ANGULAR_CATALOG.md).
 
 The Angular package supports Angular 20, 21, and 22 with RxJS 7.8+. The development server builds the package and Angular 20 demos before starting. Download `kittu-ui-angular-0.1.0.tgz` from the Angular setup page, or find it in `public/downloads/`. It is a local distribution artifact, not a published npm package. See [Angular integration](docs/ANGULAR.md).
 

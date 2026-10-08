@@ -66,11 +66,8 @@ test("framework switch persists, filters catalog, and restores React detail", as
     page.getByRole("button", { name: /Open elastic sheet/ }),
   ).toBeVisible();
   await page.goto("/components/magnetic-button?framework=angular");
-  await expect(
-    page.getByRole("heading", {
-      name: "This component is currently available in React.",
-    }),
-  ).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Magnetic Button',exact:true})).toBeVisible();
+  await expect(page.frameLocator('iframe').locator('kittu-magnetic-button')).toBeVisible();
 });
 test("Angular interactions cancel, retry and preserve drafts", async ({
   page,

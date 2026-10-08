@@ -50,3 +50,11 @@ The package now builds with Angular 20.3.33, ng-packagr 20.3.2, and TypeScript 5
 The same tarball installs and compiles all eight selectors with strict templates using independent consumer compilers: Angular 20.0.0 / TypeScript 5.8.3, Angular 20.3.33 / TypeScript 5.9.3, Angular 21.2.25 / TypeScript 5.9.3, and Angular 22.2.1 / TypeScript 6.0.2. The website typecheck, 115 unit tests, lint (21 inherited warnings), production build, and 289 SEO checks pass.
 
 Browser regression checks covered all 48 desktop/mobile scenarios. An Angular keyboard check was interrupted by a dev-server rebuild reload and passed on rerun. An inherited React mobile upload pointer check repeatedly timed out waiting for layout stability; the cancellation/retry test now explicitly exercises native keyboard activation. All four affected desktop/mobile interaction checks pass in the final focused run. React component implementation was unchanged.
+
+## Full native Angular catalog
+
+Added the remaining 108 native Angular standalone components. Both framework catalogs now contain 116 components, with Angular demos, usage, API documentation, source dependencies, and package exports. Authored generators keep catalog metadata, exports, and demo mappings synchronized; CI checks the generated files. The website framework switch now exposes the full Angular catalog.
+
+Validation: 115 unit tests pass; all 74 desktop/mobile browser checks pass, including 432 mounts across the 108 new components in light/dark themes. Two additional final menu keyboard/focus checks pass. Production build and all 289 SEO checks pass. Lint retains 21 inherited warnings. Independent Angular 20.0, 20.3, 21, and 22 consumers compile all 116 package selectors with strict templates.
+
+Angular APIs are independently designed, with native CSS/Canvas2D alternatives for some motion and graphical effects. This does not promise React prop or visual/physics parity. Controls expose signal models rather than ControlValueAccessor; direct formControl/formControlName integration and Angular SSR are not validated. Authentication, payment, booking, upload, and AI services are application responsibilities; website handlers simulate transport locally. See `docs/ANGULAR_CATALOG.md` for the component contracts and limitations. Nothing has been published to npm or deployed to a production domain.

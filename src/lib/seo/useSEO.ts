@@ -44,7 +44,7 @@ export function useSEO({
     if (framework === 'angular') {
       const component = ANGULAR_COMPONENTS.find(item => item.id === activeComponent?.id);
       const title = component ? `${component.name} for Angular — Kittu UI` : activeView === 'docs' ? 'Angular Setup — Kittu UI' : 'Angular Components — Kittu UI';
-      const description = component?.description || 'Eight native standalone Angular components with signal inputs, accessible interactions, and shared Kittu UI themes.';
+      const description = component?.description || `${ANGULAR_COMPONENTS.length} native standalone Angular components with signal inputs, accessible interactions, and shared Kittu UI themes.`;
       const canonical = getCanonicalUrl(typeof window === 'undefined' ? '/' : window.location.pathname) + '?framework=angular';
       updatePageMetadata({ title, description, canonical, ogTitle: title, ogDescription: description, ogType: 'website', noindex: !!activeComponent && !component,
         structuredData: { '@context':'https://schema.org', '@type':'SoftwareSourceCode', name:title, description, url:canonical, programmingLanguage:'TypeScript', runtimePlatform:'Angular 20, 21, 22', codeRepository:SEO_CONFIG.repository },

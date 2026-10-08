@@ -5,6 +5,7 @@ import { DemoComponent } from "./.generated/demo.component.js";
 import "../../src/styles/tokens.css";
 import "../../src/styles/fonts.css";
 import "../../src/lib/kittu-controls.css";
+import "../angular/src/ports.css";
 import "./demo.css";
 
 const origin = window.location.origin;

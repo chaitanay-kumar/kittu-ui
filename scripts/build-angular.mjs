@@ -11,7 +11,6 @@ function run(file, args) {
   if (result.status !== 0) process.exit(result.status ?? 1);
 }
 for (const [source, target] of [
-  ["src/lib/kittu-controls.css", "styles.css"],
   ["LICENSE", "LICENSE"],
   ["licenses/UPSTREAM-MIT.txt", "UPSTREAM-MIT.txt"],
 ])
@@ -19,6 +18,12 @@ for (const [source, target] of [
     path.join(root, source),
     path.join(root, "packages/angular", target),
   );
+fs.writeFileSync(
+  path.join(root, "packages/angular/styles.css"),
+  fs.readFileSync(path.join(root, "src/lib/kittu-controls.css"), "utf8") +
+    "\n" +
+    fs.readFileSync(path.join(root, "packages/angular/src/ports.css"), "utf8"),
+);
 run("node_modules/ng-packagr/src/cli/main.js", [
   "-p",
   "packages/angular/ng-package.json",
@@ -49,6 +54,26 @@ const packed = spawnSync(
 if (packed.status !== 0) process.exit(packed.status ?? 1);
 const sources = path.join(root, "public/angular-source");
 fs.mkdirSync(sources, { recursive: true });
+const sourceRoot = path.join(root, "packages/angular/src");
+function dependencies(file, visited = new Set()) {
+  const result = {};
+  for (const match of fs
+    .readFileSync(file, "utf8")
+    .matchAll(/from\s+['"](\.\/[^'"]+)['"]/g)) {
+    const target = path.resolve(path.dirname(file), match[1] + ".ts");
+    if (
+      !target.startsWith(sourceRoot + path.sep) ||
+      visited.has(target) ||
+      !fs.existsSync(target)
+    )
+      continue;
+    visited.add(target);
+    result[path.relative(sourceRoot, target).replaceAll("\\", "/")] =
+      fs.readFileSync(target, "utf8");
+    Object.assign(result, dependencies(target, visited));
+  }
+  return result;
+}
 for (const file of fs
   .readdirSync(path.join(root, "packages/angular/src"))
   .filter((file) => file.endsWith(".component.ts"))) {
@@ -66,8 +91,9 @@ for (const file of fs
           path.join(root, "packages/angular/src/types.ts"),
           "utf8",
         ),
+        dependencies: dependencies(path.join(sourceRoot, file)),
         styles: fs.readFileSync(
-          path.join(root, "src/lib/kittu-controls.css"),
+          path.join(root, "packages/angular/styles.css"),
           "utf8",
         ),
       },

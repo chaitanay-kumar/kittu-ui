@@ -19,7 +19,8 @@
     "test:browser": "playwright test",
     "lint": "oxlint",
     "preview": "vite preview",
-    "angular:build": "node scripts/build-angular.mjs",
+    "angular:sync": "tsx scripts/generate-angular-ports.ts",
+    "angular:build": "npm run angular:sync && node scripts/build-angular.mjs",
     "test:angular-package": "node scripts/verify-angular-package.mjs",
     "predev": "npm run angular:build"
   },

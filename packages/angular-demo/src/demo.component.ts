@@ -1,4 +1,6 @@
-import { Component, signal } from "@angular/core";
+import { Component, HostListener, signal } from "@angular/core";
+import { NgComponentOutlet } from "@angular/common";
+import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
 import {
   KittuElasticSheetComponent,
   KittuSmartUploadComponent,
@@ -37,6 +39,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   selector: "kittu-angular-demo",
   standalone: true,
   imports: [
+    NgComponentOutlet,
     KittuElasticSheetComponent,
     KittuSmartUploadComponent,
     KittuLiquidCommandPaletteComponent,
@@ -82,15 +85,97 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
         <kittu-ai-prompt-composer [sendHandler]="send" />
       }
       @default {
-        <p role="alert">Select an available Angular component.</p>
+        @if (port) {
+          <ng-container *ngComponentOutlet="port; inputs: portInputs" />
+          @if (asyncDemo) {
+            <label class="kittu-row"
+              ><input
+                type="checkbox"
+                [checked]="failRequests()"
+                (change)="failRequests.set($any($event.target).checked)"
+              />Simulate request failure</label
+            >
+          }
+          <p class="kittu-muted">
+            Local demo data. Application actions are simulated; no account,
+            payment, booking, or AI service is connected.
+          </p>
+        } @else {
+          <p role="alert">Select an available Angular component.</p>
+        }
       }
     }
   </main>`,
 })
 export class DemoComponent {
-  readonly component =
+  readonly componentId = signal(
     new URLSearchParams(window.location.search).get("component") ||
-    "elastic-sheet";
+      "elastic-sheet",
+  );
+  get component() {
+    return this.componentId();
+  }
+  @HostListener("window:popstate") restoreRoute(): void {
+    this.componentId.set(
+      new URLSearchParams(window.location.search).get("component") ||
+        "elastic-sheet",
+    );
+  }
+  get port() {
+    return DEMO_PORTS[this.component];
+  }
+  readonly failRequests = signal(false);
+  get asyncDemo() {
+    return (
+      ["action", "collection", "form"].includes(
+        DEMO_PORT_KINDS[this.component],
+      ) || this.component === "advanced-data-table"
+    );
+  }
+  readonly portAction = async (signal: AbortSignal) => {
+    await wait(600, signal);
+    if (this.failRequests()) throw new Error("Demo action failed. Try again.");
+  };
+  readonly portCollectionAction = async (
+    _items: unknown[],
+    signal: AbortSignal,
+  ) => {
+    await wait(600, signal);
+    if (this.failRequests())
+      throw new Error("Demo batch action failed. Selection preserved.");
+  };
+  readonly portSubmit = async (
+    values: Record<string, string>,
+    signal: AbortSignal,
+  ) => {
+    await wait(700, signal);
+    if (
+      this.failRequests() ||
+      Object.values(values).some((value) => value.includes("fail"))
+    )
+      throw new Error("Demo submission failed. Values are preserved.");
+  };
+  readonly portChat = async (text: string, signal: AbortSignal) => {
+    await wait(700, signal);
+    if (text.includes("fail"))
+      throw new Error("Demo send failed. Draft preserved.");
+    return "Local demo reply: " + text;
+  };
+  get portInputs(): Record<string, unknown> {
+    if (this.component === "animated-file-upload")
+      return { upload: this.upload };
+    if (this.component === "chat") return { sendHandler: this.portChat };
+    if (this.component === "advanced-data-table")
+      return { bulkAction: this.portCollectionAction };
+    const kind = DEMO_PORT_KINDS[this.component];
+    return kind === "action"
+      ? { action: this.portAction }
+      : kind === "collection"
+        ? { action: this.portCollectionAction }
+        : kind === "form"
+          ? { submitHandler: this.portSubmit }
+          : {};
+  }
   readonly commandStatus = signal("");
   readonly commands: LiquidCommand[] = [
     {

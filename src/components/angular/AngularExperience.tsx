@@ -63,6 +63,7 @@ function SetupGuide() {
         <code>--bg</code>, <code>--border</code>, and{" "}
         <code>--text-primary</code> theme tokens. No React runtime is required.
       </p>
+      <p className="text-sm text-text-secondary">Angular APIs use data inputs, projected content, and output events. Consult each API table when migrating React code. Visual effects use native CSS or Canvas 2D and may look different from their React counterparts.</p>
       <CodeBlock
         label="Optional dark theme · global styles.css"
         code={`.dark {\n  --bg: #101010;\n  --border: #303030;\n  --text-primary: #fafafa;\n  --text-secondary: #a1a1aa;\n  --surface-hover: #242424;\n}`}
@@ -81,6 +82,7 @@ function AngularSource({ id }: { id: string }) {
     sourceCode: string;
     types: string;
     styles: string;
+    dependencies?: Record<string,string>;
   } | null>(null);
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
@@ -122,6 +124,7 @@ function AngularSource({ id }: { id: string }) {
             </summary>
             <div className="mt-4 space-y-4">
               <CodeBlock label="types.ts" code={source.types} />
+              {Object.entries(source.dependencies??{}).map(([file,code])=><CodeBlock key={file} label={file} code={code} />)}
               <CodeBlock label="styles.css" code={source.styles} />
             </div>
           </details>
@@ -296,9 +299,8 @@ export default function AngularExperience({
                   Native Angular.
                 </h1>
                 <p className="text-text-secondary">
-                  Eight original Kittu components, rebuilt with Angular signals
-                  and standalone templates. Switch to React for the full React
-                  catalog.
+                  {ANGULAR_COMPONENTS.length} native Angular components, built with signals
+                  and standalone templates. Explore the full catalog in either framework.
                 </p>
               </header>
               <section

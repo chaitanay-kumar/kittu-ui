@@ -55,7 +55,7 @@ ${componentList}
 
 ## Angular
 
-Eight original Kittu components also have native standalone Angular implementations. Use the framework switch to change the catalog, code, setup guidance, and live demos. Angular 20, 21, and 22 are supported with RxJS 7.8+. The Angular package is a downloadable tarball, not a published npm package.
+All 116 catalog components have native standalone Angular implementations. Use the framework switch to change the catalog, code, setup guidance, and live demos. Angular 20, 21, and 22 are supported with RxJS 7.8+. Angular APIs use data inputs and output events; CSS/Canvas visual adaptations differ from React implementations. The Angular package is a downloadable tarball, not a published npm package.
 
 - [Angular setup](${SITE_URL}/docs/quick-start?framework=angular): Download and install the local package and its global stylesheet.
 ${ANGULAR_COMPONENTS.map(component => `- [${component.name} for Angular](${SITE_URL}/components/${component.id}?framework=angular): ${component.description}`).join('\n')}

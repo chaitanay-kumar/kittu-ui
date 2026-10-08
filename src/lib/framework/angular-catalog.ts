@@ -1,3 +1,4 @@
+import { ANGULAR_PORTS } from './angular-ports';
 export interface AngularEntry {
   id: string;
   name: string;
@@ -128,6 +129,7 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
     binding: '[sendHandler]="send"',
     handler: `  readonly send: SendHandler = async ({ text, attachments }, signal) => {\n    const form = new FormData();\n    form.append('text', text);\n    attachments.forEach(file => form.append('attachments', file));\n    const response = await fetch('/api/prompts', { method: 'POST', body: form, signal });\n    if (!response.ok) throw new Error('Send failed');\n  };`,
   },
+  ...ANGULAR_PORTS,
 ];
 export function angularUsage(entry: AngularEntry) {
   const type =
