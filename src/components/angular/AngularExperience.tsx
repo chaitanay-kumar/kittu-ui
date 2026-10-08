@@ -141,21 +141,25 @@ export default function AngularExperience({
   id,
   onSelect,
   onBrowse,
+  embedded = false,
 }: {
   view: string;
   id?: string | null;
   onSelect: (id: string) => void;
   onBrowse: () => void;
+  embedded?: boolean;
 }) {
   const [query, setQuery] = useState("");
   const { setFramework } = useFramework();
   const entry = ANGULAR_COMPONENTS.find((c) => c.id === id);
   const unsupported =
     (view === "component-detail" || view === "component-not-found") && !entry;
+  const Wrapper = embedded ? "div" : "main";
+  const Content = embedded ? "div" : Container;
   return (
-    <main className="pt-10 sm:pt-16 pb-28">
-      <Container size="lg">
-        <div className="max-w-4xl mx-auto space-y-10">
+    <Wrapper className={embedded ? "" : "pt-10 sm:pt-16 pb-28"}>
+      <Content>
+        <div className={embedded ? "space-y-10" : "max-w-4xl mx-auto space-y-10"}>
           {view === "docs" ? (
             <>
               <header className="space-y-3">
@@ -351,7 +355,7 @@ export default function AngularExperience({
             </>
           )}
         </div>
-      </Container>
-    </main>
+      </Content>
+    </Wrapper>
   );
 }

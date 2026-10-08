@@ -352,7 +352,7 @@ function AppContent({ initialPath }: AppProps = {}) {
       />
 
       {/* Main View Router */}
-      {framework === 'angular' ? (
+      {framework === 'angular' && activeView !== 'component-detail' ? (
         <Suspense fallback={<main className="min-h-[70vh]" aria-busy="true" />}>
           <AngularExperience view={activeView} id={selectedComponent?.id || invalidComponentSlug} onSelect={handleSelectComponentById} onBrowse={() => handleNavigateAllComponents(1)} />
         </Suspense>

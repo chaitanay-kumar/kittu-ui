@@ -30,11 +30,14 @@ import { cn, copyToClipboard } from '../../lib/utils';
 import { trackTracwellEvent } from '../../lib/tracwell-client';
 import { isComponentNew } from '../../lib/components';
 import { useComponentSource } from '../../lib/source-loader';
+import { useFramework } from '../../lib/framework/FrameworkProvider';
 import { NewBadge } from '../common/NewBadge';
 import { useTheme } from '../../lib/theme/useTheme';
 import type { ThinkingOrbState } from '../ui/ThinkingOrb';
 import type { DragConfirmActionType, DragConfirmSize } from '../ui/DragToConfirm';
 import { lazyWithPreload, type PreloadableComponent } from '../../lib/lazy-preload';
+
+const AngularExperience = lazyWithPreload(() => import('../angular/AngularExperience'));
 
 // Live demonstrations are split into route-level chunks. The detail shell can
 // render metadata, source, props, and accessibility tabs without loading the
@@ -1642,9 +1645,10 @@ export const ComponentDetailPage: React.FC<ComponentDetailPageProps> = ({
   // Resolve the full component metadata from the catalog — KITTU_COMPONENTS is already
   // in this chunk, so this lookup adds no extra bundle cost.
   const component = KITTU_COMPONENTS.find((c) => c.id === componentId);
+  const { framework } = useFramework();
 
   const [activeTab, setActiveTab] = useState<MainTab>('preview');
-  const { sourceCode: loadedSourceCode } = useComponentSource(component?.id || '', activeTab === 'code');
+  const { sourceCode: loadedSourceCode } = useComponentSource(component?.id || '', framework === 'react' && activeTab === 'code');
   const effectiveSourceCode = loadedSourceCode || component?.sourceCode || '';
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [pkgManager, setPkgManager] = useState<PkgManager>('pnpm');
@@ -3325,6 +3329,7 @@ const completion = await client.completions.create({
                   <span className="text-xs font-mono text-text-muted uppercase tracking-wider">Components Catalog</span>
                   <button
                     onClick={() => setMobileSidebarOpen(false)}
+                    aria-label="Close component navigation"
                     className="p-1.5 rounded-lg text-text-secondary hover:text-text-primary bg-[#F1F1F2] dark:bg-[#18181B] border border-black/[0.04] dark:border-white/[0.06] transition-colors cursor-pointer"
                   >
                     <X className="w-3.5 h-3.5" />
@@ -3339,6 +3344,7 @@ const completion = await client.completions.create({
                     value={sidebarFilter}
                     onChange={(e) => setSidebarFilter(e.target.value)}
                     placeholder="Filter components..."
+                    aria-label="Search components"
                     className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-[#F1F1F2] dark:bg-[#18181B] border border-black/[0.04] dark:border-white/[0.06] text-[16px] text-text-primary placeholder-text-muted focus:outline-none focus:border-text-subtle transition-colors"
                   />
                 </div>
@@ -3354,6 +3360,7 @@ const completion = await client.completions.create({
                       return (
                         <button
                           key={item.id}
+                          aria-current={isActive ? 'page' : undefined}
                           onClick={() => {
                             onSelectComponent(item.id);
                             setMobileSidebarOpen(false);
@@ -3383,7 +3390,7 @@ const completion = await client.completions.create({
           {/* 1. LEFT SIDEBAR: Clean minimalist documentation navigation                 */}
           {/* ========================================================================= */}
           {isDesktopSidebarOpen && (
-            <aside className="hidden lg:block w-60 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto select-none pr-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <aside aria-label="Component navigation" className="hidden lg:block w-60 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto select-none pr-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {/* Filter Search Box */}
               <div className="relative mb-5">
                 <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-text-subtle pointer-events-none" />
@@ -3392,6 +3399,7 @@ const completion = await client.completions.create({
                   value={sidebarFilter}
                   onChange={(e) => setSidebarFilter(e.target.value)}
                   placeholder="Search..."
+                  aria-label="Search components"
                   className="w-full pl-8 pr-7 py-1.5 rounded-xl bg-[#F1F1F2] dark:bg-[#18181B] border border-black/[0.04] dark:border-white/[0.06] text-[13px] text-text-primary placeholder-text-muted focus:outline-none focus:border-text-subtle transition-colors"
                 />
                 {sidebarFilter && (
@@ -3463,7 +3471,7 @@ const completion = await client.completions.create({
                       return (
                         <a
                           key={item.id}
-                          href={`/components/${item.id}`}
+                          href={`/components/${item.id}?framework=${framework}`}
                           onClick={(e) => {
                             if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
                               e.preventDefault();
@@ -3499,6 +3507,11 @@ const completion = await client.completions.create({
           {/* ========================================================================= */}
           <main className="flex-1 min-w-0 pb-20">
             <article className="space-y-8">
+              {framework === 'angular' ? (
+                <Suspense fallback={<div className="min-h-48" aria-busy="true" />}>
+                  <AngularExperience embedded view="component-detail" id={component.id} onSelect={onSelectComponent} onBrowse={onNavigateComponents} />
+                </Suspense>
+              ) : <>
               {/* Header: Title and Description in the Dollar-Cost Averaging minimal card aesthetic */}
               <div id="overview-section" className="space-y-2 pt-1">
                 <div className="flex items-center gap-3 flex-wrap">
@@ -3885,6 +3898,7 @@ const completion = await client.completions.create({
                   </div>
                 </section>
               )}
+              </>}
             </article>
           </main>
         </div>
@@ -3894,7 +3908,7 @@ const completion = await client.completions.create({
       {/* Fullscreen Overlay for Component Stage                                     */}
       {/* ========================================================================= */}
       <AnimatePresence>
-        {isFullscreenPreview && (
+        {isFullscreenPreview && framework === 'react' && (
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
