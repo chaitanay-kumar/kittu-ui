@@ -305,4 +305,3 @@ export const RocketPartyPopper: React.FC<RocketPartyPopperProps> = ({
 };
 
 export default RocketPartyPopper;
-

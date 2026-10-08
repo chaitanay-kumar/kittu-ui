@@ -93,12 +93,12 @@ export const GravityParticleBurst: React.FC<GravityParticleBurstProps> = ({
     if (!canvas || reducedRef.current) return;
     const rect = canvas.getBoundingClientRect();
     const scale = window.devicePixelRatio || 1;
-    
+
     if (canvas.width !== rect.width * scale || canvas.height !== rect.height * scale) {
       canvas.width = rect.width * scale;
       canvas.height = rect.height * scale;
     }
-    
+
     const originX = (clientX - rect.left) * scale;
     const originY = (clientY - rect.top) * scale;
 
@@ -147,4 +147,3 @@ export const GravityParticleBurst: React.FC<GravityParticleBurstProps> = ({
     </div>
   );
 };
-

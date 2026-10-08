@@ -86,7 +86,7 @@ varying vec2 v_center_dist;
 
 void main() {
     vec2 pos = a_position;
-    
+
     // Ambient undulating wave
     float wave = sin(a_grid_pos.x * 0.15 + a_grid_pos.y * 0.15 + u_time * 1.5) * 4.0 * u_wave_intensity;
     pos.y += wave;

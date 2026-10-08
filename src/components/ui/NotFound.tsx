@@ -347,4 +347,3 @@ export function NotFound({
 }
 
 NotFound.displayName = 'NotFound';
-

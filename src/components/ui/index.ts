@@ -1,4 +1,20 @@
 export { AnimatedTabs } from './AnimatedTabs';
+export { ElasticSheet } from './ElasticSheet';
+export type { ElasticSheetProps } from './ElasticSheet';
+export { SmartUpload } from './SmartUpload';
+export type { SmartUploadProps, UploadContext } from './SmartUpload';
+export { LiquidCommandPalette } from './LiquidCommandPalette';
+export type { LiquidCommandPaletteProps, LiquidCommand } from './LiquidCommandPalette';
+export { HoldToConfirm } from './HoldToConfirm';
+export type { HoldToConfirmProps } from './HoldToConfirm';
+export { SwipeActionList } from './SwipeActionList';
+export type { SwipeActionListProps, SwipeItem } from './SwipeActionList';
+export { InteractiveDataCard } from './InteractiveDataCard';
+export type { InteractiveDataCardProps } from './InteractiveDataCard';
+export { TimelineScrubber } from './TimelineScrubber';
+export type { TimelineScrubberProps, TimelineEvent } from './TimelineScrubber';
+export { AIPromptComposer } from './AIPromptComposer';
+export type { AIPromptComposerProps, PromptPayload } from './AIPromptComposer';
 export type { AnimatedTabsProps, TabItem } from './AnimatedTabs';
 
 export { DynamicIsland } from './DynamicIsland';
@@ -452,5 +468,3 @@ export type {
   PullState,
   FinancialDataPoint,
 } from './PullToRefresh';
-
-

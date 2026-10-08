@@ -136,4 +136,3 @@ export const TextScrambleDecoder: React.FC<TextScrambleDecoderProps> = ({
     </span>
   );
 };
-

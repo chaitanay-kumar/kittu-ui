@@ -159,7 +159,7 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
 
       const meteorSpeed = minSpd + Math.random() * (maxSpd - minSpd);
       const meteorLength = minLen + Math.random() * (maxLen - minLen);
-      
+
       // 10% chance of a brilliant fireball (bolide)
       const isFireball = Math.random() < 0.12;
       const meteorWidth = isFireball ? 2.2 + Math.random() * 1.5 : 0.9 + Math.random() * 1.2;

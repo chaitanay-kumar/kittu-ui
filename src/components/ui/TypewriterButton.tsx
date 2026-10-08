@@ -30,7 +30,7 @@ function playTypewriterClick(volume: number = 0.25) {
     const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
     if (!AudioCtx) return;
     const ctx = new AudioCtx();
-    
+
     // Quick burst of shaped noise + soft bandpass filter
     const bufferSize = ctx.sampleRate * 0.03; // 30ms click
     const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);

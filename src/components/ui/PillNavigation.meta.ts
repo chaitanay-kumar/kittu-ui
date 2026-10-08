@@ -48,4 +48,3 @@ export function Demo() {
 };
 
 export default meta;
-

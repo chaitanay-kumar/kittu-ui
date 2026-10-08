@@ -121,7 +121,7 @@ npm run seo:audit
 
 ```text
 ========================================================
-            KITTU_UI AUTOMATED SEO AUDIT REPORT           
+            KITTU_UI AUTOMATED SEO AUDIT REPORT
 ========================================================
 
 Overall SEO Score: 100/100

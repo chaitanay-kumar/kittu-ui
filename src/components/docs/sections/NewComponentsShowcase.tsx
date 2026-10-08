@@ -1790,5 +1790,3 @@ export const StickyPagesLiveShowcase: React.FC = () => {
     </div>
   );
 };
-
-

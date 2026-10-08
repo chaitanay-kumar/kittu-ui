@@ -36,7 +36,7 @@ export const NeonEdgeButton: React.FC<NeonEdgeButtonProps> = ({
           .kittu-ui-neon-beam { animation: none !important; opacity: 0.4 !important; }
         }
       `}</style>
-      
+
       {/* Dynamic Animated Border Beam */}
       <span
         aria-hidden="true"
@@ -59,4 +59,3 @@ export const NeonEdgeButton: React.FC<NeonEdgeButtonProps> = ({
     </button>
   );
 };
-

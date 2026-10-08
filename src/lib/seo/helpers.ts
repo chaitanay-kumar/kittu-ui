@@ -21,7 +21,7 @@ export interface PageSEOMeta {
  */
 export function getCanonicalUrl(pathOrHash = ''): string {
   const base = SEO_CONFIG.siteUrl.replace(/\/+$/, '');
-  
+
   if (!pathOrHash || pathOrHash === '/' || pathOrHash === '#') {
     return `${base}/`;
   }

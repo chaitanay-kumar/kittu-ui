@@ -84,7 +84,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       {...(props as any)}
     >
       {glow && isHovered && (
-        <span 
+        <span
           className="absolute inset-0 rounded-[inherit] pointer-events-none opacity-40 blur-sm bg-gradient-to-r from-transparent via-white/10 to-transparent"
         />
       )}

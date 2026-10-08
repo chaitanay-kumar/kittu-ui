@@ -283,4 +283,3 @@ export const GooeyMenu: React.FC<GooeyMenuProps> = ({
 };
 
 export default GooeyMenu;
-

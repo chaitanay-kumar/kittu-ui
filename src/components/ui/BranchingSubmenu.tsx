@@ -220,4 +220,3 @@ export const BranchingSubmenu: React.FC<BranchingSubmenuProps> = ({
     </motion.div>
   );
 };
-
