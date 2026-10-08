@@ -1,4 +1,4 @@
-# Contributing to Kittu UI
+# Contributing to Kit UI
 
 Contributions can improve components, accessibility, framework integration, documentation, or development tooling. Start with the [live catalog](https://chaitanay-kumar.github.io/kittu-ui/) and describe the behavior you want to change.
 
@@ -31,7 +31,7 @@ For a new component, explain its interaction and application use case, proposed 
 
 ## Design and interaction expectations
 
-Use the established theme tokens and component patterns. The Kittu Ant is the project mascot. Preserve Kittu UI naming and independent attribution.
+Use the established theme tokens and component patterns. The Kit Fox is the project mascot. Preserve Kit UI naming and independent attribution.
 
 - Provide visible focus, semantic controls, labels, and keyboard alternatives to pointer gestures.
 - Respect reduced motion and light/dark themes. Check small screens, long text, and empty content.
@@ -63,7 +63,7 @@ There are two authoring paths:
 
 | Area | Edit these sources |
 | --- | --- |
-| Eight original Kittu ports | Their authored files in `packages/angular/src/`; exports before the generated marker in `public-api.ts`; original entries in `src/lib/framework/angular-catalog.ts`; corresponding demo cases |
+| Eight original Kit ports | Their authored files in `packages/angular/src/`; exports before the generated marker in `public-api.ts`; original entries in `src/lib/framework/angular-catalog.ts`; corresponding demo cases |
 | 108 additional catalog ports | Authored templates/API definitions in `scripts/generate-angular-ports.ts` and `scripts/angular-complex-ports.ts` |
 | Shared native behavior | `packages/angular/src/port-controllers.ts`, `port-canvas.ts`, and `port-types.ts` |
 | Shared native styling | `packages/angular/src/ports.css` and `src/lib/kittu-controls.css`, as applicable |
@@ -170,4 +170,4 @@ Registry CI checks generated outputs, lint, TypeScript, unit tests, production b
 
 Contributions must be compatible with MIT licensing. Preserve the destination [LICENSE](LICENSE), the [upstream MIT notice](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/licenses/UPSTREAM-MIT.txt), and [attribution](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/ATTRIBUTION.md). Document the origin and license of any third-party assets or code you introduce.
 
-Kittu UI is independent of EasyUI. Product-facing names, links, prefixes, and assets should use Kittu UI and the Kittu Ant; retain upstream names where required for legal attribution. Do not imply affiliation or reuse an unlicensed mascot or asset.
+Kit UI is independent of EasyUI. Product-facing copy and assets should use Kit UI and the Kit Fox; retain upstream names where required for legal attribution. Preserve existing repository URLs, package names, and public exports/selectors for compatibility. See the [brand guide](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/BRAND.md) before changing integration identifiers. Do not imply affiliation or reuse an unlicensed mascot or asset.
