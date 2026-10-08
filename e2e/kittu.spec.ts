@@ -45,8 +45,9 @@ test('upload cancellation and prompt failure preserve useful state',async({page}
   await page.goto('/components/smart-upload');
   const upload=page.locator('.kittu-control').first();
   await upload.getByLabel('Choose files or drop them here').setInputFiles({name:'report.pdf',mimeType:'application/pdf',buffer:Buffer.from('sample')});
-  await upload.getByRole('button',{name:'Upload',exact:true}).click();await upload.getByRole('button',{name:'Cancel',exact:true}).click();
-  await expect(upload.getByRole('button',{name:'Retry'})).toBeVisible();await upload.getByRole('button',{name:'Retry'}).click();
+  // Exercise the keyboard alternative without racing the moving mobile preview.
+  await upload.getByRole('button',{name:'Upload',exact:true}).press('Enter');await upload.getByRole('button',{name:'Cancel',exact:true}).press('Enter');
+  await expect(upload.getByRole('button',{name:'Retry'})).toBeVisible();await upload.getByRole('button',{name:'Retry'}).press('Enter');
   await expect(upload.getByText('success',{exact:true})).toBeVisible();
   await page.goto('/components/ai-prompt-composer');
   const composer=page.getByRole('form',{name:'AI prompt composer'}).first();await composer.getByRole('textbox').fill('fail with my draft');

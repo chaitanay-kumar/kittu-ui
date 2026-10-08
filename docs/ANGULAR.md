@@ -1,6 +1,6 @@
 # Kittu UI for Angular
 
-The website's React / Angular switch selects a framework-specific catalog, documentation, source, and live demos. Angular demos bootstrap Angular 22 in isolated preview frames; the documentation shell remains React. The eight Kittu originals are native standalone Angular components and contain no React runtime dependency. The remaining React catalog has not been ported.
+The website's React / Angular switch selects a framework-specific catalog, documentation, source, and live demos. Angular demos bootstrap Angular 20 in isolated preview frames; the documentation shell remains React. The eight Kittu originals are native standalone Angular components and contain no React runtime dependency. The remaining React catalog has not been ported.
 
 ## Build and install
 
@@ -12,7 +12,7 @@ npm run angular:build
 npm run test:angular-package
 ```
 
-Install the generated `public/downloads/kittu-ui-angular-0.1.0.tgz` in an Angular 22 application:
+Install the generated `public/downloads/kittu-ui-angular-0.1.0.tgz` in an Angular 20, 21, or 22 application:
 
 ```sh
 npm install /absolute/path/to/kittu-ui-angular-0.1.0.tgz
@@ -20,7 +20,9 @@ npm install /absolute/path/to/kittu-ui-angular-0.1.0.tgz
 
 Import `kittu-ui-angular/styles.css` in your application's global stylesheet. Import the standalone component directly from `kittu-ui-angular`, and add it to your component's `imports`. Full examples are available under Angular in the website and in [the package README](../packages/angular/README.md).
 
-The distributed Angular Package Format artifact includes type declarations, partial compilation, styles, and both MIT notices. It has not been published to npm. `npm run test:angular-package` installs the tarball in an isolated consumer and compiles all eight components with strict Angular templates.
+The distributed Angular Package Format artifact includes type declarations, partial compilation, styles, and both MIT notices. It has not been published to npm. The library builds with Angular 20.3 and TypeScript 5.9. `npm run test:angular-package` installs the same tarball in isolated Angular 20.0, 20.3, 21, and 22 consumers, each with its own compiler and compatible TypeScript, and compiles all eight components with strict Angular templates.
+
+Angular 20 applications may use Zone.js or zoneless change detection. Keep your application's existing configuration; the library requires neither Zone.js imports nor an application provider. The isolated website demos explicitly enable `provideZonelessChangeDetection()` on Angular 20.3. If starting a zoneless application on Angular 20.0 or 20.1, use that version's experimental zoneless provider instead.
 
 ## Application contracts
 

@@ -27,7 +27,7 @@ for (const [id, name] of components) {
     );
     await expect(frame.locator("kittu-angular-demo")).toHaveAttribute(
       "ng-version",
-      /^22\./,
+      /^20\./,
     );
     await expect(frame.locator(".kittu-control").first()).toBeVisible();
     expect(

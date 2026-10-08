@@ -136,7 +136,7 @@
 
 ## Angular
 
-Eight original Kittu components also have native standalone Angular implementations. Use the framework switch to change the catalog, code, setup guidance, and live demos. Angular 22.2+ and RxJS 7.8+ are required. The Angular package is a downloadable tarball, not a published npm package.
+Eight original Kittu components also have native standalone Angular implementations. Use the framework switch to change the catalog, code, setup guidance, and live demos. Angular 20, 21, and 22 are supported with RxJS 7.8+. The Angular package is a downloadable tarball, not a published npm package.
 
 - [Angular setup](http://localhost:5173/docs/quick-start?framework=angular): Download and install the local package and its global stylesheet.
 - [Elastic Sheet for Angular](http://localhost:5173/components/elastic-sheet?framework=angular): A draggable native modal sheet with keyboard resizing and snap positions.

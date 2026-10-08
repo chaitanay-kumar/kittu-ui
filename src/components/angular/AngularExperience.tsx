@@ -38,7 +38,7 @@ function SetupGuide() {
     <section className="space-y-5" aria-label="Angular installation">
       <h2 className="text-xl font-semibold">Use in your Angular app</h2>
       <p className="text-sm text-text-secondary leading-relaxed">
-        Requires Angular 22.2+ and RxJS 7.8+. These are native standalone
+        Supports Angular 20, 21, and 22 with RxJS 7.8+. These are native standalone
         Angular components. The package is available as a local tarball; it has
         not been published to npm.
       </p>

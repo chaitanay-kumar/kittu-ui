@@ -47,7 +47,7 @@ export function useSEO({
       const description = component?.description || 'Eight native standalone Angular components with signal inputs, accessible interactions, and shared Kittu UI themes.';
       const canonical = getCanonicalUrl(typeof window === 'undefined' ? '/' : window.location.pathname) + '?framework=angular';
       updatePageMetadata({ title, description, canonical, ogTitle: title, ogDescription: description, ogType: 'website', noindex: !!activeComponent && !component,
-        structuredData: { '@context':'https://schema.org', '@type':'SoftwareSourceCode', name:title, description, url:canonical, programmingLanguage:'TypeScript', runtimePlatform:'Angular 22', codeRepository:SEO_CONFIG.repository },
+        structuredData: { '@context':'https://schema.org', '@type':'SoftwareSourceCode', name:title, description, url:canonical, programmingLanguage:'TypeScript', runtimePlatform:'Angular 20, 21, 22', codeRepository:SEO_CONFIG.repository },
       });
       return;
     }
