@@ -38,9 +38,9 @@ export const CodePhilosophy: React.FC = () => {
                 Philosophy
               </span>
               <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary tracking-tight leading-tight mt-1">
-                Your code.
+                Move with purpose.
                 <span className="block text-text-secondary font-normal">
-                  Your components.
+                  Adapt with confidence.
                 </span>
               </h2>
             </div>

@@ -7,6 +7,9 @@ for (const theme of ['light', 'dark']) {
     await expect(page.locator('html')).toHaveAttribute('style', new RegExp(`color-scheme: ${theme}`));
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Nimble by nature.');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Precise by design.');
+    for (const name of ['Nimble', 'Precise', 'Adaptable', 'Alert']) {
+      await expect(page.locator('#philosophy').getByRole('heading', { name, exact: true })).toHaveCount(1);
+    }
     const logo = page.getByRole('link', { name: 'Kit UI Home', exact: true }).first().locator('img');
     await expect(logo).toBeVisible();
     await expect.poll(() => logo.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(96);
@@ -21,6 +24,9 @@ for (const theme of ['light', 'dark']) {
     await page.screenshot({ path: testInfo.outputPath(`kit-ui-${theme}.png`), fullPage: true });
     await page.goto('/?framework=angular');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Native Angular.');
+    for (const name of ['Nimble', 'Precise', 'Adaptable', 'Alert']) {
+      await expect(page.locator('#philosophy').getByRole('heading', { name, exact: true })).toHaveCount(1);
+    }
     await expect(page.getByRole('link', { name: 'Kit UI Home', exact: true }).first()).toBeVisible();
   });
 }

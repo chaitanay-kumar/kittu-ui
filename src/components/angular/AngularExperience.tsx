@@ -1,3 +1,4 @@
+import { PhilosophySection } from '../sections/PhilosophySection';
 import { withBasePath } from '../../lib/base-path';
 import { useEffect, useState } from "react";
 import { Container } from "../layout/Container";
@@ -183,6 +184,7 @@ export default function AngularExperience({
                 </p>
               </header>
               <SetupGuide />
+              <PhilosophySection />
               <section className="space-y-3">
                 <h2 className="text-xl font-semibold">Native interactions</h2>
                 <p className="text-sm text-text-secondary leading-relaxed">
@@ -318,6 +320,7 @@ export default function AngularExperience({
                   and standalone templates. Explore the full catalog in either framework.
                 </p>
               </header>
+              {view === 'showcase' && <PhilosophySection />}
               <section
                 className="space-y-6"
                 aria-label="Angular component catalog"

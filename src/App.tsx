@@ -16,6 +16,7 @@ import { ANGULAR_COMPONENTS } from './lib/framework/angular-catalog';
 
 const AngularExperience = lazyWithPreload(() => import('./components/angular/AngularExperience'));
 
+import { PhilosophySection } from './components/sections/PhilosophySection';
 import { HeroSection as HeroSectionComponent } from './components/sections/HeroSection';
 
 export const ComponentDetailPage = lazyWithPreload(() => import('./components/docs/ComponentDetailPage'));
@@ -365,6 +366,7 @@ function AppContent({ initialPath }: AppProps = {}) {
             onExplore={handleNavigateComponents}
             onSelectComponent={handleSelectComponentById}
           />
+          <PhilosophySection />
           {/* Component Directory */}
           <ComponentDirectory
             onSelectComponent={handleSelectComponentById}

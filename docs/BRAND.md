@@ -4,6 +4,8 @@
 
 Kit UI takes its name and mascot from the kit fox (*Vulpes macrotis*). Its agility, keen senses, and adaptability guide the interface: purposeful components, clear feedback, and layouts that respond to their environment.
 
+Our philosophy is to shorten the path from intent to action, make every outcome understandable, and adapt to people rather than expecting people to adapt to the interface. Source ownership makes these principles practical: developers can inspect and shape the React or native Angular components for their own product.
+
 ## Principles
 
 | Fox quality | Interface principle | Practical expectation |
