@@ -1,3 +1,4 @@
+import { withBasePath, stripBasePath } from "./lib/base-path";
 import { Suspense, useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -68,7 +69,7 @@ export function parseRouteFromUrl(pathname?: string, search?: string): RouteStat
         migratedPath = '/' + r + (q ? '?' + q : '');
       }
       try {
-        window.history.replaceState(null, '', migratedPath);
+        window.history.replaceState(null, '', withBasePath(migratedPath));
         effectivePath = window.location.pathname;
         effectiveSearch = window.location.search;
       } catch {
@@ -77,7 +78,7 @@ export function parseRouteFromUrl(pathname?: string, search?: string): RouteStat
     }
   }
 
-  const currentPath = effectivePath || '/';
+  const currentPath = stripBasePath(effectivePath || '/');
   const currentSearch = effectiveSearch || '';
 
   let pageFromUrl = 1;
@@ -220,6 +221,7 @@ function AppContent({ initialPath }: AppProps = {}) {
 
   const navigate = useCallback(
     (path: string, replace = false) => {
+      path = withBasePath(path);
       if (framework === 'angular') {
         const url = new URL(path, window.location.origin);
         url.searchParams.set('framework', 'angular');

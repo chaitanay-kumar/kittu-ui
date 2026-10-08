@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path';
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Search, Menu, X, Sun, Moon } from 'lucide-react';
@@ -84,13 +85,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-2 border backdrop-blur-xl px-3 sm:px-3.5 pointer-events-auto"
         >
           <a
-            href="/"
+            href={withBasePath('/')}
             onClick={(e) => handleLinkClick(e, onNavigateHome || onNavigateComponents)}
             className="flex items-center gap-2 group cursor-pointer focus-ring rounded-md py-1"
             aria-label="Kittu UI Home"
           >
             <img
-              src="/logo.png"
+              src={withBasePath('/logo.png')}
               alt="Kittu UI Logo"
               width="22"
               height="22"
@@ -109,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="hidden md:flex items-center border backdrop-blur-xl px-1.5 py-1 pointer-events-auto"
         >
           <a
-            href="/"
+            href={withBasePath('/')}
             onClick={(e) => handleLinkClick(e, onNavigateHome || onNavigateComponents)}
             className={`px-3 py-1.5 text-[13px] font-medium rounded-full transition-colors cursor-pointer ${
               activeView === 'showcase'
@@ -120,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             Home
           </a>
           <a
-            href="/components"
+            href={withBasePath('/components')}
             onClick={(e) => handleLinkClick(e, onNavigateComponents)}
             className={`px-3 py-1.5 text-[13px] font-medium rounded-full transition-colors cursor-pointer ${
               activeView === 'components' || activeView === 'component-detail'
@@ -131,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             Components
           </a>
           <a
-            href="/docs/introduction"
+            href={withBasePath('/docs/introduction')}
             onClick={(e) => handleLinkClick(e, onNavigateDocs)}
             className={`px-3 py-1.5 text-[13px] font-medium rounded-full transition-colors cursor-pointer ${
               activeView === 'docs'
@@ -203,7 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <nav className="space-y-0.5" aria-label="Mobile Navigation">
                 <a
-                  href="/"
+                  href={withBasePath('/')}
                   onClick={(e) => handleLinkClick(e, onNavigateHome || onNavigateComponents)}
                   className={`block w-full text-left px-3.5 py-2.5 text-xs rounded-xl transition-colors cursor-pointer ${
                     activeView === 'showcase'
@@ -214,7 +215,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   Home
                 </a>
                 <a
-                  href="/components"
+                  href={withBasePath('/components')}
                   onClick={(e) => handleLinkClick(e, onNavigateComponents)}
                   className={`block w-full text-left px-3.5 py-2.5 text-xs rounded-xl transition-colors cursor-pointer ${
                     activeView === 'components' || activeView === 'component-detail'
@@ -225,7 +226,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   Components
                 </a>
                 <a
-                  href="/docs/introduction"
+                  href={withBasePath('/docs/introduction')}
                   onClick={(e) => handleLinkClick(e, onNavigateDocs)}
                   className={`block w-full text-left px-3.5 py-2.5 text-xs rounded-xl transition-colors cursor-pointer ${
                     activeView === 'docs'

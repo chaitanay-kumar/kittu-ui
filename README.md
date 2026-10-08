@@ -2,6 +2,8 @@
 
 Small details. Lasting impressions. An independent collection of tactile React and native Angular components with TypeScript and motion-aware interactions.
 
+Website: [Kittu UI on GitHub Pages](https://chaitanay-kumar.github.io/kittu-ui/). Deployment details are in [docs/HOSTING.md](docs/HOSTING.md).
+
 ## Run locally
 
 Use Node 22.22.3 or newer within Node 22, Node 24.15+, or Node 26+.
@@ -11,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Browse http://localhost:5173. No production domain or npm package has been published. Copy component source or, after this branch is merged to main, use the destination GitHub registry:
+Browse http://localhost:5173. The hosted website uses GitHub Pages; no npm package has been published. Copy component source or, after this branch is merged to main, use the destination GitHub registry:
 
 ```sh
 npx shadcn@latest add chaitanay-kumar/kittu-ui/elastic-sheet

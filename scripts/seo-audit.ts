@@ -286,7 +286,7 @@ export function runSEOAudit(): AuditReport {
     const llmsContent = fs.readFileSync(llmsPath, 'utf-8');
     check('AI & LLM Discoverability', llmsContent.startsWith('# Kittu UI'), 'CRITICAL', '/llms.txt contains standard H1 title (# Kittu UI)', 'public/llms.txt missing standard # Kittu UI header', 'public/llms.txt');
     check('AI & LLM Discoverability', llmsContent.includes('## Documentation') && llmsContent.includes('## Components'), 'WARNING', '/llms.txt includes curated sections for Documentation and Components', 'public/llms.txt missing required sections', 'public/llms.txt');
-    check('AI & LLM Discoverability', llmsContent.includes('http://localhost:5173/'), 'WARNING', '/llms.txt uses absolute URLs for all authoritative resources', 'public/llms.txt missing absolute URLs', 'public/llms.txt');
+    check('AI & LLM Discoverability', llmsContent.includes(`${SITE_URL}/`), 'WARNING', '/llms.txt uses absolute URLs for all authoritative resources', 'public/llms.txt missing absolute URLs', 'public/llms.txt');
   }
 
   // ==========================================
@@ -329,7 +329,7 @@ export function runSEOAudit(): AuditReport {
     if (fs.existsSync(distCompAdv)) {
       const advContent = fs.readFileSync(distCompAdv, 'utf-8');
       check('Metadata', advContent.includes('<title>Advanced Data Table'), 'CRITICAL', 'Pre-rendered Advanced Data Table route has route-specific title', 'dist/components/advanced-data-table/index.html missing specific title', 'dist/components/advanced-data-table/index.html');
-      check('Metadata', advContent.includes('rel="canonical" href="http://localhost:5173/components/advanced-data-table"'), 'CRITICAL', 'Pre-rendered Advanced Data Table has exact canonical URL', 'dist/components/advanced-data-table/index.html missing canonical URL', 'dist/components/advanced-data-table/index.html');
+      check('Metadata', advContent.includes(`rel="canonical" href="${SITE_URL}/components/advanced-data-table"`), 'CRITICAL', 'Pre-rendered Advanced Data Table has exact canonical URL', 'dist/components/advanced-data-table/index.html missing canonical URL', 'dist/components/advanced-data-table/index.html');
       check('Content', advContent.includes('Advanced Data Table') && advContent.includes('API Reference'), 'CRITICAL', 'Pre-rendered component page exposes H1, description, and API reference in initial HTML', 'dist/components/advanced-data-table/index.html missing initial content', 'dist/components/advanced-data-table/index.html');
     }
 

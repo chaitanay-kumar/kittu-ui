@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path';
 import { ElasticSheetDemo, SmartUploadDemo, LiquidCommandPaletteDemo, HoldToConfirmDemo, SwipeActionListDemo, InteractiveDataCardDemo, TimelineScrubberDemo, AIPromptComposerDemo } from './KittuDemos';
 import React, { Suspense, useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -3280,7 +3281,7 @@ const completion = await client.completions.create({
               <ol className="flex items-center gap-1.5 list-none p-0 m-0 truncate">
                 <li>
                   <a
-                    href="/components"
+                    href={withBasePath('/components')}
                     onClick={(e) => {
                       if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
                         e.preventDefault();
@@ -3471,7 +3472,7 @@ const completion = await client.completions.create({
                       return (
                         <a
                           key={item.id}
-                          href={`/components/${item.id}?framework=${framework}`}
+                          href={withBasePath(`/components/${item.id}?framework=${framework}`)}
                           onClick={(e) => {
                             if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
                               e.preventDefault();
@@ -3875,7 +3876,7 @@ const completion = await client.completions.create({
                     {relatedComponents.map((rel) => (
                       <a
                         key={rel.id}
-                        href={`/components/${rel.id}`}
+                        href={withBasePath(`/components/${rel.id}`)}
                         onClick={(e) => {
                           if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
                             e.preventDefault();

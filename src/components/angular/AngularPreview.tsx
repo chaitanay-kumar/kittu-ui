@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path';
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../../lib/theme/useTheme";
 export function AngularPreview({ id, name }: { id: string; name: string }) {
@@ -28,7 +29,7 @@ export function AngularPreview({ id, name }: { id: string; name: string }) {
     <iframe
       ref={frame}
       title={`${name} — native Angular demo`}
-      src={`/angular-demo/index.html?component=${encodeURIComponent(id)}&theme=${initialTheme}`}
+      src={withBasePath(`/angular-demo/index.html?component=${encodeURIComponent(id)}&theme=${initialTheme}`)}
       onLoad={() =>
         frame.current?.contentWindow?.postMessage(
           { type: "kittu-theme", theme },

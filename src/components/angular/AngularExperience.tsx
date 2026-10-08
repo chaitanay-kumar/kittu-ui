@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path';
 import { useEffect, useState } from "react";
 import { Container } from "../layout/Container";
 import {
@@ -43,7 +44,7 @@ function SetupGuide() {
         not been published to npm.
       </p>
       <a
-        href="/downloads/kittu-ui-angular-0.1.0.tgz"
+        href={withBasePath('/downloads/kittu-ui-angular-0.1.0.tgz')}
         download
         className="inline-flex rounded-full bg-text-primary text-background px-5 py-2 text-sm font-medium focus-ring"
       >
@@ -90,7 +91,7 @@ function AngularSource({ id }: { id: string }) {
     const controller = new AbortController();
     setSource(null);
     setError(false);
-    fetch(`/angular-source/${id}.json`, { signal: controller.signal })
+    fetch(withBasePath(`/angular-source/${id}.json`), { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error("Source unavailable");
         return response.json();

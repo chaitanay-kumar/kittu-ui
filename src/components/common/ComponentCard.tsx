@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path';
 import React, { useState } from 'react';
 import type { ComponentCatalogIndex } from '../../types/component';
 import { Copy, Check, ArrowUpRight } from 'lucide-react';
@@ -51,7 +52,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({
 
   return (
     <a
-      href={`/components/${component.id}`}
+      href={withBasePath(`/components/${component.id}`)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsHovered(true)}

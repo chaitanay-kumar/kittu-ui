@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path';
 import React from 'react';
 import { Container } from './Container';
 import { KittuAnt } from './KittuAnt';
@@ -118,13 +119,13 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex flex-col items-start gap-2">
                 <a
-                  href="/"
+                  href={withBasePath('/')}
                   aria-label="Kittu UI home"
                   onClick={handleInternalNavigation(onNavigateHome)}
                   className="group inline-flex items-center gap-2.5 rounded focus-ring"
                 >
                   <img
-                    src="/logo.png"
+                    src={withBasePath('/logo.png')}
                     alt=""
                     width="24"
                     height="24"
@@ -144,10 +145,10 @@ export const Footer: React.FC<FooterProps> = ({
                 className="kittu-ui-footer-nav text-sm"
                 aria-label="Footer navigation"
               >
-                <a href="/components" onClick={handleInternalNavigation(onNavigateComponents)} className="whitespace-nowrap rounded text-text-secondary transition-colors hover:text-text-primary focus-ring">Components</a>
-                <a href="/docs/introduction" onClick={handleInternalNavigation(onNavigateDocs)} className="whitespace-nowrap rounded text-text-secondary transition-colors hover:text-text-primary focus-ring">Docs</a>
+                <a href={withBasePath('/components')} onClick={handleInternalNavigation(onNavigateComponents)} className="whitespace-nowrap rounded text-text-secondary transition-colors hover:text-text-primary focus-ring">Components</a>
+                <a href={withBasePath('/docs/introduction')} onClick={handleInternalNavigation(onNavigateDocs)} className="whitespace-nowrap rounded text-text-secondary transition-colors hover:text-text-primary focus-ring">Docs</a>
                 <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="whitespace-nowrap rounded text-text-secondary transition-colors hover:text-text-primary focus-ring">GitHub</a>
-                <a href="/llms.txt" className="whitespace-nowrap rounded text-text-secondary transition-colors hover:text-text-primary focus-ring">LLMs</a>
+                <a href={withBasePath('/llms.txt')} className="whitespace-nowrap rounded text-text-secondary transition-colors hover:text-text-primary focus-ring">LLMs</a>
               </nav>
             </div>
 

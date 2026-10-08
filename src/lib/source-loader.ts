@@ -1,3 +1,4 @@
+import { withBasePath } from "./base-path";
 import { useState, useEffect, useCallback } from 'react';
 
 const sourceCache = new Map<string, string>();
@@ -20,7 +21,7 @@ export async function fetchComponentSource(slug: string): Promise<string> {
 
   const promise = (async () => {
     try {
-      const res = await fetch(`/source/${slug}.json`);
+      const res = await fetch(withBasePath(`/source/${slug}.json`));
       if (!res.ok) {
         throw new Error(`Failed to load source code for ${slug} (${res.status} ${res.statusText})`);
       }

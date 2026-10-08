@@ -1,3 +1,4 @@
+import { withBasePath } from "../src/lib/base-path";
 import './load-site-env';
 import fs from 'fs';
 import path from 'path';
@@ -148,6 +149,7 @@ function buildHtml(
   // Inject pre-rendered React markup into #root
   html = html.replace('<div id="root"></div>', `<div id="root">${cleanRootContent}</div>`);
 
+  html = html.replace(/((?:href|src)=")([^"\n]+)(")/g, (_match, before, url, after) => before + withBasePath(url) + after);
   return html;
 }
 
