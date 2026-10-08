@@ -1,0 +1,46 @@
+name: Registry CI
+
+on:
+  push:
+    branches: [main, feat/kittu-ui-library]
+  pull_request:
+    branches: [main, feat/kittu-ui-library]
+
+jobs:
+  validate:
+    name: Validate Registry, Tests & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate and validate registry
+        run: npm run component:sync
+
+      - name: Verify generated registry files are committed and in sync
+        run: |
+          git diff --exit-code registry.json src/components/registry/components-data.ts src/components/registry/catalog-index.ts public/source || (
+            echo "::error::Generated registry files are out of sync with source files. Run 'npm run component:sync' locally and commit the changes." && exit 1
+          )
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run TypeScript typecheck
+        run: npx tsc -b
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Run build
+        run: npm run build
