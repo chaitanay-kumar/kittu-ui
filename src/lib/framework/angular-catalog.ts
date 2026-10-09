@@ -140,5 +140,14 @@ export function angularUsage(entry: AngularEntry) {
         : entry.id === "liquid-command-palette"
           ? "LiquidCommand"
           : undefined;
+  if(entry.id === "spotlight-card") return `import { Component } from '@angular/core';
+import { KittuSpotlightCardComponent } from 'kittu-ui-angular';
+
+@Component({
+  selector: 'app-example',
+  imports: [KittuSpotlightCardComponent],
+  template: \`<kittu-spotlight-card [spotlightSize]="350" spotlightColor="rgba(56, 189, 248, 0.08)"><h3>Your content</h3><p>Hover to reveal the spotlight.</p></kittu-spotlight-card>\`,
+})
+export class ExampleComponent {}`;
   return `import { Component } from '@angular/core';\nimport { ${entry.exportName}${type ? `, type ${type}` : ""} } from 'kittu-ui-angular';\n\n@Component({\n  selector: 'app-example',\n  imports: [${entry.exportName}],\n  template: \`<${entry.selector}${entry.binding ? " " + entry.binding : ""} />\`,\n})\nexport class ExampleComponent {\n${entry.handler ?? ""}\n}`;
 }

@@ -8,6 +8,8 @@ export * from "./interactive-data-card.component";
 export * from "./timeline-scrubber.component";
 export * from "./ai-prompt-composer.component";
 
+export type {SpotlightCardMouseHandler} from "./spotlight-card-types";
+
 // Generated catalog exports.
 export * from "./port-types";
 export * from './activity-feed.component';

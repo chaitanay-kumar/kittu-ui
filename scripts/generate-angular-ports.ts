@@ -1,4 +1,5 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
+import {spotlightCardPort} from "./angular-spotlight-card";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -14,6 +15,8 @@ interface Port {
   description: string;
   imports?: string;
   componentImports?: string;
+  stylesFile?: string;
+  hostMetadata?: string;
 }
 const ports: Port[] = [];
 const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
@@ -83,6 +86,8 @@ function add(
     outputs: [...common[kind].outputs, ...(extra.outputs ?? [])],
     imports: extra.imports,
     componentImports: extra.componentImports,
+    stylesFile: extra.stylesFile,
+    hostMetadata: extra.hostMetadata,
   });
 }
 const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
@@ -404,7 +409,6 @@ for (const [id, title, layout] of [
   ["wallet-card", "Your wallet", "wallet"],
   ["peek-card", "A closer look", "peek"],
   ["reveal-card", "Reveal the details", "reveal"],
-  ["spotlight-card", "Small details matter", "spotlight"],
   ["mac-os-folder-cards", "Project folders", "folders"],
   ["stacked-cards", "Your collection", "stacked"],
   ["story-card", "Your stories", "stories"],
@@ -417,6 +421,7 @@ for (const [id, title, layout] of [
     `spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}`,
   );
 }
+add("spotlight-card", "plain", spotlightCardPort.description, spotlightCardPort.template, spotlightCardPort.body, spotlightCardPort);
 add(
   "avatar-stack",
   "collection",
@@ -790,14 +795,6 @@ const cardDefaults: Record<
         "Uncover another layer of information, with the keyboard or a pointer.",
     },
   ],
-  "spotlight-card": [
-    {
-      id: "spotlight",
-      label: "Small details matter",
-      description:
-        "A pointer-following highlight gives this surface a little depth.",
-    },
-  ],
 };
 for (const port of ports) {
   if(['hamburger-menu','gooey-menu','origin-dropdown'].includes(port.id)){
@@ -915,7 +912,7 @@ const entries = ports
       "KittuCompareFeature",
       "KittuChatHandler",
     ].filter(used);
-    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
+    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:${port.hostMetadata ?? `{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'}`},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}${port.stylesFile ? `encapsulation:ViewEncapsulation.None,styleUrls:[${JSON.stringify(port.stylesFile)}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
     fs.writeFileSync(path.join(directory, `${port.id}.component.ts`), source);
     const outputs = [
       ...port.outputs,

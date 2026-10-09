@@ -20,7 +20,7 @@ Controls expose signal models rather than `ControlValueAccessor`; direct `[formC
 | Pricing and comparison | Billing-period calculations, plan output events, search, differences-only filtering and collapsible feature groups |
 | Collections and feedback | Batch selection, notification dismissal/restore, expandable audit/timeline entries and application-owned recovery actions |
 | Dialogs and tooltips | Native modal focus containment and Escape restoration; tooltip hover, keyboard focus, touch and Escape dismissal |
-| Cards | Profile, wallet, folder, stack, story, spotlight, peek and reveal layouts with selection and disclosure |
+| Cards | Profile, wallet, folder, stack, story, peek and reveal layouts with selection and disclosure; Spotlight Card projects arbitrary content with pointer-driven illumination |
 | Motion | Native CSS transitions, counters, clocks, rotary controls, pointer effects and Canvas 2D visual engines with cleanup and pause controls |
 
 ## Application services
@@ -38,3 +38,7 @@ Motion respects reduced-motion preferences. Canvas engines stop their animation 
 `npm run angular:sync` generates the 108 authored native templates, their export list, demo registry and API catalog. Edit the authored definitions in `scripts/generate-angular-ports.ts` or `scripts/angular-complex-ports.ts`, and shared native behavior in `packages/angular/src/port-controllers.ts` and `port-canvas.ts`. Coverage generation fails on missing or duplicate catalog IDs. The components are generated from authored Angular templates, not by rendering React inside Angular.
 
 `npm run angular:build` synchronizes, compiles and packages the library and demos. `npm run test:angular-package` installs the tarball into separate compiler environments and strictly compiles every selector. Browser coverage mounts and disposes all 108 added ports in both themes on desktop/mobile emulation, then checks representative keyboard, async, data and canvas interactions.
+
+## Spotlight Card parity baseline
+
+`KittuSpotlightCardComponent` follows React's single projected-content card, spotlightColor/spotlightSize defaults, native attributes and mouse-handler overrides. Its former collection/selection/disclosure/action API is removed. See [contract and validation](parity/spotlight-card.md).

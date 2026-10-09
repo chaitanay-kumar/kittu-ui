@@ -1,3 +1,4 @@
+import {SpotlightCardDemoComponent} from "./spotlight-card-demo";
 import { Component, HostListener, signal } from "@angular/core";
 import { NgComponentOutlet } from "@angular/common";
 import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
@@ -39,6 +40,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   selector: "kittu-angular-demo",
   standalone: true,
   imports: [
+    SpotlightCardDemoComponent,
     NgComponentOutlet,
     KittuElasticSheetComponent,
     KittuSmartUploadComponent,
@@ -51,6 +53,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   ],
   template: `<main class="kittu-stack" aria-label="Native Angular demo">
     @switch (component) {
+      @case("spotlight-card"){<kittu-spotlight-card-demo/>}
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }

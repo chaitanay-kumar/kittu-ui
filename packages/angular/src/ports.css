@@ -941,9 +941,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  [data-kittu] *,
-  [data-kittu] *::before,
-  [data-kittu] *::after {
+  [data-kittu]:not(.k-spotlight-parity) *,
+  [data-kittu]:not(.k-spotlight-parity) *::before,
+  [data-kittu]:not(.k-spotlight-parity) *::after {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
