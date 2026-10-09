@@ -2,7 +2,7 @@
 
 React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
 
-Current progress: 5 components have validated baselines and 111 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader changes are on `feat/angular-loader-parity`. Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
+Current progress: 5 components have validated baselines and 111 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
 
 User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Next quick review: Button, followed by other small controls. The original inventory order remains below for tracking, not execution priority.
 
