@@ -145,4 +145,3 @@ export const SAMPLE_COMPONENTS_DATA: ComponentRecord[] = [
     dependencies: ['framer-motion', 'lucide-react'],
   },
 ];
-
