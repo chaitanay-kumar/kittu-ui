@@ -56,3 +56,12 @@ for(const theme of ['light','dark'])test(`React and Angular table geometry/style
  for(const name of Object.keys(react)){if(react[name]===null){expect(angular[name]).toBeNull();continue;}for(const property of Object.keys(react[name]!)){const a=angular[name]![property],r=react[name]![property];if(typeof r==='number')expect(Math.abs((a as number)-r),`${name}.${property}`).toBeLessThanOrEqual(1);else expect(a,`${name}.${property}`).toEqual(r);}}
  await angularRoot.screenshot({path:testInfo.outputPath(`angular-table-${theme}.png`)});
 });
+
+test('Angular standalone table retains light defaults without host theme CSS',async({page})=>{
+ await page.route('**/table-defaults.html',route=>route.fulfill({contentType:'text/html',body:'<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><script type="module" src="/e2e/fixtures/table-defaults.ts"></script></body></html>'}));
+ await page.goto('/table-defaults.html');const root=page.locator('.k-data-table');await expect(root).toBeVisible();
+ await expect.poll(()=>root.evaluate(el=>getComputedStyle(el).color)).toBe('oklch(0.141 0.005 285.823)');
+ const style=await root.evaluate(el=>{const s=getComputedStyle(el);return{border:s.borderTopWidth,color:s.color,background:s.backgroundColor,radius:s.borderRadius,sourceBorder:s.getPropertyValue('--border'),width:el.getBoundingClientRect().width,parentWidth:el.parentElement!.getBoundingClientRect().width};});
+ expect(style.sourceBorder).toBe('');expect(style.border).toBe('1px');expect(style.radius).toBe('25.2px');expect(style.color).toBe('oklch(0.141 0.005 285.823)');expect(style.background).not.toBe('rgba(0, 0, 0, 0)');expect(style.width).toBe(style.parentWidth);
+ await expect(root.getByText('Showing',{exact:false})).toContainText('of 2 records');await expect(root.getByText('First record',{exact:true})).toBeVisible();
+});

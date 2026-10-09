@@ -23,11 +23,13 @@ React node-returning functions become Angular `TemplateRef`s. Column `cell` temp
 
 Sorting cycles ascending, descending, unsorted and keeps nulls last. Search checks primitive row values and follows React's whitespace behavior. Filters OR values within a column and AND across columns. Select-all operates on the current page with an indeterminate checkbox; selected IDs persist across page changes. Column visibility supports hiding every column, matching React. Table/cards modes, responsive auto mode, custom details, pagination and error/loading/empty panels follow the reference. Iframe height-only resize events are ignored so documentation resizing cannot undo a manual view toggle.
 
+The root supplies light/dark defaults when a consuming application omits theme CSS; application tokens take precedence.
+
 ## Validation and limits
 
 The demo duplicates the current React Component Registry data, custom cells, specifications panels and delete/export feedback. Browser checks compare rendered geometry, typography, colors and radii in both themes, desktop and mobile. Additional checks exercise search, multi-value filters, sort cycles, selection across pages, column visibility, keyboard details, table/cards views, pagination and callbacks.
 
-Packaged contract tests exercise null sorting, nested-value search exclusions, replacement data, defaults, state panels, custom Angular templates, compound composition and callback/output payloads. Strict consumer builds cover Angular 20.0, 20.3, 21 and 22. Validation passed: 8 focused browser checks, 24 catalog/sidebar checks, 117 existing unit tests, the built-package contract, all four Angular consumer builds, and the production build with 289 SEO checks. Lint passes with 21 inherited warnings.
+Packaged contract tests exercise null sorting, nested-value search exclusions, replacement data, defaults, state panels, custom Angular templates, arbitrary projected content, compound composition and callback/output payloads. Strict consumer builds cover Angular 20.0, 20.3, 21 and 22. Validation passed: 10 focused browser checks, 24 catalog/sidebar checks, 117 existing unit tests, the built-package contract, all four Angular consumer builds, and the production build with 289 SEO checks. Lint passes with 21 inherited warnings.
 
 Native Web Animations sample React's 300/32/0.6 spring for disclosure entries and respect reduced motion. Exact animation trajectories and bulk-bar exit motion remain review limitations. Verification covers Chromium desktop and mobile emulation, not physical devices or every browser. These limits are recorded rather than claiming exhaustive parity.
 
