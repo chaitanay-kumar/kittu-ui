@@ -43,7 +43,8 @@ try{
  <ng-template #cell let-row let-value="value"><b class="custom-cell">{{row.name}}:{{value}}</b></ng-template>
  <ng-template #detail let-row><p class="custom-detail">Details {{row.name}}</p></ng-template>
  <kittu-advanced-data-table [data]="rows" [columns]="[{id:'name',header:'Name',accessorKey:'name',cell:cell}]" [renderSubComponent]="detail" [onBulkDelete]="onDelete" [onBulkExport]="onExport" (bulkDelete)="deleted=$event" (bulkExport)="exported=$event"/>
- <kittu-data-table [data]="rows" [columns]="columns"><kittu-data-table-toolbar title="Custom composition"/><kittu-data-table-content emptyTitle="Custom empty"/><kittu-data-table-pagination [pageSizeOptions]="[2,4]"/></kittu-data-table>`})(Consumer);
+ <kittu-data-table [data]="rows" [columns]="columns"><kittu-data-table-toolbar title="Custom composition"/><kittu-data-table-content emptyTitle="Custom empty"/><kittu-data-table-pagination [pageSizeOptions]="[2,4]"/></kittu-data-table>
+ <kittu-data-table><p class="plain-content">Custom standalone content</p></kittu-data-table>`})(Consumer);
  TestBed.configureTestingModule({imports:[Consumer],providers:[provideZonelessChangeDetection()]});
  const consumer=TestBed.createComponent(Consumer);consumer.detectChanges();
  try{
@@ -55,6 +56,8 @@ try{
  toolbar.deleteSelected();toolbar.exportSelected();assert.deepEqual(consumer.componentInstance.deleted,['a']);assert.deepEqual(consumer.componentInstance.exported,['a']);
  assert.equal(consumer.nativeElement.querySelectorAll('.k-dt-toolbar').length,2);
  assert.ok(consumer.nativeElement.textContent.includes('Custom composition'));
+ assert.ok(consumer.nativeElement.querySelector('.plain-content'));
+ assert.equal(consumer.nativeElement.querySelector('.plain-content').parentElement.querySelector('.k-dt-toolbar'),null);
  }finally{consumer.destroy();}
  console.log('Data Table package contract passed: sorting/nulls, search, OR filters, page selection/indeterminate, visibility, defaults, loading/error/empty, updates, cards, custom cells/details, compound composition, bulk callbacks/outputs.');
 }finally{if(!fixture.componentRef.hostView.destroyed)fixture.destroy();TestBed.resetTestingModule();dom.window.close();}

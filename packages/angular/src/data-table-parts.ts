@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewEncapsulation, contentChild, forwardRef, inject, input, output, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation, forwardRef, inject, input, output, signal, viewChild } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { installDataTableMotion } from './data-table-motion';
 import { KittuDataTableController } from './data-table-controller';
@@ -76,9 +76,9 @@ export class KittuDataTablePaginationComponent {readonly table=inject(KittuDataT
  imports:[KittuDataTableToolbarComponent,KittuDataTableFiltersComponent,KittuDataTableContentComponent,KittuDataTablePaginationComponent],
  providers:[{provide:KittuDataTableController,useExisting:forwardRef(()=>KittuDataTableComponent)}],
  host:{style:'display:block;min-width:0'},encapsulation:ViewEncapsulation.None,styleUrls:['./data-table.css'],
- template:`<div [class]="'k-data-table '+className()" [style.--accent-custom]="accentColor()"><ng-content/>@if(!toolbar()&&!filters()&&!content()&&!pagination()){<kittu-data-table-toolbar/><kittu-data-table-filters/><kittu-data-table-content/><kittu-data-table-pagination/>}</div>`
+ template:`<div [class]="'k-data-table '+className()" [style.--accent-custom]="accentColor()"><ng-content><kittu-data-table-toolbar/><kittu-data-table-filters/><kittu-data-table-content/><kittu-data-table-pagination/></ng-content></div>`
 })
 export class KittuDataTableComponent<T = any> extends KittuDataTableController<T> {
  constructor(){super();installDataTableMotion();}
- readonly toolbar=contentChild(KittuDataTableToolbarComponent);readonly filters=contentChild(KittuDataTableFiltersComponent);readonly content=contentChild(KittuDataTableContentComponent);readonly pagination=contentChild(KittuDataTablePaginationComponent);
+
 }
