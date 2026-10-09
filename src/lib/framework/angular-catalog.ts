@@ -132,6 +132,15 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   ...ANGULAR_PORTS,
 ];
 export function angularUsage(entry: AngularEntry) {
+  if (entry.id === 'advanced-data-table') return `import { Component } from '@angular/core';
+import { KittuAdvancedDataTableComponent, type ColumnDef } from 'kittu-ui-angular';
+interface Row { id: string; name: string; }
+@Component({selector:'app-example',imports:[KittuAdvancedDataTableComponent],template:\`<kittu-advanced-data-table title="Directory" [data]="rows" [columns]="columns" [onBulkExport]="exportRows"/>\`})
+export class ExampleComponent {
+  readonly rows: Row[] = [{id:'1',name:'Kit UI'}];
+  readonly columns: ColumnDef<Row>[] = [{id:'name',header:'Name',accessorKey:'name',sortable:true}];
+  readonly exportRows = (ids: string[]) => { console.log(ids); };
+}`;
   const type =
     entry.id === "smart-upload"
       ? "UploadHandler"

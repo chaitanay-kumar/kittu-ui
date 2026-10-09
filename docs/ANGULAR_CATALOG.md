@@ -38,3 +38,7 @@ Motion respects reduced-motion preferences. Canvas engines stop their animation 
 `npm run angular:sync` generates the 108 authored native templates, their export list, demo registry and API catalog. Edit the authored definitions in `scripts/generate-angular-ports.ts` or `scripts/angular-complex-ports.ts`, and shared native behavior in `packages/angular/src/port-controllers.ts` and `port-canvas.ts`. Coverage generation fails on missing or duplicate catalog IDs. The components are generated from authored Angular templates, not by rendering React inside Angular.
 
 `npm run angular:build` synchronizes, compiles and packages the library and demos. `npm run test:angular-package` installs the tarball into separate compiler environments and strictly compiles every selector. Browser coverage mounts and disposes all 108 added ports in both themes on desktop/mobile emulation, then checks representative keyboard, async, data and canvas interactions.
+
+## Advanced Data Table parity
+
+The native table now follows React's typed columns, cards/table views, current-page selection and ID-based bulk callbacks. Custom cells and details use Angular templates; compound components are available for custom composition. See [migration and validation details](parity/advanced-data-table.md) and the [component parity tracker](ANGULAR_REACT_PARITY.md).

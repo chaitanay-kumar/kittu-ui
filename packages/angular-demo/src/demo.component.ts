@@ -1,4 +1,5 @@
 import { Component, HostListener, signal } from "@angular/core";
+import { TableDemoComponent } from "./table-demo";
 import { NgComponentOutlet } from "@angular/common";
 import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
 import {
@@ -40,6 +41,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   standalone: true,
   imports: [
     NgComponentOutlet,
+    TableDemoComponent,
     KittuElasticSheetComponent,
     KittuSmartUploadComponent,
     KittuLiquidCommandPaletteComponent,
@@ -51,6 +53,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   ],
   template: `<main class="kittu-stack" aria-label="Native Angular demo">
     @switch (component) {
+      @case ("advanced-data-table") { <kittu-table-demo/> }
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }
@@ -129,7 +132,7 @@ export class DemoComponent {
     return (
       ["action", "collection", "form"].includes(
         DEMO_PORT_KINDS[this.component],
-      ) || this.component === "advanced-data-table"
+      )
     );
   }
   readonly portAction = async (signal: AbortSignal) => {
@@ -165,8 +168,6 @@ export class DemoComponent {
     if (this.component === "animated-file-upload")
       return { upload: this.upload };
     if (this.component === "chat") return { sendHandler: this.portChat };
-    if (this.component === "advanced-data-table")
-      return { bulkAction: this.portCollectionAction };
     const kind = DEMO_PORT_KINDS[this.component];
     return kind === "action"
       ? { action: this.portAction }
