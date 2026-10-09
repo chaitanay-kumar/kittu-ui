@@ -68,7 +68,7 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-swipe-action-list [items]="[]" />
   <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
   <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
-  <kittu-ai-prompt-composer [sendHandler]="send" />
+  <kittu-ai-prompt-composer [onSend]="send" />
 \`})
 export class ConsumerApp { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `,

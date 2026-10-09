@@ -82,7 +82,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
           Local simulation. No AI service is connected. Include “fail” to
           demonstrate draft recovery.
         </p>
-        <kittu-ai-prompt-composer [sendHandler]="send" />
+        <kittu-ai-prompt-composer [onSend]="send" />
       }
       @default {
         @if (port) {
