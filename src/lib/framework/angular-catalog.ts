@@ -132,6 +132,7 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   ...ANGULAR_PORTS,
 ];
 export function angularUsage(entry: AngularEntry) {
+  if(entry.id==='button') return `import { Component } from '@angular/core';\nimport { KittuButtonComponent } from 'kittu-ui-angular';\n\n@Component({\n  selector: 'app-example',\n  imports: [KittuButtonComponent],\n  template: \`<button kittuButton variant="primary">Save changes</button>\`,\n})\nexport class ExampleComponent {}`;
   const type =
     entry.id === "smart-upload"
       ? "UploadHandler"

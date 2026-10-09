@@ -61,6 +61,7 @@ for (const { angularVersion, typescript } of matrix) {
 import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
 @Component({selector:'consumer-app',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
   ${portTemplates}
+<button kittuButton variant="success" size="sm" [isLoading]="false" loadingText="Saving" [fullWidth]="true" [disabled]="false" type="submit">Save</button>
   <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
   <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
   <kittu-liquid-command-palette [commands]="[]" />

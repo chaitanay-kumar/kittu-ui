@@ -23,7 +23,8 @@
     "angular:sync": "tsx scripts/generate-angular-ports.ts",
     "angular:build": "npm run angular:sync && node scripts/build-angular.mjs",
     "test:angular-package": "node scripts/verify-angular-package.mjs",
-    "predev": "npm run angular:build"
+    "predev": "npm run angular:build",
+    "test:button": "node scripts/verify-button.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

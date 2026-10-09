@@ -25,7 +25,9 @@ for (const theme of ["light", "dark"]) {
           history.pushState(null, "", url);
           dispatchEvent(new PopStateEvent("popstate"));
         }, port.id);
-        const component = page.locator(`[data-kittu="${port.id}"]`);
+        const roots = page.locator(`[data-kittu="${port.id}"]`);
+        if(port.id === "button") await expect(roots).toHaveCount(11);
+        const component = port.id === "button" ? roots.first() : roots;
         await expect(component).toBeVisible();
         await expect(
           page.getByText("Select an available Angular component."),
@@ -88,6 +90,7 @@ test("Angular website has the complete catalog and framework-specific usage", as
   await catalog.getByRole("button").click();
   await expect(page).toHaveURL(/advanced-data-table\?framework=angular/);
   await expect(page.frameLocator("iframe").getByRole("table")).toBeVisible();
+  await page.getByRole("tab",{name:"Usage",exact:true}).click();
   await expect(
     page.getByText("KittuAdvancedDataTableComponent", { exact: false }).first(),
   ).toBeVisible();

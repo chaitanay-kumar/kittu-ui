@@ -1,0 +1,148 @@
+# Angular React parity tracker
+
+React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
+
+Current progress: 6 components have validated baselines and 110 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
+
+User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is on `feat/angular-button-parity`. Next quick reviews: Neon Edge Button and Orbital Loading Ring. The original inventory order remains below for tracking, not execution priority.
+
+## Review requirements
+
+- Compare the actual rendered React component and its public types before changing Angular.
+- Match data contracts, option names, defaults, state changes, callbacks and content customization.
+- Match layout, typography, colors, icons, responsive behavior and interaction feedback.
+- Check keyboard operation, focus, disabled/loading/error/empty states, cleanup and reduced motion.
+- Use the same demo data and exercise consuming applications, not only the documentation shell.
+- Edit authored definitions and regenerate tracked catalogs, exports and source outputs.
+- Record test results and remaining differences; mark a component validated only for the coverage recorded in its report.
+
+## Component inventory
+
+| Order | Component | ID | Status | Report |
+| --- | --- | --- | --- | --- |
+| 1 | Activity Feed | `activity-feed` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-activity-feed-parity/docs/parity/activity-feed.md) |
+| 2 | Advanced Data Table | `advanced-data-table` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-advanced-data-table-parity/docs/parity/advanced-data-table.md) |
+| 3 | AI Agent Activity | `ai-agent-activity` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-agent-activity-parity/docs/parity/ai-agent-activity.md) |
+| 4 | AI Prompt Composer | `ai-prompt-composer` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-prompt-composer-parity/docs/parity/ai-prompt-composer.md) |
+| 5 | AI Response | `ai-response` | In progress, deferred for simpler controls | Local audit on deferred branch |
+| 6 | Airport Matrix Clock | `airport-matrix-clock` | Queued | — |
+| 7 | Animated File Upload | `animated-file-upload` | Queued | — |
+| 8 | Animated Number Morph | `animated-number` | Queued | — |
+| 9 | Animated Tabs | `animated-tabs` | Queued | — |
+| 10 | Avatar Stack | `avatar-stack` | Queued | — |
+| 11 | Batch Gesture Tray | `batch-gesture-tray` | Queued | — |
+| 12 | Book Call Button | `book-call-button` | Queued | — |
+| 13 | Branching Submenu | `branching-submenu` | Queued | — |
+| 14 | Button | `button` | Validated baseline | [Review](parity/button.md) |
+| 15 | Car Smoke Page Transition | `car-smoke-page-transition` | Queued | — |
+| 16 | Chat | `chat` | Queued | — |
+| 17 | Circular Orbit | `circular-orbit` | Queued | — |
+| 18 | Code Snippet Deck | `code-snippet-deck` | Queued | — |
+| 19 | Command Menu | `command-menu` | Queued | — |
+| 20 | Cursor Follower | `cursor-follower` | Queued | — |
+| 21 | Density Lens | `density-lens` | Queued | — |
+| 22 | Dependency Trace | `dependency-trace` | Queued | — |
+| 23 | Depth Corridor | `depth-corridor` | Queued | — |
+| 24 | DirectionalTooltip | `directional-tooltip` | Queued | — |
+| 25 | Dot Field | `dot-field` | Queued | — |
+| 26 | Dot Shader | `dot-shader` | Queued | — |
+| 27 | Drag to Confirm | `drag-to-confirm` | Queued | — |
+| 28 | DrawCheckbox | `draw-checkbox` | Queued | — |
+| 29 | Dynamic Island | `dynamic-island` | Queued | — |
+| 30 | Elastic Sheet | `elastic-sheet` | Queued | — |
+| 31 | Evil Eye | `evil-eye` | Queued | — |
+| 32 | Expandable Data Row | `expandable-data-row` | Queued | — |
+| 33 | Expandable Search | `expandable-search` | Queued | — |
+| 34 | FAQ | `faq` | Queued | — |
+| 35 | Floating Action Dock | `floating-action-dock` | Queued | — |
+| 36 | Focus Mode | `focus-mode` | Queued | — |
+| 37 | Form | `form` | Queued | — |
+| 38 | Glass Navbar | `glass-navbar` | Queued | — |
+| 39 | Glitch Text | `glitch-text` | Queued | — |
+| 40 | Glyph Matrix | `glyph-matrix` | Queued | — |
+| 41 | Gooey Menu | `gooey-menu` | Queued | — |
+| 42 | Gravity Particle Burst | `gravity-particle-burst` | Queued | — |
+| 43 | Hamburger Menu | `hamburger-menu` | Queued | — |
+| 44 | Hold-to-Confirm | `hold-to-confirm` | Queued | — |
+| 45 | Interactive Data Card | `interactive-data-card` | Queued | — |
+| 46 | Interactive Timeline | `interactive-timeline` | Queued | — |
+| 47 | Intro Loader | `intro-loader` | Queued | — |
+| 48 | iOS-style Search Bar | `ios-search-bar` | Queued | — |
+| 49 | Liquid Command Palette | `liquid-command-palette` | Queued | — |
+| 50 | Liquid Ripple Button | `liquid-ripple-button` | Queued | — |
+| 51 | Liquid Toggle | `liquid-toggle` | Queued | — |
+| 52 | Loader | `loader` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-loader-parity/docs/parity/loader.md) |
+| 53 | LockInput | `lock-input` | Queued | — |
+| 54 | Login | `login` | Queued | — |
+| 55 | macOS Folder Cards | `mac-os-folder-cards` | Queued | — |
+| 56 | Magnetic Button | `magnetic-button` | Queued | — |
+| 57 | Meteors | `meteors` | Queued | — |
+| 58 | Metric HUD | `metric-hud` | Queued | — |
+| 59 | Morphing Blob | `morphing-blob` | Queued | — |
+| 60 | Morphing Button | `morphing-button` | Queued | — |
+| 61 | Morphing Dialog | `morphing-dialog` | Queued | — |
+| 62 | Morphing Icon | `morphing-icon` | Queued | — |
+| 63 | Morphing Shape Loader | `morphing-shape-loader` | Queued | — |
+| 64 | Neon Edge Button | `neon-edge-button` | Queued | — |
+| 65 | Nimbu Mirchi | `nimbu-mirchi` | Queued | — |
+| 66 | Not Found | `not-found` | Queued | — |
+| 67 | Notification Bell | `notification-bell` | Queued | — |
+| 68 | Notification Stack | `notification-stack` | Queued | — |
+| 69 | Orbital Loading Ring | `orbital-loading-ring` | Queued | — |
+| 70 | OriginDropdown | `origin-dropdown` | Queued | — |
+| 71 | OTP Input | `otp-input` | Queued | — |
+| 72 | Particle Delete | `particle-delete` | Queued | — |
+| 73 | Payment Receipt Printer | `payment-receipt-printer` | Queued | — |
+| 74 | Payment Status | `payment-status` | Queued | — |
+| 75 | Peek Card | `peek-card` | Queued | — |
+| 76 | Pill Navigation | `pill-navigation` | Queued | — |
+| 77 | PressButton | `press-button` | Queued | — |
+| 78 | Pricing | `pricing` | Queued | — |
+| 79 | Profile Card | `profile-card` | Queued | — |
+| 80 | Pull to Refresh | `pull-to-refresh` | Queued | — |
+| 81 | Rainbow Button | `rainbow-button` | Queued | — |
+| 82 | Recovery Ledger | `recovery-ledger` | Queued | — |
+| 83 | Reveal Card | `reveal-card` | Queued | — |
+| 84 | Rocket Party Popper | `rocket-party-popper` | Queued | — |
+| 85 | Scroll Progress Navigation | `scroll-progress-nav` | Queued | — |
+| 86 | Scroll Velocity Text | `scrollvelocitytext` | Queued | — |
+| 87 | Selection Basket | `selection-basket` | Queued | — |
+| 88 | SettleModal | `settle-modal` | Queued | — |
+| 89 | Shooting Stars | `shooting-stars` | Queued | — |
+| 90 | Sign Up | `sign-up` | Queued | — |
+| 91 | SlidePagination | `slide-pagination` | Queued | — |
+| 92 | Small Floating Dock | `small-floating-dock` | Queued | — |
+| 93 | Smart Comparison | `smart-comparison` | Queued | — |
+| 94 | Smart Upload | `smart-upload` | Queued | — |
+| 95 | Smooth Accordion | `smooth-accordion` | Queued | — |
+| 96 | Sparkles Core | `sparkles-core` | Queued | — |
+| 97 | Speed Warp | `speed-warp` | Queued | — |
+| 98 | Split Button | `split-button` | Queued | — |
+| 99 | Spotlight Card | `spotlight-card` | Queued | — |
+| 100 | Spotlight Search | `spotlight-search` | Queued | — |
+| 101 | SpringSelect | `spring-select` | Queued | — |
+| 102 | Stack Unfold Panel | `stack-unfold-panel` | Queued | — |
+| 103 | Stacked Cards | `stacked-cards` | Queued | — |
+| 104 | Sticky Pages | `sticky-pages` | Queued | — |
+| 105 | Story Cards | `story-card` | Queued | — |
+| 106 | StretchSwitch | `stretch-switch` | Queued | — |
+| 107 | Swipe Action List | `swipe-action-list` | Queued | — |
+| 108 | Text Scramble Decoder | `text-scramble-decoder` | Queued | — |
+| 109 | Thinking Orb | `thinking-orb` | Queued | — |
+| 110 | Timeline Scrubber | `timeline-scrubber` | Queued | — |
+| 111 | Torque Dial | `torque-dial` | Queued | — |
+| 112 | Typewriter Button | `typewriter-button` | Queued | — |
+| 113 | Undo Toast | `undo-toast` | Queued | — |
+| 114 | UnfoldAccordion | `unfold-accordion` | Queued | — |
+| 115 | VelocityToast | `velocity-toast` | Queued | — |
+| 116 | Wallet Card | `wallet-card` | Queued | — |
+
+## Validation baseline
+
+Activity Feed: 14 component browser checks and 24 catalog/navigation checks pass on desktop/mobile Chromium. All 117 existing unit tests pass. The production build passes 289 SEO checks. The packaged contract check passes, and Angular 20.0, 20.3, 21 and 22 consumers compile all 116 selectors with the Activity Feed bindings. Lint has 21 inherited warnings.
+
+These results cover the first component and integration regressions; they do not establish parity for queued components. Physical devices, Safari/Firefox and exhaustive accessibility coverage are outside the recorded validation.
+
+AI Agent Activity: 20 focused browser checks, 24 catalog/sidebar checks, the built-package contract, 117 unit tests, four Angular consumer builds and production build with 289 SEO checks pass. Lint retains 21 inherited warnings. See its report for motion coverage limits.
+
+AI Prompt Composer: 8 focused browser checks, 24 catalog/sidebar checks, packaged async/attachment contracts, four Angular consumer builds, 117 unit tests and production build with 289 SEO checks pass. Lint retains 21 inherited warnings.

@@ -255,16 +255,20 @@
     "name": "Button",
     "exportName": "KittuButtonComponent",
     "selector": "kittu-button",
-    "description": "Continue: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched native button with nine visual variants, four sizes, projected content/icons, loading text, disabled state and native form events.",
     "inputs": [
-      "label: string",
+      "variant: ButtonVariant",
+      "size: ButtonSize",
+      "isLoading: boolean",
+      "loadingText: string",
+      "leftIcon: ButtonIcon",
+      "rightIcon: ButtonIcon",
+      "fullWidth: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KittuAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "car-smoke-page-transition",
