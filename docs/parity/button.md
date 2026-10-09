@@ -4,7 +4,7 @@ React reference: [Button](../../src/components/ui/Button.tsx), its public Button
 
 ## Contract and migration
 
-`KittuButtonComponent` now supports the nine React variants and four sizes, with primary/md defaults. Inputs follow React: variant, size, isLoading (false), loadingText (undefined), fullWidth (false), disabled (false), type (button), className (empty), and leftIcon/rightIcon as Angular TemplateRefs. Arbitrary child content is projected. Icons can also be projected using kittuButtonLeftIcon/kittuButtonRightIcon attributes.
+`KittuButtonComponent` now supports the nine React variants and four sizes, with primary/md defaults. Explicit undefined bindings retain React defaults. Inputs follow React: variant, size, isLoading (false), loadingText (undefined), fullWidth (false), disabled (false), type (button), className (empty), and leftIcon/rightIcon as Angular TemplateRefs. Arbitrary child content is projected. Icons can also be projected using kittuButtonLeftIcon/kittuButtonRightIcon attributes.
 
 Use `<button kittuButton (click)="save()">Save</button>` for native form semantics, attributes, events and ElementRef access. The existing `<kittu-button>` selector remains available and renders an internal native button. Put native HTML attributes on the actual button via the attribute selector. Native Angular bindings on that button provide equivalents for React's ordinary HTML props; Framer Motion configuration props are not exposed.
 
@@ -40,3 +40,4 @@ Exact frame-by-frame spring/transition trajectories, physical devices, other bro
 - Desktop/mobile screenshot pairs were visually inspected; the floating website navigation is hidden for evidence captures in both frameworks.
 - All 24 catalog/framework-navigation browser checks passed, including rendering and disposal of the complete Angular catalog in both themes.
 - Production build and 289 SEO checks passed. Lint passed with 21 existing warnings and no new warnings.
+- Optional-input follow-up: direct undefined bindings retain variant/size/type/className defaults; packaged checks, all 22 focused browser checks and all four strict Angular consumer builds passed after the change.
