@@ -55,7 +55,7 @@ for(const theme of ['light','dark'])test(`React and Angular agent geometry and t
  await page.goto('/components/ai-agent-activity?framework=react');
  const root=page.getByRole('heading',{name:'Activity',exact:true}).locator('xpath=../../../..');await expect(root).toBeVisible();
  const size=await root.boundingBox();const react=await metrics(root,{root:'',header:':scope>div:first-child',timeline:':scope>div:nth-child(2)',title:'.tracking-tight.truncate:not(h3)',description:'p',detail:'.overflow-hidden.mt-3',code:'code',parameters:'.overflow-x-auto.select-text:not(pre)'});
- await page.evaluate(()=>{for(const node of Array.from(document.querySelectorAll<HTMLElement>('*')))if(getComputedStyle(node).position==='fixed')node.style.visibility='hidden';});
+ await page.addStyleTag({content:'header.sticky{opacity:0!important;pointer-events:none!important}.fixed{display:none!important}'});
  await root.screenshot({path:testInfo.outputPath(`react-agent-${theme}.png`),animations:'disabled'});
  await page.goto(`/angular-demo/index.html?component=ai-agent-activity&theme=${theme}`);await page.setViewportSize({width:Math.round(size!.width),height:1500});
  const angularRoot=page.locator('.k-ai-agent-activity');await expect(angularRoot).toBeVisible();
