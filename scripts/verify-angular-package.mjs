@@ -61,6 +61,8 @@ for (const { angularVersion, typescript } of matrix) {
 import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
 @Component({selector:'consumer-app',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
   ${portTemplates}
+<button kittuNeonEdgeButton [speed]="2" [glow]="false" [disabled]="false" type="submit" className="customer-neon">Ship</button>
+<button kittuNeonEdgeButton [speed]="optionalSpeed" [glow]="optionalGlow" [type]="optionalType" [className]="optionalClass">Defaults</button>
   <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
   <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
   <kittu-liquid-command-palette [commands]="[]" />
@@ -70,7 +72,7 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
-export class ConsumerApp { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+export class ConsumerApp { readonly optionalSpeed:number|undefined=undefined;readonly optionalGlow:boolean|undefined=undefined;readonly optionalType:'button'|'submit'|'reset'|undefined=undefined;readonly optionalClass:string|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `,
   );
   fs.writeFileSync(

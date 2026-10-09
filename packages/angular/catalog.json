@@ -1086,16 +1086,15 @@
     "name": "Neon Edge Button",
     "exportName": "KittuNeonEdgeButtonComponent",
     "selector": "kittu-neon-edge-button",
-    "description": "Light the way: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched travelling edge light with speed/glow controls, projected button content, native HTML form behavior and a static reduced-motion highlight.",
     "inputs": [
-      "label: string",
+      "speed: number",
+      "glow: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KittuAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "nimbu-mirchi",

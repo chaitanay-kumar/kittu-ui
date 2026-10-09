@@ -8,7 +8,7 @@ This package is not published to npm. Build from this repository with `npm run a
 npm install ./kittu-ui-angular-0.1.0.tgz
 ```
 
-Add `@import 'kittu-ui-angular/styles.css';` to your application's global stylesheet. Styles use optional `--bg`, `--border`, `--text-primary`, and `--text-secondary` variables, with light defaults; supply dark theme values on your root or a wrapper. All motion respects `prefers-reduced-motion`.
+Add `@import 'kittu-ui-angular/styles.css';` to your application's global stylesheet. Styles use optional `--bg`, `--border`, `--text-primary`, and `--text-secondary` variables, with light defaults; supply dark theme values on your root or a wrapper. Motion behavior follows each component’s documented inputs and reference behavior.
 
 ```ts
 import { Component } from '@angular/core';
@@ -31,3 +31,5 @@ The Angular components are independent Kit UI ports. MIT; preserve the included 
 The library is built with Angular 20.3 and TypeScript 5.9 in partial compilation mode. Compatibility checks install the same tarball into separate Angular 20.0, 20.3, 21, and 22 consumers and compile all 116 selectors with each consumer's own compiler and compatible TypeScript. The components work with zone-based and zoneless applications; the website demo explicitly enables Angular 20's zoneless provider. The library does not configure change detection for your application.
 
 Angular APIs are independently designed: React render props become typed data or projected content, and callbacks become output events or abortable application handlers. Native CSS and Canvas 2D replace Framer Motion and WebGL effects. Visuals and detailed motion physics differ; this is catalog coverage, not pixel-identical rendering or React API compatibility. Authentication, payments, scheduling, uploads and AI services remain application responsibilities. Library components never report an external operation as completed without an application handler.
+
+Neon Edge Button accepts React-matched speed/glow/className inputs with projected content (default Deploy preview). Use `<button kittuNeonEdgeButton>` for native HTML attributes, form semantics and DOM events. The existing `<kittu-neon-edge-button>` selector remains available with an internal button. The old generic action/loading/status/cancellation API is removed; requests remain application-owned. The copied Zap icon retains LUCIDE-LICENSE.txt.

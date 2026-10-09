@@ -132,6 +132,7 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   ...ANGULAR_PORTS,
 ];
 export function angularUsage(entry: AngularEntry) {
+  if(entry.id==='neon-edge-button') return `import { Component } from '@angular/core';\nimport { KittuNeonEdgeButtonComponent } from 'kittu-ui-angular';\n\n@Component({\n  selector: 'app-example',\n  imports: [KittuNeonEdgeButtonComponent],\n  template: \`<button kittuNeonEdgeButton [speed]="1" [glow]="true">Deploy preview</button>\`,\n})\nexport class ExampleComponent {}`;
   const type =
     entry.id === "smart-upload"
       ? "UploadHandler"

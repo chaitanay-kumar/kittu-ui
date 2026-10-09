@@ -53,5 +53,8 @@ jobs:
       - name: Run build
         run: npm run build
 
+      - name: Verify Neon Edge Button contract
+        run: npm run test:neon-edge-button
+
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package
