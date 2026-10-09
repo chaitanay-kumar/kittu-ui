@@ -1,4 +1,5 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
+import {loaderPort} from "./angular-loader";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -14,6 +15,8 @@ interface Port {
   description: string;
   imports?: string;
   componentImports?: string;
+  stylesFile?: string;
+  hostMetadata?: string;
 }
 const ports: Port[] = [];
 const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
@@ -83,6 +86,8 @@ function add(
     outputs: [...common[kind].outputs, ...(extra.outputs ?? [])],
     imports: extra.imports,
     componentImports: extra.componentImports,
+    stylesFile: extra.stylesFile,
+    hostMetadata: extra.hostMetadata,
   });
 }
 const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
@@ -442,9 +447,10 @@ add(
   },
 );
 
+add("loader","plain",loaderPort.description,loaderPort.template,loaderPort.body,loaderPort);
+
 // Loading indicators can be stopped and honor reduced motion in CSS.
 for (const [id, shape] of [
-  ["loader", "spinner"],
   ["orbital-loading-ring", "orbit-loader"],
   ["morphing-shape-loader", "shape-loader"],
   ["intro-loader", "intro-loader"],
@@ -915,7 +921,7 @@ const entries = ports
       "KittuCompareFeature",
       "KittuChatHandler",
     ].filter(used);
-    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
+    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:${port.hostMetadata ?? `{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'}`},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}${port.stylesFile ? `encapsulation:ViewEncapsulation.None,styleUrls:[${JSON.stringify(port.stylesFile)}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
     fs.writeFileSync(path.join(directory, `${port.id}.component.ts`), source);
     const outputs = [
       ...port.outputs,

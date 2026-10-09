@@ -1,5 +1,6 @@
 import { Component, HostListener, signal } from "@angular/core";
 import { NgComponentOutlet } from "@angular/common";
+import {LoaderDemoComponent} from "./loader-demo";
 import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
 import {
   KittuElasticSheetComponent,
@@ -40,6 +41,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   standalone: true,
   imports: [
     NgComponentOutlet,
+    LoaderDemoComponent,
     KittuElasticSheetComponent,
     KittuSmartUploadComponent,
     KittuLiquidCommandPaletteComponent,
@@ -51,6 +53,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   ],
   template: `<main class="kittu-stack" aria-label="Native Angular demo">
     @switch (component) {
+      @case("loader"){<kittu-loader-demo/>}
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }
