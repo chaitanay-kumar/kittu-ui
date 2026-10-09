@@ -262,7 +262,7 @@ export default function AngularExperience({
                   Running the Angular component. Demos with requests simulate
                   them locally.
                 </p>
-                <div className="rounded-2xl border border-border bg-background overflow-hidden">
+                <div className={entry.id === "activity-feed" ? "rounded-[26px] border border-border bg-background overflow-hidden p-[22px] sm:p-11" : "rounded-2xl border border-border bg-background overflow-hidden"}>
                   <AngularPreview
                     key={entry.id}
                     id={entry.id}

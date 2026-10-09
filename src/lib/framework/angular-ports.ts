@@ -5,23 +5,18 @@ export const ANGULAR_PORTS = [
     "name": "Activity Feed",
     "exportName": "KittuActivityFeedComponent",
     "selector": "kittu-activity-feed",
-    "description": "Filter chronological events, inspect event payloads and select an event without simulated network activity.",
+    "description": "React-matched telemetry cards, category counts, search, trace copying, replay, JSON inspection and optional live simulation.",
     "inputs": [
-      "items: KittuItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "events: ActivityEvent[]",
+      "enableLiveSimulation: boolean",
+      "enableFilters: boolean",
+      "enableSearch: boolean",
+      "maxEntries: number",
+      "onEventReplay: (event: ActivityEvent) => void",
+      "className: string"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
+      "eventReplay: ActivityEvent"
     ]
   },
   {

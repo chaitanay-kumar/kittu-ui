@@ -147,7 +147,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Interactive Data Card for Angular](http://localhost:5173/components/interactive-data-card?framework=angular): Expandable summaries and projected details with asynchronous actions.
 - [Timeline Scrubber for Angular](http://localhost:5173/components/timeline-scrubber?framework=angular): Explore events with native range navigation and readable event announcements.
 - [AI Prompt Composer for Angular](http://localhost:5173/components/ai-prompt-composer?framework=angular): Draft prompts with suggestions and attachments; preserve work on cancellation or failure.
-- [Activity Feed for Angular](http://localhost:5173/components/activity-feed?framework=angular): Filter chronological events, inspect event payloads and select an event without simulated network activity.
+- [Activity Feed for Angular](http://localhost:5173/components/activity-feed?framework=angular): React-matched telemetry cards, category counts, search, trace copying, replay, JSON inspection and optional live simulation.
 - [Advanced Data Table for Angular](http://localhost:5173/components/advanced-data-table?framework=angular): A responsive data table with sorting, global and column filters, selection, column visibility, row details, pagination and application-owned bulk actions.
 - [AI Agent Activity for Angular](http://localhost:5173/components/ai-agent-activity?framework=angular): Filter chronological events, inspect event payloads and select an event without simulated network activity.
 - [AI Response for Angular](http://localhost:5173/components/ai-response?framework=angular): Application-provided response text with optional progressive reveal, reasoning disclosure, sources and clipboard feedback.

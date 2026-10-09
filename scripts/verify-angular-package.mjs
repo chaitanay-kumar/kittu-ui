@@ -58,9 +58,10 @@ for (const { angularVersion, typescript } of matrix) {
   fs.writeFileSync(
     path.join(target, "app.ts"),
     `import { Component } from '@angular/core';
-import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kittu-ui-angular';
 @Component({selector:'consumer-app',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
   ${portTemplates}
+  <kittu-activity-feed [events]="events" [enableLiveSimulation]="false" [enableFilters]="true" [enableSearch]="true" [maxEntries]="10" [onEventReplay]="replay" className="consumer-feed" (eventReplay)="lastEvent = $event" />
   <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
   <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
   <kittu-liquid-command-palette [commands]="[]" />
@@ -70,7 +71,7 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
-export class ConsumerApp { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+export class ConsumerApp { readonly events:ActivityEvent[]=[{id:'one',type:'deploy',status:'success',title:'Release',timestamp:'Now',payload:{version:1}}];lastEvent:ActivityEvent|undefined;readonly replay=(event:ActivityEvent)=>{this.lastEvent=event;};height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `,
   );
   fs.writeFileSync(

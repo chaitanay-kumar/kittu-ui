@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
+import { activityFeedPort } from "./angular-activity-feed";
 const root = process.cwd();
 type Kind = "action" | "collection" | "form" | "canvas" | "plain";
 interface Port {
@@ -14,6 +15,7 @@ interface Port {
   description: string;
   imports?: string;
   componentImports?: string;
+  controller?: string;
 }
 const ports: Port[] = [];
 const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
@@ -83,6 +85,7 @@ function add(
     outputs: [...common[kind].outputs, ...(extra.outputs ?? [])],
     imports: extra.imports,
     componentImports: extra.componentImports,
+    controller: extra.controller,
   });
 }
 const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
@@ -332,6 +335,8 @@ add(
   `readonly progress=signal(0);readonly scroller=viewChild.required<ElementRef<HTMLElement>>('scroller');jump(item:KittuItem):void{this.select(item);const node=Array.from(this.scroller().nativeElement.children).find(el=>el.id===this.uid+'-'+item.id) as HTMLElement|undefined;this.scroller().nativeElement.scrollTo({top:node?.offsetTop?node.offsetTop-this.scroller().nativeElement.offsetTop:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}track(event:Event):void{const el=event.target as HTMLElement;this.progress.set(el.scrollHeight<=el.clientHeight?100:el.scrollTop/(el.scrollHeight-el.clientHeight)*100);}`,
 );
 
+add("activity-feed", "plain", activityFeedPort.description, activityFeedPort.template, "", activityFeedPort);
+
 // Expandable information and selectable collections.
 for (const [id, title] of [
   ["faq", "Frequently asked questions"],
@@ -349,7 +354,6 @@ for (const [id, title] of [
   );
 }
 for (const [id, title] of [
-  ["activity-feed", "Activity"],
   ["ai-agent-activity", "Agent activity"],
   ["interactive-timeline", "Your timeline"],
 ]) {
@@ -875,7 +879,7 @@ const entries = ports
     const name = CATALOG_INDEX.find((c) => c.id === port.id)!.name;
     const exportName = `Kittu${pascal(port.id)}Component`;
     const selector = `kittu-${port.id}`;
-    const controller = base[port.kind];
+    const controller = port.controller ?? base[port.kind];
     const body = port.body.replace(
       "const from=this.displayed();",
       "const from=untracked(this.displayed);",
@@ -901,7 +905,7 @@ const entries = ports
     ];
     const controllers = [
       ...(used("portId") ? ["portId"] : []),
-      ...(controller && port.kind !== "canvas" ? [controller] : []),
+      ...(controller && !port.controller && port.kind !== "canvas" ? [controller] : []),
     ];
     const types = [
       "KittuItem",

@@ -15,6 +15,7 @@ import type {
   LiquidCommand,
   UploadHandler,
   SendHandler,
+  ActivityEvent,
 } from "kittu-ui-angular";
 
 function wait(ms: number, signal?: AbortSignal): Promise<void> {
@@ -96,10 +97,10 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
               />Simulate request failure</label
             >
           }
-          <p class="kittu-muted">
+          @if(component !== "activity-feed") {<p class="kittu-muted">
             Local demo data. Application actions are simulated; no account,
             payment, booking, or AI service is connected.
-          </p>
+          </p>}
         } @else {
           <p role="alert">Select an available Angular component.</p>
         }
@@ -162,6 +163,7 @@ export class DemoComponent {
     return "Local demo reply: " + text;
   };
   get portInputs(): Record<string, unknown> {
+    if (this.component === "activity-feed") return { events: this.activityEvents };
     if (this.component === "animated-file-upload")
       return { upload: this.upload };
     if (this.component === "chat") return { sendHandler: this.portChat };
@@ -176,6 +178,44 @@ export class DemoComponent {
           ? { submitHandler: this.portSubmit }
           : {};
   }
+  readonly activityEvents: ActivityEvent[] = [
+                {
+                  id: 'evt-1',
+                  type: 'deploy',
+                  status: 'success',
+                  title: 'Production release v2.4.0 verified',
+                  timestamp: '2 mins ago',
+                  duration: '380ms',
+                  traceId: 'trc_98fa20',
+                  description: 'All 32 edge clusters updated. Zero errors encountered.',
+                  actor: { name: 'CI Pipeline', email: 'ci@example.com' },
+                  payload: { version: '2.4.0', sha: '8f3b2a', regions: ['iad1', 'sfo1', 'fra1'] },
+                },
+                {
+                  id: 'evt-2',
+                  type: 'security',
+                  status: 'warning',
+                  title: 'Token rotation required for API key',
+                  timestamp: '14 mins ago',
+                  duration: '12ms',
+                  traceId: 'trc_77b31c',
+                  description: 'Secret key has exceeded 90-day recommended rotation window.',
+                  actor: { name: 'Security Guard' },
+                  payload: { keyId: 'key_prod_8819', ageDays: 92, action: 'notify' },
+                },
+                {
+                  id: 'evt-3',
+                  type: 'api',
+                  status: 'success',
+                  title: 'POST /v1/chat/completions 200 OK',
+                  timestamp: '28 mins ago',
+                  duration: '22ms',
+                  traceId: 'trc_55e10a',
+                  description: 'Streaming token generation handled with 0.12s first-byte latency.',
+                  actor: { name: 'External Client' },
+                  payload: { model: 'example-model', promptTokens: 140, completionTokens: 420 },
+                },
+              ];
   readonly commandStatus = signal("");
   readonly commands: LiquidCommand[] = [
     {
