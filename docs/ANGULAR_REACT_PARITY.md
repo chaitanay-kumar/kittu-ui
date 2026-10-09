@@ -4,7 +4,7 @@ React is the source of truth for component appearance, interactions, data contra
 
 Current progress: 6 components have validated baselines and 110 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
 
-User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is on `feat/angular-button-parity`. Next quick reviews: Neon Edge Button and Orbital Loading Ring. The original inventory order remains below for tracking, not execution priority.
+User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kittu-ui/pull/6). Next quick reviews: Neon Edge Button and Orbital Loading Ring. The original inventory order remains below for tracking, not execution priority.
 
 ## Review requirements
 
