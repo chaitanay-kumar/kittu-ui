@@ -8,7 +8,7 @@ This package is not published to npm. Build from this repository with `npm run a
 npm install ./kittu-ui-angular-0.1.0.tgz
 ```
 
-Add `@import 'kittu-ui-angular/styles.css';` to your application's global stylesheet. Styles use optional `--bg`, `--border`, `--text-primary`, and `--text-secondary` variables, with light defaults; supply dark theme values on your root or a wrapper. All motion respects `prefers-reduced-motion`.
+Add `@import 'kittu-ui-angular/styles.css';` to your application's global stylesheet. Styles use optional `--bg`, `--border`, `--text-primary`, and `--text-secondary` variables, with light defaults; supply dark theme values on your root or a wrapper. Motion behavior follows each component’s documented inputs and reference behavior.
 
 ```ts
 import { Component } from '@angular/core';
@@ -31,3 +31,5 @@ The Angular components are independent Kit UI ports. MIT; preserve the included 
 The library is built with Angular 20.3 and TypeScript 5.9 in partial compilation mode. Compatibility checks install the same tarball into separate Angular 20.0, 20.3, 21, and 22 consumers and compile all 116 selectors with each consumer's own compiler and compatible TypeScript. The components work with zone-based and zoneless applications; the website demo explicitly enables Angular 20's zoneless provider. The library does not configure change detection for your application.
 
 Angular APIs are independently designed: React render props become typed data or projected content, and callbacks become output events or abortable application handlers. Native CSS and Canvas 2D replace Framer Motion and WebGL effects. Visuals and detailed motion physics differ; this is catalog coverage, not pixel-identical rendering or React API compatibility. Authentication, payments, scheduling, uploads and AI services remain application responsibilities. Library components never report an external operation as completed without an application handler.
+
+Orbital Loading Ring follows React’s size/speed/variant/label/className defaults, including undefined bindings. The component host is the native status element, so HTML attributes, styles and events apply directly. An aria-label input can override the accessible name; explicitly binding undefined removes that override attribute, matching React’s spread props. OS reduced motion stops the three CSS animations. The old generic loading/paused/Ready API is removed; mount/unmount the indicator for loading state.

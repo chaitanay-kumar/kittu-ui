@@ -58,9 +58,11 @@ for (const { angularVersion, typescript } of matrix) {
   fs.writeFileSync(
     path.join(target, "app.ts"),
     `import { Component } from '@angular/core';
-import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type OrbitalLoadingRingVariant } from 'kittu-ui-angular';
 @Component({selector:'consumer-app',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
   ${portTemplates}
+<kittu-orbital-loading-ring [size]="96" [speed]="2" variant="dense" label="Reading" aria-label="Custom name" className="customer-ring"/>
+<kittu-orbital-loading-ring [size]="optionalSize" [speed]="optionalSpeed" [variant]="optionalVariant" [label]="optionalLabel" [className]="optionalClass" [aria-label]="optionalLabel"/>
   <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
   <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
   <kittu-liquid-command-palette [commands]="[]" />
@@ -70,7 +72,7 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
-export class ConsumerApp { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+export class ConsumerApp { readonly optionalSize:number|undefined=undefined;readonly optionalSpeed:number|undefined=undefined;readonly optionalVariant:OrbitalLoadingRingVariant|undefined=undefined;readonly optionalLabel:string|undefined=undefined;readonly optionalClass:string|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `,
   );
   fs.writeFileSync(

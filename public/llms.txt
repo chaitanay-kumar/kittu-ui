@@ -210,7 +210,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Not Found for Angular](http://localhost:5173/components/not-found?framework=angular): A configurable empty/not-found state with an application-owned recovery action.
 - [Notification Bell for Angular](http://localhost:5173/components/notification-bell?framework=angular): Dismissible notifications with restore actions and restrained live announcements.
 - [Notification Stack for Angular](http://localhost:5173/components/notification-stack?framework=angular): Dismissible notifications with restore actions and restrained live announcements.
-- [Orbital Loading Ring for Angular](http://localhost:5173/components/orbital-loading-ring?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
+- [Orbital Loading Ring for Angular](http://localhost:5173/components/orbital-loading-ring?framework=angular): React-matched orbital status indicator with three variants, size/speed controls, labelled SVG tracks, rotating satellites and a static reduced-motion fallback.
 - [OriginDropdown for Angular](http://localhost:5173/components/origin-dropdown?framework=angular): An expandable action menu with Escape, arrow keys and disabled-item handling.
 - [OTP Input for Angular](http://localhost:5173/components/otp-input?framework=angular): A one-time-code field with digit validation, paste, autofill and completion output.
 - [Particle Delete for Angular](http://localhost:5173/components/particle-delete?framework=angular): A deliberate local item dismissal with a particle transition and restore control.
