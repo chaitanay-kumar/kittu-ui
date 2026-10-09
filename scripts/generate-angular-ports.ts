@@ -1,4 +1,5 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
+import { agentActivityPort } from "./angular-agent-activity";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -14,6 +15,9 @@ interface Port {
   description: string;
   imports?: string;
   componentImports?: string;
+  controller?: string;
+  providers?: string;
+  stylesFile?: string;
 }
 const ports: Port[] = [];
 const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
@@ -83,6 +87,9 @@ function add(
     outputs: [...common[kind].outputs, ...(extra.outputs ?? [])],
     imports: extra.imports,
     componentImports: extra.componentImports,
+    controller: extra.controller,
+    providers: extra.providers,
+    stylesFile: extra.stylesFile,
   });
 }
 const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
@@ -348,9 +355,10 @@ for (const [id, title] of [
     `<section class="kittu-control kittu-surface kittu-stack"><h3>{{label()||'${title}'}}</h3>@for(item of items();track item.id){<details class="k-disclosure"><summary>{{item.label}} @if(item.value!==undefined){<span>{{item.value}}</span>}</summary><div class="kittu-stack"><p>{{item.description}}</p><ng-content></ng-content>${id === "recovery-ledger" ? '<button type="button" [disabled]="disabled()||busy()||item.disabled" (click)="execute([item])">Restore snapshot</button>' : ""}</div></details>}@empty{<p>No items yet.</p>}${collectionFeedback}</section>`,
   );
 }
+add('ai-agent-activity','plain',agentActivityPort.description,agentActivityPort.template,agentActivityPort.body,agentActivityPort);
 for (const [id, title] of [
   ["activity-feed", "Activity"],
-  ["ai-agent-activity", "Agent activity"],
+
   ["interactive-timeline", "Your timeline"],
 ]) {
   add(
@@ -875,7 +883,7 @@ const entries = ports
     const name = CATALOG_INDEX.find((c) => c.id === port.id)!.name;
     const exportName = `Kittu${pascal(port.id)}Component`;
     const selector = `kittu-${port.id}`;
-    const controller = base[port.kind];
+    const controller = port.controller ?? base[port.kind];
     const body = port.body.replace(
       "const from=this.displayed();",
       "const from=untracked(this.displayed);",
@@ -901,7 +909,7 @@ const entries = ports
     ];
     const controllers = [
       ...(used("portId") ? ["portId"] : []),
-      ...(controller && port.kind !== "canvas" ? [controller] : []),
+      ...(controller && !port.controller && port.kind !== "canvas" ? [controller] : []),
     ];
     const types = [
       "KittuItem",
@@ -915,7 +923,7 @@ const entries = ports
       "KittuCompareFeature",
       "KittuChatHandler",
     ].filter(used);
-    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
+    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}${port.providers ? `providers:${port.providers},\n` : ""}${port.stylesFile ? `encapsulation:ViewEncapsulation.None,styleUrls:[${JSON.stringify(port.stylesFile)}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
     fs.writeFileSync(path.join(directory, `${port.id}.component.ts`), source);
     const outputs = [
       ...port.outputs,

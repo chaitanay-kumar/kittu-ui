@@ -53,5 +53,8 @@ jobs:
       - name: Run build
         run: npm run build
 
+      - name: Verify Agent Activity package contract
+        run: npm run test:agent-activity
+
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

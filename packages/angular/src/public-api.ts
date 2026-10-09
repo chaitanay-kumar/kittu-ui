@@ -8,6 +8,10 @@ export * from "./interactive-data-card.component";
 export * from "./timeline-scrubber.component";
 export * from "./ai-prompt-composer.component";
 
+export * from './agent-activity-types';
+export * from './agent-activity-controller';
+export * from './agent-activity-parts';
+
 // Generated catalog exports.
 export * from "./port-types";
 export * from './activity-feed.component';

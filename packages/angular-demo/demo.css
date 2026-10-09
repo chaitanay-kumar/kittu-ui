@@ -5,3 +5,5 @@ h3 { font-size: 1rem; }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 .kittu-control label { display:grid; gap:.65rem; }
 .kittu-control input[type=range] { width:100%; accent-color:var(--text-primary); }
+body:has(kittu-agent-demo){padding:0;font-family:var(--font-sans);font-feature-settings:'cv02','cv03','cv04','cv11';letter-spacing:-.176px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;background:#f1f1f2;--foreground:oklch(.141 .005 285.823);--muted-foreground:oklch(.552 .016 285.938);--background:oklch(1 0 0);--border:oklch(.92 .004 286.32)}
+.dark body:has(kittu-agent-demo){background:#18181b;--foreground:oklch(.985 0 0);--muted-foreground:oklch(.705 .015 286.067);--background:oklch(.141 .005 285.823);--border:oklch(1 0 0 / 10%)}
