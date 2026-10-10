@@ -1,0 +1,19 @@
+import '../../packages/angular/styles.css';
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import '@angular/compiler';
+import {Component,provideZonelessChangeDetection,signal} from '@angular/core';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {KitHamburgerMenuComponent} from '../../packages/angular/dist/fesm2022/kit-ui-angular.mjs';
+import {HamburgerMenu} from '../../src/components/ui/HamburgerMenu';
+import '../../src/styles/index.css';
+type Options={isOpen:boolean;size?:number;color?:string;label?:string;disabled?:boolean;type?:'button'|'submit'|'reset';className?:string;ariaLabel?:string|null;ariaExpanded?:boolean|string|null;override?:boolean|null};
+const params=new URLSearchParams(location.search);document.documentElement.classList.toggle('dark',params.get('theme')==='dark');document.body.style.margin='20px';
+const events:(boolean|string)[]=[];const api=window as unknown as {hamburgerEvents:(boolean|string)[];setHamburgerOptions:(options:Partial<Options>)=>void;destroyHamburger:()=>void};api.hamburgerEvents=events;
+if(params.get('framework')==='react'){
+ let options:Options={isOpen:params.get('open')==='true',type:'button'};const node=document.createElement('div');document.body.append(node);const root=createRoot(node);api.setHamburgerOptions=patch=>{options={...options,...patch};const {ariaLabel,ariaExpanded,override,...props}=options;root.render(<form onSubmit={e=>{e.preventDefault();events.push('submit');}} onReset={()=>events.push('reset')}><HamburgerMenu {...props} id="action" name="intent" value="menu" onChange={value=>events.push(value)} {...{'aria-label':(Object.hasOwn(options,'ariaLabel')?ariaLabel:(options.isOpen?'Close ':'Open ')+(options.label??'Menu')) as string}} {...{'aria-expanded':(Object.hasOwn(options,'ariaExpanded')?ariaExpanded:options.isOpen) as boolean}} {...(override===null?{onClick:undefined}:override?{onClick:()=>events.push('override')}:{})}/></form>);};api.destroyHamburger=()=>root.unmount();api.setHamburgerOptions({});
+}else{
+ class Consumer{readonly options=signal<Options>({isOpen:params.get('open')==='true',type:'button'});readonly override=()=>events.push('override');ariaLabel(){const o=this.options();return Object.hasOwn(o,'ariaLabel')?o.ariaLabel:(o.isOpen?'Close ':'Open ')+(o.label??'Menu');}ariaExpanded(){const o=this.options();return Object.hasOwn(o,'ariaExpanded')?o.ariaExpanded:o.isOpen;}change(value:boolean){events.push(value);}submit(e:Event){e.preventDefault();events.push('submit');}reset(){events.push('reset');}}
+ Component({selector:'hamburger-consumer',standalone:true,imports:[KitHamburgerMenuComponent],template:`<form (submit)="submit($event)" (reset)="reset()">@if(options().override===undefined||options().override===false){<button kitHamburgerMenu id="action" name="intent" value="menu" [isOpen]="options().isOpen" (change)="change($event)" [size]="options().size" [color]="options().color" [label]="options().label" [disabled]="options().disabled??false" [type]="options().type" [className]="options().className" [aria-label]="ariaLabel()" [aria-expanded]="ariaExpanded()"></button>}@else{<button kitHamburgerMenu id="action" name="intent" value="menu" [isOpen]="options().isOpen" (change)="change($event)" [size]="options().size" [color]="options().color" [label]="options().label" [disabled]="options().disabled??false" [type]="options().type" [className]="options().className" [aria-label]="ariaLabel()" [aria-expanded]="ariaExpanded()" [onClick]="options().override===null?null:options().override?override:undefined"></button>}</form>`})(Consumer);
+ document.body.append(document.createElement('hamburger-consumer'));void bootstrapApplication(Consumer,{providers:[provideZonelessChangeDetection()]}).then(app=>{api.setHamburgerOptions=patch=>app.components[0].instance.options.update(current=>({...current,...patch}));api.destroyHamburger=()=>app.destroy();});
+}

@@ -2,9 +2,9 @@
 
 React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
 
-Current progress: 15 components have validated baselines and 101 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kit-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kit-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kit-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kit-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kit-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kit-ui-library`.
+Current progress: 20 components have validated baselines and 96 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kit-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kit-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kit-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kit-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kit-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kit-ui-library`.
 
-User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kit-ui/pull/6). Neon Edge Button is in [PR #7](https://github.com/chaitanay-kumar/kit-ui/pull/7). Orbital Loading Ring is in [PR #8](https://github.com/chaitanay-kumar/kit-ui/pull/8). Spotlight Card is in [PR #9](https://github.com/chaitanay-kumar/kit-ui/pull/9). Morphing Icon is in [PR #10](https://github.com/chaitanay-kumar/kit-ui/pull/10). Work is active in batches of five. The current batch is Press Button (PR #14), Magnetic Button (PR #15), Morphing Button (PR #16), Typewriter Button (PR #17) and Rainbow Button (PR #18). Combined validation is complete; integration review and evidence are in [PR #19](https://github.com/chaitanay-kumar/kit-ui/pull/19) and [the batch report](parity/batch-2-integration.md). Merge this batch before starting the next five. The original inventory order remains below for tracking, not execution priority.
+User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kit-ui/pull/6). Neon Edge Button is in [PR #7](https://github.com/chaitanay-kumar/kit-ui/pull/7). Orbital Loading Ring is in [PR #8](https://github.com/chaitanay-kumar/kit-ui/pull/8). Spotlight Card is in [PR #9](https://github.com/chaitanay-kumar/kit-ui/pull/9). Morphing Icon is in [PR #10](https://github.com/chaitanay-kumar/kit-ui/pull/10). Work is active in batches of five. Batch 2 (Press Button, Magnetic Button, Morphing Button, Typewriter Button and Rainbow Button) merged through [PR #19](https://github.com/chaitanay-kumar/kit-ui/pull/19); evidence is in [the batch report](parity/batch-2-integration.md). Batch 3 validates Expandable Search, Hamburger Menu, Smooth Accordion, Stretch Switch and Reveal Card through dedicated PRs #20–24 and the combined integration review. Evidence is in [the batch report](parity/batch-3-integration.md). Merge the batch before starting the next five. The original inventory order remains below for tracking, not execution priority.
 
 ## Review requirements
 
@@ -52,7 +52,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 30 | Elastic Sheet | `elastic-sheet` | Queued | — |
 | 31 | Evil Eye | `evil-eye` | Queued | — |
 | 32 | Expandable Data Row | `expandable-data-row` | Queued | — |
-| 33 | Expandable Search | `expandable-search` | Queued | — |
+| 33 | Expandable Search | `expandable-search` | Validated baseline | [Report](parity/expandable-search.md) |
 | 34 | FAQ | `faq` | Queued | — |
 | 35 | Floating Action Dock | `floating-action-dock` | Queued | — |
 | 36 | Focus Mode | `focus-mode` | Queued | — |
@@ -62,7 +62,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 40 | Glyph Matrix | `glyph-matrix` | Queued | — |
 | 41 | Gooey Menu | `gooey-menu` | Queued | — |
 | 42 | Gravity Particle Burst | `gravity-particle-burst` | Queued | — |
-| 43 | Hamburger Menu | `hamburger-menu` | Queued | — |
+| 43 | Hamburger Menu | `hamburger-menu` | Validated baseline | [Report](parity/hamburger-menu.md) |
 | 44 | Hold-to-Confirm | `hold-to-confirm` | Queued | — |
 | 45 | Interactive Data Card | `interactive-data-card` | Queued | — |
 | 46 | Interactive Timeline | `interactive-timeline` | Queued | — |
@@ -102,7 +102,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 80 | Pull to Refresh | `pull-to-refresh` | Queued | — |
 | 81 | Rainbow Button | `rainbow-button` | Validated baseline | [Review](parity/rainbow-button.md) |
 | 82 | Recovery Ledger | `recovery-ledger` | Queued | — |
-| 83 | Reveal Card | `reveal-card` | Queued | — |
+| 83 | Reveal Card | `reveal-card` | Validated baseline | [Report](parity/reveal-card.md) |
 | 84 | Rocket Party Popper | `rocket-party-popper` | Queued | — |
 | 85 | Scroll Progress Navigation | `scroll-progress-nav` | Queued | — |
 | 86 | Scroll Velocity Text | `scrollvelocitytext` | Queued | — |
@@ -114,7 +114,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 92 | Small Floating Dock | `small-floating-dock` | Queued | — |
 | 93 | Smart Comparison | `smart-comparison` | Queued | — |
 | 94 | Smart Upload | `smart-upload` | Queued | — |
-| 95 | Smooth Accordion | `smooth-accordion` | Queued | — |
+| 95 | Smooth Accordion | `smooth-accordion` | Validated baseline | [Report](parity/smooth-accordion.md) |
 | 96 | Sparkles Core | `sparkles-core` | Queued | — |
 | 97 | Speed Warp | `speed-warp` | Queued | — |
 | 98 | Split Button | `split-button` | Queued | — |
@@ -125,7 +125,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 103 | Stacked Cards | `stacked-cards` | Queued | — |
 | 104 | Sticky Pages | `sticky-pages` | Queued | — |
 | 105 | Story Cards | `story-card` | Queued | — |
-| 106 | StretchSwitch | `stretch-switch` | Queued | — |
+| 106 | StretchSwitch | `stretch-switch` | Validated baseline | [Report](parity/stretch-switch.md) |
 | 107 | Swipe Action List | `swipe-action-list` | Queued | — |
 | 108 | Text Scramble Decoder | `text-scramble-decoder` | Queued | — |
 | 109 | Thinking Orb | `thinking-orb` | Queued | — |

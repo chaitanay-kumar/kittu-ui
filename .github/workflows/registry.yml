@@ -67,14 +67,20 @@ jobs:
         run: npm run test:press-button
       - name: Verify Typewriter Button
         run: npm run test:typewriter-button
+      - name: Verify Expandable Search
+        run: npm run test:expandable-search
       - name: Verify Button contract
         run: npm run test:button
+      - name: Verify Hamburger Menu packaged contract
+        run: npm run test:hamburger-menu
       - name: Verify Magnetic Button contract
         run: npm run test:magnetic-button
       - name: Verify Neon Edge Button contract
         run: npm run test:neon-edge-button
       - name: Verify Orbital Loading Ring contract
         run: npm run test:orbital-loading-ring
+      - name: Verify native Reveal Card contract
+        run: npm run test:reveal-card
       - name: Verify native Spotlight Card contract
         run: npm run test:spotlight-card
       - name: Verify native Morphing Icon contract
@@ -84,6 +90,11 @@ jobs:
 
       - name: Verify Rainbow Button contract
         run: npm run test:rainbow-button
+
+      - name: Verify Smooth Accordion contract
+        run: npm run test:smooth-accordion
+      - name: Verify Stretch Switch contract
+        run: npm run test:stretch-switch
 
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

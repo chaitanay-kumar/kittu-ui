@@ -566,24 +566,13 @@ export const ANGULAR_PORTS = [
     "name": "Expandable Search",
     "exportName": "KitExpandableSearchComponent",
     "selector": "kit-expandable-search",
-    "description": "Live filtering with clear/cancel controls, keyboard navigation and selected-result output.",
+    "description": "React-matched compact text search with spring expansion, delayed click focus, live query callback, clear control and responsive shortcut hint.",
     "inputs": [
-      "items: KitItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "placeholder: string",
+      "onSearch: ExpandableSearchHandler",
+      "className: string"
     ],
-    "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "faq",
@@ -764,23 +753,21 @@ export const ANGULAR_PORTS = [
     "name": "Hamburger Menu",
     "exportName": "KitHamburgerMenuComponent",
     "selector": "kit-hamburger-menu",
-    "description": "An expandable action menu with Escape, arrow keys and disabled-item handling.",
+    "description": "Controlled three-line menu toggle with React-matched spring transforms, native button attributes and accessible open/close labels.",
     "inputs": [
-      "items: KitItem[]",
+      "isOpen: boolean (required)",
+      "size: number",
+      "color: string",
       "label: string",
       "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "type: button | submit | reset",
+      "className: string",
+      "aria-label: string | null",
+      "aria-expanded: boolean | string | null",
+      "onClick: ((event: MouseEvent) => void) | null"
     ],
     "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
+      "change: boolean"
     ]
   },
   {
@@ -1464,24 +1451,13 @@ export const ANGULAR_PORTS = [
     "name": "Reveal Card",
     "exportName": "KitRevealCardComponent",
     "selector": "kit-reveal-card",
-    "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
+    "description": "React-matched projected 3D tilt card with optional persistent reveal content, dynamic glare and pointer-following spring rotation.",
     "inputs": [
-      "items: KitItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "revealContent: RevealCardContent",
+      "maxTilt: number",
+      "className: string"
     ],
-    "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "rocket-party-popper",
@@ -1676,24 +1652,14 @@ export const ANGULAR_PORTS = [
     "name": "Smooth Accordion",
     "exportName": "KitSmoothAccordionComponent",
     "selector": "kit-smooth-accordion",
-    "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
+    "description": "React-matched item accordion with initial defaultOpen, single/multiple disclosure, template content and interruptible height/opacity/chevron springs.",
     "inputs": [
-      "items: KitItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "items: AccordionItem[] (required)",
+      "allowMultiple: boolean",
+      "defaultOpen: string[]",
+      "className: string"
     ],
-    "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "sparkles-core",
@@ -1899,11 +1865,15 @@ export const ANGULAR_PORTS = [
     "name": "StretchSwitch",
     "exportName": "KitStretchSwitchComponent",
     "selector": "kit-stretch-switch",
-    "description": "A native toggle with two-way checked binding, visible focus and a disabled state.",
+    "description": "React-matched controlled or uncontrolled switch with initial defaultChecked, text or template label, description, change callback and spring thumb motion.",
     "inputs": [
-      "checked: boolean (two-way)",
+      "checked: boolean | undefined (controlled)",
+      "defaultChecked: boolean",
       "disabled: boolean",
-      "label: string"
+      "onChange: StretchSwitchChangeHandler",
+      "label: StretchSwitchLabel",
+      "description: string",
+      "className: string"
     ],
     "outputs": [
       "checkedChange: boolean"

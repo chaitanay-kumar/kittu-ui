@@ -1,14 +1,19 @@
+import {stretchSwitchPort} from "./angular-stretch-switch";
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
+import {smoothAccordionPort} from "./angular-smooth-accordion";
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
 import {pressButtonPort} from "./angular-press-button";
+import {hamburgerMenuPort} from "./angular-hamburger-menu";
 import {magneticButtonPort} from "./angular-magnetic-button";
 import {morphingButtonPort} from "./angular-morphing-button";
 import {typewriterButtonPort} from "./angular-typewriter-button";
 import {rainbowButtonPort} from "./angular-rainbow-button";
+import {expandableSearchPort} from "./angular-expandable-search";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
+import {revealCardPort} from "./angular-reveal-card";
 import {spotlightCardPort} from "./angular-spotlight-card";
 import {morphingIconPort} from "./angular-morphing-icon";
 import fs from "node:fs";
@@ -117,12 +122,14 @@ const itemButton = `<button type="button" data-item [disabled]="disabled() || it
 
 add("press-button","plain",pressButtonPort.description,pressButtonPort.template,pressButtonPort.body,pressButtonPort);
 add("typewriter-button","plain",typewriterButtonPort.description,typewriterButtonPort.template,typewriterButtonPort.body,typewriterButtonPort);
+add("expandable-search","plain",expandableSearchPort.description,expandableSearchPort.template,expandableSearchPort.body,expandableSearchPort);
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
 add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
 add("morphing-button","plain",morphingButtonPort.description,morphingButtonPort.template,morphingButtonPort.body,morphingButtonPort);
 add("rainbow-button","plain",rainbowButtonPort.description,rainbowButtonPort.template,rainbowButtonPort.body,rainbowButtonPort);
 
+add("hamburger-menu","plain",hamburgerMenuPort.description,hamburgerMenuPort.template,hamburgerMenuPort.body,hamburgerMenuPort);
 add("magnetic-button","plain",magneticButtonPort.description,magneticButtonPort.template,magneticButtonPort.body,magneticButtonPort);
 add(
   "liquid-ripple-button",
@@ -163,10 +170,11 @@ add(
   `override readonly items=input<KitItem[]>([{id:'install',label:'Install',description:'npm install ./kit-ui-angular-0.1.0.tgz'},{id:'import',label:'Import',description:"import { KitButtonComponent } from 'kit-ui-angular';"}]);async copy():Promise<void>{try{await navigator.clipboard.writeText(this.current()?.description??'');this.status.set('Copied.');}catch{this.actionError.set('Clipboard unavailable. Select and copy the snippet manually.');}}`,
 );
 
+add("stretch-switch","plain",stretchSwitchPort.description,stretchSwitchPort.template,stretchSwitchPort.body,stretchSwitchPort);
+
 // Native toggles expose Angular two-way binding rather than React event props.
 for (const [id, label, role] of [
   ["draw-checkbox", "Mark as complete", "checkbox"],
-  ["stretch-switch", "Stretch switch", "switch"],
   ["liquid-toggle", "Liquid toggle", "switch"],
 ]) {
   add(
@@ -271,7 +279,6 @@ for (const [id, layout] of [
   );
 }
 for (const [id, title] of [
-  ["hamburger-menu", "Menu"],
   ["gooey-menu", "Explore"],
   ["origin-dropdown", "Choose an action"],
 ]) {
@@ -289,7 +296,6 @@ add(
   `<nav class="kit-control kit-surface kit-stack" aria-label="Branching navigation" (keydown)="keys($event)">@for(item of items();track item.id){<details><summary>{{item.label}}</summary><div class="kit-stack">@for(child of item.children||[];track child.id){<button type="button" data-item [disabled]="disabled()||child.disabled" (click)="select(child)">{{child.label}}</button>}@if(!item.children?.length){${itemButton}}</div></details>}<p role="status">{{selected()?'Selected: '+selected():''}}</p></nav>`,
 );
 for (const [id, title] of [
-  ["expandable-search", "Find a component"],
   ["ios-search-bar", "Search your workspace"],
 ]) {
   add(
@@ -345,10 +351,12 @@ add(
 
 add("activity-feed", "plain", activityFeedPort.description, activityFeedPort.template, "", activityFeedPort);
 
+add("smooth-accordion","plain",smoothAccordionPort.description,smoothAccordionPort.template,smoothAccordionPort.body,smoothAccordionPort);
+
 // Expandable information and selectable collections.
 for (const [id, title] of [
   ["faq", "Frequently asked questions"],
-  ["smooth-accordion", "Explore the details"],
+
   ["unfold-accordion", "Unfold the details"],
   ["stack-unfold-panel", "Your workspace"],
   ["expandable-data-row", "Data details"],
@@ -416,7 +424,6 @@ for (const [id, title, layout] of [
   ["profile-card", "Alex Morgan", "profile"],
   ["wallet-card", "Your wallet", "wallet"],
   ["peek-card", "A closer look", "peek"],
-  ["reveal-card", "Reveal the details", "reveal"],
   ["mac-os-folder-cards", "Project folders", "folders"],
   ["stacked-cards", "Your collection", "stacked"],
   ["story-card", "Your stories", "stories"],
@@ -429,6 +436,7 @@ for (const [id, title, layout] of [
     `spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}`,
   );
 }
+add("reveal-card","plain",revealCardPort.description,revealCardPort.template,revealCardPort.body,revealCardPort);
 add("spotlight-card", "plain", spotlightCardPort.description, spotlightCardPort.template, spotlightCardPort.body, spotlightCardPort);
 add(
   "avatar-stack",
@@ -787,17 +795,9 @@ const cardDefaults: Record<
         "A quiet hint of what is inside. Expand to explore the details.",
     },
   ],
-  "reveal-card": [
-    {
-      id: "reveal",
-      label: "Behind the surface",
-      description:
-        "Uncover another layer of information, with the keyboard or a pointer.",
-    },
-  ],
 };
 for (const port of ports) {
-  if(['hamburger-menu','gooey-menu','origin-dropdown'].includes(port.id)){
+  if(['gooey-menu','origin-dropdown'].includes(port.id)){
     port.template=port.template.replace('(keydown.escape)="open.set(false)"','(keydown.escape)="closeMenu()"').replace('<button type="button" [disabled]','<button #trigger type="button" [disabled]').replace('(click)="select(item);open.set(false)"','(click)="pick(item)"');
     port.body+=`readonly trigger=viewChild<ElementRef<HTMLButtonElement>>('trigger');closeMenu():void{this.open.set(false);this.trigger()?.nativeElement.focus();}pick(item:KitItem):void{if(this.disabled()||this.loading()||item.disabled)return;this.select(item);this.closeMenu();}override keys(event:KeyboardEvent):void{if(!['ArrowDown','ArrowUp','Home','End'].includes(event.key)||this.disabled())return;const buttons=Array.from((event.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('button[data-item]:not(:disabled)'));if(!buttons.length)return;event.preventDefault();const index=buttons.indexOf(event.target as HTMLButtonElement);const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(index+(event.key==='ArrowUp'?-1:1)+buttons.length)%buttons.length;buttons[next].focus();}`;
   }

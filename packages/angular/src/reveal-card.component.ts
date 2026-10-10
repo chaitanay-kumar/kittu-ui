@@ -1,28 +1,21 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, input } from '@angular/core';
-import { KitCollectionController } from './port-controllers';
-import type { KitItem } from './port-types';
-
+import { Component, computed, input, signal } from '@angular/core';
+import {afterEveryRender,TemplateRef,ViewEncapsulation} from '@angular/core';
+import {NgTemplateOutlet} from '@angular/common';
+import type {RevealCardContent} from './reveal-card-types';
+import {installRevealCardMotion} from './reveal-card-motion';
 @Component({
  selector:"kit-reveal-card", standalone:true,
- host:{'data-kit':"reveal-card",style:'display:block;min-width:0'},
- template:`
-<section class="kit-control kit-stack">
-<h3>{{label()||'Reveal the details'}}</h3>
-<div class="k-cards k-reveal">@for(item of items();track item.id){<article class="k-card kit-surface" [class.k-active]="current()?.id===item.id" (pointermove)="spot($event)" (pointerleave)="clearSpot($event)">
-<button type="button" [disabled]="loading()||disabled()||item.disabled" [attr.aria-expanded]="expanded().includes(item.id)" (click)="select(item);toggle(item.id)">{{item.label}}</button>
-<p>{{item.value}}</p>
-<div [hidden]="!expanded().includes(item.id)">
-<p>{{item.description}}</p>
-<ng-content>
-</ng-content>
-<button type="button" [disabled]="loading()||disabled()||busy()||item.disabled" (click)="execute([item])">Select {{item.label}}</button>
-</div>
-</article>}</div>@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kit-status">{{busy()?'Working…':status()}}</p>
-</section>
+ host:{'data-kit':'reveal-card',class:'k-reveal-host'},
+ imports:[NgTemplateOutlet],
+encapsulation:ViewEncapsulation.None,styleUrls:["./reveal-card.css"],
+template:`
+<div class="k-reveal-parity" [class]="'k-reveal-parity '+className()" (mouseenter)="hovered.set(true)" (mouseleave)="leave()" (mousemove)="move($event)">@if(hovered()){<div class="k-reveal-glare" [style.background]="glareBackground()">
+</div>}<div class="k-reveal-primary">
+<ng-content/>
+</div>@if(revealContent()){<div class="k-reveal-content">@if(revealTemplate()){<ng-container [ngTemplateOutlet]="revealTemplate()"/>}@else{{{revealText()}}}</div>}@else if(isNumber()){{{revealText()}}}</div>
 `
 })
-export class KitRevealCardComponent extends KitCollectionController {
-spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}
-override readonly items=input<KitItem[]>([{"id":"reveal","label":"Behind the surface","description":"Uncover another layer of information, with the keyboard or a pointer."}]);
+export class KitRevealCardComponent {
+readonly revealContent=input<RevealCardContent>();readonly maxTilt=input<number,number|undefined>(12,{transform:value=>value===undefined?12:value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});readonly hovered=signal(false);readonly glare=signal({x:50,y:50});readonly glareBackground=computed(()=>'radial-gradient(circle at '+this.glare().x+'% '+this.glare().y+'%, rgba(255,255,255,0.4), transparent 60%)');readonly revealTemplate=computed(()=>this.revealContent() instanceof TemplateRef?this.revealContent() as TemplateRef<unknown>:null);readonly revealText=computed(()=>{const value=this.revealContent();return typeof value==='string'||typeof value==='number'?value:'';});readonly isNumber=computed(()=>typeof this.revealContent()==='number');private readonly motion=installRevealCardMotion(this.maxTilt,this.glare);move(event:MouseEvent):void{this.motion.move(event);}leave():void{this.hovered.set(false);this.motion.leave();}constructor(){afterEveryRender(()=>this.motion.reveal(this.hovered()));}
 }

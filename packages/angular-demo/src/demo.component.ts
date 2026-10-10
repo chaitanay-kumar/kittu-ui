@@ -1,7 +1,12 @@
+import {HamburgerMenuDemoComponent} from "./hamburger-menu-demo";
+import {SmoothAccordionDemoComponent} from './smooth-accordion-demo';
+import {StretchSwitchDemoComponent} from "./stretch-switch-demo";
+import {RevealCardDemoComponent} from "./reveal-card-demo";
 import {PressButtonDemoComponent} from "./press-button-demo";
 import {MagneticButtonDemoComponent} from "./magnetic-button-demo";
 import {MorphingButtonDemoComponent} from "./morphing-button-demo";
 import {TypewriterButtonDemoComponent} from "./typewriter-button-demo";
+import {ExpandableSearchDemoComponent} from "./expandable-search-demo";
 import {ButtonDemoComponent} from "./button-demo";
 import {NeonEdgeButtonDemoComponent} from "./neon-edge-button-demo";
 import {OrbitalLoadingRingDemoComponent} from "./orbital-loading-ring-demo";
@@ -53,7 +58,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
 @Component({
   selector: "kit-angular-demo",
   standalone: true,
-  imports: [
+  imports: [RevealCardDemoComponent,StretchSwitchDemoComponent,SmoothAccordionDemoComponent,HamburgerMenuDemoComponent,ExpandableSearchDemoComponent,
     PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,RainbowButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
@@ -77,14 +82,19 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
       @case ("advanced-data-table") { <kit-table-demo/> }
       @case ("ai-agent-activity") { <kit-agent-demo/> }
       @case("loader"){<kit-loader-demo/>}
+      @case("stretch-switch"){<kit-stretch-switch-demo/>}
       @case("press-button"){<kit-press-button-demo/>}
+      @case("hamburger-menu"){<kit-hamburger-menu-demo/>}
       @case("magnetic-button"){<kit-magnetic-button-demo/>}
+      @case("smooth-accordion"){<kit-smooth-accordion-demo/>}
       @case("morphing-button"){<kit-morphing-button-demo/>}
       @case("typewriter-button"){<kit-typewriter-button-demo/>}
       @case("rainbow-button"){<kit-rainbow-button-demo/>}
+      @case("expandable-search"){<kit-expandable-search-demo/>}
       @case("button"){<kit-button-demo/>}
       @case("neon-edge-button"){<kit-neon-edge-button-demo/>}
       @case("orbital-loading-ring"){<kit-orbital-loading-ring-demo/>}
+      @case("reveal-card"){<kit-reveal-card-demo/>}
       @case("spotlight-card"){<kit-spotlight-card-demo/>}
       @case("morphing-icon"){<kit-morphing-icon-demo/>}
       @case ("elastic-sheet") {

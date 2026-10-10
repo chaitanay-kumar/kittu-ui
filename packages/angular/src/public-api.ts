@@ -1,3 +1,4 @@
+export type {RevealCardContent} from "./reveal-card-types";
 export * from "./types";
 export * from "./magnetic-button-types";
 export * from "./elastic-sheet.component";
@@ -26,6 +27,10 @@ export * from './press-button-types';
 export * from './morphing-button-types';
 export * from './typewriter-button-types';
 export * from './rainbow-button-types';
+
+export * from './expandable-search-types';
+export * from './smooth-accordion-types';
+export * from './stretch-switch-types';
 
 // Generated catalog exports.
 export * from "./port-types";

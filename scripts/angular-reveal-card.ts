@@ -1,0 +1,11 @@
+export const revealCardPort={
+ imports:`import {afterEveryRender,TemplateRef,ViewEncapsulation} from '@angular/core';
+import {NgTemplateOutlet} from '@angular/common';
+import type {RevealCardContent} from './reveal-card-types';
+import {installRevealCardMotion} from './reveal-card-motion';`,componentImports:'NgTemplateOutlet',stylesFile:'./reveal-card.css',
+ hostMetadata:`{'data-kit':'reveal-card',class:'k-reveal-host'}`,
+ description:'React-matched projected 3D tilt card with optional persistent reveal content, dynamic glare and pointer-following spring rotation.',
+ inputs:['revealContent: RevealCardContent','maxTilt: number','className: string'],outputs:[],
+ template:`<div class="k-reveal-parity" [class]="'k-reveal-parity '+className()" (mouseenter)="hovered.set(true)" (mouseleave)="leave()" (mousemove)="move($event)">@if(hovered()){<div class="k-reveal-glare" [style.background]="glareBackground()"></div>}<div class="k-reveal-primary"><ng-content/></div>@if(revealContent()){<div class="k-reveal-content">@if(revealTemplate()){<ng-container [ngTemplateOutlet]="revealTemplate()"/>}@else{{{revealText()}}}</div>}@else if(isNumber()){{{revealText()}}}</div>`,
+ body:`readonly revealContent=input<RevealCardContent>();readonly maxTilt=input<number,number|undefined>(12,{transform:value=>value===undefined?12:value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});readonly hovered=signal(false);readonly glare=signal({x:50,y:50});readonly glareBackground=computed(()=>'radial-gradient(circle at '+this.glare().x+'% '+this.glare().y+'%, rgba(255,255,255,0.4), transparent 60%)');readonly revealTemplate=computed(()=>this.revealContent() instanceof TemplateRef?this.revealContent() as TemplateRef<unknown>:null);readonly revealText=computed(()=>{const value=this.revealContent();return typeof value==='string'||typeof value==='number'?value:'';});readonly isNumber=computed(()=>typeof this.revealContent()==='number');private readonly motion=installRevealCardMotion(this.maxTilt,this.glare);move(event:MouseEvent):void{this.motion.move(event);}leave():void{this.hovered.set(false);this.motion.leave();}constructor(){afterEveryRender(()=>this.motion.reveal(this.hovered()));}`
+};

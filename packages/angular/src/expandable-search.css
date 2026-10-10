@@ -1,0 +1,109 @@
+@layer components {
+  .k-es-host {
+    display: contents;
+  }
+  .k-es-outer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+  .k-es-control {
+    display: flex;
+    align-items: center;
+    width: 160px;
+    height: 36px;
+    padding-inline: 12px;
+    border-radius: var(--radius, 14px);
+    border: 1px solid #1f1f1f;
+    box-sizing: border-box;
+    background: #0e0e0e;
+    box-shadow: 0 1px 2px 0 #0000000d;
+    cursor: text;
+    transition-property:
+      color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, --tw-gradient-from,
+      --tw-gradient-via, --tw-gradient-to;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .k-es-search {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    margin-right: 8px;
+    color: #525252;
+  }
+  .k-es-control input {
+    width: 100%;
+    background: transparent;
+    font: inherit;
+    font-size: 12px;
+    line-height: 16px;
+    color: #fafafa;
+    letter-spacing: inherit;
+    padding: 0;
+    border-width: 0;
+    border-radius: 0;
+    min-width: 0;
+    outline-style: none;
+  }
+  .k-es-control input::placeholder {
+    color: #6b6b6b;
+    opacity: 1;
+  }
+  .k-es-clear {
+    padding: 2px;
+    border-width: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #525252;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    transition-property:
+      color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, --tw-gradient-from,
+      --tw-gradient-via, --tw-gradient-to;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .k-es-clear svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+  }
+  .k-es-shortcut {
+    display: none;
+    align-items: center;
+    gap: 2px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: #141414;
+    border: 1px solid #1f1f1f;
+    color: #6b6b6b;
+    font-family: var(--font-mono, monospace);
+    font-size: 10px;
+    line-height: 15px;
+    flex-shrink: 0;
+    user-select: none;
+    opacity: 0;
+  }
+  .k-es-shortcut svg {
+    width: 10px;
+    height: 10px;
+  }
+  @media (min-width: 640px) {
+    .k-es-control input {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .k-es-shortcut {
+      display: flex;
+    }
+  }
+  @media (hover: hover) {
+    .k-es-clear:hover {
+      color: #fafafa;
+    }
+  }
+}
