@@ -177,7 +177,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Dynamic Island for Angular](http://localhost:5173/components/dynamic-island?framework=angular): A compact status island that expands to reveal actions and their current state.
 - [Evil Eye for Angular](http://localhost:5173/components/evil-eye?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Expandable Data Row for Angular](http://localhost:5173/components/expandable-data-row?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.
-- [Expandable Search for Angular](http://localhost:5173/components/expandable-search?framework=angular): Live filtering with clear/cancel controls, keyboard navigation and selected-result output.
+- [Expandable Search for Angular](http://localhost:5173/components/expandable-search?framework=angular): React-matched compact text search with spring expansion, delayed click focus, live query callback, clear control and responsive shortcut hint.
 - [FAQ for Angular](http://localhost:5173/components/faq?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.
 - [Floating Action Dock for Angular](http://localhost:5173/components/floating-action-dock?framework=angular): Keyboard-navigable selection with active state, disabled items and application navigation output.
 - [Focus Mode for Angular](http://localhost:5173/components/focus-mode?framework=angular): A focus region that dims surrounding content while preserving Escape and an explicit exit control.

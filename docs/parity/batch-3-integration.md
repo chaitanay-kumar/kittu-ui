@@ -1,21 +1,17 @@
 # Batch 3 integration review
 
-Base: `8ced430` on `feat/kit-ui-library`, after the first 15 validated component baselines merged. This batch contains Expandable Search, Hamburger Menu, Smooth Accordion, Stretch Switch and Reveal Card. React remains the source of truth. This report is in progress; no batch-3 components are counted as merged baselines yet.
+React is the source of truth. This batch integrates five independently reviewed component PRs onto `feat/kit-ui-library`, preserving their original commits.
 
-## Independent component review
+| Component | PR | Evidence |
+| --- | --- | --- |
+| Hamburger Menu | #20 | [Controlled API, keyboard, geometry and motion](hamburger-menu.md) |
+| Expandable Search | #21 | [Query, focus, forms and interrupted motion](expandable-search.md) |
+| Smooth Accordion | #22 | [Content, state, forms and interrupted height](smooth-accordion.md) |
+| Stretch Switch | #23 | [Controlled/uncontrolled state, pointer and spring motion](stretch-switch.md) |
+| Reveal Card | #24 | [Projection, transformed geometry, glare and motion](reveal-card.md) |
 
-### Hamburger Menu — PR #20, `241c7b4`
+Independent integration checks include 10 Hamburger Menu, 24 Expandable Search plus two strengthened fade cases, and 12 Smooth Accordion browser cases. Stretch Switch and Reveal Card received independent source reviews and their focused desktop/mobile suites; results and practical limits are recorded in their component reports.
 
-The React component is a controlled icon button, while the previous generic Angular implementation was a menu with its own state and items. The new implementation preserves required `isOpen`, request-only state changes, accessible open/close labels, size-derived line geometry and the source's final native props-spread precedence. Reviewed both native and custom selectors, disabled behavior, nullable/undefined click overrides, ARIA removals and type defaults. No blocking findings from source review.
+The final combined revision passes the production build (all 116 registry entries and 289 SEO pages), 117 unit tests, lint with existing warnings, all 20 component contract checks, and strict installed-package compilation on Angular 20.0.0, 20.3.33, 21.2.25 and 22.2.1. The combined catalog, Angular interaction and framework-tab browser regression passes all 52 desktop/mobile cases.
 
-Independent checks on this integration branch: native library/demo build and packaged contract pass; **10 actual React / Angular browser cases pass** on desktop and mobile. These cover controlled requests, keyboard/form behavior, click and ARIA overrides, delayed frames, active destruction, hover/focus and both website themes. The component's own broader **26-case suite** and strict compiler matrix are recorded in [its report](hamburger-menu.md). Final union regeneration and batch regression checks remain pending.
-
-### Expandable Search — PR #21, `55b5d1c`
-
-Reviewed the source’s uncontrolled query, truthy whitespace behavior, delayed focus, empty-only blur collapse, optional callback and source clear-button form behavior. The clear button intentionally omits its type, but its synchronous removal prevents submission; the Angular view now commits this update before the native default action. Both unkeyed presence branches use the same child key, so the shortcut is removed immediately rather than retained for exit. String-color springs report zero velocity in the installed Motion version, while numeric width retains its interrupted velocity.
-
-Independent checks on the integration branch: native build and packaged contract pass, and **24 actual React / Angular browser cases pass** on desktop/mobile. The PR subsequently strengthened immediate shortcut removal and phase-aligned fade checks; **both focused desktop/mobile cases pass** independently. Shared-file merge conflicts were resolved by retaining both native component registrations, demo cases, contract scripts and CSS exclusions, then regenerating catalog outputs.
-
-## Remaining batch work
-
-Smooth Accordion, Stretch Switch and Reveal Card are still finishing implementation or review. After all five dedicated PR heads are integrated, regenerate the catalog and demo sources, validate the combined package and consuming apps, run the relevant browser regressions, and update the central tracker only from recorded evidence. Merge the batch before starting the next five.
+Shared registrations, CSS exclusions, public types, examples and generated catalog outputs were reconciled across all five PRs. The central tracker now records 20 validated baselines and 96 components awaiting review. Validation covers the documented Chromium fixtures; the user's final QA of all components remains outstanding.
