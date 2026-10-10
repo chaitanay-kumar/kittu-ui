@@ -354,12 +354,10 @@ for (const framework of ["react", "angular"])
       }),
     ).toBeVisible();
     await page.waitForTimeout(650);
-    await input
-      .locator("..")
-      .screenshot({
-        path: info.outputPath(`${framework}-expandable-search.png`),
-        animations: "disabled",
-      });
+    await input.locator("..").screenshot({
+      path: info.outputPath(`${framework}-expandable-search.png`),
+      animations: "disabled",
+    });
   });
 test("expandable search shortcut fade uses source default easing and replaces clear immediately", async ({
   page,
@@ -369,17 +367,30 @@ test("expandable search shortcut fade uses source default easing and replaces cl
     await consumer(page, framework);
     const input = page.getByRole("textbox");
     await input.fill("q");
+    expect(
+      await input
+        .locator("..")
+        .evaluate((el) => el.querySelectorAll("div").length),
+    ).toBe(0);
     await page.waitForTimeout(550);
     await expect(input.locator("..").locator("div")).toHaveCount(0);
     await page.getByRole("button").dispatchEvent("click");
     await expect(page.getByRole("button")).toHaveCount(0);
-    await page.waitForTimeout(140);
+    const hint = input.locator("..").locator("div");
+    await expect
+      .poll(() => hint.evaluate((el) => el.getAnimations().length))
+      .toBe(1);
     opacity.push(
-      await input
-        .locator("..")
-        .locator("div")
-        .evaluate((el) => Number(getComputedStyle(el).opacity)),
+      await hint.evaluate((el) => {
+        const animation = el.getAnimations()[0];
+        if (animation.effect!.getTiming().duration !== 300)
+          throw new Error("Source shortcut duration must remain 300ms");
+        animation.pause();
+        animation.currentTime = 140;
+        return Number(getComputedStyle(el).opacity);
+      }),
     );
+    await hint.evaluate((el) => el.getAnimations()[0].play());
     await page.waitForTimeout(250);
     await expect(input.locator("..").locator("div")).toHaveCSS("opacity", "1");
   }

@@ -37,7 +37,7 @@ The source clear button has no accessible name. This port retains that behavior;
 
 The browser fixture runs actual React and the built Angular package with shared Angular styles loaded in both consumers, detecting global style collisions. Chromium desktop and Pixel 7 mobile projects cover light/dark settled states, callbacks, whitespace, overrides, empty/nonempty blur, click propagation, forms, delayed-focus races, teardown, shortcut replacement/fade and the actual website demos. Demo screenshots are emitted as Playwright artifacts.
 
-Settled geometry and computed styles are compared exactly. Interrupted motion is compared at equal spring phase and equal time after reversal, with bounded tolerances of 10 px width, 3 background channel units and 10 border channel units. Shortcut intermediate opacity tolerance is 0.12. These are frame-sampled browser checks, not a claim of identical raster pixels at every animation frame.
+Settled geometry and computed styles are compared exactly. Interrupted motion is compared at equal spring phase and equal time after reversal, with bounded tolerances of 10 px width, 3 background channel units and 10 border channel units. Shortcut opacity is compared at the same native animation time (140 ms of a verified 300 ms duration), with tolerance 0.12. Immediate removal after input is checked before any exit-animation delay. These are frame-sampled browser checks, not a claim of identical raster pixels at every animation frame.
 
 Validation commands:
 
