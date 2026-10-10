@@ -4,7 +4,7 @@ React is the source of truth for component appearance, interactions, data contra
 
 Current progress: 10 components have validated baselines and 106 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kit-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kit-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kit-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kit-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kit-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kit-ui-library`.
 
-User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kit-ui/pull/6). Neon Edge Button is in [PR #7](https://github.com/chaitanay-kumar/kit-ui/pull/7). Orbital Loading Ring is in [PR #8](https://github.com/chaitanay-kumar/kit-ui/pull/8). Spotlight Card is in [PR #9](https://github.com/chaitanay-kumar/kit-ui/pull/9). Morphing Icon is in [PR #10](https://github.com/chaitanay-kumar/kit-ui/pull/10). New component work is paused at the user’s request. Press Button and Magnetic Button remain possible next reviews when resumed. The original inventory order remains below for tracking, not execution priority.
+User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kit-ui/pull/6). Neon Edge Button is in [PR #7](https://github.com/chaitanay-kumar/kit-ui/pull/7). Orbital Loading Ring is in [PR #8](https://github.com/chaitanay-kumar/kit-ui/pull/8). Spotlight Card is in [PR #9](https://github.com/chaitanay-kumar/kit-ui/pull/9). Morphing Icon is in [PR #10](https://github.com/chaitanay-kumar/kit-ui/pull/10). Work is active in batches of five. The current batch is Press Button (PR #14), Magnetic Button (PR #15), Morphing Button (PR #16), Typewriter Button (PR #17) and Rainbow Button (PR #18). Finish combined validation and merge this batch before starting the next five. The original inventory order remains below for tracking, not execution priority.
 
 ## Review requirements
 
@@ -75,11 +75,11 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 53 | LockInput | `lock-input` | Queued | — |
 | 54 | Login | `login` | Queued | — |
 | 55 | macOS Folder Cards | `mac-os-folder-cards` | Queued | — |
-| 56 | Magnetic Button | `magnetic-button` | Queued | — |
+| 56 | Magnetic Button | `magnetic-button` | In review, batch 2 | [Review](parity/magnetic-button.md) |
 | 57 | Meteors | `meteors` | Queued | — |
 | 58 | Metric HUD | `metric-hud` | Queued | — |
 | 59 | Morphing Blob | `morphing-blob` | Queued | — |
-| 60 | Morphing Button | `morphing-button` | Queued | — |
+| 60 | Morphing Button | `morphing-button` | In review, batch 2 | [Review](parity/morphing-button.md) |
 | 61 | Morphing Dialog | `morphing-dialog` | Queued | — |
 | 62 | Morphing Icon | `morphing-icon` | Validated baseline | [Review](parity/morphing-icon.md) |
 | 63 | Morphing Shape Loader | `morphing-shape-loader` | Queued | — |
@@ -96,11 +96,11 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 74 | Payment Status | `payment-status` | Queued | — |
 | 75 | Peek Card | `peek-card` | Queued | — |
 | 76 | Pill Navigation | `pill-navigation` | Queued | — |
-| 77 | PressButton | `press-button` | Queued | — |
+| 77 | PressButton | `press-button` | In review, batch 2 | [Review](parity/press-button.md) |
 | 78 | Pricing | `pricing` | Queued | — |
 | 79 | Profile Card | `profile-card` | Queued | — |
 | 80 | Pull to Refresh | `pull-to-refresh` | Queued | — |
-| 81 | Rainbow Button | `rainbow-button` | Queued | — |
+| 81 | Rainbow Button | `rainbow-button` | In review, batch 2 | [Review](parity/rainbow-button.md) |
 | 82 | Recovery Ledger | `recovery-ledger` | Queued | — |
 | 83 | Reveal Card | `reveal-card` | Queued | — |
 | 84 | Rocket Party Popper | `rocket-party-popper` | Queued | — |
@@ -131,7 +131,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 109 | Thinking Orb | `thinking-orb` | Queued | — |
 | 110 | Timeline Scrubber | `timeline-scrubber` | Queued | — |
 | 111 | Torque Dial | `torque-dial` | Queued | — |
-| 112 | Typewriter Button | `typewriter-button` | Queued | — |
+| 112 | Typewriter Button | `typewriter-button` | In review, batch 2 | [Review](parity/typewriter-button.md) |
 | 113 | Undo Toast | `undo-toast` | Queued | — |
 | 114 | UnfoldAccordion | `unfold-accordion` | Queued | — |
 | 115 | VelocityToast | `velocity-toast` | Queued | — |
