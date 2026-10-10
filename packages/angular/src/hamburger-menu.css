@@ -1,0 +1,6 @@
+@layer components {
+.k-hamburger-host{display:contents}.k-hamburger-parity{position:relative;display:inline-flex;align-items:center;justify-content:center;border:0 solid;border-radius:calc(var(--radius,14px) * 1.4);padding:8px;color:#fafafa;background:transparent;cursor:pointer;font:inherit;letter-spacing:inherit;box-sizing:border-box;transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke;transition-duration:150ms;transition-timing-function:cubic-bezier(.4,0,.2,1)}
+.k-hamburger-parity:disabled{opacity:.4;cursor:not-allowed}.k-hamburger-parity:focus-visible{outline-style:none;outline-width:1px;box-shadow:0 0 0 2px color-mix(in oklab, #fff 20%, transparent)}
+.k-hamburger-icon{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}.k-hamburger-line{position:absolute;border-radius:calc(infinity * 1px)}
+@media(hover:hover){.k-hamburger-parity:hover{color:white;background:#0e0e0e}}
+}

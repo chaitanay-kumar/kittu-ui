@@ -9,7 +9,7 @@ const ports = JSON.parse(
   fs.readFileSync(path.join(root, "packages/angular/catalog.json"), "utf8"),
 );
 const portImports = ports.map((port) => port.exportName).join(", ");
-const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kit-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : port.id === "typewriter-button" ? `<kit-typewriter-button text="Type this"/>` : `<${port.selector} />`).join("\n");
+const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kit-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : port.id === "hamburger-menu" ? `<kit-hamburger-menu [isOpen]="false"/>` : port.id === "typewriter-button" ? `<kit-typewriter-button text="Type this"/>` : `<${port.selector} />`).join("\n");
 // Each consumer installs and runs its own compiler. Reusing the repository's
 // compiler would miss incompatibilities with older Angular versions.
 const matrix = [
@@ -68,7 +68,8 @@ export class MagneticConsumer{strength:number|undefined;variant:MagneticButtonVa
 import {KitRainbowButtonComponent,type RainbowButtonVariant,type RainbowButtonSize,type RainbowButtonStyle} from 'kit-ui-angular';
 @Component({selector:'rainbow-consumer',standalone:true,imports:[KitRainbowButtonComponent],template:'<button kitRainbowButton [variant]="variant" [size]="size" [speed]="speed" [glow]="glow" [color1]="color" [color2]="color" [color3]="color" [color4]="color" [color5]="color" [style]="styles" [className]="classes" [disabled]="false" type="reset">Content</button><a kitRainbowButton href="/target" variant="outline">Link</a><button kitRainbowButton type="button">Child</button><kit-rainbow-button>Projected content</kit-rainbow-button>'})
 export class RainbowConsumer{variant:RainbowButtonVariant|undefined;size:RainbowButtonSize|undefined;speed:number|undefined;glow:boolean|undefined;color:string|undefined;styles:RainbowButtonStyle|undefined;classes:string|undefined;}`;
-  const consumerSources = [loaderOptionalConsumer,magneticConsumer,morphingConsumer,rainbowConsumer,
+  const hamburgerConsumer=`import {Component} from "@angular/core";import {KitHamburgerMenuComponent} from "kit-ui-angular";@Component({selector:"hamburger-consumer",imports:[KitHamburgerMenuComponent],template:\`<button kitHamburgerMenu [isOpen]="open" (change)="open=$event" [size]="size" [color]="color" [label]="label" [onClick]="click" [aria-label]="label" type="submit" name="intent" value="menu"></button><kit-hamburger-menu [isOpen]="open" (change)="open=$event"/>\`})export class HamburgerConsumer{open=false;size:number|undefined;color:string|undefined;label:string|undefined;click:((event:MouseEvent)=>void)|undefined;}`;
+  const consumerSources = [hamburgerConsumer,loaderOptionalConsumer,magneticConsumer,morphingConsumer,rainbowConsumer,
 `import { Component } from '@angular/core';
 import { ${portImports}, KitElasticSheetComponent, KitSmartUploadComponent, KitLiquidCommandPaletteComponent, KitHoldToConfirmComponent, KitSwipeActionListComponent, KitInteractiveDataCardComponent, KitTimelineScrubberComponent, KitAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kit-ui-angular';
 @Component({selector:'consumer-app-0',imports:[${portImports}, KitElasticSheetComponent,KitSmartUploadComponent,KitLiquidCommandPaletteComponent,KitHoldToConfirmComponent,KitSwipeActionListComponent,KitInteractiveDataCardComponent,KitTimelineScrubberComponent,KitAIPromptComposerComponent],template:\`

@@ -187,7 +187,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Glyph Matrix for Angular](http://localhost:5173/components/glyph-matrix?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Gooey Menu for Angular](http://localhost:5173/components/gooey-menu?framework=angular): An expandable action menu with Escape, arrow keys and disabled-item handling.
 - [Gravity Particle Burst for Angular](http://localhost:5173/components/gravity-particle-burst?framework=angular): Trigger a local particle celebration with a keyboard button, visible motion controls and cleanup.
-- [Hamburger Menu for Angular](http://localhost:5173/components/hamburger-menu?framework=angular): An expandable action menu with Escape, arrow keys and disabled-item handling.
+- [Hamburger Menu for Angular](http://localhost:5173/components/hamburger-menu?framework=angular): Controlled three-line menu toggle with React-matched spring transforms, native button attributes and accessible open/close labels.
 - [Interactive Timeline for Angular](http://localhost:5173/components/interactive-timeline?framework=angular): Filter chronological events, inspect event payloads and select an event without simulated network activity.
 - [Intro Loader for Angular](http://localhost:5173/components/intro-loader?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
 - [iOS-style Search Bar for Angular](http://localhost:5173/components/ios-search-bar?framework=angular): Live filtering with clear/cancel controls, keyboard navigation and selected-result output.

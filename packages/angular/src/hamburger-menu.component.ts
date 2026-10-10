@@ -1,19 +1,22 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, ElementRef, viewChild } from '@angular/core';
-import { KitCollectionController } from './port-controllers';
-import type { KitItem } from './port-types';
-
+import { Component, ElementRef, computed, inject, input, output } from '@angular/core';
+import {ViewEncapsulation,booleanAttribute} from '@angular/core';
+import {NgTemplateOutlet} from '@angular/common';
+import {installHamburgerMotion} from './hamburger-menu-motion';
 @Component({
- selector:"kit-hamburger-menu", standalone:true,
- host:{'data-kit':"hamburger-menu",style:'display:block;min-width:0'},
- template:`
-<div class="kit-control kit-stack" (keydown.escape)="closeMenu()">
-<div class="k-menu">
-<button #trigger type="button" [disabled]="loading()||disabled()" [attr.aria-expanded]="open()" [attr.aria-controls]="uid" (click)="open.set(!open())">
-<span aria-hidden="true">{{open()?'×':'☰'}}</span> {{label()||'Menu'}}</button>@if(open()){<div [id]="uid" class="k-menu-panel" (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item [disabled]="loading()||item.disabled||disabled()" (click)="pick(item)">{{item.label}}</button>}</div>}</div>@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kit-status">{{busy()?'Working…':status()}}</p>
-</div>
+ selector:"kit-hamburger-menu,button[kitHamburgerMenu]", standalone:true,
+ host:{'data-kit':'hamburger-menu','[class]':'native ? buttonClass() : "k-hamburger-host"','[attr.type]':'native ? type() : null','[attr.disabled]':'native && disabled() ? "" : null','[attr.aria-label]':'native ? accessibleLabel() : null','[attr.aria-expanded]':'native ? expanded() : null','(click)':'hostClick($event)'},
+ imports:[NgTemplateOutlet],
+encapsulation:ViewEncapsulation.None,styleUrls:["./hamburger-menu.css"],
+template:`
+<ng-template #content>
+<div class="k-hamburger-icon" [style.width.px]="size()" [style.height.px]="size()">@for(line of [0,1,2];track line){<span class="k-hamburger-line" [style.width.px]="size()" [style.height.px]="stroke()" [style.background-color]="color()">
+</span>}</div>
+</ng-template>@if(native){<ng-container [ngTemplateOutlet]="content"/>}@else{<button [class]="buttonClass()" [attr.type]="type()" [disabled]="disabled()" [attr.aria-label]="accessibleLabel()" [attr.aria-expanded]="expanded()" (click)="activate($event)">
+<ng-container [ngTemplateOutlet]="content"/>
+</button>}
 `
 })
-export class KitHamburgerMenuComponent extends KitCollectionController {
-readonly trigger=viewChild<ElementRef<HTMLButtonElement>>('trigger');closeMenu():void{this.open.set(false);this.trigger()?.nativeElement.focus();}pick(item:KitItem):void{if(this.disabled()||this.loading()||item.disabled)return;this.select(item);this.closeMenu();}override keys(event:KeyboardEvent):void{if(!['ArrowDown','ArrowUp','Home','End'].includes(event.key)||this.disabled())return;const buttons=Array.from((event.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('button[data-item]:not(:disabled)'));if(!buttons.length)return;event.preventDefault();const index=buttons.indexOf(event.target as HTMLButtonElement);const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(index+(event.key==='ArrowUp'?-1:1)+buttons.length)%buttons.length;buttons[next].focus();}
+export class KitHamburgerMenuComponent {
+readonly native=inject<ElementRef<HTMLElement>>(ElementRef).nativeElement.tagName==='BUTTON';readonly isOpen=input.required<boolean>();readonly change=output<boolean>();readonly size=input<number,number|undefined>(24,{transform:value=>value===undefined?24:value});readonly color=input<string,string|undefined>('currentColor',{transform:value=>value===undefined?'currentColor':value});readonly label=input<string,string|undefined>('Menu',{transform:value=>value===undefined?'Menu':value});readonly disabled=input(false,{transform:booleanAttribute});readonly type=input<'button'|'submit'|'reset'|undefined>('button');readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});readonly ariaLabel=input<{provided:boolean;value:string|null|undefined},string|null|undefined>({provided:false,value:undefined},{alias:'aria-label',transform:value=>({provided:true,value})});readonly ariaExpanded=input<{provided:boolean;value:boolean|string|null|undefined},boolean|string|null|undefined>({provided:false,value:undefined},{alias:'aria-expanded',transform:value=>({provided:true,value})});readonly onClick=input<((event:MouseEvent)=>void)|null|undefined>(()=>{if(!this.disabled())this.change.emit(!this.isOpen());});readonly stroke=computed(()=>Math.max(2,this.size()*.08));readonly accessibleLabel=computed(()=>this.ariaLabel().provided?this.ariaLabel().value:(this.isOpen()?'Close ':'Open ')+this.label());readonly expanded=computed(()=>this.ariaExpanded().provided?this.ariaExpanded().value:this.isOpen());readonly buttonClass=computed(()=>['k-hamburger-parity',this.className()].filter(Boolean).join(' '));hostClick(event:MouseEvent):void{if(this.native)this.activate(event);}activate(event:MouseEvent):void{this.onClick()?.(event);}constructor(){installHamburgerMotion(this.isOpen,this.size);}
 }
