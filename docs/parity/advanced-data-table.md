@@ -4,16 +4,16 @@ React is the source of truth: [component](../../src/components/ui/AdvancedDataTa
 
 ## Native contract and migration
 
-The existing `KittuAdvancedDataTableComponent` export and `kittu-advanced-data-table` selector remain. The generic component accepts `data`, `columns: ColumnDef<T>[]`, `getRowId`, `defaultPageSize` (10), `defaultViewMode` (`auto`), `accentColor`, `renderSubComponent`, `isLoading`, `error`, `className`, `title`, `searchPlaceholder`, `onBulkDelete` and `onBulkExport`. Callbacks receive selected IDs; `bulkDelete` and `bulkExport` additionally expose Angular outputs. State ownership and defaults follow React; replacing defaults after initialization does not reset user state.
+The existing `KitAdvancedDataTableComponent` export and `kit-advanced-data-table` selector remain. The generic component accepts `data`, `columns: ColumnDef<T>[]`, `getRowId`, `defaultPageSize` (10), `defaultViewMode` (`auto`), `accentColor`, `renderSubComponent`, `isLoading`, `error`, `className`, `title`, `searchPlaceholder`, `onBulkDelete` and `onBulkExport`. Callbacks receive selected IDs; `bulkDelete` and `bulkExport` additionally expose Angular outputs. State ownership and defaults follow React; replacing defaults after initialization does not reset user state.
 
-Migrate old `{key,label}` columns to `{id,header,accessorKey}` and supply application data explicitly. Replace `label` with `title`, `loading` with `isLoading`, and `pageSize` with `defaultPageSize`. The old generic `bulkAction` callback receiving rows and an AbortSignal is replaced by ID callbacks. `disabled`, two-way `page`/`selectedIds`, and collection-specific outputs are outside React's API and have been removed from this component. Legacy `KittuTableColumn`, `KittuTableRow` and `KittuTableAction` types remain exported for existing integrations.
+Migrate old `{key,label}` columns to `{id,header,accessorKey}` and supply application data explicitly. Replace `label` with `title`, `loading` with `isLoading`, and `pageSize` with `defaultPageSize`. The old generic `bulkAction` callback receiving rows and an AbortSignal is replaced by ID callbacks. `disabled`, two-way `page`/`selectedIds`, and collection-specific outputs are outside React's API and have been removed from this component. Legacy `KitTableColumn`, `KitTableRow` and `KitTableAction` types remain exported for existing integrations.
 
-React node-returning functions become Angular `TemplateRef`s. Column `cell` templates receive `$implicit`/`row` and `value`; `renderSubComponent` receives `$implicit`/`row`. Accessor functions, widths, alignment, priorities and explicit labeled filter options retain React's data contract. Compound exports are `KittuDataTableComponent`, `KittuDataTableToolbarComponent`, `KittuDataTableFiltersComponent`, `KittuDataTableContentComponent`, and `KittuDataTablePaginationComponent`; compose them inside `kittu-data-table` or use its default composition. Compound parts provide their React options, including empty content and page-size choices. Public controller state supports native equivalents of React's context operations.
+React node-returning functions become Angular `TemplateRef`s. Column `cell` templates receive `$implicit`/`row` and `value`; `renderSubComponent` receives `$implicit`/`row`. Accessor functions, widths, alignment, priorities and explicit labeled filter options retain React's data contract. Compound exports are `KitDataTableComponent`, `KitDataTableToolbarComponent`, `KitDataTableFiltersComponent`, `KitDataTableContentComponent`, and `KitDataTablePaginationComponent`; compose them inside `kit-data-table` or use its default composition. Compound parts provide their React options, including empty content and page-size choices. Public controller state supports native equivalents of React's context operations.
 
 ```html
 <ng-template #nameCell let-row let-value="value">{{row.name}}: {{value}}</ng-template>
 <ng-template #details let-row>Details for {{row.name}}</ng-template>
-<kittu-advanced-data-table
+<kit-advanced-data-table
   title="Directory"
   [data]="rows"
   [columns]="[{id:'name',header:'Name',accessorKey:'name',sortable:true,cell:nameCell}]"

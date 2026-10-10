@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-export const SplitButtonMeta: KittuUIComponentMeta = {
+export const SplitButtonMeta: KitUIComponentMeta = {
   title: 'Split Button',
   tagline: 'A primary action with a chevron trigger for related actions.',
   description: 'A primary action fused with a chevron trigger that reveals related actions in a spring-timed dropdown, sharing a single pill silhouette.',

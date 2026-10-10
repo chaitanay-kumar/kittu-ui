@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Dependency Trace',
   description: 'An interactive SVG node graph that maps and dynamically traces relationship connections with directional bezier curves.',
   category: 'Motion',

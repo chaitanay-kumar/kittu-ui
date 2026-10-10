@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Airport Matrix Clock',
   description: 'A live world clock that renders local times and city names as crisp dot-matrix characters with restrained, character-level rolling transitions.',
   category: 'Motion',

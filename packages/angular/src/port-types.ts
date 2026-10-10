@@ -1,77 +1,77 @@
 /** Native Angular data contracts. React render props become data or projected content. */
-export interface KittuItem {
+export interface KitItem {
   id: string;
   label: string;
   description?: string;
   value?: string | number;
   disabled?: boolean;
-  children?: KittuItem[];
+  children?: KitItem[];
   status?: string;
   image?: string;
   href?: string;
 }
-export interface KittuTableColumn {
+export interface KitTableColumn {
   key: string;
   label: string;
   sortable?: boolean;
   filterable?: boolean;
 }
-export interface KittuTableRow {
+export interface KitTableRow {
   id: string;
   [key: string]: string | number | boolean | undefined;
 }
-export interface KittuField {
+export interface KitField {
   key: string;
   label: string;
   type?: "text" | "email" | "password" | "tel";
   required?: boolean;
   minLength?: number;
 }
-export interface KittuMessage {
+export interface KitMessage {
   id: string;
   role: "user" | "assistant";
   text: string;
 }
-export interface KittuGraphNode extends KittuItem {
+export interface KitGraphNode extends KitItem {
   x?: number;
   y?: number;
 }
-export interface KittuGraphEdge {
+export interface KitGraphEdge {
   from: string;
   to: string;
   label?: string;
 }
-export interface KittuPlan {
+export interface KitPlan {
   id: string;
   label: string;
   price: number;
   features: string[];
   featured?: boolean;
 }
-export interface KittuCompareFeature {
+export interface KitCompareFeature {
   id: string;
   label: string;
   values: Record<string, string | boolean>;
 }
-export interface KittuCompareCategory {
+export interface KitCompareCategory {
   id: string;
   label: string;
-  features: KittuCompareFeature[];
+  features: KitCompareFeature[];
 }
-export type KittuTableAction = (
-  rows: KittuTableRow[],
+export type KitTableAction = (
+  rows: KitTableRow[],
   signal: AbortSignal,
 ) => void | Promise<void>;
-export type KittuAction = (signal: AbortSignal) => void | Promise<void>;
-export type KittuCollectionAction = (
-  items: KittuItem[],
+export type KitAction = (signal: AbortSignal) => void | Promise<void>;
+export type KitCollectionAction = (
+  items: KitItem[],
   signal: AbortSignal,
 ) => void | Promise<void>;
-export type KittuSubmitHandler = (
+export type KitSubmitHandler = (
   values: Record<string, string>,
   signal: AbortSignal,
 ) => void | Promise<void>;
-export type KittuChatHandler = (
+export type KitChatHandler = (
   text: string,
   signal: AbortSignal,
 ) => Promise<string>;

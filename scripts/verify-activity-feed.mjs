@@ -5,14 +5,14 @@ import { JSDOM } from 'jsdom';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
-import { KittuActivityFeedComponent } from '../packages/angular/dist/fesm2022/kittu-ui-angular.mjs';
+import { KitActivityFeedComponent } from '../packages/angular/dist/fesm2022/kit-ui-angular.mjs';
 const dom = new JSDOM('<html><body></body></html>', { url: 'http://localhost' });
 for (const key of ['window', 'document', 'HTMLElement', 'Element', 'Node']) globalThis[key] = dom.window[key];
 globalThis.matchMedia = () => ({ matches: true });
 TestBed.initTestEnvironment(BrowserTestingModule, platformBrowserTesting());
-TestBed.configureTestingModule({ imports: [KittuActivityFeedComponent], providers: [provideZonelessChangeDetection()] });
+TestBed.configureTestingModule({ imports: [KitActivityFeedComponent], providers: [provideZonelessChangeDetection()] });
 const event = { id:'evt-1', type:'deploy', status:'success', title:'Production release', timestamp:'Now', actor:{name:'CI'}, traceId:'trace-1', payload:{version:'1'} };
-const fixture = TestBed.createComponent(KittuActivityFeedComponent);
+const fixture = TestBed.createComponent(KitActivityFeedComponent);
 const api = fixture.componentInstance;
 const set = (key, value) => { fixture.componentRef.setInput(key,value); fixture.detectChanges(); };
 try {

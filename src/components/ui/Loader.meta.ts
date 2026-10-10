@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Loader',
   description: 'A minimal, purpose-driven loading indicator with 4 calm, non-anxious motion variants.',
   category: 'Feedback',

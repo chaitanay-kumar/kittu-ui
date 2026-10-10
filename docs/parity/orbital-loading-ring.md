@@ -4,7 +4,7 @@ React reference: [OrbitalLoadingRing](../../src/components/ui/OrbitalLoadingRing
 
 ## Contract and migration
 
-`KittuOrbitalLoadingRingComponent` follows React's size (72), speed (1), variant (default/dense/minimal; default default), label (Loading) and className defaults. Explicit undefined values preserve those defaults. The component host is the status element, so native HTML attributes, styles and events apply directly without an extra wrapper. Template style bindings can override width as the reference's style prop does.
+`KitOrbitalLoadingRingComponent` follows React's size (72), speed (1), variant (default/dense/minimal; default default), label (Loading) and className defaults. Explicit undefined values preserve those defaults. The component host is the status element, so native HTML attributes, styles and events apply directly without an extra wrapper. Template style bindings can override width as the reference's style prop does.
 
 The accessible name follows label unless aria-label is supplied. An explicit undefined aria-label removes that attribute, matching React's spread-prop precedence; the hidden label text still follows label. Empty labels keep an empty hidden span. The reference does not add aria-busy; Angular follows it. Projected children are ignored, as in React's explicit internal children.
 

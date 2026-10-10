@@ -46,7 +46,7 @@ export const DocSEO: React.FC<DocSEOProps> = ({ onNavigateSection }) => {
   activeView,             // 'showcase' | 'components' | 'docs'
   componentPage,          // Page number (1, 2, ...)
   activeDocTopic,         // 'introduction' | 'quick-start' | ...
-  selectedModalComponent, // KittuComponentMeta | null
+  selectedModalComponent, // KitComponentMeta | null
 });`}
         />
       </section>

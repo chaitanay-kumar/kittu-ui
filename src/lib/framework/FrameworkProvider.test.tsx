@@ -34,7 +34,7 @@ describe("framework preference", () => {
     );
     fireEvent.click(screen.getByRole("button", { name: "Angular" }));
     expect(screen.getByRole("status")).toHaveTextContent("angular");
-    expect(localStorage.getItem("kittu-ui-framework")).toBe("angular");
+    expect(localStorage.getItem("kit-ui-framework")).toBe("angular");
     expect(window.location.pathname).toBe("/components/elastic-sheet");
     expect(new URLSearchParams(window.location.search).get("category")).toBe(
       "Forms",
@@ -44,7 +44,7 @@ describe("framework preference", () => {
     );
   });
   it("prefers an explicit deep link over saved framework", () => {
-    localStorage.setItem("kittu-ui-framework", "angular");
+    localStorage.setItem("kit-ui-framework", "angular");
     window.history.replaceState(null, "", "/?framework=react");
     render(
       <FrameworkProvider>
@@ -54,7 +54,7 @@ describe("framework preference", () => {
     expect(screen.getByRole("status")).toHaveTextContent("react");
   });
   it("restores a saved framework", () => {
-    localStorage.setItem("kittu-ui-framework", "angular");
+    localStorage.setItem("kit-ui-framework", "angular");
     render(
       <FrameworkProvider>
         <Probe />

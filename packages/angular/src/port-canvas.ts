@@ -12,7 +12,7 @@ import {
 
 /** Canvas lifecycle shared by native visual ports; no timers survive destruction. */
 @Directive()
-export abstract class KittuCanvasController {
+export abstract class KitCanvasController {
   readonly label = input("Interactive visual");
   readonly density = input(90);
   readonly speed = input(1);
@@ -329,7 +329,7 @@ export abstract class KittuCanvasController {
       }
       if (mode === "glyph") {
         ctx.font = `${Math.max(10, w / 35)}px monospace`;
-        const chars = "01KITTU<>/{}";
+        const chars = "01KIT<>/{}";
         ctx.fillText(
           chars[Math.floor((rx * 100 + t * 4) % chars.length)],
           (Math.floor(rx * 30) * w) / 30,

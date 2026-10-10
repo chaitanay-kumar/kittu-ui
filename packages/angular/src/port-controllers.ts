@@ -10,24 +10,24 @@ import {
   signal,
 } from "@angular/core";
 import type {
-  KittuAction,
-  KittuCollectionAction,
-  KittuItem,
-  KittuField,
-  KittuSubmitHandler,
+  KitAction,
+  KitCollectionAction,
+  KitItem,
+  KitField,
+  KitSubmitHandler,
 } from "./port-types";
 
 let nextId = 0;
 export function portId(prefix: string): string {
-  return `kittu-${prefix}-${++nextId}`;
+  return `kit-${prefix}-${++nextId}`;
 }
 
 @Directive()
-export abstract class KittuActionController {
+export abstract class KitActionController {
   readonly label = input("");
   readonly disabled = input(false);
   readonly loading = input(false);
-  readonly action = input<KittuAction>();
+  readonly action = input<KitAction>();
   readonly activated = output<void>();
   readonly busy = signal(false);
   readonly status = signal("");
@@ -81,8 +81,8 @@ export abstract class KittuActionController {
 }
 
 @Directive()
-export abstract class KittuCollectionController {
-  readonly items = input<KittuItem[]>([
+export abstract class KitCollectionController {
+  readonly items = input<KitItem[]>([
     {
       id: "design",
       label: "Design",
@@ -109,7 +109,7 @@ export abstract class KittuCollectionController {
   readonly error = input("");
   readonly selected = model("");
   readonly selectedIds = model<string[]>([]);
-  readonly itemSelect = output<KittuItem>();
+  readonly itemSelect = output<KitItem>();
   readonly query = signal("");
   readonly open = signal(false);
   readonly expanded = signal<string[]>([]);
@@ -117,9 +117,9 @@ export abstract class KittuCollectionController {
   readonly status = signal("");
   readonly actionError = signal("");
   readonly dismissed = signal<string[]>([]);
-  readonly action = input<KittuCollectionAction>();
-  readonly actionComplete = output<KittuItem[]>();
-  readonly actionRequested = output<KittuItem[]>();
+  readonly action = input<KitCollectionAction>();
+  readonly actionComplete = output<KitItem[]>();
+  readonly actionRequested = output<KitItem[]>();
   readonly uid = portId("collection");
   readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   readonly visible = computed(() =>
@@ -142,7 +142,7 @@ export abstract class KittuCollectionController {
       this.controller?.abort();
     });
   }
-  select(item: KittuItem): void {
+  select(item: KitItem): void {
     if (this.disabled() || item.disabled || this.loading()) return;
     this.selected.set(item.id);
     this.itemSelect.emit(item);
@@ -153,7 +153,7 @@ export abstract class KittuCollectionController {
       a.includes(id) ? a.filter((x) => x !== id) : [...a, id],
     );
   }
-  choose(item: KittuItem): void {
+  choose(item: KitItem): void {
     if (this.disabled() || this.loading() || item.disabled || this.busy())
       return;
     this.selectedIds.update((a) =>
@@ -196,7 +196,7 @@ export abstract class KittuCollectionController {
     buttons[next].focus();
     buttons[next].click();
   }
-  dismiss(item: KittuItem): void {
+  dismiss(item: KitItem): void {
     if (this.disabled() || this.busy()) return;
     this.dismissed.update((a) => [...a, item.id]);
     this.status.set(`${item.label} dismissed.`);
@@ -206,7 +206,7 @@ export abstract class KittuCollectionController {
     this.status.set("Restored.");
   }
   async execute(
-    items: KittuItem[] = this.items().filter((i) =>
+    items: KitItem[] = this.items().filter((i) =>
       this.selectedIds().includes(i.id),
     ),
   ): Promise<void> {
@@ -242,8 +242,8 @@ export abstract class KittuCollectionController {
 }
 
 @Directive()
-export abstract class KittuFormController {
-  readonly fields = input<KittuField[]>([
+export abstract class KitFormController {
+  readonly fields = input<KitField[]>([
     { key: "email", label: "Email", type: "email", required: true },
     {
       key: "password",
@@ -255,7 +255,7 @@ export abstract class KittuFormController {
   ]);
   readonly label = input("");
   readonly disabled = input(false);
-  readonly submitHandler = input<KittuSubmitHandler>();
+  readonly submitHandler = input<KitSubmitHandler>();
   readonly submitted = output<Record<string, string>>();
   readonly values = signal<Record<string, string>>({});
   readonly busy = signal(false);

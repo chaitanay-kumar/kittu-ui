@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Branching Submenu',
   description: 'A spatial submenu that connects parent options to child actions with staged branch motion.',
   category: 'Navigation',

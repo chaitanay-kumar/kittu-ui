@@ -5,8 +5,8 @@ import {DOCUMENT,NgTemplateOutlet} from '@angular/common';
 import {MorphingIconMotion} from './morphing-icon-motion';
 import type {MorphingIconStyle} from './morphing-icon-types';
 @Component({
- selector:"kittu-morphing-icon", standalone:true,
- host:{'data-kittu':'morphing-icon','[class]':'"k-morphing-parity "+className()','[style]':'resolvedStyle()'},
+ selector:"kit-morphing-icon", standalone:true,
+ host:{'data-kit':'morphing-icon','[class]':'"k-morphing-parity "+className()','[style]':'resolvedStyle()'},
  imports:[NgTemplateOutlet],
 encapsulation:ViewEncapsulation.None,styleUrls:["./morphing-icon.css"],
 template:`
@@ -18,7 +18,7 @@ template:`
 </div>
 `
 })
-export class KittuMorphingIconComponent {
+export class KitMorphingIconComponent {
 readonly from=input.required<TemplateRef<unknown>>();readonly to=input.required<TemplateRef<unknown>>();
 readonly active=input<boolean,boolean|undefined>(false,{transform:value=>value===undefined?false:value});readonly duration=input<number,number|undefined>(.3,{transform:value=>value===undefined?.3:value});readonly size=input<number,number|undefined>(20,{transform:value=>value===undefined?20:value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});
 private readonly defaultStyle=Symbol('default style');readonly style=input<MorphingIconStyle|string|symbol|undefined,MorphingIconStyle|string|undefined>(this.defaultStyle,{transform:value=>value});private readonly document=inject(DOCUMENT);

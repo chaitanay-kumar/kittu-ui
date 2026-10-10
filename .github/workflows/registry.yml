@@ -2,9 +2,9 @@ name: Registry CI
 
 on:
   push:
-    branches: [main, feat/kittu-ui-library]
+    branches: [main, feat/kit-ui-library]
   pull_request:
-    branches: [main, feat/kittu-ui-library]
+    branches: [main, feat/kit-ui-library]
 
 jobs:
   validate:

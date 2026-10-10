@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Neon Edge Button',
   description: 'A button with a restrained light source travelling around the border while the label remains primary.',
   category: 'Buttons',

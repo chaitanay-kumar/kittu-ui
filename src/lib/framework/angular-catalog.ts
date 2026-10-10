@@ -14,8 +14,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "elastic-sheet",
     name: "Elastic Sheet",
-    exportName: "KittuElasticSheetComponent",
-    selector: "kittu-elastic-sheet",
+    exportName: "KitElasticSheetComponent",
+    selector: "kit-elastic-sheet",
     description:
       "A draggable native modal sheet with keyboard resizing and snap positions.",
     inputs: ["title: string", "snapPositions: number[]", "disabled: boolean"],
@@ -25,8 +25,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "smart-upload",
     name: "Smart Upload",
-    exportName: "KittuSmartUploadComponent",
-    selector: "kittu-smart-upload",
+    exportName: "KitSmartUploadComponent",
+    selector: "kit-smart-upload",
     description:
       "Validated file queues, previews, progress, cancellation, and fresh retries.",
     inputs: [
@@ -42,8 +42,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "liquid-command-palette",
     name: "Liquid Command Palette",
-    exportName: "KittuLiquidCommandPaletteComponent",
-    selector: "kittu-liquid-command-palette",
+    exportName: "KitLiquidCommandPaletteComponent",
+    selector: "kit-liquid-command-palette",
     description:
       "Search commands with keyboard navigation, disabled entries, and async recovery.",
     inputs: ["commands: LiquidCommand[]", "disabled: boolean"],
@@ -53,8 +53,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "hold-to-confirm",
     name: "Hold-to-Confirm",
-    exportName: "KittuHoldToConfirmComponent",
-    selector: "kittu-hold-to-confirm",
+    exportName: "KitHoldToConfirmComponent",
+    selector: "kit-hold-to-confirm",
     description:
       "Deliberate pointer and keyboard confirmation with visible progress and retry.",
     inputs: [
@@ -69,8 +69,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "swipe-action-list",
     name: "Swipe Action List",
-    exportName: "KittuSwipeActionListComponent",
-    selector: "kittu-swipe-action-list",
+    exportName: "KitSwipeActionListComponent",
+    selector: "kit-swipe-action-list",
     description:
       "Swipe to reveal actions, with keyboard buttons, loading, and failure recovery.",
     inputs: [
@@ -84,8 +84,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "interactive-data-card",
     name: "Interactive Data Card",
-    exportName: "KittuInteractiveDataCardComponent",
-    selector: "kittu-interactive-data-card",
+    exportName: "KitInteractiveDataCardComponent",
+    selector: "kit-interactive-data-card",
     description:
       "Expandable summaries and projected details with asynchronous actions.",
     inputs: [
@@ -101,8 +101,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "timeline-scrubber",
     name: "Timeline Scrubber",
-    exportName: "KittuTimelineScrubberComponent",
-    selector: "kittu-timeline-scrubber",
+    exportName: "KitTimelineScrubberComponent",
+    selector: "kit-timeline-scrubber",
     description:
       "Explore events with native range navigation and readable event announcements.",
     inputs: [
@@ -115,8 +115,8 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   {
     id: "ai-prompt-composer",
     name: "AI Prompt Composer",
-    exportName: "KittuAIPromptComposerComponent",
-    selector: "kittu-ai-prompt-composer",
+    exportName: "KitAIPromptComposerComponent",
+    selector: "kit-ai-prompt-composer",
     description:
       "Draft prompts with suggestions and attachments; preserve work on cancellation or failure.",
     inputs: [
@@ -143,17 +143,17 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
 ];
 export function angularUsage(entry: AngularEntry) {
   if (entry.id === 'advanced-data-table') return `import { Component } from '@angular/core';
-import { KittuAdvancedDataTableComponent, type ColumnDef } from 'kittu-ui-angular';
+import { KitAdvancedDataTableComponent, type ColumnDef } from 'kit-ui-angular';
 interface Row { id: string; name: string; }
-@Component({selector:'app-example',imports:[KittuAdvancedDataTableComponent],template:\`<kittu-advanced-data-table title="Directory" [data]="rows" [columns]="columns" [onBulkExport]="exportRows"/>\`})
+@Component({selector:'app-example',imports:[KitAdvancedDataTableComponent],template:\`<kit-advanced-data-table title="Directory" [data]="rows" [columns]="columns" [onBulkExport]="exportRows"/>\`})
 export class ExampleComponent {
   readonly rows: Row[] = [{id:'1',name:'Kit UI'}];
   readonly columns: ColumnDef<Row>[] = [{id:'name',header:'Name',accessorKey:'name',sortable:true}];
   readonly exportRows = (ids: string[]) => { console.log(ids); };
 }`;
   if (entry.id === 'ai-agent-activity') return `import { Component } from '@angular/core';
-import { KittuAiAgentActivityComponent, type AgentActivityItemData } from 'kittu-ui-angular';
-@Component({selector:'app-example',imports:[KittuAiAgentActivityComponent],template:\`<kittu-ai-agent-activity title="Agent trace" [activities]="activities" [isRunning]="false" [defaultExpandedIds]="['analyze']"/>\`})
+import { KitAiAgentActivityComponent, type AgentActivityItemData } from 'kit-ui-angular';
+@Component({selector:'app-example',imports:[KitAiAgentActivityComponent],template:\`<kit-ai-agent-activity title="Agent trace" [activities]="activities" [isRunning]="false" [defaultExpandedIds]="['analyze']"/>\`})
 export class ExampleComponent {
  readonly activities:AgentActivityItemData[]=[{id:'analyze',type:'thinking',title:'Analyze request',status:'success',details:{input:{query:'Build a timeline'},output:'Ready'}}];
 }`;
@@ -167,5 +167,5 @@ export class ExampleComponent {
         : entry.id === "liquid-command-palette"
           ? "LiquidCommand"
           : undefined;
-  return `import { Component } from '@angular/core';\nimport { ${entry.exportName}${type ? `, type ${type}` : ""} } from 'kittu-ui-angular';\n\n@Component({\n  selector: 'app-example',\n  imports: [${entry.exportName}],\n  template: \`<${entry.selector}${entry.binding ? " " + entry.binding : ""} />\`,\n})\nexport class ExampleComponent {\n${entry.handler ?? ""}\n}`;
+  return `import { Component } from '@angular/core';\nimport { ${entry.exportName}${type ? `, type ${type}` : ""} } from 'kit-ui-angular';\n\n@Component({\n  selector: 'app-example',\n  imports: [${entry.exportName}],\n  template: \`<${entry.selector}${entry.binding ? " " + entry.binding : ""} />\`,\n})\nexport class ExampleComponent {\n${entry.handler ?? ""}\n}`;
 }

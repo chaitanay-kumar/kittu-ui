@@ -114,14 +114,14 @@ export const AIResponseLiveShowcase: React.FC = () => {
     {
       id: 1,
       title: 'Kit UI Motion System Documentation',
-      url: 'https://github.com/chaitanay-kumar/kittu-ui',
+      url: 'https://github.com/chaitanay-kumar/kit-ui',
       snippet: 'Specifications for springSnappy, springGentle, and hardware-accelerated physics.',
       sourceType: 'doc',
     },
     {
       id: 2,
       title: 'tokens.css — Color Token Architecture',
-      url: 'https://github.com/chaitanay-kumar/kittu-ui',
+      url: 'https://github.com/chaitanay-kumar/kit-ui',
       snippet: 'Theme-agnostic CSS variables: --bg, --surface, --border, --text-primary.',
       sourceType: 'github',
     },
@@ -890,7 +890,7 @@ export const CrossComponentLiveShowcase: React.FC = () => {
 ### Component Telemetry Overview`
           }
           sources={[
-            { id: 1, title: 'Kit UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kittu-ui' },
+            { id: 1, title: 'Kit UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kit-ui' },
             { id: 2, title: 'Bundlephobia Web Audit', url: 'https://bundlephobia.com' },
           ]}
         >
@@ -911,7 +911,7 @@ export const CrossComponentLiveShowcase: React.FC = () => {
 
           <AIResponseSources
             sources={[
-              { id: 1, title: 'Kit UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kittu-ui' },
+              { id: 1, title: 'Kit UI Component Catalog', url: 'https://github.com/chaitanay-kumar/kit-ui' },
               { id: 2, title: 'Bundlephobia Web Audit', url: 'https://bundlephobia.com' },
             ]}
           />
@@ -1032,7 +1032,7 @@ export const GlitchTextLiveShowcase: React.FC = () => {
   const [variant, setVariant] = useState<GlitchVariant>('rgb-split');
   const [trigger, setTrigger] = useState<GlitchTrigger>('continuous');
   const [intensity, setIntensity] = useState<GlitchIntensity>('medium');
-  const [text, setText] = useState('KITTU_UI KINETIC MOTION');
+  const [text, setText] = useState('KIT_UI KINETIC MOTION');
   const [key, setKey] = useState(0);
 
   const variants: GlitchVariant[] = ['rgb-split', 'slice', 'vhs', 'scramble', 'pulse'];
@@ -1128,7 +1128,7 @@ export const GlitchTextLiveShowcase: React.FC = () => {
           <GlitchText
             key={`${key}-${variant}-${trigger}-${intensity}`}
             as="h2"
-            text={text || 'KITTU_UI KINETIC MOTION'}
+            text={text || 'KIT_UI KINETIC MOTION'}
             variant={variant}
             trigger={trigger}
             intensity={intensity}

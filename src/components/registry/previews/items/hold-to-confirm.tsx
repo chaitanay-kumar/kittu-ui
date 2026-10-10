@@ -1,2 +1,2 @@
-import { HoldToConfirmDemo } from '../../../docs/KittuDemos';
+import { HoldToConfirmDemo } from '../../../docs/KitDemos';
 export default function Preview() { return <div className="w-full max-w-lg mx-auto p-4"><HoldToConfirmDemo /></div>; }

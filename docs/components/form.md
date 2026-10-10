@@ -14,7 +14,7 @@ A modular, composable form system with accessible inputs, textareas, custom sele
 ## Installation
 
 ```bash
-npx shadcn@latest add chaitanay-kumar/kittu-ui/form
+npx shadcn@latest add chaitanay-kumar/kit-ui/form
 ```
 
 ## Basic Usage

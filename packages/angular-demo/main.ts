@@ -4,7 +4,7 @@ import { bootstrapApplication } from "@angular/platform-browser";
 import { DemoComponent } from "./.generated/demo.component.js";
 import "../../src/styles/tokens.css";
 import "../../src/styles/fonts.css";
-import "../../src/lib/kittu-controls.css";
+import "../../src/lib/kit-controls.css";
 import "../angular/src/ports.css";
 import "./demo.css";
 
@@ -19,7 +19,7 @@ window.addEventListener("message", (event) => {
   if (
     event.origin === origin &&
     event.source === window.parent &&
-    event.data?.type === "kittu-theme"
+    event.data?.type === "kit-theme"
   )
     theme(event.data.theme);
 });
@@ -29,7 +29,7 @@ bootstrapApplication(DemoComponent, {
   .then(() => {
     const resize = () =>
       window.parent.postMessage(
-        { type: "kittu-angular-height", height: document.body.scrollHeight },
+        { type: "kit-angular-height", height: document.body.scrollHeight },
         origin,
       );
     new ResizeObserver(resize).observe(document.body);

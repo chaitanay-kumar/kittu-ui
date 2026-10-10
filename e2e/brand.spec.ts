@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 for (const theme of ['light', 'dark']) {
   test(`Kit Fox branding in ${theme} theme`, async ({ page }, testInfo) => {
-    await page.addInitScript(value => localStorage.setItem('kittu-ui-theme', value), theme);
+    await page.addInitScript(value => localStorage.setItem('kit-ui-theme', value), theme);
     await page.goto('/');
     await expect(page.locator('html')).toHaveAttribute('style', new RegExp(`color-scheme: ${theme}`));
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Nimble by nature.');

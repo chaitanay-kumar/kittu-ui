@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Density Lens',
   description: 'An interactive floating lens that tracks pointer movement to reveal high-density data, magnified details, or alternative views.',
   category: 'Motion',

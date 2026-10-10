@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "Interactive Data Card",
   "description": "An expandable summary with linked detail controls and async action feedback.",
   "category": "Feedback",

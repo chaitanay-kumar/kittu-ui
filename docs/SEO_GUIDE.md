@@ -30,9 +30,9 @@ src/lib/seo/
 When a developer scaffolds a new component via `npm run component:new <ComponentName>`, a paired `<ComponentName>.meta.ts` file is generated:
 
 ```ts
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Aurora Card',
   description: 'A responsive, animated card component with glowing auroral gradients and spring physics.',
   category: 'Motion',
@@ -121,7 +121,7 @@ npm run seo:audit
 
 ```text
 ========================================================
-            KITTU_UI AUTOMATED SEO AUDIT REPORT
+            KIT_UI AUTOMATED SEO AUDIT REPORT
 ========================================================
 
 Overall SEO Score: 100/100

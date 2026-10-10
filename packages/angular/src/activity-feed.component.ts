@@ -1,6 +1,6 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
 import { Component } from '@angular/core';
-import { KittuActivityFeedController } from './activity-feed-controller';
+import { KitActivityFeedController } from './activity-feed-controller';
 /*
 ISC License
 
@@ -49,8 +49,8 @@ SOFTWARE.
 */
 
 @Component({
- selector:"kittu-activity-feed", standalone:true,
- host:{'data-kittu':"activity-feed",style:'display:block;min-width:0'},
+ selector:"kit-activity-feed", standalone:true,
+ host:{'data-kit':"activity-feed",style:'display:block;min-width:0'},
  template:`
 
 <div role="region" aria-label="Activity and telemetry event feed" [class]="'k-activity-feed '+className()">
@@ -193,6 +193,6 @@ SOFTWARE.
 </div>
 `
 })
-export class KittuActivityFeedComponent extends KittuActivityFeedController {
+export class KitActivityFeedComponent extends KitActivityFeedController {
 
 }

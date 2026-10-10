@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Liquid Ripple Button',
   description: 'A tactile button whose pointer-origin ripple and subtle wave layer make press feedback feel fluid.',
   category: 'Buttons',

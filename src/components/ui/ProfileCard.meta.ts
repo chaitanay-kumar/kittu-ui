@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Profile Card',
   description: 'A premium dark social profile card with a painted blue cover-art panel, action row, and a detail panel with avatar, verified name, bio, follower stats, and outbound website link.',
   category: 'Motion',
@@ -18,11 +18,11 @@ const meta: KittuUIComponentMeta = {
   ],
   props: [
     { name: 'name', type: 'string', default: "'Kit UI contributors'", description: 'Display name shown in the detail panel header' },
-    { name: 'username', type: 'string', default: "'@kittu-ui'", description: 'Handle rendered as the small caption under the name' },
+    { name: 'username', type: 'string', default: "'@kit-ui'", description: 'Handle rendered as the small caption under the name' },
     { name: 'description', type: 'string', default: "'Building Kit UI. Engineer.'", description: 'Biographical text shown under the name' },
     { name: 'followers', type: 'string', default: "'200K'", description: 'Pre-formatted follower count' },
     { name: 'posts', type: 'string', default: "'72'", description: 'Pre-formatted post count' },
-    { name: 'website', type: 'string', default: "'github.com/chaitanay-kumar/kittu-ui'", description: 'Website domain — link href is auto-prefixed with https://' },
+    { name: 'website', type: 'string', default: "'github.com/chaitanay-kumar/kit-ui'", description: 'Website domain — link href is auto-prefixed with https://' },
     { name: 'actionLabel', type: 'string', default: "'Follow'", description: 'Label for the primary action button' },
     { name: 'onAction', type: '() => void', default: 'undefined', description: 'Click handler for the primary action button' },
     { name: 'className', type: 'string', default: 'undefined', description: 'Additional Tailwind classes merged into the card root' },
@@ -42,11 +42,11 @@ export function Demo() {
     <div className="w-full max-w-md mx-auto">
       <ProfileCard
         name="Kit UI contributors"
-        username="@kittu-ui"
+        username="@kit-ui"
         description="Building Kit UI. Engineer."
         followers="200K"
         posts="72"
-        website="github.com/chaitanay-kumar/kittu-ui"
+        website="github.com/chaitanay-kumar/kit-ui"
         onAction={() => console.log('Follow clicked')}
       />
     </div>

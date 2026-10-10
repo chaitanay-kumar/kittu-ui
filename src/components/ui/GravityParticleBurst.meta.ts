@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Gravity Particle Burst',
   description: 'A pointer-triggered canvas particle burst with velocity, gravity, friction, and short-lived physical follow-through.',
   category: 'Motion',

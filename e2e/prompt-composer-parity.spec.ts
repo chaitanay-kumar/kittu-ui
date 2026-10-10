@@ -27,7 +27,7 @@ async function interactionStyles(root:Locator){
  return {hover,focus};
 }
 for(const theme of ['light','dark'])test(`prompt geometry and typography match in ${theme}`,async({page},testInfo)=>{
- await page.addInitScript(value=>localStorage.setItem('kittu-ui-theme',value),theme);await page.emulateMedia({reducedMotion:'reduce'});
+ await page.addInitScript(value=>localStorage.setItem('kit-ui-theme',value),theme);await page.emulateMedia({reducedMotion:'reduce'});
  await page.goto('/components/ai-prompt-composer?framework=react');const reactRoot=page.locator('form[aria-label="AI prompt composer"]');await expect(reactRoot).toBeVisible();await page.evaluate(()=>document.fonts.ready);
  const box=await reactRoot.boundingBox(),react=await metrics(reactRoot);await page.addStyleTag({content:'header.sticky{opacity:0!important}.fixed{display:none!important}'});await reactRoot.screenshot({path:testInfo.outputPath('react-prompt.png'),animations:'disabled'});const reactInteraction=await interactionStyles(reactRoot);
  await page.goto('/components/ai-prompt-composer?framework=angular');const previewRoot=page.frameLocator('iframe').locator('form');await expect(previewRoot).toBeVisible();expect(Math.abs((await previewRoot.boundingBox())!.width-box!.width)).toBeLessThanOrEqual(1);

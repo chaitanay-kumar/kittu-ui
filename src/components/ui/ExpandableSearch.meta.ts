@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Expandable Search',
   description: 'A compact search pill that smoothly widens on focus with shortcut hint pills and clear button.',
   category: 'Navigation',

@@ -74,7 +74,7 @@ export const Meteors: React.FC<MeteorsProps> = ({
       {...props}
     >
       <style>{`
-        @keyframes kittu-ui-meteor-streak {
+        @keyframes kit-ui-meteor-streak {
           0% {
             transform: rotate(${angle}deg) translateX(0);
             opacity: 1;
@@ -87,14 +87,14 @@ export const Meteors: React.FC<MeteorsProps> = ({
             opacity: 0;
           }
         }
-        .kittu-ui-meteor-item {
-          animation-name: kittu-ui-meteor-streak;
+        .kit-ui-meteor-item {
+          animation-name: kit-ui-meteor-streak;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
           will-change: transform, opacity;
         }
         @media (prefers-reduced-motion: reduce) {
-          .kittu-ui-meteor-item {
+          .kit-ui-meteor-item {
             animation: none !important;
             display: none !important;
           }
@@ -105,7 +105,7 @@ export const Meteors: React.FC<MeteorsProps> = ({
         meteorStyles.map((itemStyle, idx) => (
           <span
             key={`meteor-${idx}`}
-            className="kittu-ui-meteor-item absolute top-1/2 left-1/2 h-0.5 w-0.5 rounded-full"
+            className="kit-ui-meteor-item absolute top-1/2 left-1/2 h-0.5 w-0.5 rounded-full"
             style={{
               backgroundColor: color,
               boxShadow: `0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 8px 1px ${color}`,

@@ -6,7 +6,7 @@ React reference: [Loader](../../src/components/ui/Loader.tsx) and LoaderShowcase
 
 Explicitly undefined optional bindings retain React’s defaults. An explicitly undefined `aria-label` removes the host attribute; omitting that override uses `label`. This precedence and strict optional-input compilation were verified during integration review.
 
-Keep `KittuLoaderComponent` and `kittu-loader`. Inputs now follow React: `size` (32), `variant` (arc/dots/line/rings; default arc), `label` (Loading...), `reduceMotion` (false), `color` (currentColor), and `className` (empty). The old generic `loading`/`paused` API and visible Ready state are removed. Mount or unmount the indicator for loading state; use `reduceMotion` for the reference’s calmer opacity animations.
+Keep `KitLoaderComponent` and `kit-loader`. Inputs now follow React: `size` (32), `variant` (arc/dots/line/rings; default arc), `label` (Loading...), `reduceMotion` (false), `color` (currentColor), and `className` (empty). The old generic `loading`/`paused` API and visible Ready state are removed. Mount or unmount the indicator for loading state; use `reduceMotion` for the reference’s calmer opacity animations.
 
 The native host is the status element, so ordinary HTML attributes, styles and bubbling DOM events apply directly. `aria-label` can override the accessible name while `label` remains the screen-reader text, matching React’s spread-prop precedence. The host exposes role=status and aria-busy=true. Empty label omits the hidden text.
 

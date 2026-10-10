@@ -3,7 +3,7 @@ export const loaderPort={
 import type {LoaderVariant} from './loader-types';
 import {installLoaderMotion} from './loader-motion';`,stylesFile:'./loader.css',
  inputs:['size: number','variant: LoaderVariant','label: string','reduceMotion: boolean','color: string','className: string'],outputs:[],
- hostMetadata:`{'data-kittu':'loader','role':'status','aria-busy':'true','[attr.aria-label]':'accessibleLabel()','[class]':'"k-loader-parity "+className()'}`,
+ hostMetadata:`{'data-kit':'loader','role':'status','aria-busy':'true','[attr.aria-label]':'accessibleLabel()','[class]':'"k-loader-parity "+className()'}`,
  description:'Native React-matched arc, breathing dots, sliding line and expanding rings with size/color, accessible labeling and explicit reduced-motion keyframes.',
  template:`
 @switch(variant()){

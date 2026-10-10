@@ -39,7 +39,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-describe("Kittu interactions", () => {
+describe("Kit interactions", () => {
   it("snaps a sheet with keyboard controls and explicit snap buttons", () => {
     const change = vi.fn();
     render(<ElasticSheet onSnapChange={change} />);
@@ -227,7 +227,7 @@ describe("Kittu interactions", () => {
     expect(attempts[1].signal.aborted).toBe(true);
   });
   it("revokes an image preview when removed", () => {
-    const create = vi.fn(() => "blob:kittu-preview");
+    const create = vi.fn(() => "blob:kit-preview");
     const revoke = vi.fn();
     vi.stubGlobal(
       "URL",
@@ -239,10 +239,10 @@ describe("Kittu interactions", () => {
     });
     expect(screen.getByRole("img")).toHaveAttribute(
       "src",
-      "blob:kittu-preview",
+      "blob:kit-preview",
     );
     fireEvent.click(screen.getByRole("button", { name: "Remove ant.png" }));
-    expect(revoke).toHaveBeenCalledWith("blob:kittu-preview");
+    expect(revoke).toHaveBeenCalledWith("blob:kit-preview");
   });
   it("preserves a prompt after failure, then clears it after a successful retry", async () => {
     const send = vi

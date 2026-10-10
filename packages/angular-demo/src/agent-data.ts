@@ -1,4 +1,4 @@
-import type { AgentActivityItemData } from 'kittu-ui-angular';
+import type { AgentActivityItemData } from 'kit-ui-angular';
 // Keep aligned with the React live showcase.
 export const INITIAL_ACTIVITIES: AgentActivityItemData[] = [
   {

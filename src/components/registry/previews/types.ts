@@ -1,10 +1,10 @@
 import React from 'react';
-import type { ComponentCatalogIndex, KittuComponentMeta } from '../../../types/component';
+import type { ComponentCatalogIndex, KitComponentMeta } from '../../../types/component';
 
 export type PreviewType = 'interactive' | 'lightweight' | 'static' | 'deferred';
 
 export interface ComponentPreviewProps {
-  component: ComponentCatalogIndex | KittuComponentMeta;
+  component: ComponentCatalogIndex | KitComponentMeta;
   isHovered?: boolean;
   isInViewport?: boolean;
 }

@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface PromptPayload {
   text: string;
   attachments: File[];
@@ -66,7 +66,7 @@ export function AIPromptComposer({
   }
   return (
     <form
-      className="kittu-control kittu-surface kittu-stack"
+      className="kit-control kit-surface kit-stack"
       aria-label="AI prompt composer"
       aria-busy={pending}
       onSubmit={(e) => {
@@ -90,7 +90,7 @@ export function AIPromptComposer({
         }}
         placeholder="Start with a small idea…"
       />
-      <div className="kittu-row" aria-label="Prompt suggestions">
+      <div className="kit-row" aria-label="Prompt suggestions">
         {suggestions.map((s) => (
           <button
             key={s}
@@ -126,9 +126,9 @@ export function AIPromptComposer({
           e.target.value = "";
         }}
       />
-      <ul className="kittu-list">
+      <ul className="kit-list">
         {files.map((file, index) => (
-          <li key={`${file.name}-${index}`} className="kittu-row">
+          <li key={`${file.name}-${index}`} className="kit-row">
             <span style={{ overflowWrap: "anywhere" }}>{file.name}</span>
             <button
               type="button"
@@ -142,8 +142,8 @@ export function AIPromptComposer({
           </li>
         ))}
       </ul>
-      <div className="kittu-row">
-        <span className="kittu-muted">
+      <div className="kit-row">
+        <span className="kit-muted">
           {text.length}/8000 · ⌘ / Ctrl Enter to send
         </span>
         <button
@@ -158,7 +158,7 @@ export function AIPromptComposer({
           </button>
         )}
       </div>
-      <p role="status" className="kittu-status">
+      <p role="status" className="kit-status">
         {status ||
           (!onSend
             ? "Connect an onSend handler to send prompts."

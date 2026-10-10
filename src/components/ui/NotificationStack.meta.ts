@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Notification Stack',
   description: 'A stacked notification card system with physical spring stacking elevation, swipe-to-dismiss drag, and simulation triggers.',
   category: 'Feedback',

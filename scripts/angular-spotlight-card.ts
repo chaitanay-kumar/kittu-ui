@@ -3,7 +3,7 @@ export const spotlightCardPort = {
   imports: `import {ViewEncapsulation} from '@angular/core';
 import type {SpotlightCardMouseHandler} from './spotlight-card-types';`,
   stylesFile: './spotlight-card.css',
-  hostMetadata: `{'data-kittu':'spotlight-card','[class]':'"k-spotlight-parity group "+className()','(mousemove)':'move($event)','(mouseleave)':'leave($event)'}`,
+  hostMetadata: `{'data-kit':'spotlight-card','[class]':'"k-spotlight-parity group "+className()','(mousemove)':'move($event)','(mouseleave)':'leave($event)'}`,
   description: 'React-matched single content card with pointer-following border and ambient radial spotlights, projected children, customizable color/size and native HTML event overrides.',
   inputs: ['spotlightColor: string','spotlightSize: number','className: string','onMouseMove: SpotlightCardMouseHandler','onMouseLeave: SpotlightCardMouseHandler'],
   outputs: [],

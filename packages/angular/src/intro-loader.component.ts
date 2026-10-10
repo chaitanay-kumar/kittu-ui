@@ -2,10 +2,10 @@
 import { Component, input } from '@angular/core';
 
 @Component({
- selector:"kittu-intro-loader", standalone:true,
- host:{'data-kittu':"intro-loader",style:'display:block;min-width:0'},
+ selector:"kit-intro-loader", standalone:true,
+ host:{'data-kit':"intro-loader",style:'display:block;min-width:0'},
  template:`
-<section class="kittu-control kittu-stack" [attr.aria-busy]="loading()">
+<section class="kit-control kit-stack" [attr.aria-busy]="loading()">
 <div class="k-loader k-intro-loader" [class.k-paused]="paused()||!loading()" aria-hidden="true">
 <span>
 </span>
@@ -20,6 +20,6 @@ import { Component, input } from '@angular/core';
 </section>
 `
 })
-export class KittuIntroLoaderComponent {
+export class KitIntroLoaderComponent {
 readonly label=input('Loading…');readonly loading=input(true);readonly paused=input(false);
 }

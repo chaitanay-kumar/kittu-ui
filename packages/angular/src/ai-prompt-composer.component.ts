@@ -4,11 +4,11 @@ import type { SendHandler } from "./types";
 let nextComposerId = 0;
 
 @Component({
-  selector: "kittu-ai-prompt-composer",
+  selector: "kit-ai-prompt-composer",
   standalone: true,
   host: { style: "display:block" },
   template: ` <form
-    class="kittu-control kittu-surface kittu-stack"
+    class="kit-control kit-surface kit-stack"
     aria-label="AI prompt composer"
     [attr.aria-busy]="pending()"
     (submit)="submit($event)"
@@ -24,7 +24,7 @@ let nextComposerId = 0;
         (keydown)="keyDown($event)"
         placeholder="Start with a small idea…"
       ></textarea>
-    <div class="kittu-row" aria-label="Prompt suggestions">
+    <div class="kit-row" aria-label="Prompt suggestions">
       @for (suggestion of suggestions(); track $index) {
         <button
           type="button"
@@ -41,9 +41,9 @@ let nextComposerId = 0;
         [disabled]="disabled() || pending()"
         (change)="attach($event)"
     />
-    <ul class="kittu-list">
+    <ul class="kit-list">
       @for (file of files(); track $index) {
-        <li class="kittu-row">
+        <li class="kit-row">
           <span style="overflow-wrap:anywhere">{{ file.name }}</span
           ><button
             type="button"
@@ -55,8 +55,8 @@ let nextComposerId = 0;
         </li>
       }
     </ul>
-    <div class="kittu-row">
-      <span class="kittu-muted"
+    <div class="kit-row">
+      <span class="kit-muted"
         >{{ text().length }}/8000 · ⌘ / Ctrl Enter to send</span
       ><button
         type="submit"
@@ -66,7 +66,7 @@ let nextComposerId = 0;
         <button type="button" (click)="cancel()">Cancel</button>
       }
     </div>
-    <p role="status" class="kittu-status">
+    <p role="status" class="kit-status">
       {{
         status() ||
           (handler()
@@ -76,8 +76,8 @@ let nextComposerId = 0;
     </p>
   </form>`,
 })
-export class KittuAIPromptComposerComponent {
-  readonly id = `kittu-prompt-${++nextComposerId}`;
+export class KitAIPromptComposerComponent {
+  readonly id = `kit-prompt-${++nextComposerId}`;
   readonly suggestions = input<string[]>([
     "Explain this simply",
     "Help me find a direction",

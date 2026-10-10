@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface UploadContext {
   signal: AbortSignal;
   onProgress: (percent: number) => void;
@@ -158,7 +158,7 @@ export function SmartUpload({
   }
   return (
     <section
-      className="kittu-control kittu-surface kittu-stack"
+      className="kit-control kit-surface kit-stack"
       aria-label="Smart upload"
       onDragOver={(e) => e.preventDefault()}
       onDrop={(e) => {
@@ -178,16 +178,16 @@ export function SmartUpload({
           e.target.value = "";
         }}
       />
-      <p className="kittu-muted">
+      <p className="kit-muted">
         Up to {maxFiles} files · {Math.round(maxSize / 1024 / 1024)} MB each ·{" "}
         {accept || "Any file type"}
       </p>
-      <ul className="kittu-list">
+      <ul className="kit-list">
         {entries.map((entry) => (
-          <li key={entry.id} className="kittu-stack kittu-surface">
+          <li key={entry.id} className="kit-stack kit-surface">
             {entry.preview && (
               <img
-                className="kittu-preview"
+                className="kit-preview"
                 src={entry.preview}
                 alt={`Preview of ${entry.file.name}`}
               />
@@ -198,13 +198,13 @@ export function SmartUpload({
               max={100}
               aria-label={`${entry.file.name} upload progress`}
             />
-            <p className="kittu-status" role="status">
+            <p className="kit-status" role="status">
               {entry.error ?? entry.state}{" "}
               {entry.state === "pending"
                 ? `${Math.round(entry.progress)}%`
                 : ""}
             </p>
-            <div className="kittu-row">
+            <div className="kit-row">
               {entry.state === "pending" ? (
                 <button type="button" onClick={() => cancel(entry)}>
                   Cancel
@@ -231,7 +231,7 @@ export function SmartUpload({
           </li>
         ))}
       </ul>
-      <p role="status" className="kittu-status">
+      <p role="status" className="kit-status">
         {message}
       </p>
     </section>

@@ -28,12 +28,12 @@ export const NeonEdgeButton: React.FC<NeonEdgeButtonProps> = ({
       {...props}
     >
       <style>{`
-        @keyframes kittu-ui-neon-rotate {
+        @keyframes kit-ui-neon-rotate {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .kittu-ui-neon-beam { animation: none !important; opacity: 0.4 !important; }
+          .kit-ui-neon-beam { animation: none !important; opacity: 0.4 !important; }
         }
       `}</style>
 
@@ -43,10 +43,10 @@ export const NeonEdgeButton: React.FC<NeonEdgeButtonProps> = ({
         className="pointer-events-none absolute -inset-[200%] overflow-hidden"
       >
         <span
-          className="kittu-ui-neon-beam absolute inset-0 block"
+          className="kit-ui-neon-beam absolute inset-0 block"
           style={{
             background: 'conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 280deg, rgba(255,255,255,0.85) 340deg, transparent 360deg)',
-            animation: `kittu-ui-neon-rotate ${duration} linear infinite`,
+            animation: `kit-ui-neon-rotate ${duration} linear infinite`,
           }}
         />
       </span>

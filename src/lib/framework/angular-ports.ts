@@ -3,8 +3,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "activity-feed",
     "name": "Activity Feed",
-    "exportName": "KittuActivityFeedComponent",
-    "selector": "kittu-activity-feed",
+    "exportName": "KitActivityFeedComponent",
+    "selector": "kit-activity-feed",
     "description": "React-matched telemetry cards, category counts, search, trace copying, replay, JSON inspection and optional live simulation.",
     "inputs": [
       "events: ActivityEvent[]",
@@ -22,8 +22,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "advanced-data-table",
     "name": "Advanced Data Table",
-    "exportName": "KittuAdvancedDataTableComponent",
-    "selector": "kittu-advanced-data-table",
+    "exportName": "KitAdvancedDataTableComponent",
+    "selector": "kit-advanced-data-table",
     "description": "React-compatible native table and cards, typed columns, custom cell/detail templates, multi-value filters, current-page selection and bulk callbacks.",
     "inputs": [
       "data: T[]",
@@ -49,8 +49,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "ai-agent-activity",
     "name": "AI Agent Activity",
-    "exportName": "KittuAiAgentActivityComponent",
-    "selector": "kittu-ai-agent-activity",
+    "exportName": "KitAiAgentActivityComponent",
+    "selector": "kit-ai-agent-activity",
     "description": "React-matched agent activity contracts, status timeline, independent detail drawers, expand/collapse controls and native compound composition.",
     "inputs": [
       "activities: AgentActivityItemData[]",
@@ -66,13 +66,13 @@ export const ANGULAR_PORTS = [
   {
     "id": "ai-response",
     "name": "AI Response",
-    "exportName": "KittuAiResponseComponent",
-    "selector": "kittu-ai-response",
+    "exportName": "KitAiResponseComponent",
+    "selector": "kit-ai-response",
     "description": "Application-provided response text with optional progressive reveal, reasoning disclosure, sources and clipboard feedback.",
     "inputs": [
       "text: string",
       "reasoning: string",
-      "sources: KittuItem[]",
+      "sources: KitItem[]",
       "state: 'idle' | 'pending' | 'success' | 'error'",
       "error: string",
       "streaming: boolean",
@@ -85,8 +85,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "airport-matrix-clock",
     "name": "Airport Matrix Clock",
-    "exportName": "KittuAirportMatrixClockComponent",
-    "selector": "kittu-airport-matrix-clock",
+    "exportName": "KitAirportMatrixClockComponent",
+    "selector": "kit-airport-matrix-clock",
     "description": "A live timezone-aware split-flap-style clock with pause and accessible time text.",
     "inputs": [
       "label: string",
@@ -100,8 +100,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "animated-file-upload",
     "name": "Animated File Upload",
-    "exportName": "KittuAnimatedFileUploadComponent",
-    "selector": "kittu-animated-file-upload",
+    "exportName": "KitAnimatedFileUploadComponent",
+    "selector": "kit-animated-file-upload",
     "description": "File previews, validation, progress, abort and retry using the native Angular upload engine.",
     "inputs": [
       "accept: string",
@@ -115,8 +115,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "animated-number",
     "name": "Animated Number Morph",
-    "exportName": "KittuAnimatedNumberComponent",
-    "selector": "kittu-animated-number",
+    "exportName": "KitAnimatedNumberComponent",
+    "selector": "kit-animated-number",
     "description": "Animate actual numeric input changes with locale formatting and immediate reduced-motion updates.",
     "inputs": [
       "value: number",
@@ -129,23 +129,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "animated-tabs",
     "name": "Animated Tabs",
-    "exportName": "KittuAnimatedTabsComponent",
-    "selector": "kittu-animated-tabs",
+    "exportName": "KitAnimatedTabsComponent",
+    "selector": "kit-animated-tabs",
     "description": "Keyboard-navigable selection with active state, disabled items and application navigation output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -153,24 +153,24 @@ export const ANGULAR_PORTS = [
   {
     "id": "avatar-stack",
     "name": "Avatar Stack",
-    "exportName": "KittuAvatarStackComponent",
-    "selector": "kittu-avatar-stack",
+    "exportName": "KitAvatarStackComponent",
+    "selector": "kit-avatar-stack",
     "description": "Overlapping avatar buttons with readable names, selection and overflow disclosure.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction",
+      "action: KitCollectionAction",
       "maxVisible: number"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -178,23 +178,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "batch-gesture-tray",
     "name": "Batch Gesture Tray",
-    "exportName": "KittuBatchGestureTrayComponent",
-    "selector": "kittu-batch-gesture-tray",
+    "exportName": "KitBatchGestureTrayComponent",
+    "selector": "kit-batch-gesture-tray",
     "description": "Select individual items or all items, then run a cancellable application-owned batch action.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -202,14 +202,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "book-call-button",
     "name": "Book Call Button",
-    "exportName": "KittuBookCallButtonComponent",
-    "selector": "kittu-book-call-button",
+    "exportName": "KitBookCallButtonComponent",
+    "selector": "kit-book-call-button",
     "description": "A date/time booking dialog that emits a request for your scheduling application.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void",
@@ -219,23 +219,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "branching-submenu",
     "name": "Branching Submenu",
-    "exportName": "KittuBranchingSubmenuComponent",
-    "selector": "kittu-branching-submenu",
+    "exportName": "KitBranchingSubmenuComponent",
+    "selector": "kit-branching-submenu",
     "description": "Parent and child navigation with keyboard selection and independently disclosed branches.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -243,8 +243,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "button",
     "name": "Button",
-    "exportName": "KittuButtonComponent",
-    "selector": "kittu-button",
+    "exportName": "KitButtonComponent",
+    "selector": "kit-button",
     "description": "React-matched native button with nine visual variants, four sizes, projected content/icons, loading text, disabled state and native form events.",
     "inputs": [
       "variant: ButtonVariant",
@@ -263,23 +263,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "car-smoke-page-transition",
     "name": "Car Smoke Page Transition",
-    "exportName": "KittuCarSmokePageTransitionComponent",
-    "selector": "kittu-car-smoke-page-transition",
+    "exportName": "KitCarSmokePageTransitionComponent",
+    "selector": "kit-car-smoke-page-transition",
     "description": "Switch projected page summaries through a restrained car/smoke CSS transition with keyboard navigation.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -287,25 +287,25 @@ export const ANGULAR_PORTS = [
   {
     "id": "chat",
     "name": "Chat",
-    "exportName": "KittuChatComponent",
-    "selector": "kittu-chat",
+    "exportName": "KitChatComponent",
+    "selector": "kit-chat",
     "description": "An application-connected conversation with sending, cancellation, retry, preserved drafts and accessible message history.",
     "inputs": [
-      "messages: KittuMessage[] (two-way)",
-      "sendHandler: KittuChatHandler",
+      "messages: KitMessage[] (two-way)",
+      "sendHandler: KitChatHandler",
       "disabled: boolean",
       "label: string"
     ],
     "outputs": [
-      "messageSent: KittuMessage",
-      "messagesChange: KittuMessage[]"
+      "messageSent: KitMessage",
+      "messagesChange: KitMessage[]"
     ]
   },
   {
     "id": "circular-orbit",
     "name": "Circular Orbit",
-    "exportName": "KittuCircularOrbitComponent",
-    "selector": "kittu-circular-orbit",
+    "exportName": "KitCircularOrbitComponent",
+    "selector": "kit-circular-orbit",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -320,23 +320,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "code-snippet-deck",
     "name": "Code Snippet Deck",
-    "exportName": "KittuCodeSnippetDeckComponent",
-    "selector": "kittu-code-snippet-deck",
+    "exportName": "KitCodeSnippetDeckComponent",
+    "selector": "kit-code-snippet-deck",
     "description": "Browse code snippets and copy the selected snippet with visible failure feedback.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -344,8 +344,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "command-menu",
     "name": "Command Menu",
-    "exportName": "KittuCommandMenuComponent",
-    "selector": "kittu-command-menu",
+    "exportName": "KitCommandMenuComponent",
+    "selector": "kit-command-menu",
     "description": "A native modal command search with keyboard navigation, async errors and focus restoration.",
     "inputs": [
       "commands: LiquidCommand[]",
@@ -358,8 +358,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "cursor-follower",
     "name": "Cursor Follower",
-    "exportName": "KittuCursorFollowerComponent",
-    "selector": "kittu-cursor-follower",
+    "exportName": "KitCursorFollowerComponent",
+    "selector": "kit-cursor-follower",
     "description": "A pointer-following highlight contained within its own surface, with a non-pointer fallback.",
     "inputs": [
       "label: string",
@@ -370,8 +370,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "density-lens",
     "name": "Density Lens",
-    "exportName": "KittuDensityLensComponent",
-    "selector": "kittu-density-lens",
+    "exportName": "KitDensityLensComponent",
+    "selector": "kit-density-lens",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -386,18 +386,18 @@ export const ANGULAR_PORTS = [
   {
     "id": "dependency-trace",
     "name": "Dependency Trace",
-    "exportName": "KittuDependencyTraceComponent",
-    "selector": "kittu-dependency-trace",
+    "exportName": "KitDependencyTraceComponent",
+    "selector": "kit-dependency-trace",
     "description": "An SVG dependency graph with selectable nodes, highlighted connections and keyboard-accessible node buttons.",
     "inputs": [
-      "nodes: KittuGraphNode[]",
-      "connections: KittuGraphEdge[]",
+      "nodes: KitGraphNode[]",
+      "connections: KitGraphEdge[]",
       "selected: string (two-way)",
       "label: string",
       "disabled: boolean"
     ],
     "outputs": [
-      "nodeSelect: KittuGraphNode",
+      "nodeSelect: KitGraphNode",
       "nodeHover: string | null",
       "selectedChange: string"
     ]
@@ -405,8 +405,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "depth-corridor",
     "name": "Depth Corridor",
-    "exportName": "KittuDepthCorridorComponent",
-    "selector": "kittu-depth-corridor",
+    "exportName": "KitDepthCorridorComponent",
+    "selector": "kit-depth-corridor",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -421,8 +421,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "directional-tooltip",
     "name": "DirectionalTooltip",
-    "exportName": "KittuDirectionalTooltipComponent",
-    "selector": "kittu-directional-tooltip",
+    "exportName": "KitDirectionalTooltipComponent",
+    "selector": "kit-directional-tooltip",
     "description": "A directional tooltip available on hover, keyboard focus and touch, dismissible with Escape.",
     "inputs": [
       "label: string",
@@ -435,8 +435,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "dot-field",
     "name": "Dot Field",
-    "exportName": "KittuDotFieldComponent",
-    "selector": "kittu-dot-field",
+    "exportName": "KitDotFieldComponent",
+    "selector": "kit-dot-field",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -451,8 +451,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "dot-shader",
     "name": "Dot Shader",
-    "exportName": "KittuDotShaderComponent",
-    "selector": "kittu-dot-shader",
+    "exportName": "KitDotShaderComponent",
+    "selector": "kit-dot-shader",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -467,14 +467,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "drag-to-confirm",
     "name": "Drag to Confirm",
-    "exportName": "KittuDragToConfirmComponent",
-    "selector": "kittu-drag-to-confirm",
+    "exportName": "KitDragToConfirmComponent",
+    "selector": "kit-drag-to-confirm",
     "description": "Slide to the end to request confirmation, with arrow-key and explicit button alternatives.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction",
+      "action: KitAction",
       "value: number (two-way)"
     ],
     "outputs": [
@@ -485,8 +485,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "draw-checkbox",
     "name": "DrawCheckbox",
-    "exportName": "KittuDrawCheckboxComponent",
-    "selector": "kittu-draw-checkbox",
+    "exportName": "KitDrawCheckboxComponent",
+    "selector": "kit-draw-checkbox",
     "description": "A native toggle with two-way checked binding, visible focus and a disabled state.",
     "inputs": [
       "checked: boolean (two-way)",
@@ -500,23 +500,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "dynamic-island",
     "name": "Dynamic Island",
-    "exportName": "KittuDynamicIslandComponent",
-    "selector": "kittu-dynamic-island",
+    "exportName": "KitDynamicIslandComponent",
+    "selector": "kit-dynamic-island",
     "description": "A compact status island that expands to reveal actions and their current state.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -524,8 +524,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "evil-eye",
     "name": "Evil Eye",
-    "exportName": "KittuEvilEyeComponent",
-    "selector": "kittu-evil-eye",
+    "exportName": "KitEvilEyeComponent",
+    "selector": "kit-evil-eye",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -540,23 +540,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "expandable-data-row",
     "name": "Expandable Data Row",
-    "exportName": "KittuExpandableDataRowComponent",
-    "selector": "kittu-expandable-data-row",
+    "exportName": "KitExpandableDataRowComponent",
+    "selector": "kit-expandable-data-row",
     "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -564,23 +564,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "expandable-search",
     "name": "Expandable Search",
-    "exportName": "KittuExpandableSearchComponent",
-    "selector": "kittu-expandable-search",
+    "exportName": "KitExpandableSearchComponent",
+    "selector": "kit-expandable-search",
     "description": "Live filtering with clear/cancel controls, keyboard navigation and selected-result output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -588,23 +588,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "faq",
     "name": "FAQ",
-    "exportName": "KittuFaqComponent",
-    "selector": "kittu-faq",
+    "exportName": "KitFaqComponent",
+    "selector": "kit-faq",
     "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -612,23 +612,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "floating-action-dock",
     "name": "Floating Action Dock",
-    "exportName": "KittuFloatingActionDockComponent",
-    "selector": "kittu-floating-action-dock",
+    "exportName": "KitFloatingActionDockComponent",
+    "selector": "kit-floating-action-dock",
     "description": "Keyboard-navigable selection with active state, disabled items and application navigation output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -636,8 +636,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "focus-mode",
     "name": "Focus Mode",
-    "exportName": "KittuFocusModeComponent",
-    "selector": "kittu-focus-mode",
+    "exportName": "KitFocusModeComponent",
+    "selector": "kit-focus-mode",
     "description": "A focus region that dims surrounding content while preserving Escape and an explicit exit control.",
     "inputs": [
       "active: boolean (two-way)",
@@ -651,14 +651,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "form",
     "name": "Form",
-    "exportName": "KittuFormComponent",
-    "selector": "kittu-form",
+    "exportName": "KitFormComponent",
+    "selector": "kit-form",
     "description": "Validated native fields, password visibility, cancellable application submission and preserved errors.",
     "inputs": [
-      "fields: KittuField[]",
+      "fields: KitField[]",
       "label: string",
       "disabled: boolean",
-      "submitHandler: KittuSubmitHandler"
+      "submitHandler: KitSubmitHandler"
     ],
     "outputs": [
       "submitted: Record<string, string>"
@@ -667,23 +667,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "glass-navbar",
     "name": "Glass Navbar",
-    "exportName": "KittuGlassNavbarComponent",
-    "selector": "kittu-glass-navbar",
+    "exportName": "KitGlassNavbarComponent",
+    "selector": "kit-glass-navbar",
     "description": "Keyboard-navigable selection with active state, disabled items and application navigation output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -691,8 +691,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "glitch-text",
     "name": "Glitch Text",
-    "exportName": "KittuGlitchTextComponent",
-    "selector": "kittu-glitch-text",
+    "exportName": "KitGlitchTextComponent",
+    "selector": "kit-glitch-text",
     "description": "Configurable readable text with a restrained visual treatment and reduced-motion fallback.",
     "inputs": [
       "text: string",
@@ -704,8 +704,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "glyph-matrix",
     "name": "Glyph Matrix",
-    "exportName": "KittuGlyphMatrixComponent",
-    "selector": "kittu-glyph-matrix",
+    "exportName": "KitGlyphMatrixComponent",
+    "selector": "kit-glyph-matrix",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -720,23 +720,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "gooey-menu",
     "name": "Gooey Menu",
-    "exportName": "KittuGooeyMenuComponent",
-    "selector": "kittu-gooey-menu",
+    "exportName": "KitGooeyMenuComponent",
+    "selector": "kit-gooey-menu",
     "description": "An expandable action menu with Escape, arrow keys and disabled-item handling.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -744,8 +744,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "gravity-particle-burst",
     "name": "Gravity Particle Burst",
-    "exportName": "KittuGravityParticleBurstComponent",
-    "selector": "kittu-gravity-particle-burst",
+    "exportName": "KitGravityParticleBurstComponent",
+    "selector": "kit-gravity-particle-burst",
     "description": "Trigger a local particle celebration with a keyboard button, visible motion controls and cleanup.",
     "inputs": [
       "label: string",
@@ -762,23 +762,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "hamburger-menu",
     "name": "Hamburger Menu",
-    "exportName": "KittuHamburgerMenuComponent",
-    "selector": "kittu-hamburger-menu",
+    "exportName": "KitHamburgerMenuComponent",
+    "selector": "kit-hamburger-menu",
     "description": "An expandable action menu with Escape, arrow keys and disabled-item handling.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -786,23 +786,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "interactive-timeline",
     "name": "Interactive Timeline",
-    "exportName": "KittuInteractiveTimelineComponent",
-    "selector": "kittu-interactive-timeline",
+    "exportName": "KitInteractiveTimelineComponent",
+    "selector": "kit-interactive-timeline",
     "description": "Filter chronological events, inspect event payloads and select an event without simulated network activity.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -810,8 +810,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "intro-loader",
     "name": "Intro Loader",
-    "exportName": "KittuIntroLoaderComponent",
-    "selector": "kittu-intro-loader",
+    "exportName": "KitIntroLoaderComponent",
+    "selector": "kit-intro-loader",
     "description": "A labeled loading indicator with a settled state and reduced-motion fallback.",
     "inputs": [
       "label: string",
@@ -823,23 +823,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "ios-search-bar",
     "name": "iOS-style Search Bar",
-    "exportName": "KittuIosSearchBarComponent",
-    "selector": "kittu-ios-search-bar",
+    "exportName": "KitIosSearchBarComponent",
+    "selector": "kit-ios-search-bar",
     "description": "Live filtering with clear/cancel controls, keyboard navigation and selected-result output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -847,14 +847,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "liquid-ripple-button",
     "name": "Liquid Ripple Button",
-    "exportName": "KittuLiquidRippleButtonComponent",
-    "selector": "kittu-liquid-ripple-button",
+    "exportName": "KitLiquidRippleButtonComponent",
+    "selector": "kit-liquid-ripple-button",
     "description": "A native action button with a ripple originating at the pointer or keyboard activation.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void"
@@ -863,8 +863,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "liquid-toggle",
     "name": "Liquid Toggle",
-    "exportName": "KittuLiquidToggleComponent",
-    "selector": "kittu-liquid-toggle",
+    "exportName": "KitLiquidToggleComponent",
+    "selector": "kit-liquid-toggle",
     "description": "A native toggle with two-way checked binding, visible focus and a disabled state.",
     "inputs": [
       "checked: boolean (two-way)",
@@ -878,8 +878,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "loader",
     "name": "Loader",
-    "exportName": "KittuLoaderComponent",
-    "selector": "kittu-loader",
+    "exportName": "KitLoaderComponent",
+    "selector": "kit-loader",
     "description": "Native React-matched arc, breathing dots, sliding line and expanding rings with size/color, accessible labeling and explicit reduced-motion keyframes.",
     "inputs": [
       "size: number",
@@ -894,8 +894,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "lock-input",
     "name": "LockInput",
-    "exportName": "KittuLockInputComponent",
-    "selector": "kittu-lock-input",
+    "exportName": "KitLockInputComponent",
+    "selector": "kit-lock-input",
     "description": "A password field with a deliberate edit lock and accessible visibility control.",
     "inputs": [
       "label: string",
@@ -911,14 +911,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "login",
     "name": "Login",
-    "exportName": "KittuLoginComponent",
-    "selector": "kittu-login",
+    "exportName": "KitLoginComponent",
+    "selector": "kit-login",
     "description": "Validated native fields, password visibility, cancellable application submission and preserved errors.",
     "inputs": [
-      "fields: KittuField[]",
+      "fields: KitField[]",
       "label: string",
       "disabled: boolean",
-      "submitHandler: KittuSubmitHandler"
+      "submitHandler: KitSubmitHandler"
     ],
     "outputs": [
       "submitted: Record<string, string>"
@@ -927,23 +927,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "mac-os-folder-cards",
     "name": "macOS Folder Cards",
-    "exportName": "KittuMacOsFolderCardsComponent",
-    "selector": "kittu-mac-os-folder-cards",
+    "exportName": "KitMacOsFolderCardsComponent",
+    "selector": "kit-mac-os-folder-cards",
     "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -951,14 +951,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "magnetic-button",
     "name": "Magnetic Button",
-    "exportName": "KittuMagneticButtonComponent",
-    "selector": "kittu-magnetic-button",
+    "exportName": "KitMagneticButtonComponent",
+    "selector": "kit-magnetic-button",
     "description": "A pointer-attracted button with bounded movement, keyboard activation and reduced-motion support.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction",
+      "action: KitAction",
       "strength: number (0–1)"
     ],
     "outputs": [
@@ -968,8 +968,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "meteors",
     "name": "Meteors",
-    "exportName": "KittuMeteorsComponent",
-    "selector": "kittu-meteors",
+    "exportName": "KitMeteorsComponent",
+    "selector": "kit-meteors",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -984,8 +984,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "metric-hud",
     "name": "Metric HUD",
-    "exportName": "KittuMetricHudComponent",
-    "selector": "kittu-metric-hud",
+    "exportName": "KitMetricHudComponent",
+    "selector": "kit-metric-hud",
     "description": "A metric readout with bounded progress, signed trend and application-controlled loading/error states.",
     "inputs": [
       "label: string",
@@ -1001,8 +1001,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "morphing-blob",
     "name": "Morphing Blob",
-    "exportName": "KittuMorphingBlobComponent",
-    "selector": "kittu-morphing-blob",
+    "exportName": "KitMorphingBlobComponent",
+    "selector": "kit-morphing-blob",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -1017,14 +1017,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "morphing-button",
     "name": "Morphing Button",
-    "exportName": "KittuMorphingButtonComponent",
-    "selector": "kittu-morphing-button",
+    "exportName": "KitMorphingButtonComponent",
+    "selector": "kit-morphing-button",
     "description": "Save changes: native keyboard activation, disabled and asynchronous action states.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void"
@@ -1033,14 +1033,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "morphing-dialog",
     "name": "Morphing Dialog",
-    "exportName": "KittuMorphingDialogComponent",
-    "selector": "kittu-morphing-dialog",
+    "exportName": "KitMorphingDialogComponent",
+    "selector": "kit-morphing-dialog",
     "description": "A native modal dialog with focus containment, Escape, projected content and asynchronous confirmation.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction",
+      "action: KitAction",
       "title: string",
       "description: string",
       "opened: boolean (two-way)"
@@ -1053,8 +1053,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "morphing-icon",
     "name": "Morphing Icon",
-    "exportName": "KittuMorphingIconComponent",
-    "selector": "kittu-morphing-icon",
+    "exportName": "KitMorphingIconComponent",
+    "selector": "kit-morphing-icon",
     "description": "React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.",
     "inputs": [
       "from: TemplateRef<unknown> (required)",
@@ -1070,8 +1070,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "morphing-shape-loader",
     "name": "Morphing Shape Loader",
-    "exportName": "KittuMorphingShapeLoaderComponent",
-    "selector": "kittu-morphing-shape-loader",
+    "exportName": "KitMorphingShapeLoaderComponent",
+    "selector": "kit-morphing-shape-loader",
     "description": "A labeled loading indicator with a settled state and reduced-motion fallback.",
     "inputs": [
       "label: string",
@@ -1083,8 +1083,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "neon-edge-button",
     "name": "Neon Edge Button",
-    "exportName": "KittuNeonEdgeButtonComponent",
-    "selector": "kittu-neon-edge-button",
+    "exportName": "KitNeonEdgeButtonComponent",
+    "selector": "kit-neon-edge-button",
     "description": "React-matched travelling edge light with speed/glow controls, projected button content, native HTML form behavior and a static reduced-motion highlight.",
     "inputs": [
       "speed: number",
@@ -1098,8 +1098,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "nimbu-mirchi",
     "name": "Nimbu Mirchi",
-    "exportName": "KittuNimbuMirchiComponent",
-    "selector": "kittu-nimbu-mirchi",
+    "exportName": "KitNimbuMirchiComponent",
+    "selector": "kit-nimbu-mirchi",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -1114,8 +1114,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "not-found",
     "name": "Not Found",
-    "exportName": "KittuNotFoundComponent",
-    "selector": "kittu-not-found",
+    "exportName": "KitNotFoundComponent",
+    "selector": "kit-not-found",
     "description": "A configurable empty/not-found state with an application-owned recovery action.",
     "inputs": [
       "code: string",
@@ -1131,23 +1131,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "notification-bell",
     "name": "Notification Bell",
-    "exportName": "KittuNotificationBellComponent",
-    "selector": "kittu-notification-bell",
+    "exportName": "KitNotificationBellComponent",
+    "selector": "kit-notification-bell",
     "description": "Dismissible notifications with restore actions and restrained live announcements.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1155,23 +1155,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "notification-stack",
     "name": "Notification Stack",
-    "exportName": "KittuNotificationStackComponent",
-    "selector": "kittu-notification-stack",
+    "exportName": "KitNotificationStackComponent",
+    "selector": "kit-notification-stack",
     "description": "Dismissible notifications with restore actions and restrained live announcements.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1179,8 +1179,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "orbital-loading-ring",
     "name": "Orbital Loading Ring",
-    "exportName": "KittuOrbitalLoadingRingComponent",
-    "selector": "kittu-orbital-loading-ring",
+    "exportName": "KitOrbitalLoadingRingComponent",
+    "selector": "kit-orbital-loading-ring",
     "description": "React-matched orbital status indicator with three variants, size/speed controls, labelled SVG tracks, rotating satellites and a static reduced-motion fallback.",
     "inputs": [
       "size: number",
@@ -1194,23 +1194,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "origin-dropdown",
     "name": "OriginDropdown",
-    "exportName": "KittuOriginDropdownComponent",
-    "selector": "kittu-origin-dropdown",
+    "exportName": "KitOriginDropdownComponent",
+    "selector": "kit-origin-dropdown",
     "description": "An expandable action menu with Escape, arrow keys and disabled-item handling.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1218,8 +1218,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "otp-input",
     "name": "OTP Input",
-    "exportName": "KittuOtpInputComponent",
-    "selector": "kittu-otp-input",
+    "exportName": "KitOtpInputComponent",
+    "selector": "kit-otp-input",
     "description": "A one-time-code field with digit validation, paste, autofill and completion output.",
     "inputs": [
       "value: string (two-way)",
@@ -1235,14 +1235,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "particle-delete",
     "name": "Particle Delete",
-    "exportName": "KittuParticleDeleteComponent",
-    "selector": "kittu-particle-delete",
+    "exportName": "KitParticleDeleteComponent",
+    "selector": "kit-particle-delete",
     "description": "A deliberate local item dismissal with a particle transition and restore control.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void"
@@ -1251,15 +1251,15 @@ export const ANGULAR_PORTS = [
   {
     "id": "payment-receipt-printer",
     "name": "Payment Receipt Printer",
-    "exportName": "KittuPaymentReceiptPrinterComponent",
-    "selector": "kittu-payment-receipt-printer",
+    "exportName": "KitPaymentReceiptPrinterComponent",
+    "selector": "kit-payment-receipt-printer",
     "description": "A printable, expandable receipt from application-provided line items and totals.",
     "inputs": [
       "label: string",
       "merchant: string",
       "reference: string",
       "currency: string",
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "total: number",
       "disabled: boolean",
       "printed: boolean (two-way)"
@@ -1271,8 +1271,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "payment-status",
     "name": "Payment Status",
-    "exportName": "KittuPaymentStatusComponent",
-    "selector": "kittu-payment-status",
+    "exportName": "KitPaymentStatusComponent",
+    "selector": "kit-payment-status",
     "description": "A controlled payment-status display; it never simulates a real payment or charges a card.",
     "inputs": [
       "state: 'idle' | 'pending' | 'success' | 'error'",
@@ -1286,23 +1286,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "peek-card",
     "name": "Peek Card",
-    "exportName": "KittuPeekCardComponent",
-    "selector": "kittu-peek-card",
+    "exportName": "KitPeekCardComponent",
+    "selector": "kit-peek-card",
     "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1310,23 +1310,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "pill-navigation",
     "name": "Pill Navigation",
-    "exportName": "KittuPillNavigationComponent",
-    "selector": "kittu-pill-navigation",
+    "exportName": "KitPillNavigationComponent",
+    "selector": "kit-pill-navigation",
     "description": "Keyboard-navigable selection with active state, disabled items and application navigation output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1334,14 +1334,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "press-button",
     "name": "PressButton",
-    "exportName": "KittuPressButtonComponent",
-    "selector": "kittu-press-button",
+    "exportName": "KitPressButtonComponent",
+    "selector": "kit-press-button",
     "description": "Press me: native keyboard activation, disabled and asynchronous action states.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void"
@@ -1350,41 +1350,41 @@ export const ANGULAR_PORTS = [
   {
     "id": "pricing",
     "name": "Pricing",
-    "exportName": "KittuPricingComponent",
-    "selector": "kittu-pricing",
+    "exportName": "KitPricingComponent",
+    "selector": "kit-pricing",
     "description": "Selectable pricing plans with monthly/yearly billing, real price inputs and an application-owned selection event.",
     "inputs": [
-      "plans: KittuPlan[]",
+      "plans: KitPlan[]",
       "yearly: boolean (two-way)",
       "yearlyDiscount: number",
       "currency: string",
       "disabled: boolean"
     ],
     "outputs": [
-      "planSelect: { plan: KittuPlan; yearly: boolean }",
+      "planSelect: { plan: KitPlan; yearly: boolean }",
       "yearlyChange: boolean"
     ]
   },
   {
     "id": "profile-card",
     "name": "Profile Card",
-    "exportName": "KittuProfileCardComponent",
-    "selector": "kittu-profile-card",
+    "exportName": "KitProfileCardComponent",
+    "selector": "kit-profile-card",
     "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1392,14 +1392,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "pull-to-refresh",
     "name": "Pull to Refresh",
-    "exportName": "KittuPullToRefreshComponent",
-    "selector": "kittu-pull-to-refresh",
+    "exportName": "KitPullToRefreshComponent",
+    "selector": "kit-pull-to-refresh",
     "description": "Pull down within a contained list or use a keyboard refresh button; async failures remain retryable.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void"
@@ -1408,14 +1408,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "rainbow-button",
     "name": "Rainbow Button",
-    "exportName": "KittuRainbowButtonComponent",
-    "selector": "kittu-rainbow-button",
+    "exportName": "KitRainbowButtonComponent",
+    "selector": "kit-rainbow-button",
     "description": "Make something colorful: native keyboard activation, disabled and asynchronous action states.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void"
@@ -1424,23 +1424,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "recovery-ledger",
     "name": "Recovery Ledger",
-    "exportName": "KittuRecoveryLedgerComponent",
-    "selector": "kittu-recovery-ledger",
+    "exportName": "KitRecoveryLedgerComponent",
+    "selector": "kit-recovery-ledger",
     "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1448,23 +1448,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "reveal-card",
     "name": "Reveal Card",
-    "exportName": "KittuRevealCardComponent",
-    "selector": "kittu-reveal-card",
+    "exportName": "KitRevealCardComponent",
+    "selector": "kit-reveal-card",
     "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1472,8 +1472,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "rocket-party-popper",
     "name": "Rocket Party Popper",
-    "exportName": "KittuRocketPartyPopperComponent",
-    "selector": "kittu-rocket-party-popper",
+    "exportName": "KitRocketPartyPopperComponent",
+    "selector": "kit-rocket-party-popper",
     "description": "Trigger a local particle celebration with a keyboard button, visible motion controls and cleanup.",
     "inputs": [
       "label: string",
@@ -1490,23 +1490,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "scroll-progress-nav",
     "name": "Scroll Progress Navigation",
-    "exportName": "KittuScrollProgressNavComponent",
-    "selector": "kittu-scroll-progress-nav",
+    "exportName": "KitScrollProgressNavComponent",
+    "selector": "kit-scroll-progress-nav",
     "description": "A contained section navigator with scroll progress and reduced-motion-aware anchor actions.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1514,8 +1514,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "scrollvelocitytext",
     "name": "Scroll Velocity Text",
-    "exportName": "KittuScrollvelocitytextComponent",
-    "selector": "kittu-scrollvelocitytext",
+    "exportName": "KitScrollvelocitytextComponent",
+    "selector": "kit-scrollvelocitytext",
     "description": "Configurable readable text with a restrained visual treatment and reduced-motion fallback.",
     "inputs": [
       "text: string",
@@ -1527,23 +1527,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "selection-basket",
     "name": "Selection Basket",
-    "exportName": "KittuSelectionBasketComponent",
-    "selector": "kittu-selection-basket",
+    "exportName": "KitSelectionBasketComponent",
+    "selector": "kit-selection-basket",
     "description": "Select individual items or all items, then run a cancellable application-owned batch action.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1551,14 +1551,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "settle-modal",
     "name": "SettleModal",
-    "exportName": "KittuSettleModalComponent",
-    "selector": "kittu-settle-modal",
+    "exportName": "KitSettleModalComponent",
+    "selector": "kit-settle-modal",
     "description": "A native modal dialog with focus containment, Escape, projected content and asynchronous confirmation.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction",
+      "action: KitAction",
       "title: string",
       "description: string",
       "opened: boolean (two-way)"
@@ -1571,8 +1571,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "shooting-stars",
     "name": "Shooting Stars",
-    "exportName": "KittuShootingStarsComponent",
-    "selector": "kittu-shooting-stars",
+    "exportName": "KitShootingStarsComponent",
+    "selector": "kit-shooting-stars",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -1587,14 +1587,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "sign-up",
     "name": "Sign Up",
-    "exportName": "KittuSignUpComponent",
-    "selector": "kittu-sign-up",
+    "exportName": "KitSignUpComponent",
+    "selector": "kit-sign-up",
     "description": "Validated native fields, password visibility, cancellable application submission and preserved errors.",
     "inputs": [
-      "fields: KittuField[]",
+      "fields: KitField[]",
       "label: string",
       "disabled: boolean",
-      "submitHandler: KittuSubmitHandler"
+      "submitHandler: KitSubmitHandler"
     ],
     "outputs": [
       "submitted: Record<string, string>"
@@ -1603,8 +1603,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "slide-pagination",
     "name": "SlidePagination",
-    "exportName": "KittuSlidePaginationComponent",
-    "selector": "kittu-slide-pagination",
+    "exportName": "KitSlidePaginationComponent",
+    "selector": "kit-slide-pagination",
     "description": "Bounded page navigation with direct page buttons, arrow keys and two-way page binding.",
     "inputs": [
       "page: number (two-way)",
@@ -1618,23 +1618,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "small-floating-dock",
     "name": "Small Floating Dock",
-    "exportName": "KittuSmallFloatingDockComponent",
-    "selector": "kittu-small-floating-dock",
+    "exportName": "KitSmallFloatingDockComponent",
+    "selector": "kit-small-floating-dock",
     "description": "Keyboard-navigable selection with active state, disabled items and application navigation output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1642,41 +1642,41 @@ export const ANGULAR_PORTS = [
   {
     "id": "smart-comparison",
     "name": "Smart Comparison",
-    "exportName": "KittuSmartComparisonComponent",
-    "selector": "kittu-smart-comparison",
+    "exportName": "KitSmartComparisonComponent",
+    "selector": "kit-smart-comparison",
     "description": "Searchable plan comparison with differences-only filtering, collapsible categories and plan selection.",
     "inputs": [
-      "plans: KittuPlan[]",
-      "features: KittuCompareFeature[]",
-      "categories: KittuCompareCategory[]",
+      "plans: KitPlan[]",
+      "features: KitCompareFeature[]",
+      "categories: KitCompareCategory[]",
       "selected: string (two-way)",
       "disabled: boolean"
     ],
     "outputs": [
-      "planSelect: KittuPlan",
+      "planSelect: KitPlan",
       "selectedChange: string"
     ]
   },
   {
     "id": "smooth-accordion",
     "name": "Smooth Accordion",
-    "exportName": "KittuSmoothAccordionComponent",
-    "selector": "kittu-smooth-accordion",
+    "exportName": "KitSmoothAccordionComponent",
+    "selector": "kit-smooth-accordion",
     "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1684,8 +1684,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "sparkles-core",
     "name": "Sparkles Core",
-    "exportName": "KittuSparklesCoreComponent",
-    "selector": "kittu-sparkles-core",
+    "exportName": "KitSparklesCoreComponent",
+    "selector": "kit-sparkles-core",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -1700,8 +1700,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "speed-warp",
     "name": "Speed Warp",
-    "exportName": "KittuSpeedWarpComponent",
-    "selector": "kittu-speed-warp",
+    "exportName": "KitSpeedWarpComponent",
+    "selector": "kit-speed-warp",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -1716,26 +1716,26 @@ export const ANGULAR_PORTS = [
   {
     "id": "split-button",
     "name": "Split Button",
-    "exportName": "KittuSplitButtonComponent",
-    "selector": "kittu-split-button",
+    "exportName": "KitSplitButtonComponent",
+    "selector": "kit-split-button",
     "description": "A primary action with a separately accessible action chooser.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction",
-      "options: KittuItem[]"
+      "action: KitAction",
+      "options: KitItem[]"
     ],
     "outputs": [
       "activated: void",
-      "optionSelect: KittuItem"
+      "optionSelect: KitItem"
     ]
   },
   {
     "id": "spotlight-card",
     "name": "Spotlight Card",
-    "exportName": "KittuSpotlightCardComponent",
-    "selector": "kittu-spotlight-card",
+    "exportName": "KitSpotlightCardComponent",
+    "selector": "kit-spotlight-card",
     "description": "React-matched single content card with pointer-following border and ambient radial spotlights, projected children, customizable color/size and native HTML event overrides.",
     "inputs": [
       "spotlightColor: string",
@@ -1749,8 +1749,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "spotlight-search",
     "name": "Spotlight Search",
-    "exportName": "KittuSpotlightSearchComponent",
-    "selector": "kittu-spotlight-search",
+    "exportName": "KitSpotlightSearchComponent",
+    "selector": "kit-spotlight-search",
     "description": "A native modal command search with keyboard navigation, async errors and focus restoration.",
     "inputs": [
       "commands: LiquidCommand[]",
@@ -1763,23 +1763,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "spring-select",
     "name": "SpringSelect",
-    "exportName": "KittuSpringSelectComponent",
-    "selector": "kittu-spring-select",
+    "exportName": "KitSpringSelectComponent",
+    "selector": "kit-spring-select",
     "description": "A native accessible select with keyboard typeahead and selected-item output.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1787,23 +1787,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "stack-unfold-panel",
     "name": "Stack Unfold Panel",
-    "exportName": "KittuStackUnfoldPanelComponent",
-    "selector": "kittu-stack-unfold-panel",
+    "exportName": "KitStackUnfoldPanelComponent",
+    "selector": "kit-stack-unfold-panel",
     "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1811,23 +1811,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "stacked-cards",
     "name": "Stacked Cards",
-    "exportName": "KittuStackedCardsComponent",
-    "selector": "kittu-stacked-cards",
+    "exportName": "KitStackedCardsComponent",
+    "selector": "kit-stacked-cards",
     "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1835,23 +1835,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "sticky-pages",
     "name": "Sticky Pages",
-    "exportName": "KittuStickyPagesComponent",
-    "selector": "kittu-sticky-pages",
+    "exportName": "KitStickyPagesComponent",
+    "selector": "kit-sticky-pages",
     "description": "Scrollable page sections with contained sticky headers and readable long-content layout.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1859,23 +1859,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "story-card",
     "name": "Story Cards",
-    "exportName": "KittuStoryCardComponent",
-    "selector": "kittu-story-card",
+    "exportName": "KitStoryCardComponent",
+    "selector": "kit-story-card",
     "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1883,8 +1883,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "stretch-switch",
     "name": "StretchSwitch",
-    "exportName": "KittuStretchSwitchComponent",
-    "selector": "kittu-stretch-switch",
+    "exportName": "KitStretchSwitchComponent",
+    "selector": "kit-stretch-switch",
     "description": "A native toggle with two-way checked binding, visible focus and a disabled state.",
     "inputs": [
       "checked: boolean (two-way)",
@@ -1898,8 +1898,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "text-scramble-decoder",
     "name": "Text Scramble Decoder",
-    "exportName": "KittuTextScrambleDecoderComponent",
-    "selector": "kittu-text-scramble-decoder",
+    "exportName": "KitTextScrambleDecoderComponent",
+    "selector": "kit-text-scramble-decoder",
     "description": "Configurable readable text with a restrained visual treatment and reduced-motion fallback.",
     "inputs": [
       "text: string",
@@ -1911,8 +1911,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "thinking-orb",
     "name": "Thinking Orb",
-    "exportName": "KittuThinkingOrbComponent",
-    "selector": "kittu-thinking-orb",
+    "exportName": "KitThinkingOrbComponent",
+    "selector": "kit-thinking-orb",
     "description": "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
     "inputs": [
       "label: string",
@@ -1927,8 +1927,8 @@ export const ANGULAR_PORTS = [
   {
     "id": "torque-dial",
     "name": "Torque Dial",
-    "exportName": "KittuTorqueDialComponent",
-    "selector": "kittu-torque-dial",
+    "exportName": "KitTorqueDialComponent",
+    "selector": "kit-torque-dial",
     "description": "A bounded rotary input with pointer dragging, a native range alternative and keyboard increments.",
     "inputs": [
       "value: number (two-way)",
@@ -1947,14 +1947,14 @@ export const ANGULAR_PORTS = [
   {
     "id": "typewriter-button",
     "name": "Typewriter Button",
-    "exportName": "KittuTypewriterButtonComponent",
-    "selector": "kittu-typewriter-button",
+    "exportName": "KitTypewriterButtonComponent",
+    "selector": "kit-typewriter-button",
     "description": "Start a new story: native keyboard activation, disabled and asynchronous action states.",
     "inputs": [
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction"
+      "action: KitAction"
     ],
     "outputs": [
       "activated: void"
@@ -1963,23 +1963,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "undo-toast",
     "name": "Undo Toast",
-    "exportName": "KittuUndoToastComponent",
-    "selector": "kittu-undo-toast",
+    "exportName": "KitUndoToastComponent",
+    "selector": "kit-undo-toast",
     "description": "Dismissible notifications with restore actions and restrained live announcements.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -1987,23 +1987,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "unfold-accordion",
     "name": "UnfoldAccordion",
-    "exportName": "KittuUnfoldAccordionComponent",
-    "selector": "kittu-unfold-accordion",
+    "exportName": "KitUnfoldAccordionComponent",
+    "selector": "kit-unfold-accordion",
     "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -2011,23 +2011,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "velocity-toast",
     "name": "VelocityToast",
-    "exportName": "KittuVelocityToastComponent",
-    "selector": "kittu-velocity-toast",
+    "exportName": "KitVelocityToastComponent",
+    "selector": "kit-velocity-toast",
     "description": "Dismissible notifications with restore actions and restrained live announcements.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]
@@ -2035,23 +2035,23 @@ export const ANGULAR_PORTS = [
   {
     "id": "wallet-card",
     "name": "Wallet Card",
-    "exportName": "KittuWalletCardComponent",
-    "selector": "kittu-wallet-card",
+    "exportName": "KitWalletCardComponent",
+    "selector": "kit-wallet-card",
     "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
     "inputs": [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "action: KitCollectionAction"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
       "selectedChange: string",
       "selectedIdsChange: string[]"
     ]

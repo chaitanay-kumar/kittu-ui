@@ -1,20 +1,20 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
 import { Component } from '@angular/core';
-import { KittuActionController } from './port-controllers';
+import { KitActionController } from './port-controllers';
 
 @Component({
- selector:"kittu-press-button", standalone:true,
- host:{'data-kittu':"press-button",style:'display:block;min-width:0'},
+ selector:"kit-press-button", standalone:true,
+ host:{'data-kit':"press-button",style:'display:block;min-width:0'},
  template:`
-<div class="kittu-control kittu-stack">
+<div class="kit-control kit-stack">
 <button class="k-action" type="button" [disabled]="blocked()" [attr.aria-busy]="loading()||busy()" (click)="run()">
 <span class="k-button-text">
 <ng-content>{{busy()?'Working…':label()||'Press me'}}</ng-content>
 </span>
 </button>
-<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}</div>
+<p role="status" class="kit-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}</div>
 `
 })
-export class KittuPressButtonComponent extends KittuActionController {
+export class KitPressButtonComponent extends KitActionController {
 
 }

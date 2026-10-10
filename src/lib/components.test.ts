@@ -6,9 +6,9 @@ import {
   getSortedComponents,
   getNewestComponent,
 } from './components';
-import type { KittuComponentMeta } from '../types/component';
+import type { KitComponentMeta } from '../types/component';
 
-const createMockComponent = (id: string, name: string, createdAt: string): KittuComponentMeta => ({
+const createMockComponent = (id: string, name: string, createdAt: string): KitComponentMeta => ({
   id,
   name,
   tagline: 'Test Tagline',
@@ -24,7 +24,7 @@ const createMockComponent = (id: string, name: string, createdAt: string): Kittu
 });
 
 describe('getPaginatedComponents', () => {
-  const mockComponents: KittuComponentMeta[] = Array.from({ length: 25 }, (_, i) =>
+  const mockComponents: KitComponentMeta[] = Array.from({ length: 25 }, (_, i) =>
     createMockComponent(`comp-${i + 1}`, `Component ${i + 1}`, `2026-08-${String(i + 1).padStart(2, '0')}`)
   );
 

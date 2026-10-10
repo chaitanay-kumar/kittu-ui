@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Dot Field',
   description: 'High-performance lightweight static Canvas dot matrix background with dynamic gradient coloring and responsive density scaling.',
   category: 'Motion',

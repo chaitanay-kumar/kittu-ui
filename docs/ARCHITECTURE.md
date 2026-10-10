@@ -10,7 +10,7 @@ Component Source (.tsx) + Component Metadata (.meta.ts)
   ┌─────────────────────────────────────────────────────────┐
   │ • Root registry.json (official shadcn schema)           │
   │ • src/components/registry/components-data.ts (catalog)  │
-  │ • CLI command generation (chaitanay-kumar/kittu-ui/<slug>)   │
+  │ • CLI command generation (chaitanay-kumar/kit-ui/<slug>)   │
   │ • Dependency & local utility auto-detection             │
   │ • Raw source extraction directly from source files      │
   └─────────────────────────────────────────────────────────┘
@@ -56,14 +56,14 @@ src/components/ui/my-complex-widget/
 The generator will automatically:
 1. Discover the directory and identify the primary component.
 2. Read `meta.ts`.
-3. Include all source files in the registry manifest so that `npx shadcn@latest add chaitanay-kumar/kittu-ui/my-complex-widget` downloads all companion files.
+3. Include all source files in the registry manifest so that `npx shadcn@latest add chaitanay-kumar/kit-ui/my-complex-widget` downloads all companion files.
 
 ---
 
 ## Directory Structure Overview
 
 ```text
-kittu-ui/
+kit-ui/
 ├── .github/
 │   └── workflows/
 │       └── registry.yml                   # CI validation & build workflow

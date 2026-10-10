@@ -16,7 +16,7 @@ A modern, responsive glassmorphic navbar with smooth spring navigation pills, mo
 Add the component to your project using the shadcn CLI:
 
 ```bash
-npx shadcn@latest add chaitanay-kumar/kittu-ui/glass-navbar
+npx shadcn@latest add chaitanay-kumar/kit-ui/glass-navbar
 ```
 
 ## Basic Usage

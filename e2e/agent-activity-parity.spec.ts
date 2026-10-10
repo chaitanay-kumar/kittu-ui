@@ -50,7 +50,7 @@ async function metrics(root:Locator,selectors:Record<string,string>){return root
  return Object.fromEntries(Object.entries(selectors).map(([name,selector])=>{const node=selector?el.querySelector(selector):el;const style=getComputedStyle(node!);return[name,{width:node!.getBoundingClientRect().width,height:node!.getBoundingClientRect().height,...Object.fromEntries(properties.map(property=>[property,style[property as keyof CSSStyleDeclaration]]))}]}));
 },selectors);}
 for(const theme of ['light','dark'])test(`React and Angular agent geometry and typography match in ${theme}`,async({page},testInfo)=>{
- await page.addInitScript(value=>localStorage.setItem('kittu-ui-theme',value),theme);
+ await page.addInitScript(value=>localStorage.setItem('kit-ui-theme',value),theme);
  await page.emulateMedia({reducedMotion:'reduce'});
  await page.goto('/components/ai-agent-activity?framework=react');
  const root=page.getByRole('heading',{name:'Activity',exact:true}).locator('xpath=../../../..');await expect(root).toBeVisible();

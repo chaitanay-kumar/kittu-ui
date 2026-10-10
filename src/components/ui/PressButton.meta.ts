@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'PressButton',
   description: 'A button that compresses slightly on press and settles with a tiny natural overshoot for a tactile, physical feel.',
   category: 'Buttons',

@@ -13,6 +13,6 @@ export default defineConfig({
   }],
   root:fileURLToPath(new URL('.',import.meta.url)),
   base:(process.env.VITE_BASE_PATH || '/') + 'angular-demo/',publicDir:false,
-  resolve:{alias:{'kittu-ui-angular':fileURLToPath(new URL('../angular/dist/fesm2022/kittu-ui-angular.mjs',import.meta.url))}},
+  resolve:{alias:{'kit-ui-angular':fileURLToPath(new URL('../angular/dist/fesm2022/kit-ui-angular.mjs',import.meta.url))}},
   build:{outDir:fileURLToPath(new URL('../../public/angular-demo',import.meta.url)),emptyOutDir:true},
 });

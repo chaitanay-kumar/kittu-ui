@@ -1,4 +1,4 @@
-import { ElasticSheetDemo, SmartUploadDemo, LiquidCommandPaletteDemo, HoldToConfirmDemo, SwipeActionListDemo, InteractiveDataCardDemo, TimelineScrubberDemo, AIPromptComposerDemo } from './KittuDemos';
+import { ElasticSheetDemo, SmartUploadDemo, LiquidCommandPaletteDemo, HoldToConfirmDemo, SwipeActionListDemo, InteractiveDataCardDemo, TimelineScrubberDemo, AIPromptComposerDemo } from './KitDemos';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -21,7 +21,7 @@ import {
   Lock,
   Unlock,
 } from 'lucide-react';
-import type { KittuComponentMeta } from '../../types/component';
+import type { KitComponentMeta } from '../../types/component';
 import { motionTransitions } from '../../lib/motion-tokens';
 import { cn, copyToClipboard } from '../../lib/utils';
 import { useComponentSource } from '../../lib/source-loader';
@@ -108,7 +108,7 @@ import {
 } from './sections/NewComponentsShowcase';
 
 export interface ComponentDetailModalProps {
-  component: KittuComponentMeta | null;
+  component: KitComponentMeta | null;
   onClose: () => void;
   onSelectComponent?: (id: string) => void;
 }
@@ -1364,8 +1364,8 @@ import (
 )
 
 func main() {
-    client := kittu-ui.NewClient("${p.apiKey || 'sk_live_9981'}")
-    resp, err := client.Completions.Create(context.Background(), &kittu-ui.CompletionParams{
+    client := kit-ui.NewClient("${p.apiKey || 'sk_live_9981'}")
+    resp, err := client.Completions.Create(context.Background(), &kit-ui.CompletionParams{
         Model:  "example-model",
         Stream: ${p.stream ? 'true' : 'false'},
     })
@@ -1711,7 +1711,7 @@ func main() {
                 {
                   id: 'faq-1',
                   question: 'How do I add Kit UI components to my existing project?',
-                  answer: 'You can install any component directly using the official shadcn CLI: "npx shadcn@latest add chaitanay-kumar/kittu-ui/<component-name>". The source code and required dependencies are added directly to your repository.',
+                  answer: 'You can install any component directly using the official shadcn CLI: "npx shadcn@latest add chaitanay-kumar/kit-ui/<component-name>". The source code and required dependencies are added directly to your repository.',
                   category: 'Installation',
                   badge: 'CLI',
                 },
@@ -1874,7 +1874,7 @@ func main() {
       case 'text-scramble-decoder':
         return (
           <div className="py-12 flex flex-col items-center gap-4">
-            <TextScrambleDecoder text="KITTU_UI.REGISTRY.SYNCED" trigger="manual" duration={1000} />
+            <TextScrambleDecoder text="KIT_UI.REGISTRY.SYNCED" trigger="manual" duration={1000} />
             <p className="text-xs text-[#6B6B6B]">Replay the controlled decode sequence.</p>
           </div>
         );
@@ -2061,7 +2061,7 @@ func main() {
             <div className="min-w-0">
               {/* Breadcrumb */}
               <div className="flex items-center gap-1.5 mb-1 text-[11px] font-mono text-[#6B6B6B]">
-                <span>kittu-ui</span>
+                <span>kit-ui</span>
                 <span>/</span>
                 <span className="text-[#A1A1A1] font-medium truncate">{component.id}</span>
               </div>
@@ -2455,7 +2455,7 @@ func main() {
           {/* Minimal Footer */}
           <div className="px-5 sm:px-6 py-3 bg-[#0B0B0B] border-t border-[#1F1F1F] flex items-center justify-between text-xs text-[#6B6B6B] shrink-0">
             <span className="hidden sm:inline">Kit UI Component Documentation</span>
-            <span className="sm:hidden font-mono text-[11px]">kittu-ui/{component.id}</span>
+            <span className="sm:hidden font-mono text-[11px]">kit-ui/{component.id}</span>
             <button
               type="button"
               onClick={onClose}

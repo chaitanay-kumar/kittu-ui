@@ -11,11 +11,11 @@ interface UploadEntry {
 }
 
 @Component({
-  selector: "kittu-smart-upload",
+  selector: "kit-smart-upload",
   standalone: true,
   host: { style: "display:block" },
   template: ` <section
-    class="kittu-control kittu-surface kittu-stack"
+    class="kit-control kit-surface kit-stack"
     aria-label="Smart upload"
     (dragover)="$event.preventDefault()"
     (drop)="drop($event)"
@@ -28,16 +28,16 @@ interface UploadEntry {
         [disabled]="disabled()"
         (change)="choose($event)"
     /></label>
-    <p class="kittu-muted">
+    <p class="kit-muted">
       Up to {{ maxFiles() }} files · {{ maxSize() / 1024 / 1024 }} MB each ·
       {{ accept() || "Any file type" }}
     </p>
-    <ul class="kittu-list">
+    <ul class="kit-list">
       @for (entry of entries(); track entry.id) {
-        <li class="kittu-stack kittu-surface">
+        <li class="kit-stack kit-surface">
           @if (entry.preview) {
             <img
-              class="kittu-preview"
+              class="kit-preview"
               [src]="entry.preview"
               [alt]="'Preview of ' + entry.file.name"
             />
@@ -48,11 +48,11 @@ interface UploadEntry {
             max="100"
             [attr.aria-label]="entry.file.name + ' upload progress'"
           ></progress>
-          <p class="kittu-status" role="status">
+          <p class="kit-status" role="status">
             {{ entry.error || entry.state }}
             {{ entry.state === "pending" ? entry.progress + "%" : "" }}
           </p>
-          <div class="kittu-row">
+          <div class="kit-row">
             @if (entry.state === "pending") {
               <button type="button" (click)="cancel(entry)">Cancel</button>
             } @else if (entry.state !== "success") {
@@ -75,10 +75,10 @@ interface UploadEntry {
         </li>
       }
     </ul>
-    <p role="status" class="kittu-status">{{ message() }}</p>
+    <p role="status" class="kit-status">{{ message() }}</p>
   </section>`,
 })
-export class KittuSmartUploadComponent {
+export class KitSmartUploadComponent {
   readonly accept = input("image/*,.pdf");
   readonly maxSize = input(10 * 1024 * 1024);
   readonly maxFiles = input(5);

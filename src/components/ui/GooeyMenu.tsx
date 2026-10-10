@@ -144,7 +144,7 @@ export const GooeyMenu: React.FC<GooeyMenuProps> = ({
       {/* SVG Gooey Metamorphic Matrix Filter */}
       <svg width="0" height="0" className="absolute" aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
-          <filter id="kittu-ui-goo-drop" x="-30%" y="-30%" width="160%" height="160%" colorInterpolationFilters="sRGB">
+          <filter id="kit-ui-goo-drop" x="-30%" y="-30%" width="160%" height="160%" colorInterpolationFilters="sRGB">
             <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
             <feColorMatrix
               in="blur"
@@ -165,7 +165,7 @@ export const GooeyMenu: React.FC<GooeyMenuProps> = ({
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            filter: 'url(#kittu-ui-goo-drop)',
+            filter: 'url(#kit-ui-goo-drop)',
             transform: 'translateZ(0)',
             isolation: 'isolate',
           }}

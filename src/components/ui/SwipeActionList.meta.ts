@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "Swipe Action List",
   "description": "Swipe to reveal item actions, with explicit keyboard-accessible controls and retry feedback.",
   "category": "Feedback",

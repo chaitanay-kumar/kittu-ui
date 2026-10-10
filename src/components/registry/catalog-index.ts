@@ -17,7 +17,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Live Stream",
       "JSON Inspector"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/activity-feed",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/activity-feed",
     "createdAt": "2026-08-19"
   },
   {
@@ -32,7 +32,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Enterprise",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/advanced-data-table",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/advanced-data-table",
     "createdAt": "2026-09-21"
   },
   {
@@ -47,7 +47,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Timeline",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ai-agent-activity",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ai-agent-activity",
     "createdAt": "2026-09-21"
   },
   {
@@ -61,7 +61,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ai-prompt-composer",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ai-prompt-composer",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -77,7 +77,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Markdown",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ai-response",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ai-response",
     "createdAt": "2026-09-21"
   },
   {
@@ -91,7 +91,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Dot Matrix",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/airport-matrix-clock",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/airport-matrix-clock",
     "createdAt": "2026-10-05"
   },
   {
@@ -105,7 +105,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Forms",
       "Spring Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/animated-file-upload",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/animated-file-upload",
     "createdAt": "2026-08-21"
   },
   {
@@ -119,7 +119,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Motion Physics",
       "Typography"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/animated-number",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/animated-number",
     "createdAt": "2026-08-21"
   },
   {
@@ -133,7 +133,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Keyboard Friendly"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/animated-tabs",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/animated-tabs",
     "createdAt": "2026-08-10"
   },
   {
@@ -147,7 +147,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Interactive",
       "Micro-interactions"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/avatar-stack",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/avatar-stack",
     "createdAt": "2026-09-16"
   },
   {
@@ -162,7 +162,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Batch Actions",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/batch-gesture-tray",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/batch-gesture-tray",
     "createdAt": "2026-08-24"
   },
   {
@@ -177,7 +177,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Reduced Motion",
       "Responsive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/book-call-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/book-call-button",
     "createdAt": "2026-08-31"
   },
   {
@@ -191,7 +191,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard Friendly",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/branching-submenu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/branching-submenu",
     "createdAt": "2026-08-28"
   },
   {
@@ -206,7 +206,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Micro-interactions",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/button",
     "createdAt": "2026-08-19",
     "featured": true
   },
@@ -221,7 +221,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Motion Physics",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/car-smoke-page-transition",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/car-smoke-page-transition",
     "createdAt": "2026-09-08"
   },
   {
@@ -236,7 +236,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Messaging",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/chat",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/chat",
     "createdAt": "2026-09-21"
   },
   {
@@ -251,7 +251,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Depth Field",
       "Gallery"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/circular-orbit",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/circular-orbit",
     "createdAt": "2026-08-31"
   },
   {
@@ -265,7 +265,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Multi-Runtime",
       "Live Customizer"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/code-snippet-deck",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/code-snippet-deck",
     "createdAt": "2026-08-19"
   },
   {
@@ -279,7 +279,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "⌘K / Ctrl+K",
       "Fuzzy Filtering"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/command-menu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/command-menu",
     "createdAt": "2026-08-01"
   },
   {
@@ -294,7 +294,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Interactive",
       "Micro-Animation"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/cursor-follower",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/cursor-follower",
     "createdAt": "2026-09-09"
   },
   {
@@ -309,7 +309,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Inspection",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/density-lens",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/density-lens",
     "createdAt": "2026-08-24"
   },
   {
@@ -324,7 +324,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Graph Visualization",
       "Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dependency-trace",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dependency-trace",
     "createdAt": "2026-08-24"
   },
   {
@@ -339,7 +339,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Parallax",
       "Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/depth-corridor",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/depth-corridor",
     "createdAt": "2026-08-24"
   },
   {
@@ -354,7 +354,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/directional-tooltip",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/directional-tooltip",
     "createdAt": "2026-09-03"
   },
   {
@@ -368,7 +368,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Static Visual",
       "Zero Overhead"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dot-field",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dot-field",
     "createdAt": "2026-08-08"
   },
   {
@@ -383,7 +383,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Interactive",
       "Background"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dot-shader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dot-shader",
     "createdAt": "2026-09-20"
   },
   {
@@ -398,7 +398,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Safety Controls",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/drag-to-confirm",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/drag-to-confirm",
     "createdAt": "2026-08-21"
   },
   {
@@ -413,7 +413,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Indeterminate",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/draw-checkbox",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/draw-checkbox",
     "createdAt": "2026-09-03",
     "featured": true
   },
@@ -429,7 +429,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Spring Physics",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dynamic-island",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dynamic-island",
     "createdAt": "2026-10-05"
   },
   {
@@ -443,7 +443,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/elastic-sheet",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/elastic-sheet",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -459,7 +459,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Layered Motion",
       "Painted SVG"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/evil-eye",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/evil-eye",
     "createdAt": "2026-08-31"
   },
   {
@@ -473,7 +473,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accordion Motion",
       "Responsive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/expandable-data-row",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/expandable-data-row",
     "createdAt": "2026-08-21"
   },
   {
@@ -487,7 +487,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Shortcuts",
       "Compact"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/expandable-search",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/expandable-search",
     "createdAt": "2026-08-02"
   },
   {
@@ -503,7 +503,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Searchable",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/faq",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/faq",
     "createdAt": "2026-08-19",
     "featured": true
   },
@@ -518,7 +518,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Magnification Curve",
       "Tooltips"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/floating-action-dock",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/floating-action-dock",
     "createdAt": "2026-08-12"
   },
   {
@@ -532,7 +532,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Motion Physics",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/focus-mode",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/focus-mode",
     "createdAt": "2026-08-21"
   },
   {
@@ -547,7 +547,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Spring Motion",
       "Tailwind"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/form",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/form",
     "createdAt": "2026-08-19",
     "featured": true
   },
@@ -563,7 +563,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Spring Physics",
       "Tailwind"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/glass-navbar",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/glass-navbar",
     "createdAt": "2026-08-19",
     "featured": true
   },
@@ -579,7 +579,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Kinetic Typography",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/glitch-text",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/glitch-text",
     "createdAt": "2026-09-20"
   },
   {
@@ -593,7 +593,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Background Effect",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/glyph-matrix",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/glyph-matrix",
     "createdAt": "2026-09-16"
   },
   {
@@ -608,7 +608,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Metaball",
       "Spring Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/gooey-menu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/gooey-menu",
     "createdAt": "2026-08-31",
     "featured": true
   },
@@ -623,7 +623,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Pointer Physics",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/gravity-particle-burst",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/gravity-particle-burst",
     "createdAt": "2026-08-28"
   },
   {
@@ -638,7 +638,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Micro-interaction",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/hamburger-menu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/hamburger-menu",
     "createdAt": "2026-08-24"
   },
   {
@@ -652,7 +652,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/hold-to-confirm",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/hold-to-confirm",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -667,7 +667,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/interactive-data-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/interactive-data-card",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -682,7 +682,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Deployment Track",
       "Spring Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/interactive-timeline",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/interactive-timeline",
     "createdAt": "2026-08-19"
   },
   {
@@ -698,7 +698,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Fluid Blur",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/intro-loader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/intro-loader",
     "createdAt": "2026-08-28"
   },
   {
@@ -713,7 +713,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Search",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ios-search-bar",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ios-search-bar",
     "createdAt": "2026-08-24"
   },
   {
@@ -727,7 +727,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/liquid-command-palette",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/liquid-command-palette",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -742,7 +742,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Pointer Feedback",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/liquid-ripple-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/liquid-ripple-button",
     "createdAt": "2026-08-28"
   },
   {
@@ -756,7 +756,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Spring",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/liquid-toggle",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/liquid-toggle",
     "createdAt": "2026-09-02",
     "featured": true
   },
@@ -772,7 +772,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Zero Deps",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/loader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/loader",
     "createdAt": "2026-08-24"
   },
   {
@@ -787,7 +787,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/lock-input",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/lock-input",
     "createdAt": "2026-09-03",
     "featured": true
   },
@@ -803,7 +803,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Responsive",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/login",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/login",
     "createdAt": "2026-08-19",
     "featured": true
   },
@@ -819,7 +819,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Expandable",
       "Minimal"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/mac-os-folder-cards",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/mac-os-folder-cards",
     "createdAt": "2026-08-28"
   },
   {
@@ -833,7 +833,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Micro-interaction",
       "Tailwind"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/magnetic-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/magnetic-button",
     "createdAt": "2026-08-18",
     "featured": true
   },
@@ -849,7 +849,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Card Effect",
       "New"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/meteors",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/meteors",
     "createdAt": "2026-09-20"
   },
   {
@@ -863,7 +863,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Telemetry HUD",
       "Pointer Scrubbing"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/metric-hud",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/metric-hud",
     "createdAt": "2026-08-19"
   },
   {
@@ -877,7 +877,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "SVG",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-blob",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-blob",
     "createdAt": "2026-09-09T12:15:29.957Z"
   },
   {
@@ -891,7 +891,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Micro-interactions",
       "State Morphing"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-button",
     "createdAt": "2026-08-21"
   },
   {
@@ -905,7 +905,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Spring Physics",
       "Zero Layout Shift"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-dialog",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-dialog",
     "createdAt": "2026-08-14"
   },
   {
@@ -919,7 +919,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Micro-interactions",
       "Icon Transition"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-icon",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-icon",
     "createdAt": "2026-09-16"
   },
   {
@@ -933,7 +933,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Configurable",
       "Loop"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-shape-loader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-shape-loader",
     "createdAt": "2026-09-02"
   },
   {
@@ -947,7 +947,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "CSS Motion",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/neon-edge-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/neon-edge-button",
     "createdAt": "2026-08-28",
     "featured": true
   },
@@ -962,7 +962,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Pointer Tracking",
       "Layered Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/nimbu-mirchi",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/nimbu-mirchi",
     "createdAt": "2026-08-31"
   },
   {
@@ -978,7 +978,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Micro-interactions",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/not-found",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/not-found",
     "createdAt": "2026-09-23",
     "featured": true
   },
@@ -994,7 +994,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Feedback",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/notification-bell",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/notification-bell",
     "createdAt": "2026-08-24"
   },
   {
@@ -1008,7 +1008,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Elevation Stacking",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/notification-stack",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/notification-stack",
     "createdAt": "2026-08-04"
   },
   {
@@ -1022,7 +1022,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Lightweight"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/orbital-loading-ring",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/orbital-loading-ring",
     "createdAt": "2026-08-28"
   },
   {
@@ -1037,7 +1037,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/origin-dropdown",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/origin-dropdown",
     "createdAt": "2026-09-03",
     "featured": true
   },
@@ -1052,7 +1052,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Tailwind",
       "Forms"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/otp-input",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/otp-input",
     "createdAt": "2026-09-09T12:15:29.957Z"
   },
   {
@@ -1067,7 +1067,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "High-DPI",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/particle-delete",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/particle-delete",
     "createdAt": "2026-08-21"
   },
   {
@@ -1081,7 +1081,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Feedback",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/payment-receipt-printer",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/payment-receipt-printer",
     "createdAt": "2026-08-20"
   },
   {
@@ -1095,7 +1095,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Feedback",
       "SVG Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/payment-status",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/payment-status",
     "createdAt": "2026-08-21"
   },
   {
@@ -1109,7 +1109,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Overlays",
       "Context Preview"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/peek-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/peek-card",
     "createdAt": "2026-08-21"
   },
   {
@@ -1124,7 +1124,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Minimal"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/pill-navigation",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/pill-navigation",
     "createdAt": "2026-08-28",
     "featured": true
   },
@@ -1140,7 +1140,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/press-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/press-button",
     "createdAt": "2026-09-03"
   },
   {
@@ -1156,7 +1156,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/pricing",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/pricing",
     "createdAt": "2026-09-03"
   },
   {
@@ -1171,7 +1171,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Painted Artwork",
       "Responsive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/profile-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/profile-card",
     "createdAt": "2026-08-31"
   },
   {
@@ -1186,7 +1186,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Light & Dark",
       "Touch & Pointer"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/pull-to-refresh",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/pull-to-refresh",
     "createdAt": "2026-09-24"
   },
   {
@@ -1201,7 +1201,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Interactive",
       "New"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/rainbow-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/rainbow-button",
     "createdAt": "2026-09-20"
   },
   {
@@ -1216,7 +1216,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Audit Log",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/recovery-ledger",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/recovery-ledger",
     "createdAt": "2026-08-24"
   },
   {
@@ -1230,7 +1230,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Dynamic Glare",
       "Micro-interaction"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/reveal-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/reveal-card",
     "createdAt": "2026-08-06"
   },
   {
@@ -1245,7 +1245,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Interactive Motion",
       "Milestones"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/rocket-party-popper",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/rocket-party-popper",
     "createdAt": "2026-08-28"
   },
   {
@@ -1259,7 +1259,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Scroll Physics",
       "Floating"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/scroll-progress-nav",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/scroll-progress-nav",
     "createdAt": "2026-08-21"
   },
   {
@@ -1274,7 +1274,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessibility",
       "Zero Overhead"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/scrollvelocitytext",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/scrollvelocitytext",
     "createdAt": "2026-09-20"
   },
   {
@@ -1288,7 +1288,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Toolbars",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/selection-basket",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/selection-basket",
     "createdAt": "2026-08-21"
   },
   {
@@ -1303,7 +1303,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/settle-modal",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/settle-modal",
     "createdAt": "2026-09-03"
   },
   {
@@ -1319,7 +1319,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Interactive",
       "Background"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/shooting-stars",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/shooting-stars",
     "createdAt": "2026-09-20"
   },
   {
@@ -1334,7 +1334,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Password Strength",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/sign-up",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/sign-up",
     "createdAt": "2026-08-19",
     "featured": true
   },
@@ -1350,7 +1350,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/slide-pagination",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/slide-pagination",
     "createdAt": "2026-09-03",
     "featured": true
   },
@@ -1366,7 +1366,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Navigation",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/small-floating-dock",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/small-floating-dock",
     "createdAt": "2026-08-24"
   },
   {
@@ -1380,7 +1380,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "SaaS Pricing",
       "Diff Filter"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/smart-comparison",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/smart-comparison",
     "createdAt": "2026-08-19"
   },
   {
@@ -1394,7 +1394,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/smart-upload",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/smart-upload",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -1409,7 +1409,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Zero Layout Shift",
       "Multi or Single"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/smooth-accordion",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/smooth-accordion",
     "createdAt": "2026-08-05"
   },
   {
@@ -1424,7 +1424,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Interactive",
       "Background"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/sparkles-core",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/sparkles-core",
     "createdAt": "2026-09-20"
   },
   {
@@ -1438,7 +1438,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Background Effect",
       "3D Perspective"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/speed-warp",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/speed-warp",
     "createdAt": "2026-09-16"
   },
   {
@@ -1451,7 +1451,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Framer Motion",
       "Floating UI"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/split-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/split-button",
     "createdAt": "2026-09-16"
   },
   {
@@ -1465,7 +1465,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Pointer Physics",
       "Dark Elevation"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/spotlight-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/spotlight-card",
     "createdAt": "2026-08-15"
   },
   {
@@ -1479,7 +1479,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Search",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/spotlight-search",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/spotlight-search",
     "createdAt": "2026-08-21"
   },
   {
@@ -1494,7 +1494,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/spring-select",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/spring-select",
     "createdAt": "2026-09-03"
   },
   {
@@ -1509,7 +1509,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accordion",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/stack-unfold-panel",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/stack-unfold-panel",
     "createdAt": "2026-08-24"
   },
   {
@@ -1524,7 +1524,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Scroll-Driven",
       "Sticky"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/stacked-cards",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/stacked-cards",
     "createdAt": "2026-09-12T11:29:47.829Z"
   },
   {
@@ -1539,7 +1539,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Scroll",
       "New"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/sticky-pages",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/sticky-pages",
     "createdAt": "2026-09-20"
   },
   {
@@ -1553,7 +1553,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Tailwind",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/story-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/story-card",
     "createdAt": "2026-09-12T10:03:04.539Z"
   },
   {
@@ -1568,7 +1568,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/stretch-switch",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/stretch-switch",
     "createdAt": "2026-09-03"
   },
   {
@@ -1582,7 +1582,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/swipe-action-list",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/swipe-action-list",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -1597,7 +1597,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Reduced Motion",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/text-scramble-decoder",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/text-scramble-decoder",
     "createdAt": "2026-08-28"
   },
   {
@@ -1613,7 +1613,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Reduced Motion",
       "AI Indicator"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/thinking-orb",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/thinking-orb",
     "createdAt": "2026-09-11"
   },
   {
@@ -1627,7 +1627,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/timeline-scrubber",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/timeline-scrubber",
     "createdAt": "2026-10-08",
     "featured": true
   },
@@ -1643,7 +1643,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Precision Control",
       "Forms"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/torque-dial",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/torque-dial",
     "createdAt": "2026-08-24"
   },
   {
@@ -1658,7 +1658,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Tactile Audio",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/typewriter-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/typewriter-button",
     "createdAt": "2026-08-24"
   },
   {
@@ -1672,7 +1672,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Feedback",
       "Timer Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/undo-toast",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/undo-toast",
     "createdAt": "2026-08-21"
   },
   {
@@ -1687,7 +1687,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/unfold-accordion",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/unfold-accordion",
     "createdAt": "2026-09-03",
     "featured": true
   },
@@ -1703,7 +1703,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/velocity-toast",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/velocity-toast",
     "createdAt": "2026-09-03"
   },
   {
@@ -1717,7 +1717,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Spring Tap",
       "Painted Surface"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/wallet-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/wallet-card",
     "createdAt": "2026-08-31"
   }
 ];

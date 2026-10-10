@@ -12,13 +12,13 @@ npm run angular:build
 npm run test:angular-package
 ```
 
-Install the generated `public/downloads/kittu-ui-angular-0.1.0.tgz` in an Angular 20, 21, or 22 application:
+Install the generated `public/downloads/kit-ui-angular-0.1.0.tgz` in an Angular 20, 21, or 22 application:
 
 ```sh
-npm install /absolute/path/to/kittu-ui-angular-0.1.0.tgz
+npm install /absolute/path/to/kit-ui-angular-0.1.0.tgz
 ```
 
-Import `kittu-ui-angular/styles.css` in your application's global stylesheet. Import the standalone component directly from `kittu-ui-angular`, and add it to your component's `imports`. Full examples are available under Angular in the website and in [the package README](../packages/angular/README.md).
+Import `kit-ui-angular/styles.css` in your application's global stylesheet. Import the standalone component directly from `kit-ui-angular`, and add it to your component's `imports`. Full examples are available under Angular in the website and in [the package README](../packages/angular/README.md).
 
 The distributed Angular Package Format artifact includes type declarations, partial compilation, styles, and both MIT notices. It has not been published to npm. The library builds with Angular 20.3 and TypeScript 5.9. `npm run test:angular-package` installs the same tarball in isolated Angular 20.0, 20.3, 21, and 22 consumers, each with its own compiler and compatible TypeScript, and compiles all 116 components with strict Angular templates.
 

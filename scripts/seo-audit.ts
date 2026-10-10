@@ -414,7 +414,7 @@ export function runSEOAudit(): AuditReport {
 
 export function printAuditReport(): void {
   console.log('\n========================================================');
-  console.log('            KITTU_UI AUTOMATED SEO AUDIT REPORT           ');
+  console.log('            KIT_UI AUTOMATED SEO AUDIT REPORT           ');
   console.log('========================================================\n');
 
   const { overallScore, categories, issues, discoveredComponents } = runSEOAudit();

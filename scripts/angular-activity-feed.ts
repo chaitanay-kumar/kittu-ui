@@ -2,8 +2,8 @@ import { readFileSync } from 'node:fs';
 
 /** Activity Feed is authored independently of the generic collection ports. */
 export const activityFeedPort = {
-  controller: 'KittuActivityFeedController',
-  imports: "import { KittuActivityFeedController } from './activity-feed-controller';\n/*\n" + readFileSync(new URL("../licenses/LUCIDE.txt", import.meta.url), "utf8") + "\n*/\n",
+  controller: 'KitActivityFeedController',
+  imports: "import { KitActivityFeedController } from './activity-feed-controller';\n/*\n" + readFileSync(new URL("../licenses/LUCIDE.txt", import.meta.url), "utf8") + "\n*/\n",
   description: 'React-matched telemetry cards, category counts, search, trace copying, replay, JSON inspection and optional live simulation.',
   inputs: ['events: ActivityEvent[]', 'enableLiveSimulation: boolean', 'enableFilters: boolean', 'enableSearch: boolean', 'maxEntries: number', 'onEventReplay: (event: ActivityEvent) => void', 'className: string'],
   outputs: ['eventReplay: ActivityEvent'],

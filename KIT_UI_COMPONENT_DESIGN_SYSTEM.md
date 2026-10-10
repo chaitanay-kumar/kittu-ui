@@ -680,7 +680,7 @@ Kit UI adheres to Tailwind's mobile-first responsive breakpoints:
 # 16. MACHINE-READABLE TOKEN TABLE
 
 ```text
-KITTU_UI DESIGN TOKENS (CLAUDE DARK NEUTRAL SYSTEM)
+KIT_UI DESIGN TOKENS (CLAUDE DARK NEUTRAL SYSTEM)
 
 Background & Surfaces:
 - main-canvas (bg): #151515

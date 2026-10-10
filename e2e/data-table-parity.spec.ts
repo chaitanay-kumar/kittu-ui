@@ -45,7 +45,7 @@ async function metrics(root:Locator,selectors:Record<string,string>){return root
  return Object.fromEntries(Object.entries(selectors).map(([name,selector])=>{const node=selector?el.querySelector(selector):el;if(!node)return[name,null];const style=getComputedStyle(node);return[name,{width:node.getBoundingClientRect().width,height:node.getBoundingClientRect().height,...Object.fromEntries(properties.map(property=>[property,style[property as keyof CSSStyleDeclaration]]))}]}));
 },selectors);}
 for(const theme of ['light','dark'])test(`React and Angular table geometry/styles match in ${theme}`,async({page},testInfo)=>{
- await page.addInitScript(value=>localStorage.setItem('kittu-ui-theme',value),theme);
+ await page.addInitScript(value=>localStorage.setItem('kit-ui-theme',value),theme);
  await page.goto('/components/advanced-data-table?framework=react');
  const root=page.getByRole('heading',{name:'Component Registry',exact:true}).locator('xpath=../../../..');await expect(root).toBeVisible();
  const size=await root.boundingBox();const react=await metrics(root,{root:'',input:'input[type=text]',heading:'h3',filters:':scope>div:nth-child(2)',table:'table',header:'th',row:'tbody>tr',footer:':scope>div:last-child'});

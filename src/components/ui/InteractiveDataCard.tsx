@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import type { ReactNode } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface InteractiveDataCardProps {
   title?: string;
   summary?: ReactNode;
@@ -35,7 +35,7 @@ export function InteractiveDataCard({
   }
   return (
     <article
-      className="kittu-control kittu-surface kittu-stack"
+      className="kit-control kit-surface kit-stack"
       aria-busy={loading || state === "pending"}
     >
       <h3>{title}</h3>
@@ -50,9 +50,9 @@ export function InteractiveDataCard({
       >
         {expanded ? "Less detail −" : "Explore details +"}
       </button>
-      <div id={id} hidden={!expanded} className="kittu-stack">
+      <div id={id} hidden={!expanded} className="kit-stack">
         {children ?? (
-          <p className="kittu-muted">
+          <p className="kit-muted">
             Your team shipped 8 features and resolved 16 issues. Keep the next
             step small and intentional.
           </p>
@@ -65,7 +65,7 @@ export function InteractiveDataCard({
           {state === "pending" ? "Updating…" : actionLabel}
         </button>
       </div>
-      <p className="kittu-status" role="status">
+      <p className="kit-status" role="status">
         {state === "pending" ? "Updating report…" : state}
       </p>
     </article>

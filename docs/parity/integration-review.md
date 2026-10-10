@@ -1,6 +1,6 @@
 # Angular parity integration review
 
-Date: 2026-10-10. Scope: the ten existing component PRs (#1–#10), targeting `feat/kittu-ui-library`. New component work remains paused; the deferred AI Response worktree is outside this integration.
+Date: 2026-10-10. Scope: the ten existing component PRs (#1–#10), targeting `feat/kit-ui-library`. New component work remains paused; the deferred AI Response worktree is outside this integration.
 
 ## Review findings and resolutions
 

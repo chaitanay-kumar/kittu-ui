@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface LiquidCommand {
   id: string;
   label: string;
@@ -94,18 +94,18 @@ export function LiquidCommandPalette({
     }
   }
   return (
-    <div className="kittu-control">
+    <div className="kit-control">
       <button type="button" disabled={disabled} onClick={() => setOpen(true)}>
         Find a command <kbd>⌘ / Ctrl K</kbd>
       </button>
       <dialog
         ref={dialog}
-        className="kittu-dialog kittu-control"
+        className="kit-dialog kit-control"
         aria-label="Command palette"
         onClose={() => setOpen(false)}
       >
-        <div className="kittu-stack">
-          <div className="kittu-row">
+        <div className="kit-stack">
+          <div className="kit-row">
             <h3>Where next?</h3>
             <button type="button" onClick={() => setOpen(false)}>
               Close
@@ -154,7 +154,7 @@ export function LiquidCommandPalette({
             id={`${id}-list`}
             role="listbox"
             aria-label="Commands"
-            className="kittu-list"
+            className="kit-list"
             style={{ maxHeight: "45dvh", overflow: "auto" }}
           >
             {results.map((c) => (
@@ -179,7 +179,7 @@ export function LiquidCommandPalette({
             ))}
           </ul>
           {!results.length && <p>No matching commands.</p>}
-          <p role="status" className="kittu-status">
+          <p role="status" className="kit-status">
             {status}
           </p>
         </div>

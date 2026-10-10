@@ -12,7 +12,7 @@ const STEPS = [
     number: '01',
     title: 'Pick a component',
     description: 'Preview animations live, then copy the install command.',
-    code: 'npx shadcn add kittu-ui/magnetic-button',
+    code: 'npx shadcn add kit-ui/magnetic-button',
     label: 'CLI',
   },
   {

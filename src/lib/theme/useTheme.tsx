@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 export type Theme = 'light' | 'dark';
 
-const STORAGE_KEY = 'kittu-ui-theme';
+const STORAGE_KEY = 'kit-ui-theme';
 
 function readStoredTheme(): Theme | null {
   if (typeof window === 'undefined') return null;

@@ -531,7 +531,7 @@ export const PaymentReceiptPrinter: React.FC<PaymentReceiptPrinterProps> = ({
             {/* Friendly Message & Kit UI Stamp */}
             <div className="pt-2 text-center text-[9px] opacity-70">
               <p className="font-medium">{message}</p>
-              <p className="text-[8px] opacity-50 mt-0.5">AUTH #99824 · KITTU_UI ECOSYSTEM</p>
+              <p className="text-[8px] opacity-50 mt-0.5">AUTH #99824 · KIT_UI ECOSYSTEM</p>
             </div>
 
             {/* Bottom Serrated Edge (if enabled) */}

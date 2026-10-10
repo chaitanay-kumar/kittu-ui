@@ -19,7 +19,7 @@ export default function Preview({ isHovered = false }: ComponentPreviewProps) {
                 className="w-[88%] -mt-1 p-2.5 rounded-b-md bg-[#F9F9F8] text-[#111111] font-mono text-[9px] shadow border border-[#E0E0DE] space-y-1"
               >
                 <div className="flex justify-between font-bold border-b border-dashed border-black/20 pb-1">
-                  <span>KITTU_UI PRO</span>
+                  <span>KIT_UI PRO</span>
                   <span>$200.00</span>
                 </div>
                 <div className="flex justify-between opacity-70">

@@ -1,12 +1,12 @@
 import { Component, DestroyRef, TemplateRef, computed, inject, signal, viewChild } from '@angular/core';
-import { KittuAdvancedDataTableComponent } from 'kittu-ui-angular';
-import type { ColumnDef, DataTableCellContext, DataTableRowContext } from 'kittu-ui-angular';
+import { KitAdvancedDataTableComponent } from 'kit-ui-angular';
+import type { ColumnDef, DataTableCellContext, DataTableRowContext } from 'kit-ui-angular';
 import { SAMPLE_COMPONENTS_DATA, type ComponentRecord } from './table-data';
 
-@Component({selector:'kittu-table-demo',standalone:true,imports:[KittuAdvancedDataTableComponent],styleUrls:['./table-demo.css'],template:`
+@Component({selector:'kit-table-demo',standalone:true,imports:[KitAdvancedDataTableComponent],styleUrls:['./table-demo.css'],template:`
 <div class="k-dt-demo">
 @if(actionMessage()){<div class="k-dt-demo-message" role="status"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>{{actionMessage()}}</div>}
-<kittu-advanced-data-table title="Component Registry" [data]="data()" [columns]="columns()" [defaultPageSize]="5" [onBulkDelete]="deleteRecords" [onBulkExport]="exportRecords" [renderSubComponent]="details()"/>
+<kit-advanced-data-table title="Component Registry" [data]="data()" [columns]="columns()" [defaultPageSize]="5" [onBulkDelete]="deleteRecords" [onBulkExport]="exportRecords" [renderSubComponent]="details()"/>
 <ng-template #nameCell let-row><div class="k-dt-demo-name"><span>{{row.name}}</span>@if(row.status==='New'){<span class="k-dt-demo-new">New</span>}</div></ng-template>
 <ng-template #categoryCell let-value="value"><span class="k-dt-demo-muted">{{value}}</span></ng-template>
 <ng-template #downloadsCell let-value="value"><span class="k-dt-demo-downloads">{{value}}</span></ng-template>

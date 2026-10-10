@@ -36,33 +36,33 @@ const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
       "label: string",
       "disabled: boolean",
       "loading: boolean",
-      "action: KittuAction",
+      "action: KitAction",
     ],
     outputs: ["activated: void"],
   },
   collection: {
     inputs: [
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "label: string",
       "disabled: boolean",
       "loading: boolean",
       "error: string",
       "selected: string (two-way)",
       "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction",
+      "action: KitCollectionAction",
     ],
     outputs: [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
+      "itemSelect: KitItem",
+      "actionRequested: KitItem[]",
+      "actionComplete: KitItem[]",
     ],
   },
   form: {
     inputs: [
-      "fields: KittuField[]",
+      "fields: KitField[]",
       "label: string",
       "disabled: boolean",
-      "submitHandler: KittuSubmitHandler",
+      "submitHandler: KitSubmitHandler",
     ],
     outputs: ["submitted: Record<string, string>"],
   },
@@ -106,8 +106,8 @@ function add(
 
   });
 }
-const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
-const collectionFeedback = `@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kittu-status">{{busy()?'Working…':status()}}</p>`;
+const actionFeedback = `<p role="status" class="kit-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
+const collectionFeedback = `@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kit-status">{{busy()?'Working…':status()}}</p>`;
 const itemButton = `<button type="button" data-item [disabled]="disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>`;
 
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
@@ -126,14 +126,14 @@ for (const [id, label] of [
     id,
     "action",
     `${label}: native keyboard activation, disabled and asynchronous action states.`,
-    `<div class="kittu-control kittu-stack"><button class="k-action" type="button" [disabled]="blocked()" [attr.aria-busy]="loading()||busy()" (click)="run()"><span class="k-button-text"><ng-content>{{busy()?'Working…':label()||'${label}'}}</ng-content></span></button>${actionFeedback}</div>`,
+    `<div class="kit-control kit-stack"><button class="k-action" type="button" [disabled]="blocked()" [attr.aria-busy]="loading()||busy()" (click)="run()"><span class="k-button-text"><ng-content>{{busy()?'Working…':label()||'${label}'}}</ng-content></span></button>${actionFeedback}</div>`,
   );
 }
 add(
   "magnetic-button",
   "action",
   "A pointer-attracted button with bounded movement, keyboard activation and reduced-motion support.",
-  `<div class="kittu-control kittu-stack"><button type="button" class="k-action" [disabled]="blocked()" [style.transform]="transform()" (pointermove)="move($event)" (pointerleave)="reset()" (pointercancel)="reset()" (blur)="reset()" (click)="run()"><ng-content>{{label()||'A little attraction'}}</ng-content></button>${actionFeedback}</div>`,
+  `<div class="kit-control kit-stack"><button type="button" class="k-action" [disabled]="blocked()" [style.transform]="transform()" (pointermove)="move($event)" (pointerleave)="reset()" (pointercancel)="reset()" (blur)="reset()" (click)="run()"><ng-content>{{label()||'A little attraction'}}</ng-content></button>${actionFeedback}</div>`,
   `readonly strength=input(.35);readonly transform=signal('translate(0,0)');move(event:PointerEvent):void{if(this.blocked()||event.pointerType==='touch'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=(event.currentTarget as HTMLElement).getBoundingClientRect();const s=Math.max(0,Math.min(1,this.strength()));this.transform.set('translate('+Math.max(-24,Math.min(24,(event.clientX-r.left-r.width/2)*s))+'px,'+Math.max(-24,Math.min(24,(event.clientY-r.top-r.height/2)*s))+'px)');}reset():void{this.transform.set('translate(0,0)');}`,
   { inputs: ["strength: number (0–1)"] },
 );
@@ -141,22 +141,22 @@ add(
   "liquid-ripple-button",
   "action",
   "A native action button with a ripple originating at the pointer or keyboard activation.",
-  `<div class="kittu-control kittu-stack"><button type="button" class="k-action k-ripple" [disabled]="blocked()" (click)="ripple($event)">@for(point of [point()];track point.key){<span aria-hidden="true" class="k-ripple-dot" [style.left.px]="point.x" [style.top.px]="point.y"></span>}<span>{{label()||'Make a ripple'}}</span></button>${actionFeedback}</div>`,
+  `<div class="kit-control kit-stack"><button type="button" class="k-action k-ripple" [disabled]="blocked()" (click)="ripple($event)">@for(point of [point()];track point.key){<span aria-hidden="true" class="k-ripple-dot" [style.left.px]="point.x" [style.top.px]="point.y"></span>}<span>{{label()||'Make a ripple'}}</span></button>${actionFeedback}</div>`,
   `readonly point=signal({x:0,y:0,key:0});ripple(event:MouseEvent):void{const r=(event.currentTarget as HTMLElement).getBoundingClientRect();this.point.set({x:event.detail?event.clientX-r.left:r.width/2,y:event.detail?event.clientY-r.top:r.height/2,key:this.point().key+1});void this.run();}`,
 );
 add(
   "split-button",
   "action",
   "A primary action with a separately accessible action chooser.",
-  `<div class="kittu-control kittu-stack"><div class="kittu-row"><button type="button" [disabled]="blocked()" (click)="run()">{{label()||'Publish'}}</button><details class="k-menu"><summary>More actions</summary><div class="k-menu-panel">@for(option of options();track option.id){<button type="button" [disabled]="blocked()||option.disabled" (click)="choose(option,$event)">{{option.label}}</button>}</div></details></div>${actionFeedback}</div>`,
-  `readonly options=input<KittuItem[]>([{id:'draft',label:'Save draft'},{id:'schedule',label:'Schedule'}]);readonly optionSelect=output<KittuItem>();choose(option:KittuItem,event:Event):void{if(this.blocked()||option.disabled)return;this.optionSelect.emit(option);this.status.set(option.label+' requested.');(event.currentTarget as HTMLElement).closest('details')?.removeAttribute('open');}`,
-  { inputs: ["options: KittuItem[]"], outputs: ["optionSelect: KittuItem"] },
+  `<div class="kit-control kit-stack"><div class="kit-row"><button type="button" [disabled]="blocked()" (click)="run()">{{label()||'Publish'}}</button><details class="k-menu"><summary>More actions</summary><div class="k-menu-panel">@for(option of options();track option.id){<button type="button" [disabled]="blocked()||option.disabled" (click)="choose(option,$event)">{{option.label}}</button>}</div></details></div>${actionFeedback}</div>`,
+  `readonly options=input<KitItem[]>([{id:'draft',label:'Save draft'},{id:'schedule',label:'Schedule'}]);readonly optionSelect=output<KitItem>();choose(option:KitItem,event:Event):void{if(this.blocked()||option.disabled)return;this.optionSelect.emit(option);this.status.set(option.label+' requested.');(event.currentTarget as HTMLElement).closest('details')?.removeAttribute('open');}`,
+  { inputs: ["options: KitItem[]"], outputs: ["optionSelect: KitItem"] },
 );
 add(
   "book-call-button",
   "action",
   "A date/time booking dialog that emits a request for your scheduling application.",
-  `<div class="kittu-control kittu-stack"><button type="button" [disabled]="blocked()" (click)="dialog().nativeElement.showModal()">{{label()||'Book a call'}}</button><dialog #booking class="kittu-dialog kittu-control"><form class="kittu-stack" (submit)="book($event)"><h3>Find a time</h3><label>Date<input type="date" required [min]="today" (input)="date.set($any($event.target).value)" /></label><label>Time<input type="time" required (input)="time.set($any($event.target).value)" /></label><div class="kittu-row"><button type="button" (click)="dialog().nativeElement.close()">Cancel</button><button type="submit" [disabled]="blocked()">Request booking</button></div></form></dialog>${actionFeedback}</div>`,
+  `<div class="kit-control kit-stack"><button type="button" [disabled]="blocked()" (click)="dialog().nativeElement.showModal()">{{label()||'Book a call'}}</button><dialog #booking class="kit-dialog kit-control"><form class="kit-stack" (submit)="book($event)"><h3>Find a time</h3><label>Date<input type="date" required [min]="today" (input)="date.set($any($event.target).value)" /></label><label>Time<input type="time" required (input)="time.set($any($event.target).value)" /></label><div class="kit-row"><button type="button" (click)="dialog().nativeElement.close()">Cancel</button><button type="submit" [disabled]="blocked()">Request booking</button></div></form></dialog>${actionFeedback}</div>`,
   `readonly dialog=viewChild.required<ElementRef<HTMLDialogElement>>('booking');readonly date=signal('');readonly time=signal('');readonly bookingRequested=output<{date:string;time:string}>();readonly today=new Date().toISOString().slice(0,10);book(event:SubmitEvent):void{event.preventDefault();if(!this.date()||!this.time()||this.blocked())return;this.bookingRequested.emit({date:this.date(),time:this.time()});this.dialog().nativeElement.close();this.status.set('Booking requested. Your application confirms availability.');}`,
   { outputs: ["bookingRequested: { date: string; time: string }"] },
 );
@@ -164,7 +164,7 @@ add(
   "drag-to-confirm",
   "action",
   "Slide to the end to request confirmation, with arrow-key and explicit button alternatives.",
-  `<div class="kittu-control kittu-stack"><label>{{label()||'Slide to confirm'}}<input type="range" min="0" max="100" [value]="value()" [disabled]="blocked()" aria-label="Confirmation progress" [attr.aria-valuetext]="value()+' percent'" (input)="value.set(+$any($event.target).value)" (change)="finish()" /></label><button type="button" [disabled]="blocked()||value()<100" (click)="run()">Confirm</button>${actionFeedback}</div>`,
+  `<div class="kit-control kit-stack"><label>{{label()||'Slide to confirm'}}<input type="range" min="0" max="100" [value]="value()" [disabled]="blocked()" aria-label="Confirmation progress" [attr.aria-valuetext]="value()+' percent'" (input)="value.set(+$any($event.target).value)" (change)="finish()" /></label><button type="button" [disabled]="blocked()||value()<100" (click)="run()">Confirm</button>${actionFeedback}</div>`,
   `readonly value=model(0);finish():void{if(this.value()>=100)void this.run();else this.value.set(0);}`,
   { inputs: ["value: number (two-way)"] },
 );
@@ -172,8 +172,8 @@ add(
   "code-snippet-deck",
   "collection",
   "Browse code snippets and copy the selected snippet with visible failure feedback.",
-  `<div class="kittu-control kittu-surface kittu-stack"><div class="kittu-row" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</div><pre class="k-code">{{current()?.description}}</pre><button type="button" [disabled]="disabled()||!current()" (click)="copy()">Copy snippet</button>${collectionFeedback}</div>`,
-  `override readonly items=input<KittuItem[]>([{id:'install',label:'Install',description:'npm install ./kittu-ui-angular-0.1.0.tgz'},{id:'import',label:'Import',description:"import { KittuButtonComponent } from 'kittu-ui-angular';"}]);async copy():Promise<void>{try{await navigator.clipboard.writeText(this.current()?.description??'');this.status.set('Copied.');}catch{this.actionError.set('Clipboard unavailable. Select and copy the snippet manually.');}}`,
+  `<div class="kit-control kit-surface kit-stack"><div class="kit-row" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</div><pre class="k-code">{{current()?.description}}</pre><button type="button" [disabled]="disabled()||!current()" (click)="copy()">Copy snippet</button>${collectionFeedback}</div>`,
+  `override readonly items=input<KitItem[]>([{id:'install',label:'Install',description:'npm install ./kit-ui-angular-0.1.0.tgz'},{id:'import',label:'Import',description:"import { KitButtonComponent } from 'kit-ui-angular';"}]);async copy():Promise<void>{try{await navigator.clipboard.writeText(this.current()?.description??'');this.status.set('Copied.');}catch{this.actionError.set('Clipboard unavailable. Select and copy the snippet manually.');}}`,
 );
 
 // Native toggles expose Angular two-way binding rather than React event props.
@@ -186,7 +186,7 @@ for (const [id, label, role] of [
     id,
     "plain",
     "A native toggle with two-way checked binding, visible focus and a disabled state.",
-    `<label class="kittu-control k-toggle"><input type="checkbox" role="${role}" [checked]="checked()" [disabled]="disabled()" (change)="checked.set($any($event.target).checked)" /><span class="k-toggle-track" aria-hidden="true"><span>✓</span></span><span>{{label()||'${label}'}}</span></label>`,
+    `<label class="kit-control k-toggle"><input type="checkbox" role="${role}" [checked]="checked()" [disabled]="disabled()" (change)="checked.set($any($event.target).checked)" /><span class="k-toggle-track" aria-hidden="true"><span>✓</span></span><span>{{label()||'${label}'}}</span></label>`,
     `readonly checked=model(false);readonly disabled=input(false);readonly label=input('');`,
     {
       inputs: [
@@ -201,14 +201,14 @@ add(
   "spring-select",
   "collection",
   "A native accessible select with keyboard typeahead and selected-item output.",
-  `<div class="kittu-control kittu-stack"><label>{{label()||'Choose a workspace'}}<select [disabled]="disabled()||loading()" [value]="current()?.id" (change)="pick($event)">@for(item of items();track item.id){<option [value]="item.id" [disabled]="item.disabled">{{item.label}}</option>}</select></label><p>{{current()?.description}}</p>${collectionFeedback}</div>`,
+  `<div class="kit-control kit-stack"><label>{{label()||'Choose a workspace'}}<select [disabled]="disabled()||loading()" [value]="current()?.id" (change)="pick($event)">@for(item of items();track item.id){<option [value]="item.id" [disabled]="item.disabled">{{item.label}}</option>}</select></label><p>{{current()?.description}}</p>${collectionFeedback}</div>`,
   `pick(event:Event):void{const item=this.items().find(i=>i.id===(event.target as HTMLSelectElement).value);if(item)this.select(item);}`,
 );
 add(
   "otp-input",
   "plain",
   "A one-time-code field with digit validation, paste, autofill and completion output.",
-  `<div class="kittu-control kittu-stack"><label>{{label()}}<input class="k-otp" type="text" inputmode="numeric" autocomplete="one-time-code" [attr.maxlength]="safeLength()" [value]="value()" [disabled]="disabled()" (input)="change($event)" /></label><div class="kittu-row" aria-hidden="true">@for(index of slots();track index){<span class="k-otp-slot">{{value()[index]||'·'}}</span>}</div><p role="status">{{value().length===safeLength()?'Code complete.':value().length+' of '+safeLength()+' digits'}}</p></div>`,
+  `<div class="kit-control kit-stack"><label>{{label()}}<input class="k-otp" type="text" inputmode="numeric" autocomplete="one-time-code" [attr.maxlength]="safeLength()" [value]="value()" [disabled]="disabled()" (input)="change($event)" /></label><div class="kit-row" aria-hidden="true">@for(index of slots();track index){<span class="k-otp-slot">{{value()[index]||'·'}}</span>}</div><p role="status">{{value().length===safeLength()?'Code complete.':value().length+' of '+safeLength()+' digits'}}</p></div>`,
   `readonly label=input('Verification code');readonly length=input(6);readonly value=model('');readonly disabled=input(false);readonly completed=output<string>();readonly safeLength=computed(()=>Math.max(1,Math.min(12,Math.floor(this.length()))));readonly slots=computed(()=>Array.from({length:this.safeLength()},(_,i)=>i));change(event:Event):void{const input=event.target as HTMLInputElement;const value=input.value.replace(/[^0-9]/g,'').slice(0,this.safeLength());input.value=value;this.value.set(value);if(value.length===this.safeLength())this.completed.emit(value);}`,
   {
     inputs: [
@@ -224,7 +224,7 @@ add(
   "lock-input",
   "plain",
   "A password field with a deliberate edit lock and accessible visibility control.",
-  `<div class="kittu-control kittu-stack"><label>{{label()}}<input [type]="visible()?'text':'password'" [readOnly]="locked()" [disabled]="disabled()" [value]="value()" autocomplete="current-password" (input)="value.set($any($event.target).value)" /></label><div class="kittu-row"><button type="button" [disabled]="disabled()" [attr.aria-pressed]="locked()" (click)="locked.set(!locked())">{{locked()?'Unlock editing':'Lock editing'}}</button><button type="button" [disabled]="disabled()" [attr.aria-pressed]="visible()" (click)="visible.set(!visible())">{{visible()?'Hide password':'Show password'}}</button></div><p class="kittu-muted">Editing lock is a UI control, not encryption.</p></div>`,
+  `<div class="kit-control kit-stack"><label>{{label()}}<input [type]="visible()?'text':'password'" [readOnly]="locked()" [disabled]="disabled()" [value]="value()" autocomplete="current-password" (input)="value.set($any($event.target).value)" /></label><div class="kit-row"><button type="button" [disabled]="disabled()" [attr.aria-pressed]="locked()" (click)="locked.set(!locked())">{{locked()?'Unlock editing':'Lock editing'}}</button><button type="button" [disabled]="disabled()" [attr.aria-pressed]="visible()" (click)="visible.set(!visible())">{{visible()?'Hide password':'Show password'}}</button></div><p class="kit-muted">Editing lock is a UI control, not encryption.</p></div>`,
   `readonly label=input('Protected input');readonly value=model('');readonly disabled=input(false);readonly locked=model(true);readonly visible=signal(false);`,
   {
     inputs: [
@@ -244,14 +244,14 @@ for (const [id, title, button] of [
     id,
     "form",
     "Validated native fields, password visibility, cancellable application submission and preserved errors.",
-    `<form class="kittu-control kittu-surface kittu-stack" aria-label="${title}" (submit)="submit($event)"><h3>{{label()||'${title}'}}</h3>@for(field of fields();track field.key){<label [for]="uid+'-'+field.key">{{field.label}}<input [id]="uid+'-'+field.key" [name]="field.key" [type]="field.type==='password'&&showPassword()?'text':field.type||'text'" [attr.autocomplete]="field.type==='password'?'${id === "sign-up" ? "new-password" : "current-password"}':field.type==='email'?'email':'on'" [required]="field.required||false" [attr.minlength]="field.minLength??null" [value]="values()[field.key]||''" [disabled]="disabled()||busy()" (input)="change(field.key,$event)" /></label>}<label class="kittu-row"><input type="checkbox" [checked]="showPassword()" (change)="showPassword.set($any($event.target).checked)" />Show password</label><button type="submit" [disabled]="disabled()||busy()">{{busy()?'Submitting…':'${button}'}}</button>@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}<p role="status">{{status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}</form>`,
+    `<form class="kit-control kit-surface kit-stack" aria-label="${title}" (submit)="submit($event)"><h3>{{label()||'${title}'}}</h3>@for(field of fields();track field.key){<label [for]="uid+'-'+field.key">{{field.label}}<input [id]="uid+'-'+field.key" [name]="field.key" [type]="field.type==='password'&&showPassword()?'text':field.type||'text'" [attr.autocomplete]="field.type==='password'?'${id === "sign-up" ? "new-password" : "current-password"}':field.type==='email'?'email':'on'" [required]="field.required||false" [attr.minlength]="field.minLength??null" [value]="values()[field.key]||''" [disabled]="disabled()||busy()" (input)="change(field.key,$event)" /></label>}<label class="kit-row"><input type="checkbox" [checked]="showPassword()" (change)="showPassword.set($any($event.target).checked)" />Show password</label><button type="submit" [disabled]="disabled()||busy()">{{busy()?'Submitting…':'${button}'}}</button>@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}<p role="status">{{status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}</form>`,
   );
 }
 add(
   "animated-file-upload",
   "plain",
   "File previews, validation, progress, abort and retry using the native Angular upload engine.",
-  `<kittu-smart-upload [accept]="accept()" [maxFiles]="maxFiles()" [maxSize]="maxSize()" [disabled]="disabled()" [upload]="upload()" />`,
+  `<kit-smart-upload [accept]="accept()" [maxFiles]="maxFiles()" [maxSize]="maxSize()" [disabled]="disabled()" [upload]="upload()" />`,
   `readonly accept=input('image/*,.pdf');readonly maxFiles=input(5);readonly maxSize=input(10*1024*1024);readonly disabled=input(false);readonly upload=input<UploadHandler>();`,
   {
     inputs: [
@@ -262,8 +262,8 @@ add(
       "upload: UploadHandler",
     ],
     imports:
-      "import { KittuSmartUploadComponent } from './smart-upload.component';\nimport type { UploadHandler } from './types';",
-    componentImports: "KittuSmartUploadComponent",
+      "import { KitSmartUploadComponent } from './smart-upload.component';\nimport type { UploadHandler } from './types';",
+    componentImports: "KitSmartUploadComponent",
   },
 );
 
@@ -280,7 +280,7 @@ for (const [id, layout] of [
     id,
     "collection",
     "Keyboard-navigable selection with active state, disabled items and application navigation output.",
-    `<div class="kittu-control kittu-stack"><nav class="k-nav k-${layout}" aria-label="${id}" ${tabs ? 'role="tablist"' : ""} (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item ${tabs ? 'role="tab" [attr.aria-selected]="current()?.id===item.id" [id]="uid+\'-tab-\'+item.id" [attr.aria-controls]="uid+\'-panel\'"' : "[attr.aria-current]=\"current()?.id===item.id?'page':null\""} [disabled]="disabled()||item.disabled" (click)="select(item)">{{item.label}}</button>}</nav><section ${tabs ? 'role="tabpanel" [id]="uid+\'-panel\'" [attr.aria-labelledby]="uid+\'-tab-\'+current()?.id"' : ""}><ng-content><p>{{current()?.description}}</p></ng-content></section>${collectionFeedback}</div>`,
+    `<div class="kit-control kit-stack"><nav class="k-nav k-${layout}" aria-label="${id}" ${tabs ? 'role="tablist"' : ""} (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item ${tabs ? 'role="tab" [attr.aria-selected]="current()?.id===item.id" [id]="uid+\'-tab-\'+item.id" [attr.aria-controls]="uid+\'-panel\'"' : "[attr.aria-current]=\"current()?.id===item.id?'page':null\""} [disabled]="disabled()||item.disabled" (click)="select(item)">{{item.label}}</button>}</nav><section ${tabs ? 'role="tabpanel" [id]="uid+\'-panel\'" [attr.aria-labelledby]="uid+\'-tab-\'+current()?.id"' : ""}><ng-content><p>{{current()?.description}}</p></ng-content></section>${collectionFeedback}</div>`,
   );
 }
 for (const [id, title] of [
@@ -292,14 +292,14 @@ for (const [id, title] of [
     id,
     "collection",
     "An expandable action menu with Escape, arrow keys and disabled-item handling.",
-    `<div class="kittu-control kittu-stack" (keydown.escape)="open.set(false)"><div class="k-menu"><button type="button" [disabled]="disabled()" [attr.aria-expanded]="open()" [attr.aria-controls]="uid" (click)="open.set(!open())"><span aria-hidden="true">{{open()?'×':'☰'}}</span> {{label()||'${title}'}}</button>@if(open()){<div [id]="uid" class="k-menu-panel" (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item [disabled]="item.disabled||disabled()" (click)="select(item);open.set(false)">{{item.label}}</button>}</div>}</div>${collectionFeedback}</div>`,
+    `<div class="kit-control kit-stack" (keydown.escape)="open.set(false)"><div class="k-menu"><button type="button" [disabled]="disabled()" [attr.aria-expanded]="open()" [attr.aria-controls]="uid" (click)="open.set(!open())"><span aria-hidden="true">{{open()?'×':'☰'}}</span> {{label()||'${title}'}}</button>@if(open()){<div [id]="uid" class="k-menu-panel" (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item [disabled]="item.disabled||disabled()" (click)="select(item);open.set(false)">{{item.label}}</button>}</div>}</div>${collectionFeedback}</div>`,
   );
 }
 add(
   "branching-submenu",
   "collection",
   "Parent and child navigation with keyboard selection and independently disclosed branches.",
-  `<nav class="kittu-control kittu-surface kittu-stack" aria-label="Branching navigation" (keydown)="keys($event)">@for(item of items();track item.id){<details><summary>{{item.label}}</summary><div class="kittu-stack">@for(child of item.children||[];track child.id){<button type="button" data-item [disabled]="disabled()||child.disabled" (click)="select(child)">{{child.label}}</button>}@if(!item.children?.length){${itemButton}}</div></details>}<p role="status">{{selected()?'Selected: '+selected():''}}</p></nav>`,
+  `<nav class="kit-control kit-surface kit-stack" aria-label="Branching navigation" (keydown)="keys($event)">@for(item of items();track item.id){<details><summary>{{item.label}}</summary><div class="kit-stack">@for(child of item.children||[];track child.id){<button type="button" data-item [disabled]="disabled()||child.disabled" (click)="select(child)">{{child.label}}</button>}@if(!item.children?.length){${itemButton}}</div></details>}<p role="status">{{selected()?'Selected: '+selected():''}}</p></nav>`,
 );
 for (const [id, title] of [
   ["expandable-search", "Find a component"],
@@ -309,7 +309,7 @@ for (const [id, title] of [
     id,
     "collection",
     "Live filtering with clear/cancel controls, keyboard navigation and selected-result output.",
-    `<section class="kittu-control kittu-surface kittu-stack"><label>{{label()||'${title}'}}<input type="search" [value]="query()" [disabled]="disabled()" (input)="search($event)" /></label>@if(query()){<button type="button" (click)="query.set('')">Clear search</button>}<div class="kittu-stack" (keydown)="keys($event)">@for(item of visible();track item.id){${itemButton}}@empty{<p role="status">No matching results.</p>}</div>${collectionFeedback}</section>`,
+    `<section class="kit-control kit-surface kit-stack"><label>{{label()||'${title}'}}<input type="search" [value]="query()" [disabled]="disabled()" (input)="search($event)" /></label>@if(query()){<button type="button" (click)="query.set('')">Clear search</button>}<div class="kit-stack" (keydown)="keys($event)">@for(item of visible();track item.id){${itemButton}}@empty{<p role="status">No matching results.</p>}</div>${collectionFeedback}</section>`,
   );
 }
 for (const id of ["command-menu", "spotlight-search"]) {
@@ -317,14 +317,14 @@ for (const id of ["command-menu", "spotlight-search"]) {
     id,
     "plain",
     "A native modal command search with keyboard navigation, async errors and focus restoration.",
-    `<kittu-liquid-command-palette [commands]="commands()" [disabled]="disabled()" />`,
+    `<kit-liquid-command-palette [commands]="commands()" [disabled]="disabled()" />`,
     `readonly commands=input<LiquidCommand[]>([{id:'home',label:'Go home',onSelect:()=>this.commandSelect.emit('home')},{id:'docs',label:'Open documentation',onSelect:()=>this.commandSelect.emit('docs')}]);readonly disabled=input(false);readonly commandSelect=output<string>();`,
     {
       inputs: ["commands: LiquidCommand[]", "disabled: boolean"],
       outputs: ["commandSelect: string"],
       imports:
-        "import { KittuLiquidCommandPaletteComponent } from './liquid-command-palette.component';\nimport type { LiquidCommand } from './types';",
-      componentImports: "KittuLiquidCommandPaletteComponent",
+        "import { KitLiquidCommandPaletteComponent } from './liquid-command-palette.component';\nimport type { LiquidCommand } from './types';",
+      componentImports: "KitLiquidCommandPaletteComponent",
     },
   );
 }
@@ -332,13 +332,13 @@ add(
   "dynamic-island",
   "collection",
   "A compact status island that expands to reveal actions and their current state.",
-  `<section class="kittu-control kittu-stack"><div class="k-island"><button type="button" [disabled]="disabled()" [attr.aria-expanded]="open()" [attr.aria-controls]="uid" (click)="open.set(!open())">● {{label()||'Workspace activity'}} {{loading()?'· Working':''}}</button>@if(open()){<div class="kittu-stack" [id]="uid" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</div>}</div>${collectionFeedback}</section>`,
+  `<section class="kit-control kit-stack"><div class="k-island"><button type="button" [disabled]="disabled()" [attr.aria-expanded]="open()" [attr.aria-controls]="uid" (click)="open.set(!open())">● {{label()||'Workspace activity'}} {{loading()?'· Working':''}}</button>@if(open()){<div class="kit-stack" [id]="uid" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</div>}</div>${collectionFeedback}</section>`,
 );
 add(
   "slide-pagination",
   "plain",
   "Bounded page navigation with direct page buttons, arrow keys and two-way page binding.",
-  `<nav class="kittu-control kittu-row" aria-label="Pagination" (keydown)="keys($event)"><button type="button" [disabled]="disabled()||safePage()<=1" (click)="go(safePage()-1)">Previous</button>@for(p of visiblePages();track p){<button type="button" [disabled]="disabled()" [attr.aria-current]="p===safePage()?'page':null" (click)="go(p)">{{p}}</button>}<button type="button" [disabled]="disabled()||safePage()>=total()" (click)="go(safePage()+1)">Next</button><span role="status">Page {{safePage()}} of {{total()}}</span></nav>`,
+  `<nav class="kit-control kit-row" aria-label="Pagination" (keydown)="keys($event)"><button type="button" [disabled]="disabled()||safePage()<=1" (click)="go(safePage()-1)">Previous</button>@for(p of visiblePages();track p){<button type="button" [disabled]="disabled()" [attr.aria-current]="p===safePage()?'page':null" (click)="go(p)">{{p}}</button>}<button type="button" [disabled]="disabled()||safePage()>=total()" (click)="go(safePage()+1)">Next</button><span role="status">Page {{safePage()}} of {{total()}}</span></nav>`,
   `readonly page=model(1);readonly totalPages=input(10);readonly disabled=input(false);readonly total=computed(()=>Math.max(1,Math.floor(this.totalPages())));readonly safePage=computed(()=>Math.max(1,Math.min(this.total(),this.page())));readonly visiblePages=computed(()=>Array.from({length:Math.min(5,this.total())},(_,i)=>Math.max(1,Math.min(this.total()-4,this.safePage()-2))+i));go(page:number):void{if(!this.disabled())this.page.set(Math.max(1,Math.min(this.total(),page)));}keys(event:KeyboardEvent):void{if(['ArrowRight','ArrowLeft','Home','End'].includes(event.key)){event.preventDefault();this.go(event.key==='Home'?1:event.key==='End'?this.total():this.safePage()+(event.key==='ArrowRight'?1:-1));}}`,
   {
     inputs: [
@@ -352,8 +352,8 @@ add(
   "scroll-progress-nav",
   "collection",
   "A contained section navigator with scroll progress and reduced-motion-aware anchor actions.",
-  `<div class="kittu-control kittu-stack"><nav class="kittu-row" aria-label="Section navigation" (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item [disabled]="disabled()||item.disabled" (click)="jump(item)">{{item.label}}</button>}</nav><progress aria-label="Reading progress" max="100" [value]="progress()"></progress><div #scroller class="k-scroll-page" (scroll)="track($event)">@for(item of items();track item.id){<section [id]="uid+'-'+item.id" class="k-scroll-section"><h3>{{item.label}}</h3><p>{{item.description}}</p></section>}</div></div>`,
-  `readonly progress=signal(0);readonly scroller=viewChild.required<ElementRef<HTMLElement>>('scroller');jump(item:KittuItem):void{this.select(item);const node=Array.from(this.scroller().nativeElement.children).find(el=>el.id===this.uid+'-'+item.id) as HTMLElement|undefined;this.scroller().nativeElement.scrollTo({top:node?.offsetTop?node.offsetTop-this.scroller().nativeElement.offsetTop:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}track(event:Event):void{const el=event.target as HTMLElement;this.progress.set(el.scrollHeight<=el.clientHeight?100:el.scrollTop/(el.scrollHeight-el.clientHeight)*100);}`,
+  `<div class="kit-control kit-stack"><nav class="kit-row" aria-label="Section navigation" (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item [disabled]="disabled()||item.disabled" (click)="jump(item)">{{item.label}}</button>}</nav><progress aria-label="Reading progress" max="100" [value]="progress()"></progress><div #scroller class="k-scroll-page" (scroll)="track($event)">@for(item of items();track item.id){<section [id]="uid+'-'+item.id" class="k-scroll-section"><h3>{{item.label}}</h3><p>{{item.description}}</p></section>}</div></div>`,
+  `readonly progress=signal(0);readonly scroller=viewChild.required<ElementRef<HTMLElement>>('scroller');jump(item:KitItem):void{this.select(item);const node=Array.from(this.scroller().nativeElement.children).find(el=>el.id===this.uid+'-'+item.id) as HTMLElement|undefined;this.scroller().nativeElement.scrollTo({top:node?.offsetTop?node.offsetTop-this.scroller().nativeElement.offsetTop:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}track(event:Event):void{const el=event.target as HTMLElement;this.progress.set(el.scrollHeight<=el.clientHeight?100:el.scrollTop/(el.scrollHeight-el.clientHeight)*100);}`,
 );
 
 add("activity-feed", "plain", activityFeedPort.description, activityFeedPort.template, "", activityFeedPort);
@@ -371,7 +371,7 @@ for (const [id, title] of [
     id,
     "collection",
     "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
-    `<section class="kittu-control kittu-surface kittu-stack"><h3>{{label()||'${title}'}}</h3>@for(item of items();track item.id){<details class="k-disclosure"><summary>{{item.label}} @if(item.value!==undefined){<span>{{item.value}}</span>}</summary><div class="kittu-stack"><p>{{item.description}}</p><ng-content></ng-content>${id === "recovery-ledger" ? '<button type="button" [disabled]="disabled()||busy()||item.disabled" (click)="execute([item])">Restore snapshot</button>' : ""}</div></details>}@empty{<p>No items yet.</p>}${collectionFeedback}</section>`,
+    `<section class="kit-control kit-surface kit-stack"><h3>{{label()||'${title}'}}</h3>@for(item of items();track item.id){<details class="k-disclosure"><summary>{{item.label}} @if(item.value!==undefined){<span>{{item.value}}</span>}</summary><div class="kit-stack"><p>{{item.description}}</p><ng-content></ng-content>${id === "recovery-ledger" ? '<button type="button" [disabled]="disabled()||busy()||item.disabled" (click)="execute([item])">Restore snapshot</button>' : ""}</div></details>}@empty{<p>No items yet.</p>}${collectionFeedback}</section>`,
   );
 }
 add('ai-agent-activity','plain',agentActivityPort.description,agentActivityPort.template,agentActivityPort.body,agentActivityPort);
@@ -383,7 +383,7 @@ for (const [id, title] of [
     id,
     "collection",
     "Filter chronological events, inspect event payloads and select an event without simulated network activity.",
-    `<section class="kittu-control kittu-surface kittu-stack"><h3>{{label()||'${title}'}}</h3><label>Filter events<input type="search" [value]="query()" (input)="search($event)" [disabled]="disabled()" /></label><ol class="k-timeline">@for(item of visible();track item.id){<li><details><summary><span class="k-event-dot" aria-hidden="true"></span>{{item.label}} <small>{{item.status||item.value}}</small></summary><p>{{item.description}}</p><button type="button" [disabled]="disabled()||item.disabled" (click)="select(item)">Inspect event</button></details></li>}@empty{<li>No matching events.</li>}</ol>${collectionFeedback}</section>`,
+    `<section class="kit-control kit-surface kit-stack"><h3>{{label()||'${title}'}}</h3><label>Filter events<input type="search" [value]="query()" (input)="search($event)" [disabled]="disabled()" /></label><ol class="k-timeline">@for(item of visible();track item.id){<li><details><summary><span class="k-event-dot" aria-hidden="true"></span>{{item.label}} <small>{{item.status||item.value}}</small></summary><p>{{item.description}}</p><button type="button" [disabled]="disabled()||item.disabled" (click)="select(item)">Inspect event</button></details></li>}@empty{<li>No matching events.</li>}</ol>${collectionFeedback}</section>`,
   );
 }
 for (const [id, title] of [
@@ -394,8 +394,8 @@ for (const [id, title] of [
     id,
     "collection",
     "Select individual items or all items, then run a cancellable application-owned batch action.",
-    `<section class="kittu-control kittu-surface kittu-stack"><h3>{{label()||'${title}'}}</h3><div class="kittu-row"><button type="button" [disabled]="disabled()||busy()" (click)="selectedIds.set(items().filter(enabled).map(itemId))">Select all</button><button type="button" [disabled]="disabled()||busy()" (click)="selectedIds.set([])">Clear selection</button></div>@for(item of items();track item.id){<label class="kittu-row"><input type="checkbox" [checked]="selectedIds().includes(item.id)" [disabled]="disabled()||busy()||item.disabled" (change)="choose(item)" /><span>{{item.label}}</span></label>}<div class="k-tray"><span>{{selectedIds().length}} selected</span><button type="button" [disabled]="disabled()||busy()||!selectedIds().length" (click)="execute()">{{busy()?'Applying…':'Apply to selected'}}</button></div>${collectionFeedback}</section>`,
-    `readonly enabled=(item:KittuItem)=>!item.disabled;readonly itemId=(item:KittuItem)=>item.id;`,
+    `<section class="kit-control kit-surface kit-stack"><h3>{{label()||'${title}'}}</h3><div class="kit-row"><button type="button" [disabled]="disabled()||busy()" (click)="selectedIds.set(items().filter(enabled).map(itemId))">Select all</button><button type="button" [disabled]="disabled()||busy()" (click)="selectedIds.set([])">Clear selection</button></div>@for(item of items();track item.id){<label class="kit-row"><input type="checkbox" [checked]="selectedIds().includes(item.id)" [disabled]="disabled()||busy()||item.disabled" (change)="choose(item)" /><span>{{item.label}}</span></label>}<div class="k-tray"><span>{{selectedIds().length}} selected</span><button type="button" [disabled]="disabled()||busy()||!selectedIds().length" (click)="execute()">{{busy()?'Applying…':'Apply to selected'}}</button></div>${collectionFeedback}</section>`,
+    `readonly enabled=(item:KitItem)=>!item.disabled;readonly itemId=(item:KitItem)=>item.id;`,
   );
 }
 for (const [id, title] of [
@@ -410,9 +410,9 @@ for (const [id, title] of [
     id,
     "collection",
     "Dismissible notifications with restore actions and restrained live announcements.",
-    `<section class="kittu-control kittu-stack">${bell ? '<button type="button" [disabled]="disabled()" [attr.aria-expanded]="open()" (click)="open.set(!open())">♧ {{label()||\'Notifications\'}} ({{visible().length}})</button>@if(open()){' : ""}<div class="k-notification-stack">@for(item of visible();track item.id){<article class="kittu-surface kittu-stack"><strong>{{${toast ? "label()||'" + title + "'" : "item.label"}}}</strong><p>{{item.description}}</p><div class="kittu-row"><button type="button" [disabled]="disabled()" (click)="dismiss(item)">Dismiss <span class="sr-only">{{item.label}}</span></button>${id === "undo-toast" ? '<button type="button" [disabled]="disabled()||busy()" (click)="execute([item])">Undo action</button>' : ""}</div></article>}@empty{<p>No notifications.</p>}</div>${bell ? "}" : ""}@if(dismissed().length){<button type="button" (click)="undo()" [disabled]="disabled()">Restore notifications</button>}${collectionFeedback}</section>`,
+    `<section class="kit-control kit-stack">${bell ? '<button type="button" [disabled]="disabled()" [attr.aria-expanded]="open()" (click)="open.set(!open())">♧ {{label()||\'Notifications\'}} ({{visible().length}})</button>@if(open()){' : ""}<div class="k-notification-stack">@for(item of visible();track item.id){<article class="kit-surface kit-stack"><strong>{{${toast ? "label()||'" + title + "'" : "item.label"}}}</strong><p>{{item.description}}</p><div class="kit-row"><button type="button" [disabled]="disabled()" (click)="dismiss(item)">Dismiss <span class="sr-only">{{item.label}}</span></button>${id === "undo-toast" ? '<button type="button" [disabled]="disabled()||busy()" (click)="execute([item])">Undo action</button>' : ""}</div></article>}@empty{<p>No notifications.</p>}</div>${bell ? "}" : ""}@if(dismissed().length){<button type="button" (click)="undo()" [disabled]="disabled()">Restore notifications</button>}${collectionFeedback}</section>`,
     toast
-      ? `override readonly items=input<KittuItem[]>([{id:'notice',label:'${title}',description:'A local notification. Connect actions to your application.'}]);`
+      ? `override readonly items=input<KitItem[]>([{id:'notice',label:'${title}',description:'A local notification. Connect actions to your application.'}]);`
       : "",
   );
 }
@@ -420,7 +420,7 @@ add(
   "pull-to-refresh",
   "action",
   "Pull down within a contained list or use a keyboard refresh button; async failures remain retryable.",
-  `<section class="kittu-control kittu-surface kittu-stack"><div class="k-pull" style="touch-action:pan-x" (pointerdown)="start($event)" (pointermove)="pull($event)" (pointerup)="release()" (pointercancel)="distance.set(0)" [style.padding-top.px]="distance()"><strong>{{distance()>65?'Release to refresh':'Pull down to refresh'}}</strong><ng-content><p class="kittu-muted">Your latest updates appear here.</p></ng-content></div><button type="button" [disabled]="blocked()" (click)="run()">{{busy()?'Refreshing…':label()||'Refresh'}}</button>${actionFeedback}</section>`,
+  `<section class="kit-control kit-surface kit-stack"><div class="k-pull" style="touch-action:pan-x" (pointerdown)="start($event)" (pointermove)="pull($event)" (pointerup)="release()" (pointercancel)="distance.set(0)" [style.padding-top.px]="distance()"><strong>{{distance()>65?'Release to refresh':'Pull down to refresh'}}</strong><ng-content><p class="kit-muted">Your latest updates appear here.</p></ng-content></div><button type="button" [disabled]="blocked()" (click)="run()">{{busy()?'Refreshing…':label()||'Refresh'}}</button>${actionFeedback}</section>`,
   `readonly distance=signal(0);private startY:number|undefined;start(event:PointerEvent):void{if(this.blocked()||event.button!==0)return;this.startY=event.clientY;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);}pull(event:PointerEvent):void{if(this.startY!==undefined)this.distance.set(Math.max(0,Math.min(100,(event.clientY-this.startY)*.5)));}release():void{if(this.distance()>65)void this.run();this.startY=undefined;this.distance.set(0);}`,
 );
 
@@ -438,7 +438,7 @@ for (const [id, title, layout] of [
     id,
     "collection",
     "A configurable content card collection with selection, disclosure, disabled items and projected details.",
-    `<section class="kittu-control kittu-stack"><h3>{{label()||'${title}'}}</h3><div class="k-cards k-${layout}">@for(item of items();track item.id){<article class="k-card kittu-surface" [class.k-active]="current()?.id===item.id" (pointermove)="spot($event)" (pointerleave)="clearSpot($event)">${id === "mac-os-folder-cards" ? '<span class="k-folder-tab" aria-hidden="true"></span>' : id === "profile-card" ? '<span class="k-avatar" aria-hidden="true">{{item.label.slice(0,2)}}</span>' : id === "wallet-card" ? '<span class="k-card-chip" aria-hidden="true">▦</span>' : ""}<button type="button" [disabled]="disabled()||item.disabled" [attr.aria-expanded]="expanded().includes(item.id)" (click)="select(item);toggle(item.id)">{{item.label}}</button><p>{{item.value}}</p><div [hidden]="!expanded().includes(item.id)"><p>{{item.description}}</p><ng-content></ng-content><button type="button" [disabled]="disabled()||busy()||item.disabled" (click)="execute([item])">Select {{item.label}}</button></div></article>}</div>${collectionFeedback}</section>`,
+    `<section class="kit-control kit-stack"><h3>{{label()||'${title}'}}</h3><div class="k-cards k-${layout}">@for(item of items();track item.id){<article class="k-card kit-surface" [class.k-active]="current()?.id===item.id" (pointermove)="spot($event)" (pointerleave)="clearSpot($event)">${id === "mac-os-folder-cards" ? '<span class="k-folder-tab" aria-hidden="true"></span>' : id === "profile-card" ? '<span class="k-avatar" aria-hidden="true">{{item.label.slice(0,2)}}</span>' : id === "wallet-card" ? '<span class="k-card-chip" aria-hidden="true">▦</span>' : ""}<button type="button" [disabled]="disabled()||item.disabled" [attr.aria-expanded]="expanded().includes(item.id)" (click)="select(item);toggle(item.id)">{{item.label}}</button><p>{{item.value}}</p><div [hidden]="!expanded().includes(item.id)"><p>{{item.description}}</p><ng-content></ng-content><button type="button" [disabled]="disabled()||busy()||item.disabled" (click)="execute([item])">Select {{item.label}}</button></div></article>}</div>${collectionFeedback}</section>`,
     `spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}`,
   );
 }
@@ -447,7 +447,7 @@ add(
   "avatar-stack",
   "collection",
   "Overlapping avatar buttons with readable names, selection and overflow disclosure.",
-  `<section class="kittu-control kittu-stack"><div class="k-avatars" (keydown)="keys($event)">@for(item of items().slice(0,limit());track item.id){<button type="button" data-item class="k-avatar" [attr.aria-label]="item.label" [title]="item.label" [disabled]="disabled()||item.disabled" (click)="select(item)">@if(item.image){<img [src]="item.image" alt="" />}@else{ {{item.label.slice(0,2)}} }</button>}@if(items().length>limit()){<button type="button" [attr.aria-expanded]="open()" [disabled]="disabled()" (click)="open.set(!open())">+{{items().length-limit()}}</button>}</div>@if(open()){@for(item of items().slice(limit());track item.id){${itemButton}}}<p role="status">{{selected()?'Selected: '+current()?.label:''}}</p></section>`,
+  `<section class="kit-control kit-stack"><div class="k-avatars" (keydown)="keys($event)">@for(item of items().slice(0,limit());track item.id){<button type="button" data-item class="k-avatar" [attr.aria-label]="item.label" [title]="item.label" [disabled]="disabled()||item.disabled" (click)="select(item)">@if(item.image){<img [src]="item.image" alt="" />}@else{ {{item.label.slice(0,2)}} }</button>}@if(items().length>limit()){<button type="button" [attr.aria-expanded]="open()" [disabled]="disabled()" (click)="open.set(!open())">+{{items().length-limit()}}</button>}</div>@if(open()){@for(item of items().slice(limit());track item.id){${itemButton}}}<p role="status">{{selected()?'Selected: '+current()?.label:''}}</p></section>`,
   `readonly maxVisible=input(4);readonly limit=computed(()=>Math.max(1,Math.floor(this.maxVisible())));`,
   { inputs: ["maxVisible: number"] },
 );
@@ -455,13 +455,13 @@ add(
   "sticky-pages",
   "collection",
   "Scrollable page sections with contained sticky headers and readable long-content layout.",
-  `<div class="kittu-control k-scroll-page" tabindex="0" aria-label="Sticky pages">@for(item of items();track item.id){<section class="k-sticky-page"><h3>{{item.label}}</h3><p>{{item.description}}</p><ng-content></ng-content><button type="button" [disabled]="disabled()||item.disabled" (click)="select(item)">Open {{item.label}}</button></section>}</div>`,
+  `<div class="kit-control k-scroll-page" tabindex="0" aria-label="Sticky pages">@for(item of items();track item.id){<section class="k-sticky-page"><h3>{{item.label}}</h3><p>{{item.description}}</p><ng-content></ng-content><button type="button" [disabled]="disabled()||item.disabled" (click)="select(item)">Open {{item.label}}</button></section>}</div>`,
 );
 add(
   "focus-mode",
   "plain",
   "A focus region that dims surrounding content while preserving Escape and an explicit exit control.",
-  `<section class="kittu-control k-focus" [class.k-focused]="active()" (keydown.escape)="active.set(false)"><button type="button" [disabled]="disabled()" [attr.aria-pressed]="active()" (click)="active.set(!active())">{{active()?'Exit focus mode':'Enter focus mode'}}</button><article class="kittu-surface kittu-stack"><h3>{{label()}}</h3><ng-content><p>Keep the next step small and intentional.</p></ng-content></article></section>`,
+  `<section class="kit-control k-focus" [class.k-focused]="active()" (keydown.escape)="active.set(false)"><button type="button" [disabled]="disabled()" [attr.aria-pressed]="active()" (click)="active.set(!active())">{{active()?'Exit focus mode':'Enter focus mode'}}</button><article class="kit-surface kit-stack"><h3>{{label()}}</h3><ng-content><p>Keep the next step small and intentional.</p></ng-content></article></section>`,
   `readonly active=model(false);readonly disabled=input(false);readonly label=input('One thing at a time');`,
   {
     inputs: ["active: boolean (two-way)", "disabled: boolean", "label: string"],
@@ -480,7 +480,7 @@ for (const [id, shape] of [
     id,
     "plain",
     "A labeled loading indicator with a settled state and reduced-motion fallback.",
-    `<section class="kittu-control kittu-stack" [attr.aria-busy]="loading()"><div class="k-loader k-${shape}" [class.k-paused]="paused()||!loading()" aria-hidden="true"><span></span><span></span><span></span></div><p role="status">{{loading()?label():'Ready.'}}</p><ng-content></ng-content></section>`,
+    `<section class="kit-control kit-stack" [attr.aria-busy]="loading()"><div class="k-loader k-${shape}" [class.k-paused]="paused()||!loading()" aria-hidden="true"><span></span><span></span><span></span></div><p role="status">{{loading()?label():'Ready.'}}</p><ng-content></ng-content></section>`,
     `readonly label=input('Loading…');readonly loading=input(true);readonly paused=input(false);`,
     { inputs: ["label: string", "loading: boolean", "paused: boolean"] },
   );
@@ -489,7 +489,7 @@ add(
   "not-found",
   "plain",
   "A configurable empty/not-found state with an application-owned recovery action.",
-  `<section class="kittu-control kittu-surface kittu-stack k-empty"><strong class="k-error-code">{{code()}}</strong><h3>{{title()}}</h3><p>{{description()}}</p><button type="button" [disabled]="disabled()" (click)="recover.emit()">{{actionLabel()}}</button><ng-content></ng-content></section>`,
+  `<section class="kit-control kit-surface kit-stack k-empty"><strong class="k-error-code">{{code()}}</strong><h3>{{title()}}</h3><p>{{description()}}</p><button type="button" [disabled]="disabled()" (click)="recover.emit()">{{actionLabel()}}</button><ng-content></ng-content></section>`,
   `readonly code=input('404');readonly title=input('We could not find that page');readonly description=input('Try another path or return to your workspace.');readonly actionLabel=input('Go back');readonly disabled=input(false);readonly recover=output<void>();`,
   {
     inputs: [
@@ -506,7 +506,7 @@ add(
   "payment-status",
   "plain",
   "A controlled payment-status display; it never simulates a real payment or charges a card.",
-  `<section class="kittu-control kittu-surface kittu-stack" [attr.aria-busy]="state()==='pending'"><span class="k-payment-icon" aria-hidden="true">{{state()==='success'?'✓':state()==='error'?'!':'◌'}}</span><h3>{{label()}}</h3><p role="status">{{state()==='pending'?'Processing payment…':state()==='success'?'Payment completed.':state()==='error'?'Payment failed.': 'Ready for payment.'}}</p>@if(state()==='error'){<button type="button" [disabled]="disabled()" (click)="retry.emit()">Retry payment</button>}<ng-content></ng-content></section>`,
+  `<section class="kit-control kit-surface kit-stack" [attr.aria-busy]="state()==='pending'"><span class="k-payment-icon" aria-hidden="true">{{state()==='success'?'✓':state()==='error'?'!':'◌'}}</span><h3>{{label()}}</h3><p role="status">{{state()==='pending'?'Processing payment…':state()==='success'?'Payment completed.':state()==='error'?'Payment failed.': 'Ready for payment.'}}</p>@if(state()==='error'){<button type="button" [disabled]="disabled()" (click)="retry.emit()">Retry payment</button>}<ng-content></ng-content></section>`,
   `readonly state=input<'idle'|'pending'|'success'|'error'>('idle');readonly label=input('Payment status');readonly disabled=input(false);readonly retry=output<void>();`,
   {
     inputs: [
@@ -521,15 +521,15 @@ add(
   "payment-receipt-printer",
   "plain",
   "A printable, expandable receipt from application-provided line items and totals.",
-  `<section class="kittu-control kittu-surface kittu-stack"><h3>{{label()}}</h3><button type="button" [disabled]="disabled()" [attr.aria-expanded]="printed()" (click)="printed.set(!printed())">{{printed()?'Retract receipt':'Print receipt preview'}}</button>@if(printed()){<article class="k-receipt"><h3>{{merchant()}}</h3><p>{{reference()}}</p>@for(item of items();track item.id){<div class="kittu-row"><span>{{item.label}}</span><span>{{currency()}} {{item.value}}</span></div>}<hr /><strong>Total: {{currency()}} {{total()}}</strong><ng-content></ng-content></article>}</section>`,
-  `readonly label=input('Your receipt');readonly merchant=input('Kit workspace');readonly reference=input('Receipt preview');readonly currency=input('USD');readonly items=input<KittuItem[]>([{id:'subscription',label:'Workspace plan',value:24}]);readonly total=input(24);readonly disabled=input(false);readonly printed=model(false);`,
+  `<section class="kit-control kit-surface kit-stack"><h3>{{label()}}</h3><button type="button" [disabled]="disabled()" [attr.aria-expanded]="printed()" (click)="printed.set(!printed())">{{printed()?'Retract receipt':'Print receipt preview'}}</button>@if(printed()){<article class="k-receipt"><h3>{{merchant()}}</h3><p>{{reference()}}</p>@for(item of items();track item.id){<div class="kit-row"><span>{{item.label}}</span><span>{{currency()}} {{item.value}}</span></div>}<hr /><strong>Total: {{currency()}} {{total()}}</strong><ng-content></ng-content></article>}</section>`,
+  `readonly label=input('Your receipt');readonly merchant=input('Kit workspace');readonly reference=input('Receipt preview');readonly currency=input('USD');readonly items=input<KitItem[]>([{id:'subscription',label:'Workspace plan',value:24}]);readonly total=input(24);readonly disabled=input(false);readonly printed=model(false);`,
   {
     inputs: [
       "label: string",
       "merchant: string",
       "reference: string",
       "currency: string",
-      "items: KittuItem[]",
+      "items: KitItem[]",
       "total: number",
       "disabled: boolean",
       "printed: boolean (two-way)",
@@ -559,7 +559,7 @@ for (const [id, mode] of Object.entries(canvasModes)) {
     id,
     "canvas",
     "A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.",
-    `<section class="kittu-control kittu-stack"><div class="k-canvas-wrap" (pointermove)="move($event)" (pointerleave)="reset()"><canvas #canvas [attr.aria-label]="label()" role="img"></canvas><ng-content></ng-content></div><button type="button" [disabled]="disabled()||paused()" [attr.aria-pressed]="!running()" (click)="running.set(!running())">{{running()?'Pause animation':'Resume animation'}}</button></section>`,
+    `<section class="kit-control kit-stack"><div class="k-canvas-wrap" (pointermove)="move($event)" (pointerleave)="reset()"><canvas #canvas [attr.aria-label]="label()" role="img"></canvas><ng-content></ng-content></div><button type="button" [disabled]="disabled()||paused()" [attr.aria-pressed]="!running()" (click)="running.set(!running())">{{running()?'Pause animation':'Resume animation'}}</button></section>`,
     `override readonly mode='${mode}';`,
   );
 }
@@ -571,7 +571,7 @@ for (const [id, label] of [
     id,
     "canvas",
     "Trigger a local particle celebration with a keyboard button, visible motion controls and cleanup.",
-    `<section class="kittu-control kittu-stack"><div class="k-canvas-wrap" (pointermove)="move($event)"><canvas #canvas role="img" [attr.aria-label]="label()" [style.opacity]="active()?1:.15"></canvas></div><div class="kittu-row"><button type="button" [disabled]="disabled()" (click)="launch()">${label}</button><button type="button" [disabled]="disabled()" (click)="running.set(!running())">{{running()?'Pause':'Resume'}}</button></div><p role="status">{{active()?'Celebration launched.':''}}</p></section>`,
+    `<section class="kit-control kit-stack"><div class="k-canvas-wrap" (pointermove)="move($event)"><canvas #canvas role="img" [attr.aria-label]="label()" [style.opacity]="active()?1:.15"></canvas></div><div class="kit-row"><button type="button" [disabled]="disabled()" (click)="launch()">${label}</button><button type="button" [disabled]="disabled()" (click)="running.set(!running())">{{running()?'Pause':'Resume'}}</button></div><p role="status">{{active()?'Celebration launched.':''}}</p></section>`,
     `override readonly mode='burst';readonly active=signal(false);readonly triggered=output<void>();private stopTimer:ReturnType<typeof setTimeout>|undefined;constructor(){super();this.running.set(false);inject(DestroyRef).onDestroy(()=>clearTimeout(this.stopTimer));}launch():void{if(this.disabled())return;clearTimeout(this.stopTimer);this.active.set(true);this.running.set(true);this.triggered.emit();this.stopTimer=setTimeout(()=>{this.active.set(false);this.running.set(false);},3000);}`,
     { outputs: ["triggered: void"] },
   );
@@ -580,7 +580,7 @@ add(
   "cursor-follower",
   "plain",
   "A pointer-following highlight contained within its own surface, with a non-pointer fallback.",
-  `<section class="kittu-control k-cursor-surface" (pointermove)="move($event)" (pointerleave)="inside.set(false)"><span aria-hidden="true" class="k-cursor-dot" [style.left.px]="x()" [style.top.px]="y()" [style.opacity]="inside()&&!disabled()?1:0"></span><h3>{{label()}}</h3><ng-content><p>Move a pointer inside this surface.</p></ng-content></section>`,
+  `<section class="kit-control k-cursor-surface" (pointermove)="move($event)" (pointerleave)="inside.set(false)"><span aria-hidden="true" class="k-cursor-dot" [style.left.px]="x()" [style.top.px]="y()" [style.opacity]="inside()&&!disabled()?1:0"></span><h3>{{label()}}</h3><ng-content><p>Move a pointer inside this surface.</p></ng-content></section>`,
   `readonly label=input('Follow your curiosity');readonly disabled=input(false);readonly x=signal(0);readonly y=signal(0);readonly inside=signal(false);move(event:PointerEvent):void{if(this.disabled()||event.pointerType==='touch')return;const r=(event.currentTarget as HTMLElement).getBoundingClientRect();this.x.set(event.clientX-r.left);this.y.set(event.clientY-r.top);this.inside.set(true);}`,
   { inputs: ["label: string", "disabled: boolean"] },
 );
@@ -588,14 +588,14 @@ add(
   "particle-delete",
   "action",
   "A deliberate local item dismissal with a particle transition and restore control.",
-  `<section class="kittu-control kittu-stack">@if(!removed()){<article class="kittu-surface kittu-stack" [class.k-dissolve]="busy()"><ng-content><p>{{label()||'A small item to remove'}}</p></ng-content><button type="button" [disabled]="blocked()" (click)="remove()">Delete item</button></article>}@else{<button type="button" [disabled]="disabled()" (click)="removed.set(false)">Restore preview item</button>}${actionFeedback}</section>`,
+  `<section class="kit-control kit-stack">@if(!removed()){<article class="kit-surface kit-stack" [class.k-dissolve]="busy()"><ng-content><p>{{label()||'A small item to remove'}}</p></ng-content><button type="button" [disabled]="blocked()" (click)="remove()">Delete item</button></article>}@else{<button type="button" [disabled]="disabled()" (click)="removed.set(false)">Restore preview item</button>}${actionFeedback}</section>`,
   `readonly removed=signal(false);async remove():Promise<void>{await this.run();if(!this.error()&&!this.destroyed&&!this.disabled())this.removed.set(true);}`,
 );
 add(
   "car-smoke-page-transition",
   "collection",
   "Switch projected page summaries through a restrained car/smoke CSS transition with keyboard navigation.",
-  `<section class="kittu-control kittu-stack"><nav class="kittu-row" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-road" aria-hidden="true"><span class="k-car">▰</span><span class="k-smoke"></span></div>@for(item of [current()];track item?.id){<article class="kittu-surface k-page-enter"><h3>{{item?.label}}</h3><p>{{item?.description}}</p><ng-content></ng-content></article>}</section>`,
+  `<section class="kit-control kit-stack"><nav class="kit-row" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-road" aria-hidden="true"><span class="k-car">▰</span><span class="k-smoke"></span></div>@for(item of [current()];track item?.id){<article class="kit-surface k-page-enter"><h3>{{item?.label}}</h3><p>{{item?.description}}</p><ng-content></ng-content></article>}</section>`,
 );
 add("morphing-icon","plain",morphingIconPort.description,morphingIconPort.template,morphingIconPort.body,morphingIconPort);
 
@@ -609,7 +609,7 @@ for (const [id, variant] of [
     id,
     "plain",
     "Configurable readable text with a restrained visual treatment and reduced-motion fallback.",
-    `<section class="kittu-control kittu-stack"><div class="k-text k-${variant}" [class.k-paused]="paused()" [attr.data-text]="text()" [style.transform]="transform()" (wheel)="wheel($event)"><span class="sr-only">{{text()}}</span><span aria-hidden="true">{{display()}}</span></div>${id === "text-scramble-decoder" ? '<button type="button" [disabled]="disabled()" (click)="decode()">Decode text</button>' : ""}</section>`,
+    `<section class="kit-control kit-stack"><div class="k-text k-${variant}" [class.k-paused]="paused()" [attr.data-text]="text()" [style.transform]="transform()" (wheel)="wheel($event)"><span class="sr-only">{{text()}}</span><span aria-hidden="true">{{display()}}</span></div>${id === "text-scramble-decoder" ? '<button type="button" [disabled]="disabled()" (click)="decode()">Decode text</button>' : ""}</section>`,
     `readonly text=input('Nimble by nature. Precise by design.');readonly paused=input(false);readonly disabled=input(false);readonly decoded=signal<string|null>(null);readonly display=computed(()=>this.decoded()??this.text());readonly transform=signal('translateX(0)');private timer:ReturnType<typeof setInterval>|undefined;private settle:ReturnType<typeof setTimeout>|undefined;constructor(){inject(DestroyRef).onDestroy(()=>{clearInterval(this.timer);clearTimeout(this.settle);});}wheel(event:WheelEvent):void{if(this.disabled()||this.paused()||matchMedia('(prefers-reduced-motion: reduce)').matches)return;this.transform.set('translateX('+Math.max(-25,Math.min(25,event.deltaY*.15))+'px)');clearTimeout(this.settle);this.settle=setTimeout(()=>this.transform.set('translateX(0)'),180);}decode():void{clearInterval(this.timer);if(this.disabled()||this.paused()||matchMedia('(prefers-reduced-motion: reduce)').matches){this.decoded.set(this.text());return;}let step=0;this.timer=setInterval(()=>{const text=this.text();step+=2;this.decoded.set(Array.from(text).map((c,i)=>i<step||c===' '?c:'01<>/{}'[Math.floor(Math.random()*7)]).join(''));if(step>=text.length)clearInterval(this.timer);},45);}`,
     { inputs: ["text: string", "paused: boolean", "disabled: boolean"] },
   );
@@ -618,7 +618,7 @@ add(
   "animated-number",
   "plain",
   "Animate actual numeric input changes with locale formatting and immediate reduced-motion updates.",
-  `<output class="kittu-control k-number" [attr.aria-label]="label()">{{formatted()}}</output>`,
+  `<output class="kit-control k-number" [attr.aria-label]="label()">{{formatted()}}</output>`,
   `readonly value=input(1248);readonly duration=input(600);readonly locale=input('en');readonly label=input('Value');readonly displayed=signal(1248);readonly formatted=computed(()=>new Intl.NumberFormat(this.locale()).format(Math.round(this.displayed())));private timer:ReturnType<typeof setInterval>|undefined;constructor(){inject(DestroyRef).onDestroy(()=>clearInterval(this.timer));effect(()=>{const value=this.value();const duration=this.duration();clearInterval(this.timer);if(typeof matchMedia==='undefined'||matchMedia('(prefers-reduced-motion: reduce)').matches||duration<=0){this.displayed.set(value);return;}const from=this.displayed();const start=Date.now();this.timer=setInterval(()=>{const progress=Math.min(1,(Date.now()-start)/Math.max(1,duration));this.displayed.set(from+(value-from)*(1-(1-progress)**3));if(progress>=1)clearInterval(this.timer);},16);});}`,
   {
     inputs: [
@@ -633,7 +633,7 @@ add(
   "airport-matrix-clock",
   "plain",
   "A live timezone-aware split-flap-style clock with pause and accessible time text.",
-  `<section class="kittu-control kittu-surface kittu-stack"><h3>{{label()}}</h3><time class="k-matrix-clock" [attr.datetime]="now().toISOString()">{{formatted()}}</time><button type="button" [attr.aria-pressed]="paused()" (click)="paused.set(!paused())">{{paused()?'Resume clock':'Pause clock'}}</button></section>`,
+  `<section class="kit-control kit-surface kit-stack"><h3>{{label()}}</h3><time class="k-matrix-clock" [attr.datetime]="now().toISOString()">{{formatted()}}</time><button type="button" [attr.aria-pressed]="paused()" (click)="paused.set(!paused())">{{paused()?'Resume clock':'Pause clock'}}</button></section>`,
   `readonly label=input('Local departures');readonly timeZone=input('UTC');readonly paused=model(false);readonly now=signal(new Date());readonly formatted=computed(()=>{try{return new Intl.DateTimeFormat('en-GB',{timeZone:this.timeZone(),hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(this.now());}catch{return 'Invalid time zone';}});constructor(){const timer=setInterval(()=>{if(!this.paused())this.now.set(new Date());},1000);inject(DestroyRef).onDestroy(()=>clearInterval(timer));}`,
   {
     inputs: ["label: string", "timeZone: string", "paused: boolean (two-way)"],
@@ -643,7 +643,7 @@ add(
   "metric-hud",
   "plain",
   "A metric readout with bounded progress, signed trend and application-controlled loading/error states.",
-  `<section class="kittu-control kittu-surface kittu-stack" [attr.aria-busy]="loading()"><h3>{{label()}}</h3><output class="k-number">{{loading()?'—':value()}}{{unit()}}</output><progress [attr.aria-label]="label()+' progress'" [max]="safeMax()" [value]="bounded()"></progress><p>{{trend()>=0?'↑':'↓'}} {{trend()}}%</p>@if(error()){<p role="alert">{{error()}}</p>}<ng-content></ng-content></section>`,
+  `<section class="kit-control kit-surface kit-stack" [attr.aria-busy]="loading()"><h3>{{label()}}</h3><output class="k-number">{{loading()?'—':value()}}{{unit()}}</output><progress [attr.aria-label]="label()+' progress'" [max]="safeMax()" [value]="bounded()"></progress><p>{{trend()>=0?'↑':'↓'}} {{trend()}}%</p>@if(error()){<p role="alert">{{error()}}</p>}<ng-content></ng-content></section>`,
   `readonly label=input('Weekly momentum');readonly value=input(72);readonly max=input(100);readonly unit=input('%');readonly trend=input(12);readonly loading=input(false);readonly error=input('');readonly safeMax=computed(()=>Math.max(1,this.max()));readonly bounded=computed(()=>Math.max(0,Math.min(this.safeMax(),this.value())));`,
   {
     inputs: [
@@ -661,7 +661,7 @@ add(
   "torque-dial",
   "plain",
   "A bounded rotary input with pointer dragging, a native range alternative and keyboard increments.",
-  `<section class="kittu-control kittu-stack"><label>{{label()}}<input type="range" [min]="min()" [max]="safeMax()" [step]="safeStep()" [value]="bounded()" [disabled]="disabled()" (input)="set(+$any($event.target).value)" (change)="changeEnd.emit()" /></label><div class="k-dial" role="slider" [attr.aria-label]="label()" [attr.aria-valuemin]="min()" [attr.aria-valuemax]="safeMax()" [attr.aria-valuenow]="bounded()" [attr.aria-disabled]="disabled()" [tabIndex]="disabled()?-1:0" (keydown)="key($event)" (pointerdown)="start($event)" (pointermove)="drag($event)" (pointerup)="end()" (pointercancel)="end()"><span class="k-dial-tick" [style.transform]="'rotate('+angle()+'deg)'"></span><output>{{bounded()}}{{unit()}}</output></div></section>`,
+  `<section class="kit-control kit-stack"><label>{{label()}}<input type="range" [min]="min()" [max]="safeMax()" [step]="safeStep()" [value]="bounded()" [disabled]="disabled()" (input)="set(+$any($event.target).value)" (change)="changeEnd.emit()" /></label><div class="k-dial" role="slider" [attr.aria-label]="label()" [attr.aria-valuemin]="min()" [attr.aria-valuemax]="safeMax()" [attr.aria-valuenow]="bounded()" [attr.aria-disabled]="disabled()" [tabIndex]="disabled()?-1:0" (keydown)="key($event)" (pointerdown)="start($event)" (pointermove)="drag($event)" (pointerup)="end()" (pointercancel)="end()"><span class="k-dial-tick" [style.transform]="'rotate('+angle()+'deg)'"></span><output>{{bounded()}}{{unit()}}</output></div></section>`,
   `readonly value=model(50);readonly min=input(0);readonly max=input(100);readonly step=input(1);readonly label=input('Dial control');readonly unit=input('%');readonly disabled=input(false);readonly changeEnd=output<void>();readonly safeMax=computed(()=>Math.max(this.min(),this.max()));readonly safeStep=computed(()=>Math.max(.001,this.step()));readonly bounded=computed(()=>Math.max(this.min(),Math.min(this.safeMax(),this.value())));readonly angle=computed(()=>-135+(this.bounded()-this.min())/Math.max(1,this.safeMax()-this.min())*270);private origin?:{y:number;value:number};set(value:number):void{if(this.disabled())return;const step=this.safeStep();this.value.set(Math.max(this.min(),Math.min(this.safeMax(),Math.round((value-this.min())/step)*step+this.min())));}start(event:PointerEvent):void{if(this.disabled()||event.button!==0)return;this.origin={y:event.clientY,value:this.bounded()};(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);}drag(event:PointerEvent):void{if(this.origin)this.set(this.origin.value+(this.origin.y-event.clientY)*(this.safeMax()-this.min())/150);}end():void{if(this.origin)this.changeEnd.emit();this.origin=undefined;}key(event:KeyboardEvent):void{if(['ArrowUp','ArrowRight','ArrowDown','ArrowLeft','Home','End','PageUp','PageDown'].includes(event.key)){event.preventDefault();this.set(event.key==='Home'?this.min():event.key==='End'?this.safeMax():this.bounded()+(['ArrowDown','ArrowLeft','PageDown'].includes(event.key)?-1:1)*this.safeStep()*(event.key.startsWith('Page')?10:1));this.changeEnd.emit();}}`,
   {
     inputs: [
@@ -681,7 +681,7 @@ add(
   "directional-tooltip",
   "plain",
   "A directional tooltip available on hover, keyboard focus and touch, dismissible with Escape.",
-  `<div class="kittu-control k-tooltip-wrap" (pointerenter)="show()" (pointerleave)="open.set(false)" (focusin)="show()" (focusout)="open.set(false)" (keydown.escape)="open.set(false)"><button type="button" [disabled]="disabled()" [attr.aria-describedby]="open()?uid:null" (click)="open.set(!open())"><ng-content>{{label()}}</ng-content></button><span role="tooltip" class="k-tooltip" [id]="uid" [attr.data-placement]="placement()" [hidden]="!open()">{{text()}}</span></div>`,
+  `<div class="kit-control k-tooltip-wrap" (pointerenter)="show()" (pointerleave)="open.set(false)" (focusin)="show()" (focusout)="open.set(false)" (keydown.escape)="open.set(false)"><button type="button" [disabled]="disabled()" [attr.aria-describedby]="open()?uid:null" (click)="open.set(!open())"><ng-content>{{label()}}</ng-content></button><span role="tooltip" class="k-tooltip" [id]="uid" [attr.data-placement]="placement()" [hidden]="!open()">{{text()}}</span></div>`,
   `readonly uid=portId('tooltip');readonly label=input('Hover, focus or tap');readonly text=input('Small details make the difference.');readonly placement=input<'top'|'bottom'|'left'|'right'>('top');readonly disabled=input(false);readonly open=signal(false);show():void{if(!this.disabled())this.open.set(true);}`,
   {
     inputs: [
@@ -700,7 +700,7 @@ for (const [id, title] of [
     id,
     "action",
     "A native modal dialog with focus containment, Escape, projected content and asynchronous confirmation.",
-    `<div class="kittu-control kittu-stack"><button type="button" [disabled]="blocked()" (click)="opened.set(true)">{{label()||'Open dialog'}}</button><dialog #dialog class="kittu-dialog kittu-control k-port-dialog" [attr.aria-labelledby]="uid" (close)="opened.set(false)" (cancel)="opened.set(false)"><div class="kittu-stack"><h3 [id]="uid">{{title()}}</h3><ng-content><p>{{description()}}</p></ng-content><div class="kittu-row"><button type="button" [disabled]="busy()" (click)="opened.set(false)">Close</button><button type="button" [disabled]="blocked()" (click)="confirm()">{{busy()?'Working…':'Confirm'}}</button></div>${actionFeedback}</div></dialog></div>`,
+    `<div class="kit-control kit-stack"><button type="button" [disabled]="blocked()" (click)="opened.set(true)">{{label()||'Open dialog'}}</button><dialog #dialog class="kit-dialog kit-control k-port-dialog" [attr.aria-labelledby]="uid" (close)="opened.set(false)" (cancel)="opened.set(false)"><div class="kit-stack"><h3 [id]="uid">{{title()}}</h3><ng-content><p>{{description()}}</p></ng-content><div class="kit-row"><button type="button" [disabled]="busy()" (click)="opened.set(false)">Close</button><button type="button" [disabled]="blocked()" (click)="confirm()">{{busy()?'Working…':'Confirm'}}</button></div>${actionFeedback}</div></dialog></div>`,
     `readonly uid=portId('dialog');readonly title=input('${title}');readonly description=input('Your application content belongs here.');readonly opened=model(false);readonly dialog=viewChild<ElementRef<HTMLDialogElement>>('dialog');constructor(){super();effect(()=>{const dialog=this.dialog()?.nativeElement;const opened=this.opened();if(!dialog)return;if(opened&&!dialog.open)dialog.showModal();else if(!opened&&dialog.open)dialog.close();});}async confirm():Promise<void>{await this.run();if(!this.error()&&!this.destroyed)this.opened.set(false);}`,
     {
       inputs: [
@@ -812,7 +812,7 @@ const cardDefaults: Record<
 for (const port of ports) {
   if(['hamburger-menu','gooey-menu','origin-dropdown'].includes(port.id)){
     port.template=port.template.replace('(keydown.escape)="open.set(false)"','(keydown.escape)="closeMenu()"').replace('<button type="button" [disabled]','<button #trigger type="button" [disabled]').replace('(click)="select(item);open.set(false)"','(click)="pick(item)"');
-    port.body+=`readonly trigger=viewChild<ElementRef<HTMLButtonElement>>('trigger');closeMenu():void{this.open.set(false);this.trigger()?.nativeElement.focus();}pick(item:KittuItem):void{if(this.disabled()||this.loading()||item.disabled)return;this.select(item);this.closeMenu();}override keys(event:KeyboardEvent):void{if(!['ArrowDown','ArrowUp','Home','End'].includes(event.key)||this.disabled())return;const buttons=Array.from((event.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('button[data-item]:not(:disabled)'));if(!buttons.length)return;event.preventDefault();const index=buttons.indexOf(event.target as HTMLButtonElement);const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(index+(event.key==='ArrowUp'?-1:1)+buttons.length)%buttons.length;buttons[next].focus();}`;
+    port.body+=`readonly trigger=viewChild<ElementRef<HTMLButtonElement>>('trigger');closeMenu():void{this.open.set(false);this.trigger()?.nativeElement.focus();}pick(item:KitItem):void{if(this.disabled()||this.loading()||item.disabled)return;this.select(item);this.closeMenu();}override keys(event:KeyboardEvent):void{if(!['ArrowDown','ArrowUp','Home','End'].includes(event.key)||this.disabled())return;const buttons=Array.from((event.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('button[data-item]:not(:disabled)'));if(!buttons.length)return;event.preventDefault();const index=buttons.indexOf(event.target as HTMLButtonElement);const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(index+(event.key==='ArrowUp'?-1:1)+buttons.length)%buttons.length;buttons[next].focus();}`;
   }
   if(port.id==='animated-tabs')port.template=port.template.replace('role="tab"','role="tab" [tabIndex]="current()?.id===item.id?0:-1"');
   if (["action", "collection", "form"].includes(port.kind))
@@ -829,7 +829,7 @@ for (const port of ports) {
           : `[disabled]="loading()||${expression}"`,
     );
   if (cardDefaults[port.id])
-    port.body += `\noverride readonly items=input<KittuItem[]>(${JSON.stringify(cardDefaults[port.id])});`;
+    port.body += `\noverride readonly items=input<KitItem[]>(${JSON.stringify(cardDefaults[port.id])});`;
   if (port.id === "scrollvelocitytext")
     port.body += `\nprivate lastScroll=0;@HostListener('window:scroll') scroll():void{if(this.disabled()||this.paused()||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const delta=window.scrollY-this.lastScroll;this.lastScroll=window.scrollY;this.transform.set('translateX('+Math.max(-25,Math.min(25,delta*.15))+'px)');clearTimeout(this.settle);this.settle=setTimeout(()=>this.transform.set('translateX(0)'),180);}`;
   if (port.id === "rocket-party-popper")
@@ -845,11 +845,11 @@ for (const port of ports) {
       "const request=this.run();const controller=this.controller;await request;if(controller?.signal.aborted)return;",
     );
   if (port.id === "sign-up")
-    port.body = `override readonly fields=input<KittuField[]>([{key:'name',label:'Name',type:'text',required:true},{key:'email',label:'Email',type:'email',required:true},{key:'password',label:'Password',type:'password',required:true,minLength:8},{key:'confirmPassword',label:'Confirm password',type:'password',required:true,minLength:8}]);override async submit(event:SubmitEvent):Promise<void>{if(this.values()['password']!==this.values()['confirmPassword']){event.preventDefault();this.error.set('Passwords do not match.');return;}await super.submit(event);}`;
+    port.body = `override readonly fields=input<KitField[]>([{key:'name',label:'Name',type:'text',required:true},{key:'email',label:'Email',type:'email',required:true},{key:'password',label:'Password',type:'password',required:true,minLength:8},{key:'confirmPassword',label:'Confirm password',type:'password',required:true,minLength:8}]);override async submit(event:SubmitEvent):Promise<void>{if(this.values()['password']!==this.values()['confirmPassword']){event.preventDefault();this.error.set('Passwords do not match.');return;}await super.submit(event);}`;
   if (port.id === "stacked-cards")
     port.template = port.template.replace(
       '<div class="k-cards',
-      `<nav class="kittu-row" aria-label="Choose a card" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-cards`,
+      `<nav class="kit-row" aria-label="Choose a card" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-cards`,
     );
 
 }
@@ -860,18 +860,18 @@ const pascal = (id: string) =>
     .map((word) => word[0].toUpperCase() + word.slice(1))
     .join("");
 const base: Record<Kind, string> = {
-  action: "KittuActionController",
-  collection: "KittuCollectionController",
-  form: "KittuFormController",
-  canvas: "KittuCanvasController",
+  action: "KitActionController",
+  collection: "KitCollectionController",
+  form: "KitFormController",
+  canvas: "KitCanvasController",
   plain: "",
 };
 const entries = ports
   .sort((a, b) => a.id.localeCompare(b.id))
   .map((port) => {
     const name = CATALOG_INDEX.find((c) => c.id === port.id)!.name;
-    const exportName = `Kittu${pascal(port.id)}Component`;
-    const selector = `kittu-${port.id}`;
+    const exportName = `Kit${pascal(port.id)}Component`;
+    const selector = `kit-${port.id}`;
     const controller = port.controller ?? base[port.kind];
     const body = port.body.replace(
       "const from=this.displayed();",
@@ -901,18 +901,18 @@ const entries = ports
       ...(controller && !port.controller && port.kind !== "canvas" ? [controller] : []),
     ];
     const types = [
-      "KittuItem",
-      "KittuTableColumn",
-      "KittuTableRow",
-      "KittuField",
-      "KittuMessage",
-      "KittuGraphNode",
-      "KittuGraphEdge",
-      "KittuPlan",
-      "KittuCompareFeature",
-      "KittuChatHandler",
+      "KitItem",
+      "KitTableColumn",
+      "KitTableRow",
+      "KitField",
+      "KitMessage",
+      "KitGraphNode",
+      "KitGraphEdge",
+      "KitPlan",
+      "KitCompareFeature",
+      "KitChatHandler",
     ].filter(used);
-    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(port.componentSelector ?? selector)}, standalone:true,\n host:${port.hostMetadata ?? `{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'}`},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}${port.stylesFile ? `encapsulation:ViewEncapsulation.None,styleUrls:[${JSON.stringify(port.stylesFile)}],\n` : ""}${port.providers ? `providers:${port.providers},\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${port.typeParameters ?? ""}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
+    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(port.componentSelector ?? selector)}, standalone:true,\n host:${port.hostMetadata ?? `{'data-kit':${JSON.stringify(port.id)},style:'display:block;min-width:0'}`},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}${port.stylesFile ? `encapsulation:ViewEncapsulation.None,styleUrls:[${JSON.stringify(port.stylesFile)}],\n` : ""}${port.providers ? `providers:${port.providers},\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${port.typeParameters ?? ""}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
     fs.writeFileSync(path.join(directory, `${port.id}.component.ts`), source);
     const outputs = [
       ...port.outputs,
@@ -938,7 +938,7 @@ fs.writeFileSync(
 );
 fs.writeFileSync(
   path.join(root, "packages/angular-demo/src/ports.ts"),
-  `// Generated by npm run angular:sync.\nimport type { Type } from '@angular/core';\nimport { ${entries.map((e) => e.exportName).join(", ")} } from 'kittu-ui-angular';\nexport const DEMO_PORTS:Record<string,Type<unknown>>={\n${entries.map((e) => `  '${e.id}':${e.exportName}`).join(",\n")}\n};\nexport const DEMO_PORT_KINDS:Record<string,string>=${JSON.stringify(Object.fromEntries(ports.map((p) => [p.id, p.kind])))};\n`,
+  `// Generated by npm run angular:sync.\nimport type { Type } from '@angular/core';\nimport { ${entries.map((e) => e.exportName).join(", ")} } from 'kit-ui-angular';\nexport const DEMO_PORTS:Record<string,Type<unknown>>={\n${entries.map((e) => `  '${e.id}':${e.exportName}`).join(",\n")}\n};\nexport const DEMO_PORT_KINDS:Record<string,string>=${JSON.stringify(Object.fromEntries(ports.map((p) => [p.id, p.kind])))};\n`,
 );
 const apiFile = path.join(directory, "public-api.ts");
 let api = fs

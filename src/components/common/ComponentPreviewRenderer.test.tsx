@@ -3,9 +3,9 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import { ComponentPreviewRenderer } from './ComponentPreviewRenderer';
 import { ComponentCard } from './ComponentCard';
 import { PreviewErrorBoundary } from './PreviewErrorBoundary';
-import type { KittuComponentMeta } from '../../types/component';
+import type { KitComponentMeta } from '../../types/component';
 
-const mockMeta: KittuComponentMeta = {
+const mockMeta: KitComponentMeta = {
   id: 'test-button',
   name: 'Test Button',
   tagline: 'A modern test button',
@@ -32,7 +32,7 @@ describe('ComponentPreviewRenderer', () => {
   });
 
   it('renders registered preview lazily for a valid registered component slug', async () => {
-    const magneticMeta: KittuComponentMeta = {
+    const magneticMeta: KitComponentMeta = {
       ...mockMeta,
       id: 'magnetic-button',
       name: 'Magnetic Button',

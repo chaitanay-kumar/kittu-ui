@@ -21,7 +21,7 @@ for (const [source, target] of [
   );
 fs.writeFileSync(
   path.join(root, "packages/angular/styles.css"),
-  fs.readFileSync(path.join(root, "src/lib/kittu-controls.css"), "utf8") +
+  fs.readFileSync(path.join(root, "src/lib/kit-controls.css"), "utf8") +
     "\n" +
     fs.readFileSync(path.join(root, "packages/angular/src/ports.css"), "utf8"),
 );

@@ -134,15 +134,15 @@ export const TiltCard: React.FC<TiltCardProps> = ({
         </p>
 
         <DocCodeBlock
-          code={`import type { KittuComponentMeta } from '../../types/component';
+          code={`import type { KitComponentMeta } from '../../types/component';
 
-export const TiltCardMeta: KittuComponentMeta = {
+export const TiltCardMeta: KitComponentMeta = {
   id: 'tilt-card',
   name: 'Tilt Card',
   category: 'Motion',
   description: 'Tactile 3D perspective tilt card that tracks pointer momentum with springs.',
   badges: ['Framer Motion', '3D Perspective'],
-  cliCommand: 'npx shadcn@latest add chaitanay-kumar/kittu-ui/tilt-card',
+  cliCommand: 'npx shadcn@latest add chaitanay-kumar/kit-ui/tilt-card',
   dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
   files: ['src/components/ui/TiltCard.tsx'],
   props: [

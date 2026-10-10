@@ -4,7 +4,7 @@ import {createRoot} from 'react-dom/client';
 import '@angular/compiler';
 import {Component,provideZonelessChangeDetection,signal} from '@angular/core';
 import {bootstrapApplication} from '@angular/platform-browser';
-import {KittuSpotlightCardComponent} from '../../packages/angular/dist/fesm2022/kittu-ui-angular.mjs';
+import {KitSpotlightCardComponent} from '../../packages/angular/dist/fesm2022/kit-ui-angular.mjs';
 import {SpotlightCard,type SpotlightCardProps} from '../../src/components/ui/SpotlightCard';
 import '../../src/styles/index.css';
 type Options=Omit<SpotlightCardProps,'children'|'onMouseMove'|'onMouseLeave'>&{moveOverride?:boolean;leaveOverride?:boolean;handler?:boolean;ancestorGroup?:boolean};
@@ -18,7 +18,7 @@ if(params.get('framework')==='react'){
  class Consumer {readonly options=signal<Options>({});readonly moved=()=>api.events.push('move');readonly left=()=>api.events.push('leave');click(){api.events.push('click');}}
  const attrs=`data-consumer="spotlight" aria-label="Card" [tabIndex]="0" [className]="'consumer-card '+(options().className || '')" [spotlightColor]="options().spotlightColor" [spotlightSize]="options().spotlightSize" [style.width.px]="options().style?.width" [style.padding.px]="options().style?.padding" [style.color]="options().style?.color"`;
  const content=`<div class="consumer-content"><p>Projected spotlight content</p><button (click)="click()">Inspect details</button></div>`;
- const card=(extra:string)=>`<kittu-spotlight-card ${attrs} ${extra}>${content}</kittu-spotlight-card>`;
- Component({selector:'spotlight-consumer',standalone:true,imports:[KittuSpotlightCardComponent],template:`<div class="consumer-frame" [class.group]="options().ancestorGroup">@if(options().moveOverride){@if(options().leaveOverride){${card('[onMouseMove]="options().handler?moved:undefined" [onMouseLeave]="options().handler?left:undefined"')}}@else{${card('[onMouseMove]="options().handler?moved:undefined"')}}}@else{@if(options().leaveOverride){${card('[onMouseLeave]="options().handler?left:undefined"')}}@else{${card('')}}}</div>`})(Consumer);
+ const card=(extra:string)=>`<kit-spotlight-card ${attrs} ${extra}>${content}</kit-spotlight-card>`;
+ Component({selector:'spotlight-consumer',standalone:true,imports:[KitSpotlightCardComponent],template:`<div class="consumer-frame" [class.group]="options().ancestorGroup">@if(options().moveOverride){@if(options().leaveOverride){${card('[onMouseMove]="options().handler?moved:undefined" [onMouseLeave]="options().handler?left:undefined"')}}@else{${card('[onMouseMove]="options().handler?moved:undefined"')}}}@else{@if(options().leaveOverride){${card('[onMouseLeave]="options().handler?left:undefined"')}}@else{${card('')}}}</div>`})(Consumer);
  document.body.append(document.createElement('spotlight-consumer'));void bootstrapApplication(Consumer,{providers:[provideZonelessChangeDetection()]}).then(app=>{api.setSpotlightOptions=options=>app.components[0].instance.options.set(options);api.destroySpotlight=()=>app.destroy();});
 }

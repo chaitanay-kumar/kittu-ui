@@ -2,7 +2,7 @@ name: Deploy website to GitHub Pages
 
 on:
   push:
-    branches: [main, feat/kittu-ui-library]
+    branches: [main, feat/kit-ui-library]
   workflow_dispatch:
 
 permissions:

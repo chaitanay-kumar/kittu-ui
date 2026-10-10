@@ -1,15 +1,15 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
 import { Component, input, output } from '@angular/core';
-import { KittuLiquidCommandPaletteComponent } from './liquid-command-palette.component';
+import { KitLiquidCommandPaletteComponent } from './liquid-command-palette.component';
 import type { LiquidCommand } from './types';
 @Component({
- selector:"kittu-spotlight-search", standalone:true,
- host:{'data-kittu':"spotlight-search",style:'display:block;min-width:0'},
- imports:[KittuLiquidCommandPaletteComponent],
+ selector:"kit-spotlight-search", standalone:true,
+ host:{'data-kit':"spotlight-search",style:'display:block;min-width:0'},
+ imports:[KitLiquidCommandPaletteComponent],
 template:`
-<kittu-liquid-command-palette [commands]="commands()" [disabled]="disabled()" />
+<kit-liquid-command-palette [commands]="commands()" [disabled]="disabled()" />
 `
 })
-export class KittuSpotlightSearchComponent {
+export class KitSpotlightSearchComponent {
 readonly commands=input<LiquidCommand[]>([{id:'home',label:'Go home',onSelect:()=>this.commandSelect.emit('home')},{id:'docs',label:'Open documentation',onSelect:()=>this.commandSelect.emit('docs')}]);readonly disabled=input(false);readonly commandSelect=output<string>();
 }

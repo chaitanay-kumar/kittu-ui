@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import '@angular/compiler';
 import { Component, provideZonelessChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { KittuAiAgentActivityComponent } from '../../packages/angular/dist/fesm2022/kittu-ui-angular.mjs';
+import { KitAiAgentActivityComponent } from '../../packages/angular/dist/fesm2022/kit-ui-angular.mjs';
 import { AIAgentActivity, type AgentActivityItemData } from '../../src/components/ui/AIAgentActivity';
 import '../../src/styles/index.css';
 
@@ -22,7 +22,7 @@ document.body.style.margin='0';document.body.style.padding='16px';
 const wrapper=document.createElement('div');wrapper.style.maxWidth='672px';wrapper.style.margin='auto';document.body.append(wrapper);
 if(params.get('framework')==='angular'){
  class AngularConsumer {readonly activities=rows;}
- Component({selector:'parity-agent',standalone:true,imports:[KittuAiAgentActivityComponent],template:`<kittu-ai-agent-activity title="Agent Contract" agentName="Kit Fox" [activities]="activities" [defaultExpandedIds]="['metadata']" accentColor="#123456" className="consumer-agent"/>`})(AngularConsumer);
+ Component({selector:'parity-agent',standalone:true,imports:[KitAiAgentActivityComponent],template:`<kit-ai-agent-activity title="Agent Contract" agentName="Kit Fox" [activities]="activities" [defaultExpandedIds]="['metadata']" accentColor="#123456" className="consumer-agent"/>`})(AngularConsumer);
  wrapper.innerHTML='<parity-agent></parity-agent>';
  void bootstrapApplication(AngularConsumer,{providers:[provideZonelessChangeDetection()]});
 }else{

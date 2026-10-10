@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "AI Prompt Composer",
   "description": "Compose prompts with attachments and suggestions, preserving drafts through failure and cancellation.",
   "category": "Forms",

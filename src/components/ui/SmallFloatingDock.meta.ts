@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Small Floating Dock',
   description: 'A minimal, gesture-responsive floating dock for quick access to 3-5 primary actions.',
   category: 'Navigation',

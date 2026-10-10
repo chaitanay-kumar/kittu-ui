@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Typewriter Button',
   description: 'An interactive button that reveals its label character-by-character with optional synthesized mechanical audio feedback.',
   category: 'Buttons',
@@ -33,7 +33,7 @@ export function Demo() {
   return (
     <div className="flex items-center gap-4">
       <TypewriterButton soundEnabled variant="primary">
-        npx shadcn@latest add chaitanay-kumar/kittu-ui/typewriter-button
+        npx shadcn@latest add chaitanay-kumar/kit-ui/typewriter-button
       </TypewriterButton>
     </div>
   );

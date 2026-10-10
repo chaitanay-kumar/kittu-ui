@@ -49,7 +49,7 @@ Activity Feed now uses the React `ActivityEvent`, `ActivityActor`, event type an
 
 Migrate the previous generic Activity Feed `items` records to `events` (`label` becomes `title`; add `type`, `status` and `timestamp`). Generic collection inputs and outputs are replaced by the event-specific contract. The package remains native Angular with no React runtime dependency.
 
-The demo uses the same three events as React. The fixed dark telemetry palette stays dark in either website theme, as React does. Typography follows the rendered React font stack; applications can override `--kittu-activity-font`. Native Web Animations use React's snappy spring constants for event entry, exit and layout movement. CSS handles JSON disclosure; reduced motion disables motion. Timers, clipboard feedback and animations are disposed with the component.
+The demo uses the same three events as React. The fixed dark telemetry palette stays dark in either website theme, as React does. Typography follows the rendered React font stack; applications can override `--kit-activity-font`. Native Web Animations use React's snappy spring constants for event entry, exit and layout movement. CSS handles JSON disclosure; reduced motion disables motion. Timers, clipboard feedback and animations are disposed with the component.
 
 Run `npm run test:activity-feed` after building the tarball to test public inputs, external event replacement, replay callbacks/outputs, feature flags, entry limits and timer cleanup. `e2e/activity-feed-parity.spec.ts` compares React and Angular interactions, control geometry, typography, icons and themes on desktop/mobile, and saves component screenshots for review. Angular 20.0/20.3/21/22 consumer compilation includes the event-specific bindings.
 
@@ -71,11 +71,11 @@ Loader now follows React’s four visual variants, size/color API, accessible la
 
 ## Button parity baseline
 
-Button follows React’s nine visual variants, four sizes, loading text, icon templates/projection, disabled state and fullWidth behavior. Use the native `button[kittuButton]` selector for DOM attributes, native form behavior and events; `kittu-button` remains available with an internal button. See [the review](parity/button.md) for migration notes and verified coverage.
+Button follows React’s nine visual variants, four sizes, loading text, icon templates/projection, disabled state and fullWidth behavior. Use the native `button[kitButton]` selector for DOM attributes, native form behavior and events; `kit-button` remains available with an internal button. See [the review](parity/button.md) for migration notes and verified coverage.
 
 ## Neon Edge Button parity baseline
 
-Neon Edge Button follows React’s travelling beam, speed/glow controls, projected content, hover/press styling and reduced-motion highlight. The native `button[kittuNeonEdgeButton]` selector preserves HTML form semantics and events; the existing custom selector remains available. See [the review](parity/neon-edge-button.md) for migration and verified coverage.
+Neon Edge Button follows React’s travelling beam, speed/glow controls, projected content, hover/press styling and reduced-motion highlight. The native `button[kitNeonEdgeButton]` selector preserves HTML form semantics and events; the existing custom selector remains available. See [the review](parity/neon-edge-button.md) for migration and verified coverage.
 
 ## Orbital Loading Ring parity baseline
 
@@ -83,8 +83,8 @@ Orbital Loading Ring follows React’s three variants, size/speed defaults, SVG 
 
 ## Spotlight Card parity baseline
 
-`KittuSpotlightCardComponent` follows React's single projected-content card, spotlightColor/spotlightSize defaults, native attributes and mouse-handler overrides. Its former collection/selection/disclosure/action API is removed. See [contract and validation](parity/spotlight-card.md).
+`KitSpotlightCardComponent` follows React's single projected-content card, spotlightColor/spotlightSize defaults, native attributes and mouse-handler overrides. Its former collection/selection/disclosure/action API is removed. See [contract and validation](parity/spotlight-card.md).
 
 ## Morphing Icon parity baseline
 
-`KittuMorphingIconComponent` follows React's controlled two-icon wrapper with required from/to TemplateRefs, active/size/duration defaults and whole-style override precedence. It replaces the old self-toggling menu button. See [contract and validation](parity/morphing-icon.md).
+`KitMorphingIconComponent` follows React's controlled two-icon wrapper with required from/to TemplateRefs, active/size/duration defaults and whole-style override precedence. It replaces the old self-toggling menu button. See [contract and validation](parity/morphing-icon.md).

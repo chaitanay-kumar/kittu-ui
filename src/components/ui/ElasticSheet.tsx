@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface ElasticSheetProps {
   title?: string;
   children?: ReactNode;
@@ -38,13 +38,13 @@ export function ElasticSheet({
     onSnapChange?.(next);
   };
   return (
-    <div className="kittu-control">
+    <div className="kit-control">
       <button type="button" disabled={disabled} onClick={() => setOpen(true)}>
         Open elastic sheet ↗
       </button>
       <dialog
         ref={dialog}
-        className="kittu-dialog kittu-sheet kittu-control"
+        className="kit-dialog kit-sheet kit-control"
         style={{ height: `${height}dvh` }}
         aria-labelledby={titleId}
         onClose={() => {
@@ -52,10 +52,10 @@ export function ElasticSheet({
           origin.current = null;
         }}
       >
-        <div className="kittu-stack">
+        <div className="kit-stack">
           <button
             type="button"
-            className="kittu-sheet-handle"
+            className="kit-sheet-handle"
             aria-label="Resize sheet. Use arrow keys to change snap position"
             onKeyDown={(e) => {
               if (["ArrowUp", "ArrowDown", "Home", "End"].includes(e.key)) {
@@ -108,7 +108,7 @@ export function ElasticSheet({
             Drag to resize
           </button>
           <div
-            className="kittu-row"
+            className="kit-row"
             style={{ justifyContent: "space-between" }}
           >
             <h3 id={titleId}>{title}</h3>
@@ -116,7 +116,7 @@ export function ElasticSheet({
               Close
             </button>
           </div>
-          <div className="kittu-row" aria-label="Sheet size">
+          <div className="kit-row" aria-label="Sheet size">
             {snaps.map((n) => (
               <button
                 type="button"
@@ -129,7 +129,7 @@ export function ElasticSheet({
             ))}
           </div>
           {children ?? (
-            <p className="kittu-muted">
+            <p className="kit-muted">
               A little space to think. Drag the handle, use its arrow keys, or
               choose a snap position. Escape closes the sheet.
             </p>

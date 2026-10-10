@@ -11,13 +11,13 @@ it('keeps local root hosting and external URLs intact', async () => {
 });
 
 it('prefixes project URLs once and strips only the matching route prefix', async () => {
-  vi.stubEnv('VITE_BASE_PATH', '/kittu-ui/');
+  vi.stubEnv('VITE_BASE_PATH', '/kit-ui/');
   const { withBasePath, stripBasePath } = await import('./base-path');
-  expect(withBasePath('/')).toBe('/kittu-ui/');
-  expect(withBasePath('/angular-demo/index.html?component=button')).toBe('/kittu-ui/angular-demo/index.html?component=button');
-  expect(withBasePath('/kittu-ui/source/button.json')).toBe('/kittu-ui/source/button.json');
+  expect(withBasePath('/')).toBe('/kit-ui/');
+  expect(withBasePath('/angular-demo/index.html?component=button')).toBe('/kit-ui/angular-demo/index.html?component=button');
+  expect(withBasePath('/kit-ui/source/button.json')).toBe('/kit-ui/source/button.json');
   expect(withBasePath('//example.com/file')).toBe('//example.com/file');
-  expect(stripBasePath('/kittu-ui/components/button/')).toBe('/components/button/');
-  expect(stripBasePath('/kittu-ui')).toBe('/');
-  expect(stripBasePath('/kittu-ui-other/components')).toBe('/kittu-ui-other/components');
+  expect(stripBasePath('/kit-ui/components/button/')).toBe('/components/button/');
+  expect(stripBasePath('/kit-ui')).toBe('/');
+  expect(stripBasePath('/kit-ui-other/components')).toBe('/kit-ui-other/components');
 });

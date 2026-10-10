@@ -1,11 +1,11 @@
 import { Component, DestroyRef, inject, input, signal } from "@angular/core";
 
 @Component({
-  selector: "kittu-interactive-data-card",
+  selector: "kit-interactive-data-card",
   standalone: true,
   host: { style: "display:block" },
   template: ` <article
-    class="kittu-control kittu-surface kittu-stack"
+    class="kit-control kit-surface kit-stack"
     [attr.aria-busy]="loading() || pending()"
   >
     <h3>{{ title() }}</h3>
@@ -21,9 +21,9 @@ import { Component, DestroyRef, inject, input, signal } from "@angular/core";
     >
       {{ expanded() ? "Less detail −" : "Explore details +" }}
     </button>
-    <div [hidden]="!expanded()" class="kittu-stack">
+    <div [hidden]="!expanded()" class="kit-stack">
       <ng-content
-        ><p class="kittu-muted">
+        ><p class="kit-muted">
           Your team shipped 8 features and resolved 16 issues. Keep the next
           step small and intentional.
         </p></ng-content
@@ -35,10 +35,10 @@ import { Component, DestroyRef, inject, input, signal } from "@angular/core";
         {{ pending() ? "Updating…" : actionLabel() }}
       </button>
     </div>
-    <p role="status" class="kittu-status">{{ status() }}</p>
+    <p role="status" class="kit-status">{{ status() }}</p>
   </article>`,
 })
-export class KittuInteractiveDataCardComponent {
+export class KitInteractiveDataCardComponent {
   readonly title = input("Weekly momentum");
   readonly summary = input("24 tasks completed · 12% ahead");
   readonly loading = input(false);

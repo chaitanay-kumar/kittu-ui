@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Recovery Ledger',
   description: 'An archival audit timeline and state recovery ledger with chronological snapshot markers, diff inspection, and one-click rollback triggers.',
   category: 'Feedback',

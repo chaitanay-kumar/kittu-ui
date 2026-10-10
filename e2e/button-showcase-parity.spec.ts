@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 for(const theme of ['light','dark'])test(`button showcase cards and controls match in ${theme}`,async({page})=>{
- await page.addInitScript(value=>localStorage.setItem('kittu-ui-theme',value),theme);
+ await page.addInitScript(value=>localStorage.setItem('kit-ui-theme',value),theme);
  const results:Record<string,Array<{width:number;height:number;[key:string]:number|string}>>={};for(const framework of ['react','angular']){
   await page.goto(`/components/button?framework=${framework}`);const scope=framework==='react'?page:page.frameLocator('iframe');await expect(scope.getByRole('button',{name:'Processing...'})).toBeVisible();
   const cards=framework==='react'?scope.getByText('Visual Variants',{exact:true}).locator('xpath=..').locator('xpath=..'):scope.locator('.k-b-demo');

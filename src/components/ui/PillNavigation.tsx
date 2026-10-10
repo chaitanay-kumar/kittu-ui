@@ -150,7 +150,7 @@ export const PillNavigation: React.FC<PillNavigationProps> = ({
             >
               {active && !reducedMotion && (
                 <motion.span
-                  layoutId="kittu-ui-pill-main-indicator"
+                  layoutId="kit-ui-pill-main-indicator"
                   transition={motionTransitions.springMorph}
                   className="absolute inset-0 rounded-full bg-[#FAFAFA] shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
                 />
@@ -207,7 +207,7 @@ export const PillNavigation: React.FC<PillNavigationProps> = ({
                 >
                   {isSubActive && !reducedMotion && (
                     <motion.span
-                      layoutId="kittu-ui-pill-sub-indicator"
+                      layoutId="kit-ui-pill-sub-indicator"
                       transition={motionTransitions.springMorph}
                       className="absolute inset-0 rounded-full bg-[#2E2E2E] border border-[#404040] shadow-xs"
                     />

@@ -1,5 +1,5 @@
 import { withBasePath } from '../../lib/base-path';
-import { ElasticSheetDemo, SmartUploadDemo, LiquidCommandPaletteDemo, HoldToConfirmDemo, SwipeActionListDemo, InteractiveDataCardDemo, TimelineScrubberDemo, AIPromptComposerDemo } from './KittuDemos';
+import { ElasticSheetDemo, SmartUploadDemo, LiquidCommandPaletteDemo, HoldToConfirmDemo, SwipeActionListDemo, InteractiveDataCardDemo, TimelineScrubberDemo, AIPromptComposerDemo } from './KitDemos';
 import React, { Suspense, useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -26,7 +26,7 @@ import {
   Lock,
   Unlock,
 } from 'lucide-react';
-import { KITTU_COMPONENTS } from '../registry/components-data';
+import { KIT_COMPONENTS } from '../registry/components-data';
 import { cn, copyToClipboard } from '../../lib/utils';
 import { trackTracwellEvent } from '../../lib/tracwell-client';
 import { isComponentNew } from '../../lib/components';
@@ -296,8 +296,8 @@ export type MainTab = ComponentContentTab;
 export type PkgManager = 'pnpm' | 'npm' | 'yarn' | 'bun';
 
 export interface ComponentDetailPageProps {
-  /** The component's slug/id — the full KittuComponentMeta is resolved internally
-   *  from KITTU_COMPONENTS so the initial bundle does not need to carry it. */
+  /** The component's slug/id — the full KitComponentMeta is resolved internally
+   *  from KIT_COMPONENTS so the initial bundle does not need to carry it. */
   componentId: string;
   onSelectComponent: (id: string) => void;
   onNavigateHome: () => void;
@@ -1644,9 +1644,9 @@ export const ComponentDetailPage: React.FC<ComponentDetailPageProps> = ({
   onNavigateComponents,
   onNavigateDocs,
 }) => {
-  // Resolve the full component metadata from the catalog — KITTU_COMPONENTS is already
+  // Resolve the full component metadata from the catalog — KIT_COMPONENTS is already
   // in this chunk, so this lookup adds no extra bundle cost.
-  const component = KITTU_COMPONENTS.find((c) => c.id === componentId);
+  const component = KIT_COMPONENTS.find((c) => c.id === componentId);
   const { framework } = useFramework();
 
   const [activeTab, setActiveTab] = useState<MainTab>('preview');
@@ -1701,7 +1701,7 @@ export const ComponentDetailPage: React.FC<ComponentDetailPageProps> = ({
 
   // Filtered components list for the sidebar
   const filteredComponents = useMemo(() => {
-    return KITTU_COMPONENTS.filter(
+    return KIT_COMPONENTS.filter(
       (i) =>
         !sidebarFilter ||
         i.name.toLowerCase().includes(sidebarFilter.toLowerCase()) ||
@@ -1712,7 +1712,7 @@ export const ComponentDetailPage: React.FC<ComponentDetailPageProps> = ({
   // Related components from same or other categories
   const relatedComponents = useMemo(() => {
     if (!component) return [];
-    return KITTU_COMPONENTS.filter(
+    return KIT_COMPONENTS.filter(
       (c) => c.id !== component.id && c.category === component.category
     ).slice(0, 3);
   }, [component]);
@@ -2435,7 +2435,7 @@ const completion = await client.completions.create({
                   id: 'faq-1',
                   question: 'How do I add Kit UI components to my existing project?',
                   answer:
-                    'You can install any component directly using the official shadcn CLI: "npx shadcn@latest add chaitanay-kumar/kittu-ui/<component-name>".',
+                    'You can install any component directly using the official shadcn CLI: "npx shadcn@latest add chaitanay-kumar/kit-ui/<component-name>".',
                   category: 'Installation',
                   badge: 'CLI',
                 },
@@ -2622,7 +2622,7 @@ const completion = await client.completions.create({
                 variant="primary"
                 charDuration={65}
               >
-                npx kittu-ui add button
+                npx kit-ui add button
               </TypewriterButton>
               <TypewriterButton
                 key={`${demoKey}-sec`}
@@ -2811,7 +2811,7 @@ const completion = await client.completions.create({
       case 'text-scramble-decoder':
         return (
           <div className="py-12 flex flex-col items-center gap-4">
-            <TextScrambleDecoder key={demoKey} text="KITTU_UI.REGISTRY.SYNCED" trigger="manual" duration={1000} />
+            <TextScrambleDecoder key={demoKey} text="KIT_UI.REGISTRY.SYNCED" trigger="manual" duration={1000} />
             <p className="text-xs text-[#6B6B6B]">Replay the controlled decode sequence.</p>
           </div>
         );
@@ -2943,11 +2943,11 @@ const completion = await client.completions.create({
             <ProfileCard
               key={demoKey}
               name="Kit UI contributors"
-              username="@kittu-ui"
+              username="@kit-ui"
               description="Building Kit UI. Engineer."
               followers="200K"
               posts="72"
-              website="github.com/chaitanay-kumar/kittu-ui"
+              website="github.com/chaitanay-kumar/kit-ui"
             />
           </div>
         );

@@ -259,6 +259,6 @@ All 116 catalog components have native standalone Angular implementations. Use t
 ## Resources
 
 - [Kit UI Website](http://localhost:5173/): Official website and interactive live demos.
-- [GitHub Repository](https://github.com/chaitanay-kumar/kittu-ui): Source code, issues, and contributions.
+- [GitHub Repository](https://github.com/chaitanay-kumar/kit-ui): Source code, issues, and contributions.
 - [Component Registry](http://localhost:5173/registry.json): Standard shadcn/ui compatible registry definition.
 - [Sitemap](http://localhost:5173/sitemap.xml): Search engine and crawler index of all public URLs.

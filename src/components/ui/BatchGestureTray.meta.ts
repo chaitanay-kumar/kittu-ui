@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Batch Gesture Tray',
   description: 'A touch-ready contextual tray that slides into view upon item selection, presenting bulk actions and real-time count telemetry.',
   category: 'Feedback',

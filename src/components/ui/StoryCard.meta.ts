@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Story Cards',
   description:
     'A responsive, accessible story cards carousel for React applications built with Tailwind CSS and Framer Motion.',

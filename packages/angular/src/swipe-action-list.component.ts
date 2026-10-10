@@ -9,23 +9,23 @@ import {
 import type { SwipeItem } from "./types";
 
 @Component({
-  selector: "kittu-swipe-action-list",
+  selector: "kit-swipe-action-list",
   standalone: true,
   host: { style: "display:block" },
   template: ` <section
-    class="kittu-control kittu-stack"
+    class="kit-control kit-stack"
     aria-label="Swipe actions"
     [attr.aria-busy]="loading() || !!pending()"
   >
-    <p class="kittu-muted">Swipe left or use Show actions.</p>
+    <p class="kit-muted">Swipe left or use Show actions.</p>
     @if (loading()) {
       <p>Loading items…</p>
     } @else {
-      <ul class="kittu-list">
+      <ul class="kit-list">
         @for (item of visible(); track item.id) {
-          <li class="kittu-surface kittu-stack" style="overflow:hidden">
+          <li class="kit-surface kit-stack" style="overflow:hidden">
             <div
-              class="kittu-swipe"
+              class="kit-swipe"
               [style.transform]="
                 'translateX(' + (dragId() === item.id ? offset() : 0) + 'px)'
               "
@@ -36,9 +36,9 @@ import type { SwipeItem } from "./types";
               (pointerleave)="cancel()"
             >
               <h3>{{ item.title }}</h3>
-              <p class="kittu-muted">{{ item.description }}</p>
+              <p class="kit-muted">{{ item.description }}</p>
             </div>
-            <div class="kittu-row">
+            <div class="kit-row">
               <button
                 type="button"
                 [disabled]="disabled() || !!pending()"
@@ -65,7 +65,7 @@ import type { SwipeItem } from "./types";
         <p>All clear. No items to show.</p>
       }
     }
-    <p role="status" class="kittu-status">{{ status() }}</p>
+    <p role="status" class="kit-status">{{ status() }}</p>
     @if (done().length) {
       <button
         type="button"
@@ -77,7 +77,7 @@ import type { SwipeItem } from "./types";
     }
   </section>`,
 })
-export class KittuSwipeActionListComponent {
+export class KitSwipeActionListComponent {
   readonly items = input<SwipeItem[]>([
     {
       id: "one",
