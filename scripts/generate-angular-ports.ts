@@ -7,6 +7,7 @@ import {magneticButtonPort} from "./angular-magnetic-button";
 import {morphingButtonPort} from "./angular-morphing-button";
 import {typewriterButtonPort} from "./angular-typewriter-button";
 import {rainbowButtonPort} from "./angular-rainbow-button";
+import {expandableSearchPort} from "./angular-expandable-search";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
@@ -118,6 +119,7 @@ const itemButton = `<button type="button" data-item [disabled]="disabled() || it
 
 add("press-button","plain",pressButtonPort.description,pressButtonPort.template,pressButtonPort.body,pressButtonPort);
 add("typewriter-button","plain",typewriterButtonPort.description,typewriterButtonPort.template,typewriterButtonPort.body,typewriterButtonPort);
+add("expandable-search","plain",expandableSearchPort.description,expandableSearchPort.template,expandableSearchPort.body,expandableSearchPort);
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
 add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
@@ -290,7 +292,6 @@ add(
   `<nav class="kit-control kit-surface kit-stack" aria-label="Branching navigation" (keydown)="keys($event)">@for(item of items();track item.id){<details><summary>{{item.label}}</summary><div class="kit-stack">@for(child of item.children||[];track child.id){<button type="button" data-item [disabled]="disabled()||child.disabled" (click)="select(child)">{{child.label}}</button>}@if(!item.children?.length){${itemButton}}</div></details>}<p role="status">{{selected()?'Selected: '+selected():''}}</p></nav>`,
 );
 for (const [id, title] of [
-  ["expandable-search", "Find a component"],
   ["ios-search-bar", "Search your workspace"],
 ]) {
   add(

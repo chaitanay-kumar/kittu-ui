@@ -566,24 +566,13 @@ export const ANGULAR_PORTS = [
     "name": "Expandable Search",
     "exportName": "KitExpandableSearchComponent",
     "selector": "kit-expandable-search",
-    "description": "Live filtering with clear/cancel controls, keyboard navigation and selected-result output.",
+    "description": "React-matched compact text search with spring expansion, delayed click focus, live query callback, clear control and responsive shortcut hint.",
     "inputs": [
-      "items: KitItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "placeholder: string",
+      "onSearch: ExpandableSearchHandler",
+      "className: string"
     ],
-    "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "faq",

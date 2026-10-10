@@ -67,6 +67,8 @@ jobs:
         run: npm run test:press-button
       - name: Verify Typewriter Button
         run: npm run test:typewriter-button
+      - name: Verify Expandable Search
+        run: npm run test:expandable-search
       - name: Verify Button contract
         run: npm run test:button
       - name: Verify Hamburger Menu packaged contract

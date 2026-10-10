@@ -248,6 +248,10 @@ export class PressConsumer{variant:PressButtonVariant|undefined=undefined;size:P
 import {KitTypewriterButtonComponent,type TypewriterButtonVariant,type TypewriterButtonCallback} from 'kit-ui-angular';
 @Component({selector:'typewriter-consumer',imports:[KitTypewriterButtonComponent],template:\`<button kitTypewriterButton text="Save" [variant]="variant" [charDuration]="duration" [soundVolume]="volume" [soundEnabled]="sound" [autoStart]="auto" [onComplete]="complete" [onClick]="click" [type]="type" [className]="classes" name="action" value="save"></button><kit-typewriter-button text="Cancel" variant="outline"/>\`})
 export class TypewriterConsumer{variant:TypewriterButtonVariant|undefined=undefined;duration:number|undefined=undefined;volume:number|undefined=undefined;sound:boolean|undefined=undefined;auto:boolean|undefined=undefined;complete:TypewriterButtonCallback|undefined=undefined;click:TypewriterButtonCallback|undefined=undefined;type:'button'|'submit'|'reset'|undefined=undefined;classes:string|undefined=undefined;}`);
+  consumerSources.push(`import {Component} from '@angular/core';
+import {KitExpandableSearchComponent,type ExpandableSearchHandler} from 'kit-ui-angular';
+@Component({selector:'expandable-search-consumer',imports:[KitExpandableSearchComponent],template:\`<kit-expandable-search [placeholder]="placeholder" [onSearch]="search" [className]="classes"/><kit-expandable-search/>\`})
+export class ExpandableSearchConsumer{placeholder:string|undefined=undefined;classes:string|undefined=undefined;search:ExpandableSearchHandler|undefined=undefined;}`);
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
   fs.writeFileSync(
     path.join(target, "tsconfig.json"),

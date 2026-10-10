@@ -3,6 +3,7 @@ import {PressButtonDemoComponent} from "./press-button-demo";
 import {MagneticButtonDemoComponent} from "./magnetic-button-demo";
 import {MorphingButtonDemoComponent} from "./morphing-button-demo";
 import {TypewriterButtonDemoComponent} from "./typewriter-button-demo";
+import {ExpandableSearchDemoComponent} from "./expandable-search-demo";
 import {ButtonDemoComponent} from "./button-demo";
 import {NeonEdgeButtonDemoComponent} from "./neon-edge-button-demo";
 import {OrbitalLoadingRingDemoComponent} from "./orbital-loading-ring-demo";
@@ -54,7 +55,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
 @Component({
   selector: "kit-angular-demo",
   standalone: true,
-  imports: [HamburgerMenuDemoComponent,
+  imports: [HamburgerMenuDemoComponent,ExpandableSearchDemoComponent,
     PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,RainbowButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
@@ -84,6 +85,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
       @case("morphing-button"){<kit-morphing-button-demo/>}
       @case("typewriter-button"){<kit-typewriter-button-demo/>}
       @case("rainbow-button"){<kit-rainbow-button-demo/>}
+      @case("expandable-search"){<kit-expandable-search-demo/>}
       @case("button"){<kit-button-demo/>}
       @case("neon-edge-button"){<kit-neon-edge-button-demo/>}
       @case("orbital-loading-ring"){<kit-orbital-loading-ring-demo/>}
