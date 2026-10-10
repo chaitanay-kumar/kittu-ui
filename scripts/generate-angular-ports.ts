@@ -4,6 +4,7 @@ import {loaderPort} from "./angular-loader";
 import {pressButtonPort} from "./angular-press-button";
 import {magneticButtonPort} from "./angular-magnetic-button";
 import {morphingButtonPort} from "./angular-morphing-button";
+import {typewriterButtonPort} from "./angular-typewriter-button";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
@@ -114,6 +115,7 @@ const collectionFeedback = `@if(loading()){<p role="status">Loading…</p>}@if(e
 const itemButton = `<button type="button" data-item [disabled]="disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>`;
 
 add("press-button","plain",pressButtonPort.description,pressButtonPort.template,pressButtonPort.body,pressButtonPort);
+add("typewriter-button","plain",typewriterButtonPort.description,typewriterButtonPort.template,typewriterButtonPort.body,typewriterButtonPort);
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
 add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
@@ -124,7 +126,8 @@ for (const [id, label] of [
 
 
   ["rainbow-button", "Make something colorful"],
-  ["typewriter-button", "Start a new story"],
+
+
 
 ]) {
   add(

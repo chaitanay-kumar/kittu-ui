@@ -1956,16 +1956,22 @@ export const ANGULAR_PORTS = [
     "name": "Typewriter Button",
     "exportName": "KitTypewriterButtonComponent",
     "selector": "kit-typewriter-button",
-    "description": "Start a new story: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched character-by-character button with required text, typing duration, auto-start, completion callback and optional synthesized keystroke audio.",
     "inputs": [
-      "label: string",
+      "text: string (required; React children)",
+      "variant: TypewriterButtonVariant",
+      "charDuration: number",
+      "autoStart: boolean",
+      "soundEnabled: boolean",
+      "soundVolume: number",
+      "onComplete: TypewriterButtonCallback",
+      "onClick: TypewriterButtonCallback",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string",
+      "aria-label: string | undefined"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "undo-toast",

@@ -36,7 +36,8 @@
     "test:spotlight-card": "node scripts/verify-spotlight-card.mjs",
     "test:morphing-icon": "node scripts/verify-morphing-icon.mjs",
     "test:press-button": "node scripts/verify-press-button.mjs",
-    "test:morphing-button": "node scripts/verify-morphing-button.mjs"
+    "test:morphing-button": "node scripts/verify-morphing-button.mjs",
+    "test:typewriter-button": "node scripts/verify-typewriter-button.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
