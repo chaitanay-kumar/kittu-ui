@@ -1,17 +1,17 @@
 # Contributing to Kit UI
 
-Contributions can improve components, accessibility, framework integration, documentation, or development tooling. Start with the [live catalog](https://chaitanay-kumar.github.io/kittu-ui/) and describe the behavior you want to change.
+Contributions can improve components, accessibility, framework integration, documentation, or development tooling. Start with the [live catalog](https://chaitanay-kumar.github.io/kit-ui/) and describe the behavior you want to change.
 
-The implementation currently lives on `feat/kittu-ui-library`; `main` carries the repository documentation until integration. Base code changes and pull requests on the implementation branch for now. Do not merge or deploy another contributor's changes without maintainer review.
+The implementation currently lives on `feat/kit-ui-library`; `main` carries the repository documentation until integration. Base code changes and pull requests on the implementation branch for now. Do not merge or deploy another contributor's changes without maintainer review.
 
 ## Set up a contribution
 
 Use Node 22.22.3+ within Node 22, Node 24.15+ within Node 24, or Node 26+, and npm. CI uses Node 22. Clone your fork's implementation branch:
 
 ```sh
-git clone --branch feat/kittu-ui-library https://github.com/YOUR-USERNAME/kittu-ui.git
-cd kittu-ui
-git remote add upstream https://github.com/chaitanay-kumar/kittu-ui.git
+git clone --branch feat/kit-ui-library https://github.com/YOUR-USERNAME/kit-ui.git
+cd kit-ui
+git remote add upstream https://github.com/chaitanay-kumar/kit-ui.git
 git switch -c fix/describe-your-change
 npm ci
 npm run dev
@@ -46,8 +46,8 @@ Accessibility notes should describe implemented behavior and validation. Do not 
 
 1. Scaffold a new component with `npm run component:new -- AuroraCard`. This creates `src/components/ui/AuroraCard.tsx` and `AuroraCard.meta.ts`.
 2. Implement the component and export its public TypeScript types. Follow an existing component with a similar interaction, and reuse shared utilities/styles where appropriate.
-3. Complete the `KittuUIComponentMeta` metadata: title, description, category, props, usage, features, and concrete accessibility notes. Ensure usage imports match the files consumers receive.
-4. Add a working preview and detail demo. Check `src/components/common/ComponentPreviewRenderer.tsx`, `src/components/docs/ComponentDetailPage.tsx`, and `src/components/docs/KittuDemos.tsx` for the existing registration patterns. Scaffolding and metadata discovery do not create every interactive demo automatically.
+3. Complete the `KitUIComponentMeta` metadata: title, description, category, props, usage, features, and concrete accessibility notes. Ensure usage imports match the files consumers receive.
+4. Add a working preview and detail demo. Check `src/components/common/ComponentPreviewRenderer.tsx`, `src/components/docs/ComponentDetailPage.tsx`, and `src/components/docs/KitDemos.tsx` for the existing registration patterns. Scaffolding and metadata discovery do not create every interactive demo automatically.
 5. Run `npm run component:sync` to generate source JSON, registry/catalog entries, sitemap, robots.txt, and llms.txt, then validate the registry.
 6. Add the Angular counterpart and demo when expanding the shared catalog. Both framework catalogs currently cover the same 116 IDs; do not bypass the Angular coverage guard to make a new React-only entry pass.
 
@@ -66,7 +66,7 @@ There are two authoring paths:
 | Eight original Kit ports | Their authored files in `packages/angular/src/`; exports before the generated marker in `public-api.ts`; original entries in `src/lib/framework/angular-catalog.ts`; corresponding demo cases |
 | 108 additional catalog ports | Authored templates/API definitions in `scripts/generate-angular-ports.ts` and `scripts/angular-complex-ports.ts` |
 | Shared native behavior | `packages/angular/src/port-controllers.ts`, `port-canvas.ts`, and `port-types.ts` |
-| Shared native styling | `packages/angular/src/ports.css` and `src/lib/kittu-controls.css`, as applicable |
+| Shared native styling | `packages/angular/src/ports.css` and `src/lib/kit-controls.css`, as applicable |
 | Demo application | `packages/angular-demo/src/demo.component.ts` and demo styles/bootstrap |
 | Website integration | `src/components/angular/` and `src/lib/framework/` |
 
@@ -83,7 +83,7 @@ The first synchronization ensures Angular's coverage comparison reads the curren
 
 `angular:build` also generates the Angular Package Format library, preview bundles, complete source JSON with dependencies, and downloadable tarball. Add native inputs/models/outputs and usage documentation, extend the demo's data or handler configuration when needed, and verify emitted API metadata matches the implementation.
 
-Preserve zone-based and zoneless consumer compatibility. Signal models currently provide forms integration; a future `ControlValueAccessor` addition needs its own implementation and consumer validation. Document API and rendering differences from React rather than implying pixel or prop parity. See [Angular contracts](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/ANGULAR_CATALOG.md).
+Preserve zone-based and zoneless consumer compatibility. Signal models currently provide forms integration; a future `ControlValueAccessor` addition needs its own implementation and consumer validation. Document API and rendering differences from React rather than implying pixel or prop parity. See [Angular contracts](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/ANGULAR_CATALOG.md).
 
 ## Generated files and build artifacts
 
@@ -140,24 +140,24 @@ The current baseline passes 117 unit tests and 289 SEO checks, with 21 inherited
 
 ## GitHub Pages and base paths
 
-The public website is https://chaitanay-kumar.github.io/kittu-ui/. `.github/workflows/pages.yml` builds and deploys on pushes to the implementation branch and `main` when the workflow is present there. The `github-pages` environment allows those deployment branches. Fork contributors do not need to enable Pages to develop or open a PR.
+The public website is https://chaitanay-kumar.github.io/kit-ui/. `.github/workflows/pages.yml` builds and deploys on pushes to the implementation branch and `main` when the workflow is present there. The `github-pages` environment allows those deployment branches. Fork contributors do not need to enable Pages to develop or open a PR.
 
-Use `withBasePath` for local public URLs and navigation links; use `stripBasePath` when interpreting browser paths. Root-relative `/source`, `/angular-demo`, `/downloads`, or asset paths must work under both `/` locally and `/kittu-ui/` on Pages. Keep framework query parameters intact. Component routes have generated directory indexes so refreshed deep links work with static hosting.
+Use `withBasePath` for local public URLs and navigation links; use `stripBasePath` when interpreting browser paths. Root-relative `/source`, `/angular-demo`, `/downloads`, or asset paths must work under both `/` locally and `/kit-ui/` on Pages. Keep framework query parameters intact. Component routes have generated directory indexes so refreshed deep links work with static hosting.
 
 The workflow supplies `VITE_BASE_PATH` and `VITE_SITE_URL`, runs the full build, then `node scripts/prepare-pages.mjs`. The preparation step fixes manifest paths, creates `.nojekyll`, and adds a static 404 page. It uses GitHub's short-lived deployment credentials; never add a personal token to source or logs.
 
-`e2e/pages.spec.ts` is opt-in through `PAGES_PREVIEW_URL` and expects a production artifact mounted at `/kittu-ui/` or the deployed website. For example, to check the public site in PowerShell:
+`e2e/pages.spec.ts` is opt-in through `PAGES_PREVIEW_URL` and expects a production artifact mounted at `/kit-ui/` or the deployed website. For example, to check the public site in PowerShell:
 
 ```powershell
 $env:PAGES_PREVIEW_URL = 'https://chaitanay-kumar.github.io'
 npm run test:browser -- e2e/pages.spec.ts
 ```
 
-Do not publish a contributor's work to the live environment as a substitute for reviewing it. See [hosting operations](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/HOSTING.md) for reproducing the Pages artifact.
+Do not publish a contributor's work to the live environment as a substitute for reviewing it. See [hosting operations](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/HOSTING.md) for reproducing the Pages artifact.
 
 ## Open a pull request
 
-Push your topic branch to your fork and open a PR against `feat/kittu-ui-library` until the implementation is integrated into `main`. Keep the change focused and preserve unrelated work. For the description, include:
+Push your topic branch to your fork and open a PR against `feat/kit-ui-library` until the implementation is integrated into `main`. Keep the change focused and preserve unrelated work. For the description, include:
 
 - The user-visible problem and resulting behavior.
 - Which framework(s), components, or generated outputs changed.
@@ -168,6 +168,6 @@ Registry CI checks generated outputs, lint, TypeScript, unit tests, production b
 
 ## License and attribution
 
-Contributions must be compatible with MIT licensing. Preserve the destination [LICENSE](LICENSE), the [upstream MIT notice](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/licenses/UPSTREAM-MIT.txt), and [attribution](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/ATTRIBUTION.md). Document the origin and license of any third-party assets or code you introduce.
+Contributions must be compatible with MIT licensing. Preserve the destination [LICENSE](LICENSE), the [upstream MIT notice](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/licenses/UPSTREAM-MIT.txt), and [attribution](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/ATTRIBUTION.md). Document the origin and license of any third-party assets or code you introduce.
 
-Kit UI is independent of EasyUI. Product-facing copy and assets should use Kit UI and the Kit Fox; retain upstream names where required for legal attribution. Preserve existing repository URLs, package names, and public exports/selectors for compatibility. See the [brand guide](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/BRAND.md) before changing integration identifiers. Do not imply affiliation or reuse an unlicensed mascot or asset.
+Kit UI is independent of EasyUI. Product-facing copy and assets should use Kit UI and the Kit Fox; retain upstream names where required for legal attribution. Use the canonical `kit-ui` repository, `kit-ui-angular` package, `Kit*` exports, and `kit-*` selectors. Keep consumer examples synchronized with these identifiers. See the [brand guide](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/BRAND.md) before changing integration identifiers. Do not imply affiliation or reuse an unlicensed mascot or asset.

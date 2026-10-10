@@ -4,13 +4,13 @@
 
 An independent UI component collection for React and Angular, with TypeScript, tactile interactions, live demos, source ownership, and an original Kit Fox mascot.
 
-Inspired by the kit fox: nimble interactions, precise feedback, and components that adapt to their environment. See the [brand philosophy](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/BRAND.md).
+Inspired by the kit fox: nimble interactions, precise feedback, and components that adapt to their environment. See the [brand philosophy](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/BRAND.md).
 
-The public name is now **Kit UI**. Repository URLs, the `kittu-ui-angular` package, and existing `Kittu*` exports/selectors remain compatible; the visual rebrand does not require consumers to rename their imports.
+The product and integration namespace is **Kit UI**: `kit-ui-angular`, `Kit*` Angular exports, and `kit-*` selectors. Existing consumers must update imports and templates; see the [namespace migration guide](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/KIT_NAMESPACE_MIGRATION.md).
 
-[Explore the website](https://chaitanay-kumar.github.io/kittu-ui/) · [Browse components](https://chaitanay-kumar.github.io/kittu-ui/components/) · [Contribute](CONTRIBUTING.md)
+[Explore the website](https://chaitanay-kumar.github.io/kit-ui/) · [Browse components](https://chaitanay-kumar.github.io/kit-ui/components/) · [Contribute](CONTRIBUTING.md)
 
-> The implementation and deployed website currently come from [`feat/kittu-ui-library`](https://github.com/chaitanay-kumar/kittu-ui/tree/feat/kittu-ui-library). The default `main` branch carries the repository documentation until the implementation is merged. Use the branch shown in the setup command below.
+> The implementation and deployed website currently come from [`feat/kit-ui-library`](https://github.com/chaitanay-kumar/kit-ui/tree/feat/kit-ui-library). The default `main` branch carries the repository documentation until the implementation is merged. Use the branch shown in the setup command below.
 
 ## What is included
 
@@ -38,15 +38,15 @@ The website shell uses React. Angular previews run actual Angular components in 
 | Timeline Scrubber | Event navigation with pointer and keyboard controls |
 | AI Prompt Composer | Attachments, suggestions, sending, cancellation, and failure recovery |
 
-The remaining catalog includes buttons, forms, navigation, dialogs, cards, tables, timelines, feedback, and motion effects. See the [original component guide](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/KITTU_COMPONENTS.md) and [Angular catalog contracts](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/ANGULAR_CATALOG.md).
+The remaining catalog includes buttons, forms, navigation, dialogs, cards, tables, timelines, feedback, and motion effects. See the [original component guide](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/KIT_COMPONENTS.md) and [Angular catalog contracts](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/ANGULAR_CATALOG.md).
 
 ## Run the website locally
 
 Use Node **22.22.3+ within Node 22**, **24.15+ within Node 24**, or **26+**, as declared in `package.json`. Node 22 is used by CI. npm is required; use the checked-in lockfile.
 
 ```sh
-git clone --branch feat/kittu-ui-library https://github.com/chaitanay-kumar/kittu-ui.git
-cd kittu-ui
+git clone --branch feat/kit-ui-library https://github.com/chaitanay-kumar/kit-ui.git
+cd kit-ui
 npm ci
 npm run dev
 ```
@@ -59,50 +59,50 @@ Local development defaults to `/` and `http://localhost:5173`, with indexing dis
 
 ### React
 
-Choose React on the website, open a component, and follow its Usage, Code, and Installation instructions. Copy the component and its documented shared files/styles, install its dependencies, and adjust import aliases to match your application. Components are source distributions; the repository is not an installable `kittu-ui` npm package.
+Choose React on the website, open a component, and follow its Usage, Code, and Installation instructions. Copy the component and its documented shared files/styles, install its dependencies, and adjust import aliases to match your application. Components are source distributions; the repository is not an installable `kit-ui` npm package.
 
 After the implementation is merged into `main`, the destination GitHub registry can be used with shadcn's GitHub shorthand:
 
 ```sh
-npx shadcn@latest add chaitanay-kumar/kittu-ui/elastic-sheet
+npx shadcn@latest add chaitanay-kumar/kit-ui/elastic-sheet
 ```
 
 That shorthand is not the current feature-branch installation route. Until merge, use the website's source instructions. Dependencies and styling needs vary by component; inspect its source and API rather than assuming every component has the same setup.
 
 ### Angular 20, 21, and 22
 
-[Download the Angular package](https://chaitanay-kumar.github.io/kittu-ui/downloads/kittu-ui-angular-0.1.0.tgz), then install the downloaded file in your Angular application:
+[Download the Angular package](https://chaitanay-kumar.github.io/kit-ui/downloads/kit-ui-angular-0.1.0.tgz), then install the downloaded file in your Angular application:
 
 ```sh
-npm install ./kittu-ui-angular-0.1.0.tgz
+npm install ./kit-ui-angular-0.1.0.tgz
 ```
 
 Add this import to your application's global stylesheet:
 
 ```css
-@import 'kittu-ui-angular/styles.css';
+@import 'kit-ui-angular/styles.css';
 ```
 
 Import a standalone component and add it to your Angular component's `imports`:
 
 ```ts
 import { Component } from '@angular/core';
-import { KittuElasticSheetComponent } from 'kittu-ui-angular';
+import { KitElasticSheetComponent } from 'kit-ui-angular';
 
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [KittuElasticSheetComponent],
+  imports: [KitElasticSheetComponent],
   template: `
-    <kittu-elastic-sheet [snapPositions]="[35, 65, 90]">
+    <kit-elastic-sheet [snapPositions]="[35, 65, 90]">
       Your content
-    </kittu-elastic-sheet>
+    </kit-elastic-sheet>
   `,
 })
 export class ExampleComponent {}
 ```
 
-The package also builds locally with `npm run angular:build`; its tarball appears in `public/downloads/`. It has not been published to npm. See [Angular integration](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/ANGULAR.md) and the [package README](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/packages/angular/README.md) for themes, callbacks, change detection, and compatibility.
+The package also builds locally with `npm run angular:build`; its tarball appears in `public/downloads/`. It has not been published to npm. See [Angular integration](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/ANGULAR.md) and the [package README](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/packages/angular/README.md) for themes, callbacks, change detection, and compatibility.
 
 ### Integration limits
 
@@ -154,14 +154,14 @@ e2e/                       Playwright interaction and hosting checks
 
 ## Hosting and documentation
 
-The live website is **[chaitanay-kumar.github.io/kittu-ui](https://chaitanay-kumar.github.io/kittu-ui/)**. GitHub Actions deploys pushes from `feat/kittu-ui-library` and, once it contains the implementation/workflow, `main`. No custom domain is configured.
+The live website is **[chaitanay-kumar.github.io/kit-ui](https://chaitanay-kumar.github.io/kit-ui/)**. GitHub Actions deploys pushes from `feat/kit-ui-library` and, once it contains the implementation/workflow, `main`. No custom domain is configured.
 
-The Pages workflow sets `VITE_BASE_PATH=/kittu-ui/` and the public `VITE_SITE_URL`, builds all 136 static routes and Angular artifacts, prepares the manifest, and uploads `dist`. Keep both environment variables consistent when reproducing a hosted build. See the [hosting guide](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/HOSTING.md).
+The Pages workflow sets `VITE_BASE_PATH=/kit-ui/` and the public `VITE_SITE_URL`, builds all 136 static routes and Angular artifacts, prepares the manifest, and uploads `dist`. Keep both environment variables consistent when reproducing a hosted build. See the [hosting guide](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/HOSTING.md).
 
-More detail: [Architecture](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/ARCHITECTURE.md) · [Angular contracts](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/ANGULAR_CATALOG.md) · [Project handoff and validation history](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/docs/HANDOFF_STATUS.md).
+More detail: [Architecture](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/ARCHITECTURE.md) · [Angular contracts](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/ANGULAR_CATALOG.md) · [Project handoff and validation history](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/docs/HANDOFF_STATUS.md).
 
 ## Contributing and licensing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, React and Angular authoring, generated-file rules, checks, and pull requests. Contributions should support keyboard, touch, reduced motion, visible focus, responsive layouts, and both themes where applicable.
 
-Kit UI is independently derived from the MIT-licensed EasyUI project and has no affiliation with or endorsement from its upstream maintainers. Preserve [LICENSE](LICENSE) and the [verbatim upstream MIT notice](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/licenses/UPSTREAM-MIT.txt) when redistributing substantial portions. [ATTRIBUTION.md](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/ATTRIBUTION.md) documents the import and independence.
+Kit UI is independently derived from the MIT-licensed EasyUI project and has no affiliation with or endorsement from its upstream maintainers. Preserve [LICENSE](LICENSE) and the [verbatim upstream MIT notice](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/licenses/UPSTREAM-MIT.txt) when redistributing substantial portions. [ATTRIBUTION.md](https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/ATTRIBUTION.md) documents the import and independence.
