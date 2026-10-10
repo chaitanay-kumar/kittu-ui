@@ -40,7 +40,8 @@
     "test:morphing-button": "node scripts/verify-morphing-button.mjs",
     "test:typewriter-button": "node scripts/verify-typewriter-button.mjs",
     "test:hamburger-menu": "node scripts/verify-hamburger-menu.mjs",
-    "test:expandable-search": "node scripts/verify-expandable-search.mjs"
+    "test:expandable-search": "node scripts/verify-expandable-search.mjs",
+    "test:smooth-accordion": "node scripts/verify-smooth-accordion.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

@@ -1,4 +1,5 @@
 import {HamburgerMenuDemoComponent} from "./hamburger-menu-demo";
+import {SmoothAccordionDemoComponent} from './smooth-accordion-demo';
 import {PressButtonDemoComponent} from "./press-button-demo";
 import {MagneticButtonDemoComponent} from "./magnetic-button-demo";
 import {MorphingButtonDemoComponent} from "./morphing-button-demo";
@@ -55,7 +56,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
 @Component({
   selector: "kit-angular-demo",
   standalone: true,
-  imports: [HamburgerMenuDemoComponent,ExpandableSearchDemoComponent,
+  imports: [SmoothAccordionDemoComponent,HamburgerMenuDemoComponent,ExpandableSearchDemoComponent,
     PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,RainbowButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
@@ -82,6 +83,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
       @case("press-button"){<kit-press-button-demo/>}
       @case("hamburger-menu"){<kit-hamburger-menu-demo/>}
       @case("magnetic-button"){<kit-magnetic-button-demo/>}
+      @case("smooth-accordion"){<kit-smooth-accordion-demo/>}
       @case("morphing-button"){<kit-morphing-button-demo/>}
       @case("typewriter-button"){<kit-typewriter-button-demo/>}
       @case("rainbow-button"){<kit-rainbow-button-demo/>}

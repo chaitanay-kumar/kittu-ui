@@ -28,6 +28,7 @@ export * from './typewriter-button-types';
 export * from './rainbow-button-types';
 
 export * from './expandable-search-types';
+export * from './smooth-accordion-types';
 
 // Generated catalog exports.
 export * from "./port-types";

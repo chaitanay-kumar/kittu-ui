@@ -1663,24 +1663,14 @@ export const ANGULAR_PORTS = [
     "name": "Smooth Accordion",
     "exportName": "KitSmoothAccordionComponent",
     "selector": "kit-smooth-accordion",
-    "description": "Expandable item details with keyboard-native disclosure and application-owned recovery actions.",
+    "description": "React-matched item accordion with initial defaultOpen, single/multiple disclosure, template content and interruptible height/opacity/chevron springs.",
     "inputs": [
-      "items: KitItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "items: AccordionItem[] (required)",
+      "allowMultiple: boolean",
+      "defaultOpen: string[]",
+      "className: string"
     ],
-    "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "sparkles-core",

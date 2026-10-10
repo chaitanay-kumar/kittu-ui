@@ -1,4 +1,5 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
+import {smoothAccordionPort} from "./angular-smooth-accordion";
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
 import {pressButtonPort} from "./angular-press-button";
@@ -347,10 +348,12 @@ add(
 
 add("activity-feed", "plain", activityFeedPort.description, activityFeedPort.template, "", activityFeedPort);
 
+add("smooth-accordion","plain",smoothAccordionPort.description,smoothAccordionPort.template,smoothAccordionPort.body,smoothAccordionPort);
+
 // Expandable information and selectable collections.
 for (const [id, title] of [
   ["faq", "Frequently asked questions"],
-  ["smooth-accordion", "Explore the details"],
+
   ["unfold-accordion", "Unfold the details"],
   ["stack-unfold-panel", "Your workspace"],
   ["expandable-data-row", "Data details"],
