@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Peek Card',
   description: 'An origin-anchored contextual preview popover that emerges directly from target triggers on hover or tap with smart collision edge detection and rich metadata summaries.',
   category: 'Overlays',

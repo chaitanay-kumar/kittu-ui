@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Morphing Shape Loader',
   description: 'A loading indicator that continuously morphs between configurable SVG shapes via real path interpolation. The transition is a genuine geometric morph — never a fade out / in.',
   category: 'Feedback',

@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-export const AvatarStackMeta: KittuUIComponentMeta = {
+export const AvatarStackMeta: KitUIComponentMeta = {
   title: 'Avatar Stack',
   tagline: 'Overlapping avatar pile with spring-animated hover elevation and tooltips.',
   description: 'An interactive, stacked facepile of overlapping avatars that smoothly elevates and scales the hovered avatar to the front with spring physics, revealing the full image and name tooltip.',

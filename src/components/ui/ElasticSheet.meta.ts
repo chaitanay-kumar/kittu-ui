@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "Elastic Sheet",
   "description": "A draggable bottom sheet with snap positions, native modal focus containment, and keyboard resizing.",
   "category": "Overlays",

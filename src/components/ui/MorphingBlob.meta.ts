@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Morphing Blob',
   description:
     'An ambient, accessible SVG blob background that continuously morphs with spring physics and subtly follows the cursor for a fluid, interactive visual effect.',

@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Dot Shader',
   description:
     'A GPU-accelerated interactive dot matrix background shader with magnetic cursor repulsion, proximity illumination glow, dynamic lens scaling, and ambient wave motion.',

@@ -5,13 +5,13 @@ import { JSDOM } from 'jsdom';
 import { Component, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
-import { KittuAiAgentActivityComponent,KittuAgentActivityHeaderComponent,KittuAgentActivityTimelineComponent,KittuAgentActivityItemComponent } from '../packages/angular/dist/fesm2022/kittu-ui-angular.mjs';
+import { KitAiAgentActivityComponent,KitAgentActivityHeaderComponent,KitAgentActivityTimelineComponent,KitAgentActivityItemComponent } from '../packages/angular/dist/fesm2022/kit-ui-angular.mjs';
 const dom=new JSDOM('<html><body></body></html>',{url:'http://localhost'});
 for(const key of ['window','document','HTMLElement','Element','Node'])globalThis[key]=dom.window[key];
 globalThis.matchMedia=()=>({matches:true});
 TestBed.initTestEnvironment(BrowserTestingModule,platformBrowserTesting());
-TestBed.configureTestingModule({imports:[KittuAiAgentActivityComponent],providers:[provideZonelessChangeDetection()]});
-const fixture=TestBed.createComponent(KittuAiAgentActivityComponent),agent=fixture.componentInstance;
+TestBed.configureTestingModule({imports:[KitAiAgentActivityComponent],providers:[provideZonelessChangeDetection()]});
+const fixture=TestBed.createComponent(KitAiAgentActivityComponent),agent=fixture.componentInstance;
 const set=(key,value)=>{fixture.componentRef.setInput(key,value);fixture.detectChanges();};
 const activities=[
  {id:'a',type:'thinking',title:'Analyze',status:'success',duration:'42ms',details:{input:{query:'hello'},output:'Ready'},metadata:{score:2,active:true}},
@@ -43,10 +43,10 @@ try{
  set('activities',[]);assert.ok(fixture.nativeElement.textContent.includes('No activity recorded'));
  fixture.destroy();TestBed.resetTestingModule();
  class Consumer{rows=activities;}
- Component({selector:'consumer-agent',standalone:true,imports:[KittuAiAgentActivityComponent,KittuAgentActivityHeaderComponent,KittuAgentActivityTimelineComponent,KittuAgentActivityItemComponent],template:`
- <kittu-ai-agent-activity [activities]="rows"><kittu-agent-activity-header title="Custom header" agentName="Consumer" [showControls]="false"/><kittu-agent-activity-timeline className="custom-timeline"/></kittu-ai-agent-activity>
- <kittu-ai-agent-activity [activities]="rows"><p class="custom-content">Custom content</p></kittu-ai-agent-activity>
- <kittu-ai-agent-activity [activities]="rows"><kittu-agent-activity-item [activity]="rows[0]" [isLast]="true" className="custom-item"/></kittu-ai-agent-activity>`})(Consumer);
+ Component({selector:'consumer-agent',standalone:true,imports:[KitAiAgentActivityComponent,KitAgentActivityHeaderComponent,KitAgentActivityTimelineComponent,KitAgentActivityItemComponent],template:`
+ <kit-ai-agent-activity [activities]="rows"><kit-agent-activity-header title="Custom header" agentName="Consumer" [showControls]="false"/><kit-agent-activity-timeline className="custom-timeline"/></kit-ai-agent-activity>
+ <kit-ai-agent-activity [activities]="rows"><p class="custom-content">Custom content</p></kit-ai-agent-activity>
+ <kit-ai-agent-activity [activities]="rows"><kit-agent-activity-item [activity]="rows[0]" [isLast]="true" className="custom-item"/></kit-ai-agent-activity>`})(Consumer);
  TestBed.configureTestingModule({imports:[Consumer],providers:[provideZonelessChangeDetection()]});
  const consumer=TestBed.createComponent(Consumer);consumer.detectChanges();
  try{

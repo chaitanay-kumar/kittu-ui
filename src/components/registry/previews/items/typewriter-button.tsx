@@ -9,7 +9,7 @@ export default function Preview({ isHovered = false, isInViewport = true }: Comp
               animate={{ scale: hovered ? 1.05 : 1 }}
               className="px-3.5 py-2 rounded-xl bg-[#FAFAFA] text-[#050505] font-mono text-xs font-semibold flex items-center gap-1 shadow pointer-events-none"
             >
-              <span>{hovered ? 'npx kittu-ui add' : 'kittu-ui deploy'}</span>
+              <span>{hovered ? 'npx kit-ui add' : 'kit-ui deploy'}</span>
               <motion.span
                 animate={isInViewport ? { opacity: [1, 0] } : { opacity: 1 }}
                 transition={{ repeat: isInViewport ? Infinity : 0, duration: 0.6 }}

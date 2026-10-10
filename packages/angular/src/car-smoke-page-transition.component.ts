@@ -1,18 +1,18 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
 import { Component } from '@angular/core';
-import { KittuCollectionController } from './port-controllers';
+import { KitCollectionController } from './port-controllers';
 
 @Component({
- selector:"kittu-car-smoke-page-transition", standalone:true,
- host:{'data-kittu':"car-smoke-page-transition",style:'display:block;min-width:0'},
+ selector:"kit-car-smoke-page-transition", standalone:true,
+ host:{'data-kit':"car-smoke-page-transition",style:'display:block;min-width:0'},
  template:`
-<section class="kittu-control kittu-stack">
-<nav class="kittu-row" (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item [disabled]="loading()||disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>}</nav>
+<section class="kit-control kit-stack">
+<nav class="kit-row" (keydown)="keys($event)">@for(item of items();track item.id){<button type="button" data-item [disabled]="loading()||disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>}</nav>
 <div class="k-road" aria-hidden="true">
 <span class="k-car">▰</span>
 <span class="k-smoke">
 </span>
-</div>@for(item of [current()];track item?.id){<article class="kittu-surface k-page-enter">
+</div>@for(item of [current()];track item?.id){<article class="kit-surface k-page-enter">
 <h3>{{item?.label}}</h3>
 <p>{{item?.description}}</p>
 <ng-content>
@@ -20,6 +20,6 @@ import { KittuCollectionController } from './port-controllers';
 </article>}</section>
 `
 })
-export class KittuCarSmokePageTransitionComponent extends KittuCollectionController {
+export class KitCarSmokePageTransitionComponent extends KitCollectionController {
 
 }

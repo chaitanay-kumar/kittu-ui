@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Text Scramble Decoder',
   description: 'A controlled text reveal that resolves scrambled glyphs into readable copy without changing the text semantics.',
   category: 'Motion',
@@ -27,7 +27,7 @@ const meta: KittuUIComponentMeta = {
 export function Demo() {
   return (
     <TextScrambleDecoder
-      text="KITTU_UI.REGISTRY.SYNCED"
+      text="KIT_UI.REGISTRY.SYNCED"
       trigger="manual"
       duration={1000}
     />

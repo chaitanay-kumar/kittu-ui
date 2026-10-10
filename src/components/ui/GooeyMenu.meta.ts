@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Gooey Menu',
   description: 'A tactile liquid dropdown menu with organic SVG metaball fusion filter and spring-driven extrusion animation.',
   category: 'Navigation',

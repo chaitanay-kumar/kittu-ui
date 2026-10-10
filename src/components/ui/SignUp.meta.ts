@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Sign Up',
   description: 'A comprehensive registration card with live password strength metrics, password confirmation matching, terms validation, and social onboarding.',
   category: 'Auth',

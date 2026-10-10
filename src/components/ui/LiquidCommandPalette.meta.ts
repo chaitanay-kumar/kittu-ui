@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "Liquid Command Palette",
   "description": "A searchable command dialog with arrow navigation, disabled commands, and async feedback.",
   "category": "Navigation",

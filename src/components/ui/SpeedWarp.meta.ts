@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-export const SpeedWarpMeta: KittuUIComponentMeta = {
+export const SpeedWarpMeta: KitUIComponentMeta = {
   title: 'Speed Warp',
   tagline: 'High-velocity 3D perspective starfield tunnel with canvas streaks.',
   description: 'A 3D perspective canvas starfield simulation that projects relativistic light streaks toward the viewer, creating an intense hyperspace or warp drive velocity effect.',

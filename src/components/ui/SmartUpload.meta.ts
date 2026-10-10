@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "Smart Upload",
   "description": "A validated file queue with image previews, real handler progress, abort signals, and retry.",
   "category": "Forms",

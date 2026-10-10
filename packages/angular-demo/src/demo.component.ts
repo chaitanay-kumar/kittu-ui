@@ -10,21 +10,21 @@ import { NgComponentOutlet } from "@angular/common";
 import {LoaderDemoComponent} from "./loader-demo";
 import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
 import {
-  KittuElasticSheetComponent,
-  KittuSmartUploadComponent,
-  KittuLiquidCommandPaletteComponent,
-  KittuHoldToConfirmComponent,
-  KittuSwipeActionListComponent,
-  KittuInteractiveDataCardComponent,
-  KittuTimelineScrubberComponent,
-  KittuAIPromptComposerComponent,
-} from "kittu-ui-angular";
+  KitElasticSheetComponent,
+  KitSmartUploadComponent,
+  KitLiquidCommandPaletteComponent,
+  KitHoldToConfirmComponent,
+  KitSwipeActionListComponent,
+  KitInteractiveDataCardComponent,
+  KitTimelineScrubberComponent,
+  KitAIPromptComposerComponent,
+} from "kit-ui-angular";
 import type {
   LiquidCommand,
   UploadHandler,
   SendHandler,
   ActivityEvent,
-} from "kittu-ui-angular";
+} from "kit-ui-angular";
 
 function wait(ms: number, signal?: AbortSignal): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
 }
 
 @Component({
-  selector: "kittu-angular-demo",
+  selector: "kit-angular-demo",
   standalone: true,
   imports: [
     ButtonDemoComponent,
@@ -57,63 +57,63 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
     TableDemoComponent,
     AgentDemoComponent,
     LoaderDemoComponent,
-    KittuElasticSheetComponent,
-    KittuSmartUploadComponent,
-    KittuLiquidCommandPaletteComponent,
-    KittuHoldToConfirmComponent,
-    KittuSwipeActionListComponent,
-    KittuInteractiveDataCardComponent,
-    KittuTimelineScrubberComponent,
-    KittuAIPromptComposerComponent,
+    KitElasticSheetComponent,
+    KitSmartUploadComponent,
+    KitLiquidCommandPaletteComponent,
+    KitHoldToConfirmComponent,
+    KitSwipeActionListComponent,
+    KitInteractiveDataCardComponent,
+    KitTimelineScrubberComponent,
+    KitAIPromptComposerComponent,
   ],
-  template: `<main class="kittu-stack" aria-label="Native Angular demo">
+  template: `<main class="kit-stack" aria-label="Native Angular demo">
     @switch (component) {
-      @case ("advanced-data-table") { <kittu-table-demo/> }
-      @case ("ai-agent-activity") { <kittu-agent-demo/> }
-      @case("loader"){<kittu-loader-demo/>}
-      @case("button"){<kittu-button-demo/>}
-      @case("neon-edge-button"){<kittu-neon-edge-button-demo/>}
-      @case("orbital-loading-ring"){<kittu-orbital-loading-ring-demo/>}
-      @case("spotlight-card"){<kittu-spotlight-card-demo/>}
-      @case("morphing-icon"){<kittu-morphing-icon-demo/>}
+      @case ("advanced-data-table") { <kit-table-demo/> }
+      @case ("ai-agent-activity") { <kit-agent-demo/> }
+      @case("loader"){<kit-loader-demo/>}
+      @case("button"){<kit-button-demo/>}
+      @case("neon-edge-button"){<kit-neon-edge-button-demo/>}
+      @case("orbital-loading-ring"){<kit-orbital-loading-ring-demo/>}
+      @case("spotlight-card"){<kit-spotlight-card-demo/>}
+      @case("morphing-icon"){<kit-morphing-icon-demo/>}
       @case ("elastic-sheet") {
-        <kittu-elastic-sheet />
+        <kit-elastic-sheet />
       }
       @case ("smart-upload") {
-        <p class="kittu-muted">
+        <p class="kit-muted">
           Local simulation. Files stay on your device. A filename containing
           “fail” demonstrates retry errors.
         </p>
-        <kittu-smart-upload [upload]="upload" />
+        <kit-smart-upload [upload]="upload" />
       }
       @case ("liquid-command-palette") {
-        <kittu-liquid-command-palette [commands]="commands" />
-        <p role="status" class="kittu-status">{{ commandStatus() }}</p>
+        <kit-liquid-command-palette [commands]="commands" />
+        <p role="status" class="kit-status">{{ commandStatus() }}</p>
       }
       @case ("hold-to-confirm") {
-        <kittu-hold-to-confirm [confirm]="confirm" />
+        <kit-hold-to-confirm [confirm]="confirm" />
       }
       @case ("swipe-action-list") {
-        <kittu-swipe-action-list [action]="action" />
+        <kit-swipe-action-list [action]="action" />
       }
       @case ("interactive-data-card") {
-        <kittu-interactive-data-card [action]="action" />
+        <kit-interactive-data-card [action]="action" />
       }
       @case ("timeline-scrubber") {
-        <kittu-timeline-scrubber />
+        <kit-timeline-scrubber />
       }
       @case ("ai-prompt-composer") {
-        <p class="kittu-muted">
+        <p class="kit-muted">
           Local simulation. No AI service is connected. Include “fail” to
           demonstrate draft recovery.
         </p>
-        <kittu-ai-prompt-composer [onSend]="send" />
+        <kit-ai-prompt-composer [onSend]="send" />
       }
       @default {
         @if (port) {
           <ng-container *ngComponentOutlet="port; inputs: portInputs" />
           @if (asyncDemo) {
-            <label class="kittu-row"
+            <label class="kit-row"
               ><input
                 type="checkbox"
                 [checked]="failRequests()"
@@ -121,7 +121,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
               />Simulate request failure</label
             >
           }
-          @if(component !== "activity-feed") {<p class="kittu-muted">
+          @if(component !== "activity-feed") {<p class="kit-muted">
             Local demo data. Application actions are simulated; no account,
             payment, booking, or AI service is connected.
           </p>}

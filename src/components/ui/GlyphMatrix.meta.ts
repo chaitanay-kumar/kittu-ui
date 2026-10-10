@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-export const GlyphMatrixMeta: KittuUIComponentMeta = {
+export const GlyphMatrixMeta: KitUIComponentMeta = {
 
   title: 'Glyph Matrix',
   tagline: 'Canvas-driven Matrix digital rain background with glowing phosphor trails.',

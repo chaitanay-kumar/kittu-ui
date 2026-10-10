@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from "../../types/component";
+import type { KitUIComponentMeta } from "../../types/component";
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: "Glitch Text",
   description:
     "A multi-modal cybernetic glitch typography component featuring 5 distinct animation variants (RGB split chromatic aberration, cyberpunk clip-slicing, analog VHS tracking loss, matrix rune scramble decode, and electrical voltage surge).",

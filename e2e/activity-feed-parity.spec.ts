@@ -68,7 +68,7 @@ async function metrics(feed: Locator) {
 for (const theme of ['light', 'dark']) {
   test(`Activity Feed React/Angular layout and typography match in ${theme}`, async ({ page }, testInfo) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.addInitScript(value => localStorage.setItem('kittu-ui-theme', value), theme);
+    await page.addInitScript(value => localStorage.setItem('kit-ui-theme', value), theme);
     await page.goto('/components/activity-feed?framework=react');
     const feed = page.getByRole('region', { name: regionName });
     await expect(feed).toBeVisible();

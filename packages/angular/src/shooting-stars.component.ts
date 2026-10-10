@@ -1,12 +1,12 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
 import { Component } from '@angular/core';
-import { KittuCanvasController } from './port-canvas';
+import { KitCanvasController } from './port-canvas';
 
 @Component({
- selector:"kittu-shooting-stars", standalone:true,
- host:{'data-kittu':"shooting-stars",style:'display:block;min-width:0'},
+ selector:"kit-shooting-stars", standalone:true,
+ host:{'data-kit':"shooting-stars",style:'display:block;min-width:0'},
  template:`
-<section class="kittu-control kittu-stack">
+<section class="kit-control kit-stack">
 <div class="k-canvas-wrap" (pointermove)="move($event)" (pointerleave)="reset()">
 <canvas #canvas [attr.aria-label]="label()" role="img">
 </canvas>
@@ -17,6 +17,6 @@ import { KittuCanvasController } from './port-canvas';
 </section>
 `
 })
-export class KittuShootingStarsComponent extends KittuCanvasController {
+export class KitShootingStarsComponent extends KitCanvasController {
 override readonly mode='shooting';
 }

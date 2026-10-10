@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'macOS Folder Cards',
   description: 'An authentic porcelain-white macOS Finder folder icon that unrolls interactive cards with fluid Apple spring physics.',
   category: 'Motion',

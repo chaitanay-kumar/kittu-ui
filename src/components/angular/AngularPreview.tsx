@@ -11,7 +11,7 @@ export function AngularPreview({ id, name }: { id: string; name: string }) {
       if (
         event.origin === window.location.origin &&
         event.source === frame.current?.contentWindow &&
-        event.data?.type === "kittu-angular-height" &&
+        event.data?.type === "kit-angular-height" &&
         typeof event.data.height === "number"
       )
         setHeight(Math.max(240, Math.min(1200, event.data.height + 8)));
@@ -21,7 +21,7 @@ export function AngularPreview({ id, name }: { id: string; name: string }) {
   }, []);
   useEffect(() => {
     frame.current?.contentWindow?.postMessage(
-      { type: "kittu-theme", theme },
+      { type: "kit-theme", theme },
       window.location.origin,
     );
   }, [theme]);
@@ -32,7 +32,7 @@ export function AngularPreview({ id, name }: { id: string; name: string }) {
       src={withBasePath(`/angular-demo/index.html?component=${encodeURIComponent(id)}&theme=${initialTheme}`)}
       onLoad={() =>
         frame.current?.contentWindow?.postMessage(
-          { type: "kittu-theme", theme },
+          { type: "kit-theme", theme },
           window.location.origin,
         )
       }

@@ -4,7 +4,7 @@ React reference: [NeonEdgeButton](../../src/components/ui/NeonEdgeButton.tsx), i
 
 ## Contract and migration
 
-Explicit undefined bindings retain React defaults, including glow=true. The native `KittuNeonEdgeButtonComponent` follows React's speed (1), glow (true), className (empty), default button type and projected content (Deploy preview when absent). It also supports disabled and type inputs for native HTML behavior. `<button kittuNeonEdgeButton>` puts ordinary HTML attributes, events, form semantics and ElementRef access on the button itself. The existing `<kittu-neon-edge-button>` selector remains available with an internal native button.
+Explicit undefined bindings retain React defaults, including glow=true. The native `KitNeonEdgeButtonComponent` follows React's speed (1), glow (true), className (empty), default button type and projected content (Deploy preview when absent). It also supports disabled and type inputs for native HTML behavior. `<button kitNeonEdgeButton>` puts ordinary HTML attributes, events, form semantics and ElementRef access on the button itself. The existing `<kit-neon-edge-button>` selector remains available with an internal native button.
 
 The former generic label/action/loading/status/cancellation API and generic footer are removed. Applications own requests. Arbitrary content is projected, and reactive speed/glow changes update the effect. Source-specific native class names isolate the styles; the reference's group/focus-ring classes are retained for consumer descendant styling. Component-layer styles permit utility class overrides.
 

@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'LockInput',
   description: 'A text input whose focus state subtly "locks" into place — a focus ring scales in from the center and the border tweens to active, giving the impression that the input snaps closed on itself.',
   category: 'Forms',

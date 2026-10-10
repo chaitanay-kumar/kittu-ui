@@ -3,7 +3,7 @@ export const morphingIconPort={
 import {DOCUMENT,NgTemplateOutlet} from '@angular/common';
 import {MorphingIconMotion} from './morphing-icon-motion';
 import type {MorphingIconStyle} from './morphing-icon-types';`,componentImports:'NgTemplateOutlet',stylesFile:'./morphing-icon.css',
- hostMetadata:`{'data-kittu':'morphing-icon','[class]':'"k-morphing-parity "+className()','[style]':'resolvedStyle()'}`,
+ hostMetadata:`{'data-kit':'morphing-icon','[class]':'"k-morphing-parity "+className()','[style]':'resolvedStyle()'}`,
  description:'React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.',
  inputs:['from: TemplateRef<unknown> (required)','to: TemplateRef<unknown> (required)','active: boolean','duration: number','size: number','className: string','style: MorphingIconStyle | string'],outputs:[],
  template:`<div #fromLayer class="k-morphing-layer" [attr.aria-hidden]="active()" [style.opacity]="initialActive?0:1" [style.transform]="initialActive?'scale(0.65) rotate(-90deg)':'none'"><ng-container [ngTemplateOutlet]="from()"/></div><div #toLayer class="k-morphing-layer" [attr.aria-hidden]="!active()" [style.opacity]="initialActive?1:0" [style.transform]="initialActive?'none':'scale(0.65) rotate(90deg)'"><ng-container [ngTemplateOutlet]="to()"/></div>`,

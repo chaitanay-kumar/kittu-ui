@@ -122,7 +122,7 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
     return (
       <>
         <style>{`
-          @keyframes kittu-ui-rainbow-pan {
+          @keyframes kit-ui-rainbow-pan {
             0% {
               background-position: 0% 50%;
             }
@@ -130,10 +130,10 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
               background-position: 200% 50%;
             }
           }
-          .kittu-ui-rainbow-active {
-            animation: kittu-ui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
+          .kit-ui-rainbow-active {
+            animation: kit-ui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
           }
-          .kittu-ui-rainbow-glow::before {
+          .kit-ui-rainbow-glow::before {
             content: '';
             position: absolute;
             bottom: -22%;
@@ -142,20 +142,20 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
             height: 30%;
             width: 75%;
             transform: translateX(-50%);
-            animation: kittu-ui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
+            animation: kit-ui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
             background: linear-gradient(90deg, var(--color-1), var(--color-5), var(--color-3), var(--color-4), var(--color-2));
             background-size: 200%;
             filter: blur(12px);
             opacity: 0.85;
             transition: opacity 0.3s ease, filter 0.3s ease;
           }
-          .kittu-ui-rainbow-glow:hover::before {
+          .kit-ui-rainbow-glow:hover::before {
             opacity: 1;
             filter: blur(16px);
           }
           @media (prefers-reduced-motion: reduce) {
-            .kittu-ui-rainbow-active,
-            .kittu-ui-rainbow-glow::before {
+            .kit-ui-rainbow-active,
+            .kit-ui-rainbow-glow::before {
               animation: none !important;
             }
           }
@@ -165,8 +165,8 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
           data-slot="button"
           ref={ref as any}
           className={cn(
-            "kittu-ui-rainbow-active",
-            glow && "kittu-ui-rainbow-glow",
+            "kit-ui-rainbow-active",
+            glow && "kit-ui-rainbow-glow",
             rainbowButtonVariants({ variant, size, className })
           )}
           style={customCssVars}

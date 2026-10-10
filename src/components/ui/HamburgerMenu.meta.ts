@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Hamburger Menu',
   description: 'An iconic three-line menu toggle that transforms smoothly into a symmetrical close symbol.',
   category: 'Navigation',

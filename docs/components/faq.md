@@ -14,7 +14,7 @@ An expandable accordion FAQ component with smooth spring height calculation, sin
 ## Installation
 
 ```bash
-npx shadcn@latest add chaitanay-kumar/kittu-ui/faq
+npx shadcn@latest add chaitanay-kumar/kit-ui/faq
 ```
 
 ## Basic Usage
@@ -37,7 +37,7 @@ export function FAQSection() {
         {
           id: '2',
           question: 'How do I install components?',
-          answer: 'You can install components directly into your codebase using standard CLI commands like "npx shadcn@latest add chaitanay-kumar/kittu-ui/<component-name>".',
+          answer: 'You can install components directly into your codebase using standard CLI commands like "npx shadcn@latest add chaitanay-kumar/kit-ui/<component-name>".',
         },
         {
           id: '3',

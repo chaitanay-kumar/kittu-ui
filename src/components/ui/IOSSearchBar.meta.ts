@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'iOS-style Search Bar',
   description: 'A minimalist search pill that smoothly expands on focus and reveals quick-clear controls with spring animation.',
   category: 'Navigation',

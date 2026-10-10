@@ -1,9 +1,9 @@
 // AUTO-GENERATED — DO NOT EDIT MANUALLY.
 // Run "npm run component:sync" to regenerate this file.
 
-import type { KittuComponentMeta } from '../../types/component';
+import type { KitComponentMeta } from '../../types/component';
 
-export const KITTU_COMPONENTS: KittuComponentMeta[] = [
+export const KIT_COMPONENTS: KitComponentMeta[] = [
   {
     "id": "activity-feed",
     "name": "Activity Feed",
@@ -15,7 +15,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Live Stream",
       "JSON Inspector"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/activity-feed",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/activity-feed",
     "features": [
       "Real-time simulation toggle streaming live webhook/deploy events",
       "Framer Motion layout and AnimatePresence entry transitions",
@@ -108,7 +108,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Enterprise",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/advanced-data-table",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/advanced-data-table",
     "features": [
       "Multi-state column sorting with clean directional indicator icons",
       "Global live search with instant filtering across all data fields",
@@ -225,7 +225,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Timeline",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ai-agent-activity",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ai-agent-activity",
     "features": [
       "Real-time execution timeline supporting thinking, searching, reading, tool execution, API calls, and code running",
       "Interactive status indicators for pending, running (with active spinner), completed, error, and cancelled states",
@@ -307,7 +307,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ai-prompt-composer",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ai-prompt-composer",
     "features": [
       "Compose prompts with attachments and suggestions, preserving drafts through failure and cancellation.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -360,9 +360,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/ai-prompt-composer.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -379,7 +379,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Markdown",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ai-response",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ai-response",
     "features": [
       "Progressive streaming state with typing indicator and loading skeleton",
       "Rich Markdown rendering with headings, lists, blockquotes, and tables",
@@ -446,7 +446,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Respects reduced motion preferences through soft, non-intrusive physics springs"
     ],
     "createdAt": "2026-09-21",
-    "usageCode": "import { AIResponse, AIResponseHeader, AIResponseContent, AIResponseSources, AIResponseActions } from \"@/components/ui/ai-response\";\n\nexport function Demo() {\n  return (\n    <AIResponse\n      status=\"complete\"\n      modelName=\"Claude 3.7 Sonnet\"\n      content=\"Here is a verified solution using **Kit UI** motion tokens:\\n\\n```typescript\\nimport { motionTransitions } from '@/lib/motion-tokens';\\n\\nexport const config = motionTransitions.springSnappy;\\n```\"\n      sources={[\n        { id: 1, title: \"Kit UI Motion Tokens\", url: \"https://kittu-ui.pro/docs\" },\n        { id: 2, title: \"Framer Motion Spring Spec\", url: \"https://www.framer.com/motion/\" }\n      ]}\n      onRegenerate={() => console.log('Regenerating...')}\n    />\n  );\n}",
+    "usageCode": "import { AIResponse, AIResponseHeader, AIResponseContent, AIResponseSources, AIResponseActions } from \"@/components/ui/ai-response\";\n\nexport function Demo() {\n  return (\n    <AIResponse\n      status=\"complete\"\n      modelName=\"Claude 3.7 Sonnet\"\n      content=\"Here is a verified solution using **Kit UI** motion tokens:\\n\\n```typescript\\nimport { motionTransitions } from '@/lib/motion-tokens';\\n\\nexport const config = motionTransitions.springSnappy;\\n```\"\n      sources={[\n        { id: 1, title: \"Kit UI Motion Tokens\", url: \"https://kit-ui.pro/docs\" },\n        { id: 2, title: \"Framer Motion Spring Spec\", url: \"https://www.framer.com/motion/\" }\n      ]}\n      onRegenerate={() => console.log('Regenerating...')}\n    />\n  );\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -475,7 +475,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Dot Matrix",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/airport-matrix-clock",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/airport-matrix-clock",
     "features": [
       "IANA timezone formatting handles local time and daylight-saving changes without a time service",
       "Three-city default with a five-city maximum, duplicate removal, and safe fallback for invalid input",
@@ -570,7 +570,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Forms",
       "Spring Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/animated-file-upload",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/animated-file-upload",
     "features": [
       "Subtle physical dropzone scaling and border reaction without exaggerated AI glow",
       "Automatic mime-type detection and contextual file icon attribution",
@@ -687,7 +687,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Motion Physics",
       "Typography"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/animated-number",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/animated-number",
     "features": [
       "Independent digit column spring animation preventing layout jitter",
       "Automatic thousand grouping (e.g. 12,450) and fixed decimal formatting",
@@ -778,7 +778,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Keyboard Friendly"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/animated-tabs",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/animated-tabs",
     "features": [
       "Shared layout active pill with spring easing",
       "Independent content animation cross-fade",
@@ -842,7 +842,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive",
       "Micro-interactions"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/avatar-stack",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/avatar-stack",
     "features": [
       "Dynamic z-index elevation on hover so the hovered avatar is 100% visible and unclipped",
       "Spring-animated scale and lift transition powered by Framer Motion",
@@ -923,7 +923,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Batch Actions",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/batch-gesture-tray",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/batch-gesture-tray",
     "features": [
       "Spring slide-up bottom tray appearing automatically when 1 or more items are selected",
       "Integrated selection counter badge with Select-All / Deselect-All triggers",
@@ -1001,7 +1001,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Reduced Motion",
       "Responsive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/book-call-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/book-call-button",
     "features": [
       "Three independently-timed motion layers: expanding capsule, label/arrow, and phone icon",
       "Capsule grows from \"left center\" so the expansion feels directional, not scale-from-middle",
@@ -1074,7 +1074,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard Friendly",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/branching-submenu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/branching-submenu",
     "features": [
       "Parent and child panels communicate hierarchy through position and stagger",
       "Arrow keys, Enter, and Escape support menu exploration",
@@ -1135,7 +1135,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Micro-interactions",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/button",
     "features": [
       "8 visual variants: Primary, Secondary, Outline, Ghost, Destructive, Success, Link, Gradient",
       "4 size dimensions: Small (sm), Medium (md), Large (lg), and square Icon",
@@ -1237,7 +1237,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Motion Physics",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/car-smoke-page-transition",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/car-smoke-page-transition",
     "features": [
       "Hardware-accelerated Canvas particle drift smoke physics and realistic skid marks",
       "Choreographed multi-axis Ferrari drift movement, wheel spin, and speed lines",
@@ -1365,7 +1365,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Messaging",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/chat",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/chat",
     "features": [
       "Complete conversational layout with optional historical threads sidebar and responsive mobile drawer",
       "Rich message components supporting user, assistant, and system roles with timestamps and avatars",
@@ -1467,7 +1467,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Depth Field",
       "Gallery"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/circular-orbit",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/circular-orbit",
     "features": [
       "Single shared rotation MotionValue drives every tile — no React state per frame",
       "True circular orbit: x and y use the same radius so tiles trace a perfect circle",
@@ -1550,7 +1550,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Multi-Runtime",
       "Live Customizer"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/code-snippet-deck",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/code-snippet-deck",
     "features": [
       "Seamless multi-runtime tab switching (cURL, TypeScript, Python, Go, Rust)",
       "Dynamic parameter tuning drawer that updates generated code in real time",
@@ -1636,7 +1636,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "⌘K / Ctrl+K",
       "Fuzzy Filtering"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/command-menu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/command-menu",
     "features": [
       "Global hotkey listener (⌘K / Ctrl+K)",
       "Arrow key navigation with wrapping",
@@ -1706,7 +1706,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive",
       "Micro-Animation"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/cursor-follower",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/cursor-follower",
     "features": [
       "Configurable spring dynamics (stiffness, damping, and mass)",
       "Dynamic velocity scaling when pointer is in motion",
@@ -1810,7 +1810,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Inspection",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/density-lens",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/density-lens",
     "features": [
       "Subtle spring lag cursor tracking for realistic tactile lens momentum",
       "Automatic coordinate interpolation with 2x magnification or custom overlay renderers",
@@ -1889,7 +1889,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Graph Visualization",
       "Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dependency-trace",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dependency-trace",
     "features": [
       "Interactive bezier curve paths with animated glow pulses on hover",
       "Automatic dimming of unrelated network branches and nodes",
@@ -1966,7 +1966,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Parallax",
       "Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/depth-corridor",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/depth-corridor",
     "features": [
       "True 3D perspective translation (translateZ) and multi-layered receding depth geometry",
       "Progressive depth-of-field focal blurring and subtle mouse tracking parallax",
@@ -2045,7 +2045,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/directional-tooltip",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/directional-tooltip",
     "features": [
       "Entry motion originates from the chosen side (top/right/bottom/left)",
       "Snappy spring (springSnappy) settles the tooltip into place",
@@ -2136,7 +2136,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Static Visual",
       "Zero Overhead"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dot-field",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dot-field",
     "features": [
       "Hardware-accelerated HTML5 Canvas rendering",
       "Zero CPU overhead — renders once and updates only on resize",
@@ -2207,7 +2207,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive",
       "Background"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dot-shader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dot-shader",
     "features": [
       "Hardware-accelerated WebGL point primitive vertex & fragment shader with Canvas 2D fallback",
       "Interactive cursor proximity illumination transitioning smoothly to accent color",
@@ -2329,7 +2329,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Safety Controls",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/drag-to-confirm",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/drag-to-confirm",
     "features": [
       "Clean minimalist pill geometry with seamless light and dark mode theme compatibility",
       "Dynamic progressive track fill that physically tracks the handle as you drag",
@@ -2461,7 +2461,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Indeterminate",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/draw-checkbox",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/draw-checkbox",
     "features": [
       "Checkmark animates via stroke-dashoffset (path length 0 -> 1) with a snappy draw curve",
       "Box scales 0.9 -> 1.04 -> 1.0 for a tiny physical overshoot, then settles",
@@ -2548,7 +2548,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Spring Physics",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/dynamic-island",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/dynamic-island",
     "features": [
       "Continuous physical morphing between collapsed, expanded, profile, and share states",
       "Spring-based layout-aware geometry and radius interpolation with no abrupt snapping",
@@ -2687,7 +2687,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/elastic-sheet",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/elastic-sheet",
     "features": [
       "A draggable bottom sheet with snap positions, native modal focus containment, and keyboard resizing.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -2740,9 +2740,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/elastic-sheet.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -2759,7 +2759,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Layered Motion",
       "Painted SVG"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/evil-eye",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/evil-eye",
     "features": [
       "Pointer position drives a normalized MotionValue pipeline (no React renders per frame)",
       "Layered secondary motion — braided cord, metallic cap, and amulet disc each swing independently",
@@ -2842,7 +2842,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accordion Motion",
       "Responsive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/expandable-data-row",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/expandable-data-row",
     "features": [
       "Soft accordion expansion unfolding details directly beneath rows without modals",
       "Single or multi-row simultaneous expansion modes",
@@ -2922,7 +2922,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Shortcuts",
       "Compact"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/expandable-search",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/expandable-search",
     "features": [
       "Spring physics width expansion",
       "Shortcut badge hint",
@@ -2983,7 +2983,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Searchable",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/faq",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/faq",
     "features": [
       "Smooth height calculation and rotation via Framer Motion springGentle",
       "Single-open accordion or multi-open simultaneous expansion modes",
@@ -3090,7 +3090,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Magnification Curve",
       "Tooltips"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/floating-action-dock",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/floating-action-dock",
     "features": [
       "Continuous distance interpolation curve",
       "Tooltips with instant spring opacity",
@@ -3148,7 +3148,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Motion Physics",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/focus-mode",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/focus-mode",
     "features": [
       "Subtle background opacity dampening bringing selected components into focus",
       "Zero layout shift architecture keeping existing dashboard grid geometry intact",
@@ -3222,7 +3222,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Spring Motion",
       "Tailwind"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/form",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/form",
     "features": [
       "Modular layout primitives: Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage",
       "Comprehensive controls: Input, Textarea, Select, Checkbox, RadioGroup, Switch",
@@ -3312,7 +3312,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Spring Physics",
       "Tailwind"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/glass-navbar",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/glass-navbar",
     "features": [
       "Subtle glassmorphic blur backdrop (bg-[#050505]/85 backdrop-blur-md)",
       "Dual layout modes: Floating pill or full-width sticky bar",
@@ -3420,7 +3420,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Kinetic Typography",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/glitch-text",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/glitch-text",
     "features": [
       "5 distinct visual glitch modes: 'rgb-split', 'slice', 'vhs', 'scramble', and 'pulse'",
       "Interactive trigger options: 'continuous' periodic looping, on 'hover', or interactive 'click' burst",
@@ -3523,7 +3523,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Background Effect",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/glyph-matrix",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/glyph-matrix",
     "features": [
       "GPU-friendly HTML5 Canvas implementation running at silky 60fps",
       "Phosphor decay trails rendered via progressive alpha blending",
@@ -3632,7 +3632,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Metaball",
       "Spring Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/gooey-menu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/gooey-menu",
     "features": [
       "Real-time SVG color-matrix metaball fusion filter creates organic liquid stretch and tear dynamics",
       "Choreographed staggered dropdown items with fast exit transitions",
@@ -3731,7 +3731,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Pointer Physics",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/gravity-particle-burst",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/gravity-particle-burst",
     "features": [
       "Particles inherit a shared origin from the pointer location",
       "Canvas rendering keeps the effect performant without many DOM nodes",
@@ -3791,7 +3791,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Micro-interaction",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/hamburger-menu",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/hamburger-menu",
     "features": [
       "Symmetric line rotation and middle line dissolution with zero layout shift",
       "Customizable size, stroke thickness, and color tokens",
@@ -3873,7 +3873,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/hold-to-confirm",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/hold-to-confirm",
     "features": [
       "Deliberate confirmation with visible hold progress, early cancellation, and async recovery.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -3920,9 +3920,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/hold-to-confirm.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -3938,7 +3938,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/interactive-data-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/interactive-data-card",
     "features": [
       "An expandable summary with linked detail controls and async action feedback.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -3997,9 +3997,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/interactive-data-card.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -4015,7 +4015,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Deployment Track",
       "Spring Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/interactive-timeline",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/interactive-timeline",
     "features": [
       "Animated continuous progress line with spring physics",
       "Interactive status nodes (completed, in-progress, pending, failed) with breathing aura",
@@ -4098,7 +4098,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Fluid Blur",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/intro-loader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/intro-loader",
     "features": [
       "Rapid multilingual greeting cycling inspired by Apple OS welcome splash",
       "Fluid blur, scale, and opacity entry transitions calibrated with cubic-bezier curves",
@@ -4199,7 +4199,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Search",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/ios-search-bar",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/ios-search-bar",
     "features": [
       "Smooth spring width expansion on input focus and auto-collapse on blur",
       "Conditional quick-clear button with spring scale entrance and exit",
@@ -4288,7 +4288,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/liquid-command-palette",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/liquid-command-palette",
     "features": [
       "A searchable command dialog with arrow navigation, disabled commands, and async feedback.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -4323,9 +4323,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/liquid-command-palette.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -4341,7 +4341,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Pointer Feedback",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/liquid-ripple-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/liquid-ripple-button",
     "features": [
       "Ripple originates from the actual press point",
       "Slow secondary wave remains below the label and icon",
@@ -4400,7 +4400,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Spring",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/liquid-toggle",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/liquid-toggle",
     "features": [
       "Internal blob shape continuously morphs between states",
       "Transient stretch pulse along the travel axis when toggling",
@@ -4512,7 +4512,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Zero Deps",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/loader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/loader",
     "features": [
       "4 refined motion variants: rotating arc, breathing dots, sliding line, and expanding concentric rings",
       "Configurable dimensions and stroke colors with seamless dark mode support",
@@ -4592,7 +4592,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/lock-input",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/lock-input",
     "features": [
       "Focus ring scales in from 0.94 to 1.0 with a snappy spring, producing a physical \"lock\" feel",
       "Inset border ring fades in alongside the outer focus halo for a layered lock effect",
@@ -4680,7 +4680,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Responsive",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/login",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/login",
     "features": [
       "Built with Kit UI Form & Button architecture",
       "Interactive password visibility toggle with Lucide icons",
@@ -4795,7 +4795,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Expandable",
       "Minimal"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/mac-os-folder-cards",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/mac-os-folder-cards",
     "features": [
       "Porcelain-white macOS folder silhouette with 3D flap hinge and cards peeking from pocket",
       "Interactive hover parallax lifts cards and tilts folder flap in 3D perspective",
@@ -4867,7 +4867,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Micro-interaction",
       "Tailwind"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/magnetic-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/magnetic-button",
     "features": [
       "Spring physics coordinate tracking via Framer Motion",
       "Configurable pull strength and threshold",
@@ -4941,7 +4941,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Card Effect",
       "New"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/meteors",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/meteors",
     "features": [
       "Super lightweight pure CSS keyframe hardware-accelerated animations",
       "Configurable trajectory angle (default 215° diagonal down-left)",
@@ -5047,7 +5047,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Telemetry HUD",
       "Pointer Scrubbing"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/metric-hud",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/metric-hud",
     "features": [
       "Zero-dependency hardware-accelerated SVG sparkline rendering",
       "Interactive pointer crosshair scrubbing with dynamic coordinate inspection",
@@ -5121,7 +5121,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "SVG",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-blob",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-blob",
     "features": [
       "Spring-physics anchor points with Catmull-Rom smoothing for a fluid, organic shape",
       "Smooth cursor-follow interaction with configurable strength and responsiveness",
@@ -5247,7 +5247,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Micro-interactions",
       "State Morphing"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-button",
     "features": [
       "Zero layout shift architecture preserving natural bounding dimensions across states",
       "Icon morphing with spring-based scale and translation transitions",
@@ -5333,7 +5333,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Spring Physics",
       "Zero Layout Shift"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-dialog",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-dialog",
     "features": [
       "Framer Motion layoutId continuous surface expansion",
       "Esc key dismissal and backdrop click support",
@@ -5398,7 +5398,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Micro-interactions",
       "Icon Transition"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-icon",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-icon",
     "features": [
       "Coordinated rotation, scaling, and opacity cross-fade for fluid icon transformations",
       "Supports any icon component (Lucide, Radix, custom SVGs)",
@@ -5476,7 +5476,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Configurable",
       "Loop"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/morphing-shape-loader",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/morphing-shape-loader",
     "features": [
       "Continuous morph between matched-control-point shapes",
       "Configurable shape list, duration, hold time, and loop behavior",
@@ -5567,7 +5567,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "CSS Motion",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/neon-edge-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/neon-edge-button",
     "features": [
       "Travelling light follows the button perimeter instead of animating border color",
       "Neutral glow keeps the effect aligned with Kit UI surfaces",
@@ -5627,7 +5627,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Pointer Tracking",
       "Layered Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/nimbu-mirchi",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/nimbu-mirchi",
     "features": [
       "Pointer position drives a normalized MotionValue pipeline (no React renders per frame)",
       "Layered secondary motion — chillies, lemon, and trailing strings each swing independently",
@@ -5711,7 +5711,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Micro-interactions",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/not-found",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/not-found",
     "features": [
       "Pure floating spring-physics entities for each character with custom mass and damping",
       "Continuous pointer proximity repulsion without React state re-renders (zero-jank 60fps)",
@@ -5819,7 +5819,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Feedback",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/notification-bell",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/notification-bell",
     "features": [
       "Subtle rotational bell shake when new unread notifications arrive",
       "Spring-animated counter badge with overflow truncation (99+)",
@@ -5902,7 +5902,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Elevation Stacking",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/notification-stack",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/notification-stack",
     "features": [
       "Interactive drag-to-dismiss with spring rebound",
       "Dynamic stacking elevation offset and scale",
@@ -5961,7 +5961,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Lightweight"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/orbital-loading-ring",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/orbital-loading-ring",
     "features": [
       "Two coordinated orbital rhythms with a subtle center pulse",
       "Size, speed, and density variants",
@@ -6025,7 +6025,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/origin-dropdown",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/origin-dropdown",
     "features": [
       "Menu expansion originates from one of four sides (top/right/bottom/left)",
       "Snappy spring (springSnappy) with origin-based transform-origin per side",
@@ -6118,7 +6118,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Tailwind",
       "Forms"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/otp-input",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/otp-input",
     "features": [
       "Auto-advances focus to the next box as each digit is entered",
       "Backspace clears the current digit or steps back into the previous box",
@@ -6212,7 +6212,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "High-DPI",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/particle-delete",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/particle-delete",
     "features": [
       "Authentic pixel capture inherits real component colors and typography",
       "Hardware-accelerated 60 FPS Canvas rendering with zero DOM overhead",
@@ -6296,7 +6296,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Feedback",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/payment-receipt-printer",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/payment-receipt-printer",
     "features": [
       "Authentic thermal paper extrusion animation emerging downward from printer slot",
       "Subtle chassis vibration physics during active printing phase",
@@ -6517,7 +6517,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Feedback",
       "SVG Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/payment-status",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/payment-status",
     "features": [
       "5 clear lifecycle states: Processing, Verifying, Success, Failed, and Refunded",
       "Self-drawing SVG stroke checkmark animation upon payment confirmation",
@@ -6635,7 +6635,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Overlays",
       "Context Preview"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/peek-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/peek-card",
     "features": [
       "Origin-anchored emergence animation feeling connected to source elements",
       "Automatic edge collision detection preventing viewport bounding overflow",
@@ -6715,7 +6715,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Minimal"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/pill-navigation",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/pill-navigation",
     "features": [
       "Single shared indicator preserves spatial continuity",
       "Interactive nested submenu with fluid spring entrance and layout morphing",
@@ -6789,7 +6789,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/press-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/press-button",
     "features": [
       "Layered scaleX + scaleY squash for an organic compression on press",
       "Tunable pressStrength (0-1) to control how much the button compresses",
@@ -6872,7 +6872,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/pricing",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/pricing",
     "features": [
       "Two side-by-side pricing cards (Free + Pro) that collapse to a single column on mobile",
       "Strictly uses Kit UI design tokens — no hardcoded theme colors, automatic light / dark adaptation",
@@ -6970,7 +6970,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Painted Artwork",
       "Responsive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/profile-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/profile-card",
     "features": [
       "Painted blue cover-art surface built from layered radial / linear gradients — no image assets required",
       "Spring-tap response on the primary action button (0.97 scale) via framer-motion",
@@ -6990,7 +6990,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "username",
         "type": "string",
-        "default": "'@kittu-ui'",
+        "default": "'@kit-ui'",
         "description": "Handle rendered as the small caption under the name"
       },
       {
@@ -7014,7 +7014,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       {
         "name": "website",
         "type": "string",
-        "default": "'github.com/chaitanay-kumar/kittu-ui'",
+        "default": "'github.com/chaitanay-kumar/kit-ui'",
         "description": "Website domain — link href is auto-prefixed with https://"
       },
       {
@@ -7045,7 +7045,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "prefers-reduced-motion fallback: spring tap on the action button is disabled"
     ],
     "createdAt": "2026-08-31",
-    "usageCode": "import { ProfileCard } from \"@/components/ui/profile-card\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-md mx-auto\">\n      <ProfileCard\n        name=\"Kit UI contributors\"\n        username=\"@kittu-ui\"\n        description=\"Building Kit UI. Engineer.\"\n        followers=\"200K\"\n        posts=\"72\"\n        website=\"github.com/chaitanay-kumar/kittu-ui\"\n        onAction={() => console.log('Follow clicked')}\n      />\n    </div>\n  );\n}",
+    "usageCode": "import { ProfileCard } from \"@/components/ui/profile-card\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-md mx-auto\">\n      <ProfileCard\n        name=\"Kit UI contributors\"\n        username=\"@kit-ui\"\n        description=\"Building Kit UI. Engineer.\"\n        followers=\"200K\"\n        posts=\"72\"\n        website=\"github.com/chaitanay-kumar/kit-ui\"\n        onAction={() => console.log('Follow clicked')}\n      />\n    </div>\n  );\n}",
     "dependencies": [
       "framer-motion"
     ],
@@ -7074,7 +7074,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Light & Dark",
       "Touch & Pointer"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/pull-to-refresh",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/pull-to-refresh",
     "features": [
       "Seamless Light and Dark mode theming with tuned contrast and crisp aesthetics",
       "Physical logarithmic spring resistance matching iOS and native touch physics",
@@ -7177,7 +7177,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive",
       "New"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/rainbow-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/rainbow-button",
     "features": [
       "Continuous seamless multi-stop chromatic rainbow border animation",
       "Ambient blurred rainbow underglow shadow reflecting beneath the button surface",
@@ -7286,7 +7286,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Audit Log",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/recovery-ledger",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/recovery-ledger",
     "features": [
       "Chronological version ledger with vertical timeline rail and active head marker",
       "One-click state rollback action with loading animation feedback",
@@ -7364,7 +7364,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Dynamic Glare",
       "Micro-interaction"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/reveal-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/reveal-card",
     "features": [
       "Cursor-aware 3D perspective rotation springs",
       "Dynamic radial glare reflection overlay",
@@ -7418,7 +7418,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive Motion",
       "Milestones"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/rocket-party-popper",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/rocket-party-popper",
     "features": [
       "Sleek matte black rocket capsule with thruster ember anticipation",
       "Smooth lift-off acceleration trailing thruster flame and smoke",
@@ -7516,7 +7516,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Scroll Physics",
       "Floating"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/scroll-progress-nav",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/scroll-progress-nav",
     "features": [
       "Real-time document scroll progress bar integrated along the pill boundary",
       "Shared layout pill indicator smoothly moving between active headings",
@@ -7597,7 +7597,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessibility",
       "Zero Overhead"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/scrollvelocitytext",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/scrollvelocitytext",
     "features": [
       "Direction-aware scroll physics: expands on downward scroll, winds back on upward scroll, and holds position on idle",
       "Zero per-frame React re-renders: progress is written directly to the DOM via requestAnimationFrame batching",
@@ -7710,7 +7710,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Toolbars",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/selection-basket",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/selection-basket",
     "features": [
       "Appears naturally with spring rise physics as soon as selected count > 0",
       "Responsive horizontal scrolling action container preventing mobile cutoff",
@@ -7790,7 +7790,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/settle-modal",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/settle-modal",
     "features": [
       "Panel animates scale 0.94 -> 1.02 -> 1.0 with ease-soft curve for a tactile \"settle\"",
       "Inner content has its own layered scale-up (0.98 -> 1.0) for a nested feel",
@@ -7897,7 +7897,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive",
       "Background"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/shooting-stars",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/shooting-stars",
     "features": [
       "Zero external runtime dependencies: 100% native HTML5 Canvas 2D with sub-pixel DPR scaling",
       "Multi-depth twinkling starfield with radiant 4-point celestial cross-sparkles and soft halo blooms",
@@ -8058,7 +8058,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Password Strength",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/sign-up",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/sign-up",
     "features": [
       "Integrated live 4-tier password strength indicator bar",
       "Password confirmation matching validation",
@@ -8173,7 +8173,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/slide-pagination",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/slide-pagination",
     "features": [
       "Active background uses framer-motion shared layoutId for visible travel between pages",
       "Snappy spring (springSnappy) drives the indicator for a precise, physical feel",
@@ -8261,7 +8261,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Navigation",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/small-floating-dock",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/small-floating-dock",
     "features": [
       "Proximity-aware hover scale with elastic spring snap-back physics",
       "Supports 3 to 5 actions with numeric unread badges and contextual tooltips",
@@ -8346,7 +8346,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "SaaS Pricing",
       "Diff Filter"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/smart-comparison",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/smart-comparison",
     "features": [
       "Live \"Differences Only\" filter to instantly surface plan divergence",
       "Integrated feature keyword search with real-time row matching",
@@ -8432,7 +8432,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/smart-upload",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/smart-upload",
     "features": [
       "A validated file queue with image previews, real handler progress, abort signals, and retry.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -8485,9 +8485,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/smart-upload.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -8503,7 +8503,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Zero Layout Shift",
       "Multi or Single"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/smooth-accordion",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/smooth-accordion",
     "features": [
       "Spring physics height interpolation",
       "Zero content clipping or layout jumps",
@@ -8569,7 +8569,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive",
       "Background"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/sparkles-core",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/sparkles-core",
     "features": [
       "Zero external particle dependencies: 100% native HTML5 Canvas 2D with sub-pixel DPR scaling",
       "Full backward compatibility with Aceternity SparklesCore props signature",
@@ -8744,7 +8744,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Background Effect",
       "3D Perspective"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/speed-warp",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/speed-warp",
     "features": [
       "Real-time 3D perspective projection with focal length scaling",
       "Dynamic depth-alpha fading and velocity-driven streak lines",
@@ -8807,7 +8807,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Framer Motion",
       "Floating UI"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/split-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/split-button",
     "features": [
       "Primary action and chevron trigger share a single rounded pill silhouette",
       "Chevron rotates with a snappy spring on open/close",
@@ -8888,7 +8888,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Pointer Physics",
       "Dark Elevation"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/spotlight-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/spotlight-card",
     "features": [
       "Hardware-accelerated dynamic radial mask",
       "Dual illumination (border beam + ambient inner glow)",
@@ -8941,7 +8941,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Search",
       "Overlays"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/spotlight-search",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/spotlight-search",
     "features": [
       "Global keyboard listener for ⌘K / Ctrl+K and Escape dismissal",
       "Animated active highlight tracking item selection with layoutId spring physics",
@@ -9027,7 +9027,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/spring-select",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/spring-select",
     "features": [
       "Dropdown panel springs from the trigger with a subtle scale: 0.98 -> 1 overshoot",
       "Chevron rotates to 192° (slightly past 180°) and settles back via snappy spring",
@@ -9128,7 +9128,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accordion",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/stack-unfold-panel",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/stack-unfold-panel",
     "features": [
       "Progressive vertical expansion with GPU-accelerated height calculation",
       "Automatic single-card accordion mode or multi-card unfolding",
@@ -9207,7 +9207,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Scroll-Driven",
       "Sticky"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/stacked-cards",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/stacked-cards",
     "features": [
       "Naturally aligned column layout in the initial view",
       "Scroll-driven sticky stacking where cards stack one above another on scroll",
@@ -9278,7 +9278,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Scroll",
       "New"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/sticky-pages",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/sticky-pages",
     "features": [
       "Pure static stacking: zero tilting, zero rotation, zero transform distortion",
       "Native browser scrolling: zero scroll hijacking or wheel locking, built on native CSS position: sticky",
@@ -9372,7 +9372,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Tailwind",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/story-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/story-card",
     "features": [
       "Infinite loop carousel with continuous smooth transitions",
       "Responsive horizontal story card layout",
@@ -9489,7 +9489,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/stretch-switch",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/stretch-switch",
     "features": [
       "Thumb scaleX -> 1.18 / scaleY -> 0.86 while pointer is held for a tactile stretch",
       "Snappy spring (springSnappy) drives the snap to the new x position on release",
@@ -9574,7 +9574,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/swipe-action-list",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/swipe-action-list",
     "features": [
       "Swipe to reveal item actions, with explicit keyboard-accessible controls and retry feedback.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -9621,9 +9621,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/swipe-action-list.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -9639,7 +9639,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Reduced Motion",
       "Interactive"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/text-scramble-decoder",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/text-scramble-decoder",
     "features": [
       "Position-staged character resolution with a stable final state",
       "Mount, hover, and manual replay trigger modes",
@@ -9675,7 +9675,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Reduced motion renders the final text immediately"
     ],
     "createdAt": "2026-08-28",
-    "usageCode": "import { TextScrambleDecoder } from \"@/components/ui/text-scramble-decoder\";\n\nexport function Demo() {\n  return (\n    <TextScrambleDecoder\n      text=\"KITTU_UI.REGISTRY.SYNCED\"\n      trigger=\"manual\"\n      duration={1000}\n    />\n  );\n}",
+    "usageCode": "import { TextScrambleDecoder } from \"@/components/ui/text-scramble-decoder\";\n\nexport function Demo() {\n  return (\n    <TextScrambleDecoder\n      text=\"KIT_UI.REGISTRY.SYNCED\"\n      trigger=\"manual\"\n      duration={1000}\n    />\n  );\n}",
     "dependencies": [
       "lucide-react"
     ],
@@ -9705,7 +9705,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Reduced Motion",
       "AI Indicator"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/thinking-orb",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/thinking-orb",
     "features": [
       "Pure monochrome aesthetic (clean white/silver on dark, deep obsidian on light) with zero colors",
       "9 unique cognitive states: working, searching, solving, listening, connecting, weaving, composing, breathing, and shaping",
@@ -9791,7 +9791,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Keyboard",
       "Reduced Motion"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/timeline-scrubber",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/timeline-scrubber",
     "features": [
       "Navigate events with a native range control, previous/next buttons, and spoken event details.",
       "Responsive surfaces with shared light and dark theme tokens.",
@@ -9838,9 +9838,9 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
         "target": "components/ui/timeline-scrubber.tsx"
       },
       {
-        "path": "src/lib/kittu-controls.css",
+        "path": "src/lib/kit-controls.css",
         "type": "registry:lib",
-        "target": "lib/kittu-controls.css"
+        "target": "lib/kit-controls.css"
       }
     ],
     "featured": true
@@ -9857,7 +9857,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Precision Control",
       "Forms"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/torque-dial",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/torque-dial",
     "features": [
       "Natural angular momentum release with exponential friction deceleration decay",
       "Supports drag rotation, mouse wheel fine-tuning, keyboard arrow adjustments, and double-click centering",
@@ -9952,7 +9952,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Tactile Audio",
       "Accessible"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/typewriter-button",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/typewriter-button",
     "features": [
       "Progressive character-by-character typewriter reveal with blinking cursor",
       "Synthesized mechanical click sound generated dynamically via Web Audio API (zero audio file assets)",
@@ -10008,7 +10008,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Interactive <button> element with standard keyboard activation"
     ],
     "createdAt": "2026-08-24",
-    "usageCode": "import { TypewriterButton } from \"@/components/ui/typewriter-button\";\n\nexport function Demo() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <TypewriterButton soundEnabled variant=\"primary\">\n        npx shadcn@latest add chaitanay-kumar/kittu-ui/typewriter-button\n      </TypewriterButton>\n    </div>\n  );\n}",
+    "usageCode": "import { TypewriterButton } from \"@/components/ui/typewriter-button\";\n\nexport function Demo() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <TypewriterButton soundEnabled variant=\"primary\">\n        npx shadcn@latest add chaitanay-kumar/kit-ui/typewriter-button\n      </TypewriterButton>\n    </div>\n  );\n}",
     "dependencies": [
       "framer-motion"
     ],
@@ -10041,7 +10041,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Feedback",
       "Timer Physics"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/undo-toast",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/undo-toast",
     "features": [
       "Real-time smooth countdown progress bar illustrating time window remaining",
       "Intelligent pause-on-hover physics so users never miss undo deadlines",
@@ -10158,7 +10158,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/unfold-accordion",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/unfold-accordion",
     "features": [
       "Chevron rotation, content height, and inner content slide are tuned to overlap",
       "Inner content uses a slightly faster ease so it \"leads\" the chevron by a hair",
@@ -10228,7 +10228,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Accessible",
       "Light & Dark"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/velocity-toast",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/velocity-toast",
     "features": [
       "Entry animation starts further out (y: 22px) for higher perceived velocity, then springs to rest",
       "Progress indicator uses a slight ease-in (pow 1.05) so the final 10% feels decisive",
@@ -10292,7 +10292,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Visual close button is keyboard-reachable with focus-ring"
     ],
     "createdAt": "2026-09-03",
-    "usageCode": "import { useState } from \"react\";\nimport { VelocityToast } from \"@/components/ui/velocity-toast\";\nimport { PressButton } from \"@/components/ui/press-button\";\n\nexport function Demo() {\n  const [open, setOpen] = useState(false);\n  return (\n    <>\n      <PressButton onClick={() => setOpen(true)}>Show toast</PressButton>\n      <VelocityToast\n        open={open}\n        onDismiss={() => setOpen(false)}\n        title=\"File uploaded\"\n        description=\"kittu-ui-2026-09.zip is ready.\"\n        variant=\"success\"\n        position=\"bottom-right\"\n      />\n    </>\n  );\n}",
+    "usageCode": "import { useState } from \"react\";\nimport { VelocityToast } from \"@/components/ui/velocity-toast\";\nimport { PressButton } from \"@/components/ui/press-button\";\n\nexport function Demo() {\n  const [open, setOpen] = useState(false);\n  return (\n    <>\n      <PressButton onClick={() => setOpen(true)}>Show toast</PressButton>\n      <VelocityToast\n        open={open}\n        onDismiss={() => setOpen(false)}\n        title=\"File uploaded\"\n        description=\"kit-ui-2026-09.zip is ready.\"\n        variant=\"success\"\n        position=\"bottom-right\"\n      />\n    </>\n  );\n}",
     "dependencies": [
       "framer-motion",
       "lucide-react"
@@ -10326,7 +10326,7 @@ export const KITTU_COMPONENTS: KittuComponentMeta[] = [
       "Spring Tap",
       "Painted Surface"
     ],
-    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kittu-ui/wallet-card",
+    "cliCommand": "npx shadcn@latest add chaitanay-kumar/kit-ui/wallet-card",
     "features": [
       "Live balance figure with iOS-style toggle and primary action button",
       "Painted blue radial-gradient surface with diagonal specular sweep and outer glow",

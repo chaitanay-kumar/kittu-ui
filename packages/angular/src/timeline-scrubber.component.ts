@@ -2,11 +2,11 @@ import { Component, computed, input, output, signal } from "@angular/core";
 import type { TimelineEvent } from "./types";
 
 @Component({
-  selector: "kittu-timeline-scrubber",
+  selector: "kit-timeline-scrubber",
   standalone: true,
   host: { style: "display:block" },
   template: ` <section
-    class="kittu-control kittu-surface kittu-stack"
+    class="kit-control kit-surface kit-stack"
     [attr.aria-busy]="loading()"
   >
     <label
@@ -21,11 +21,11 @@ import type { TimelineEvent } from "./types";
         [attr.aria-valuetext]="event()?.title || 'No events'"
         (input)="scrub($event)"
     /></label>
-    <div role="status" class="kittu-stack">
+    <div role="status" class="kit-stack">
       @if (loading()) {
         <p>Loading timeline…</p>
       } @else if (event(); as item) {
-        <p class="kittu-muted">
+        <p class="kit-muted">
           {{ item.time }} · {{ index() + 1 }} of {{ events().length }}
         </p>
         <h3>{{ item.title }}</h3>
@@ -34,7 +34,7 @@ import type { TimelineEvent } from "./types";
         <p>No events yet.</p>
       }
     </div>
-    <div class="kittu-row">
+    <div class="kit-row">
       <button
         type="button"
         [disabled]="disabled() || loading() || index() === 0"
@@ -51,7 +51,7 @@ import type { TimelineEvent } from "./types";
     </div>
   </section>`,
 })
-export class KittuTimelineScrubberComponent {
+export class KitTimelineScrubberComponent {
   readonly events = input<TimelineEvent[]>([
     {
       id: "idea",

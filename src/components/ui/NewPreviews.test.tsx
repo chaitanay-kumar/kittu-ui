@@ -63,7 +63,7 @@ describe('New 8 Components and Card Previews', () => {
 
     it('renders GlitchText card preview', () => {
       render(<GlitchTextPreview isHovered={true} component={{} as any} />);
-      expect(screen.getAllByText('KITTU_UI MOTION').length).toBeGreaterThan(0);
+      expect(screen.getAllByText('KIT_UI MOTION').length).toBeGreaterThan(0);
       expect(screen.getByText(/CHROMATIC SPLIT/i)).toBeInTheDocument();
     });
   });

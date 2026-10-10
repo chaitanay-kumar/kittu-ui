@@ -63,7 +63,7 @@ ${ANGULAR_COMPONENTS.map(component => `- [${component.name} for Angular](${SITE_
 ## Resources
 
 - [Kit UI Website](${SITE_URL}/): Official website and interactive live demos.
-- [GitHub Repository](https://github.com/chaitanay-kumar/kittu-ui): Source code, issues, and contributions.
+- [GitHub Repository](https://github.com/chaitanay-kumar/kit-ui): Source code, issues, and contributions.
 - [Component Registry](${SITE_URL}/registry.json): Standard shadcn/ui compatible registry definition.
 - [Sitemap](${SITE_URL}/sitemap.xml): Search engine and crawler index of all public URLs.
 `;

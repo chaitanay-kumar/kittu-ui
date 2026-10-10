@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
-import type { KittuUIComponentMeta } from '../src/types/component';
+import type { KitUIComponentMeta } from '../src/types/component';
 import { generateSitemap } from './generate-sitemap';
 import { generateLlmsTxt } from './generate-llms';
 
@@ -15,7 +15,7 @@ const CATALOG_INDEX_PATH = path.join(ROOT_DIR, 'src', 'components', 'registry', 
 const SOURCE_DIR = path.join(ROOT_DIR, 'public', 'source');
 const PACKAGE_JSON_PATH = path.join(ROOT_DIR, 'package.json');
 
-const REPO_SLUG = 'chaitanay-kumar/kittu-ui';
+const REPO_SLUG = 'chaitanay-kumar/kit-ui';
 
 interface DiscoveredComponent {
   componentName: string;
@@ -23,7 +23,7 @@ interface DiscoveredComponent {
   primaryFilePath: string;
   metaFilePath: string;
   additionalFiles: string[];
-  meta: KittuUIComponentMeta;
+  meta: KitUIComponentMeta;
   dependencies: string[];
   registryDependencies: string[];
   registryFiles: Array<{
@@ -215,7 +215,7 @@ async function discoverComponents(): Promise<DiscoveredComponent[]> {
     // Load metadata file dynamically
     const metaUrl = pathToFileURL(metaFilePath).href + `?t=${Date.now()}`;
     const importedMetaModule = await import(metaUrl);
-    const meta: KittuUIComponentMeta = importedMetaModule.default || importedMetaModule;
+    const meta: KitUIComponentMeta = importedMetaModule.default || importedMetaModule;
 
     if (!meta.title || !meta.description) {
       throw new Error(`Component "${componentName}" metadata must define at least "title" and "description".`);
@@ -333,7 +333,7 @@ function generateRegistryJson(components: DiscoveredComponent[]): void {
 
   const registry = {
     $schema: 'https://ui.shadcn.com/schema/registry.json',
-    name: 'kittu-ui',
+    name: 'kit-ui',
     homepage: `https://github.com/${REPO_SLUG}`,
     items,
   };
@@ -408,9 +408,9 @@ function generateComponentsData(components: DiscoveredComponent[]): void {
   const content = `// AUTO-GENERATED — DO NOT EDIT MANUALLY.
 // Run "npm run component:sync" to regenerate this file.
 
-import type { KittuComponentMeta } from '../../types/component';
+import type { KitComponentMeta } from '../../types/component';
 
-export const KITTU_COMPONENTS: KittuComponentMeta[] = ${JSON.stringify(componentCatalogEntries, null, 2)};
+export const KIT_COMPONENTS: KitComponentMeta[] = ${JSON.stringify(componentCatalogEntries, null, 2)};
 `;
 
   fs.writeFileSync(COMPONENTS_DATA_PATH, content, 'utf-8');

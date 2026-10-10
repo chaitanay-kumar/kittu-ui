@@ -52,13 +52,13 @@ export const DocQuickStart: React.FC<DocQuickStartProps> = ({ onNavigateSection 
         </p>
         <DocCodeBlock
           code={`# Install Magnetic Button
-npx shadcn@latest add chaitanay-kumar/kittu-ui/magnetic-button
+npx shadcn@latest add chaitanay-kumar/kit-ui/magnetic-button
 
 # Install Spotlight Card
-npx shadcn@latest add chaitanay-kumar/kittu-ui/spotlight-card
+npx shadcn@latest add chaitanay-kumar/kit-ui/spotlight-card
 
 # Install Animated Tabs
-npx shadcn@latest add chaitanay-kumar/kittu-ui/animated-tabs`}
+npx shadcn@latest add chaitanay-kumar/kit-ui/animated-tabs`}
           language="bash"
           isTerminal={true}
           title="Terminal"

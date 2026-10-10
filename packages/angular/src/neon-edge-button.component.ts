@@ -3,8 +3,8 @@ import { Component, ElementRef, computed, inject, input } from '@angular/core';
 import {ViewEncapsulation,booleanAttribute} from '@angular/core';
 import {NgTemplateOutlet} from '@angular/common';
 @Component({
- selector:"kittu-neon-edge-button,button[kittuNeonEdgeButton]", standalone:true,
- host:{'data-kittu':'neon-edge-button','[class]':'native ? buttonClass() : "k-neon-host"','[attr.type]':'native ? type() : null','[attr.disabled]':'native && disabled() ? "" : null'},
+ selector:"kit-neon-edge-button,button[kitNeonEdgeButton]", standalone:true,
+ host:{'data-kit':'neon-edge-button','[class]':'native ? buttonClass() : "k-neon-host"','[attr.type]':'native ? type() : null','[attr.disabled]':'native && disabled() ? "" : null'},
  imports:[NgTemplateOutlet],
 encapsulation:ViewEncapsulation.None,styleUrls:["./neon-edge-button.css"],
 template:`
@@ -26,6 +26,6 @@ template:`
 </button>}
 `
 })
-export class KittuNeonEdgeButtonComponent {
+export class KitNeonEdgeButtonComponent {
 readonly native=inject<ElementRef<HTMLElement>>(ElementRef).nativeElement.tagName==='BUTTON';readonly speed=input<number,number|undefined>(1,{transform:value=>value===undefined?1:value});readonly glow=input(true,{transform:(value:unknown)=>value===undefined?true:booleanAttribute(value)});readonly disabled=input(false,{transform:booleanAttribute});readonly type=input<'button'|'submit'|'reset','button'|'submit'|'reset'|undefined>('button',{transform:value=>value===undefined?'button':value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});readonly animation=computed(()=> 'k-neon-rotate '+(3/this.speed())+'s linear infinite');readonly buttonClass=computed(()=>['k-neon-parity group focus-ring',this.glow()?'k-neon-glow':'',this.className()].filter(Boolean).join(' '));
 }

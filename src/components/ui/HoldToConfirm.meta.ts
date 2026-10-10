@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "Hold-to-Confirm",
   "description": "Deliberate confirmation with visible hold progress, early cancellation, and async recovery.",
   "category": "Buttons",

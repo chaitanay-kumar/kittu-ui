@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Notification Bell',
   description: 'An interactive notification trigger with animated badge counter, arrival shake feedback, and dropdown panel.',
   category: 'Feedback',

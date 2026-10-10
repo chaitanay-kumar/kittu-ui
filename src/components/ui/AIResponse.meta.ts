@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'AI Response',
   description: 'A production-ready, accessible AI response component supporting streaming markdown, syntax-styled code blocks, citations, feedback actions, and tool execution status.',
   category: 'Feedback',
@@ -41,7 +41,7 @@ export function Demo() {
       modelName="Claude 3.7 Sonnet"
       content="Here is a verified solution using **Kit UI** motion tokens:\\n\\n\`\`\`typescript\\nimport { motionTransitions } from '@/lib/motion-tokens';\\n\\nexport const config = motionTransitions.springSnappy;\\n\`\`\`"
       sources={[
-        { id: 1, title: "Kit UI Motion Tokens", url: "https://kittu-ui.pro/docs" },
+        { id: 1, title: "Kit UI Motion Tokens", url: "https://kit-ui.pro/docs" },
         { id: 2, title: "Framer Motion Spring Spec", url: "https://www.framer.com/motion/" }
       ]}
       onRegenerate={() => console.log('Regenerating...')}

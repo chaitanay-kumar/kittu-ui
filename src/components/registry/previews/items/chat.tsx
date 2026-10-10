@@ -32,7 +32,7 @@ export default function ChatPreview({ isHovered = false }: ComponentPreviewProps
           <div className="rounded-xl rounded-tl-none bg-surface border border-border px-2.5 py-1.5 text-[11px] text-text-secondary max-w-[210px] space-y-1 shadow-xs">
             <p>Run the shadcn CLI registry command:</p>
             <div className="p-1 rounded bg-surface-raised border border-border font-mono text-[9px] text-text-primary truncate">
-              npx shadcn add kittu-ui/button
+              npx shadcn add kit-ui/button
             </div>
           </div>
         </div>

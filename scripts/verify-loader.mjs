@@ -4,10 +4,10 @@ import {JSDOM} from 'jsdom';
 import {provideZonelessChangeDetection} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {BrowserTestingModule,platformBrowserTesting} from '@angular/platform-browser/testing';
-import {KittuLoaderComponent} from '../packages/angular/dist/fesm2022/kittu-ui-angular.mjs';
+import {KitLoaderComponent} from '../packages/angular/dist/fesm2022/kit-ui-angular.mjs';
 const dom=new JSDOM('<html><body></body></html>');for(const key of ['window','document','HTMLElement','Element','Node'])globalThis[key]=dom.window[key];
-TestBed.initTestEnvironment(BrowserTestingModule,platformBrowserTesting());TestBed.configureTestingModule({imports:[KittuLoaderComponent],providers:[provideZonelessChangeDetection()]});
-const fixture=TestBed.createComponent(KittuLoaderComponent),loader=fixture.componentInstance;const set=(key,value)=>{fixture.componentRef.setInput(key,value);fixture.detectChanges();};fixture.detectChanges();
+TestBed.initTestEnvironment(BrowserTestingModule,platformBrowserTesting());TestBed.configureTestingModule({imports:[KitLoaderComponent],providers:[provideZonelessChangeDetection()]});
+const fixture=TestBed.createComponent(KitLoaderComponent),loader=fixture.componentInstance;const set=(key,value)=>{fixture.componentRef.setInput(key,value);fixture.detectChanges();};fixture.detectChanges();
 try{
  assert.equal(loader.variant(),'arc');assert.equal(loader.size(),32);assert.equal(loader.label(),'Loading...');assert.equal(loader.color(),'currentColor');assert.equal(loader.reduceMotion(),false);
  for(const [key,expected] of [['size',32],['variant','arc'],['label','Loading...'],['reduceMotion',false],['color','currentColor'],['className','']]){set(key,undefined);assert.equal(loader[key](),expected);}

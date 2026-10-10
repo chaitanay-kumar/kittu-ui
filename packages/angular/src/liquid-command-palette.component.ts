@@ -12,20 +12,20 @@ import {
 import type { LiquidCommand } from "./types";
 
 @Component({
-  selector: "kittu-liquid-command-palette",
+  selector: "kit-liquid-command-palette",
   standalone: true,
   host: { style: "display:block" },
-  template: ` <div class="kittu-control">
+  template: ` <div class="kit-control">
     <button type="button" [disabled]="disabled()" (click)="open()">
       Find a command <kbd>⌘ / Ctrl K</kbd>
     </button>
     <dialog
       #dialog
-      class="kittu-dialog kittu-control"
+      class="kit-dialog kit-control"
       aria-label="Command palette"
     >
-      <div class="kittu-stack">
-        <div class="kittu-row">
+      <div class="kit-stack">
+        <div class="kit-row">
           <h3>Where next?</h3>
           <button type="button" (click)="close()">Close</button>
         </div>
@@ -48,7 +48,7 @@ import type { LiquidCommand } from "./types";
           [id]="listId"
           role="listbox"
           aria-label="Commands"
-          class="kittu-list"
+          class="kit-list"
           style="max-height:45dvh;overflow:auto"
         >
           @for (command of results(); track command.id) {
@@ -69,12 +69,12 @@ import type { LiquidCommand } from "./types";
         @if (!results().length) {
           <p>No matching commands.</p>
         }
-        <p role="status" class="kittu-status">{{ status() }}</p>
+        <p role="status" class="kit-status">{{ status() }}</p>
       </div>
     </dialog>
   </div>`,
 })
-export class KittuLiquidCommandPaletteComponent {
+export class KitLiquidCommandPaletteComponent {
   readonly commands = input<LiquidCommand[]>([]);
   readonly disabled = input(false);
   readonly query = signal("");
@@ -84,7 +84,7 @@ export class KittuLiquidCommandPaletteComponent {
   readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>("dialog");
   readonly search = viewChild.required<ElementRef<HTMLInputElement>>("search");
   readonly listId =
-    "kittu-commands-" +
+    "kit-commands-" +
     inject(ElementRef).nativeElement.tagName.toLowerCase() +
     "-" +
     nextId++;

@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Dynamic Island',
   description: 'A physical morphing island component that smoothly transitions between a compact indicator, interactive summary, profile card, and social dock with spring physics.',
   category: 'Navigation',

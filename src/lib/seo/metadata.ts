@@ -1,7 +1,7 @@
 import { SEO_CONFIG } from './config';
 import type { PageSEOMeta } from './helpers';
 
-const JSONLD_SCRIPT_ID = 'kittu-ui-seo-jsonld';
+const JSONLD_SCRIPT_ID = 'kit-ui-seo-jsonld';
 
 /**
  * Sets or updates a <meta> tag in document.head.

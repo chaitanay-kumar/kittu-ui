@@ -13,13 +13,13 @@ for (const [slug,title] of components) {
     page.on('pageerror',error=>errors.push(error.message));
     await page.goto(`/components/${slug}`);
     await expect(page.getByRole('heading',{name:title,exact:true}).first()).toBeVisible();
-    await expect(page.locator('.kittu-control').first()).toBeVisible();
-    expect(await page.locator('.kittu-control').first().evaluate(root=>root.scrollWidth<=root.clientWidth+1)).toBe(true);
+    await expect(page.locator('.kit-control').first()).toBeVisible();
+    expect(await page.locator('.kit-control').first().evaluate(root=>root.scrollWidth<=root.clientWidth+1)).toBe(true);
     for(const theme of ['light','dark']) {
       await page.evaluate(value=>document.documentElement.classList.toggle('dark',value==='dark'),theme);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1)).toBe(true);
     }
-    await page.locator('.kittu-control').first().screenshot({path:testInfo.outputPath(`${slug}.png`)});
+    await page.locator('.kit-control').first().screenshot({path:testInfo.outputPath(`${slug}.png`)});
     expect(errors).toEqual([]);
   });
 }
@@ -43,7 +43,7 @@ test('palette searches and navigates commands without opening the site search',a
 
 test('upload cancellation and prompt failure preserve useful state',async({page})=>{
   await page.goto('/components/smart-upload');
-  const upload=page.locator('.kittu-control').first();
+  const upload=page.locator('.kit-control').first();
   await upload.getByLabel('Choose files or drop them here').setInputFiles({name:'report.pdf',mimeType:'application/pdf',buffer:Buffer.from('sample')});
   // Exercise the keyboard alternative without racing the moving mobile preview.
   await upload.getByRole('button',{name:'Upload',exact:true}).press('Enter');await upload.getByRole('button',{name:'Cancel',exact:true}).press('Enter');

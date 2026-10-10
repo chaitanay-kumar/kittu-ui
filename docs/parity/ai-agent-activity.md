@@ -4,14 +4,14 @@ React is the source of truth: [component](../../src/components/ui/AIAgentActivit
 
 ## Contract and migration
 
-Keep `KittuAiAgentActivityComponent` and `kittu-ai-agent-activity`. Replace generic `items` with `activities: AgentActivityItemData[]`, `label` with `title`, and generic loading/action options with React's explicit `isRunning`. Inputs are `activities`, `isRunning` (false), `title` (Activity), `agentName`, `accentColor`, `defaultExpandedIds` (empty), and `className`. The former collection filters/actions/outputs do not belong to React's activity contract and are removed from this component.
+Keep `KitAiAgentActivityComponent` and `kit-ai-agent-activity`. Replace generic `items` with `activities: AgentActivityItemData[]`, `label` with `title`, and generic loading/action options with React's explicit `isRunning`. Inputs are `activities`, `isRunning` (false), `title` (Activity), `agentName`, `accentColor`, `defaultExpandedIds` (empty), and `className`. The former collection filters/actions/outputs do not belong to React's activity contract and are removed from this component.
 
 The exported activity contract retains all eleven activity types, five statuses, optional description/duration/timestamp, metadata, and input/output/code/language details. Only success contributes to the completed count. Timestamp is retained but not displayed, matching React. Default expanded IDs initialize once; subsequent default changes do not reset user choices. Expansion is independent per item. Expand-all includes all current IDs; collapse-all clears the set.
 
-Native compound exports are `KittuAgentActivityHeaderComponent`, `KittuAgentActivityTimelineComponent`, and `KittuAgentActivityItemComponent`. Project custom parts or arbitrary content into the root to replace its default header/timeline. Header props include `title`, `agentName`, `showControls`, and `className`; item props include required `activity`, `isLast`, and `className`. The public `KittuAgentActivityController` provides the native equivalent of React's context state and expansion operations.
+Native compound exports are `KitAgentActivityHeaderComponent`, `KitAgentActivityTimelineComponent`, and `KitAgentActivityItemComponent`. Project custom parts or arbitrary content into the root to replace its default header/timeline. Header props include `title`, `agentName`, `showControls`, and `className`; item props include required `activity`, `isLast`, and `className`. The public `KitAgentActivityController` provides the native equivalent of React's context state and expansion operations.
 
 ```html
-<kittu-ai-agent-activity
+<kit-ai-agent-activity
   [activities]="trace"
   [isRunning]="running"
   agentName="Assistant"

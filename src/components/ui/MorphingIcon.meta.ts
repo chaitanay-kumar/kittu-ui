@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-export const MorphingIconMeta: KittuUIComponentMeta = {
+export const MorphingIconMeta: KitUIComponentMeta = {
   title: 'Morphing Icon',
   tagline: 'Smooth cross-fade rotation morphing between two icons or states.',
   description: 'An animated micro-interaction wrapper that smoothly morphs between two icon states with coordinated rotation, scale, and cross-fade transitions.',

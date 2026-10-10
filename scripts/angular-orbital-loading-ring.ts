@@ -1,7 +1,7 @@
 export const orbitalLoadingRingPort={
  imports:`import {ViewEncapsulation} from '@angular/core';
 import type {OrbitalLoadingRingVariant} from './orbital-loading-ring-types';`,stylesFile:'./orbital-loading-ring.css',
- hostMetadata:`{'data-kittu':'orbital-loading-ring','role':'status','[attr.aria-label]':'accessibleLabel()','[style.width.px]':'size()','[style.height.px]':'size()','[class]':'"k-orbital-parity "+className()'}`,
+ hostMetadata:`{'data-kit':'orbital-loading-ring','role':'status','[attr.aria-label]':'accessibleLabel()','[style.width.px]':'size()','[style.height.px]':'size()','[class]':'"k-orbital-parity "+className()'}`,
  description:'React-matched orbital status indicator with three variants, size/speed controls, labelled SVG tracks, rotating satellites and a static reduced-motion fallback.',
  inputs:['size: number','speed: number','variant: OrbitalLoadingRingVariant','label: string','className: string'],outputs:[],
  template:`<span class="k-orbital-label">{{label()}}</span><svg class="k-orbital-tracks" viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="50" r="44" stroke="#282828" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="50" cy="50" r="30" stroke="#333333" stroke-width="1.5"/></svg><div class="k-orbital-outer" [style.animation]="outerAnimation()"><span class="k-orbital-satellite-outer"></span>@if(variant()!=='minimal'){<span class="k-orbital-satellite-bottom"></span>}</div><div class="k-orbital-inner" [style.animation]="innerAnimation()"><span class="k-orbital-satellite-inner"></span>@if(variant()==='dense'){<span class="k-orbital-satellite-right"></span>}</div><div class="k-orbital-core" [style.animation]="coreAnimation()"></div>`,

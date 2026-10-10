@@ -3,7 +3,7 @@ import { ANGULAR_PORTS } from "../src/lib/framework/angular-ports";
 
 async function demo(page: Page, id: string) {
   await page.goto(`/angular-demo/index.html?component=${id}`);
-  await expect(page.locator(`[data-kittu="${id}"]`)).toBeVisible();
+  await expect(page.locator(`[data-kit="${id}"]`)).toBeVisible();
 }
 for (const theme of ["light", "dark"]) {
   test(`all 108 Angular ports render and dispose in ${theme} theme`, async ({
@@ -25,7 +25,7 @@ for (const theme of ["light", "dark"]) {
           history.pushState(null, "", url);
           dispatchEvent(new PopStateEvent("popstate"));
         }, port.id);
-        const roots = page.locator(`[data-kittu="${port.id}"]`);
+        const roots = page.locator(`[data-kit="${port.id}"]`);
         const expectedCount = port.id === "button" ? 11 : port.id === "morphing-icon" ? 6 : 1;
         await expect(roots).toHaveCount(expectedCount);
         const component = roots.first();
@@ -93,7 +93,7 @@ test("Angular website has the complete catalog and framework-specific usage", as
   await expect(page.frameLocator("iframe").getByRole("heading",{name:"Component Registry",exact:true})).toBeVisible();
   await page.getByRole("tab",{name:"Usage",exact:true}).click();
   await expect(
-    page.getByText("KittuAdvancedDataTableComponent", { exact: false }).first(),
+    page.getByText("KitAdvancedDataTableComponent", { exact: false }).first(),
   ).toBeVisible();
 });
 
@@ -150,8 +150,8 @@ test("login preserves failed values and sign-up checks confirmation", async ({
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("status")).toHaveText("Submission completed.");
   await demo(page, "sign-up");
-  await page.getByLabel("Name", { exact: true }).fill("Kittu");
-  await page.getByLabel("Email", { exact: true }).fill("kittu@example.com");
+  await page.getByLabel("Name", { exact: true }).fill("Kit");
+  await page.getByLabel("Email", { exact: true }).fill("kit@example.com");
   await page.getByLabel("Password", { exact: true }).fill("password123");
   await page
     .getByLabel("Confirm password", { exact: true })
@@ -197,7 +197,7 @@ test("tabs, menus, tooltip and modal retain accessible focus behavior", async ({
     "true",
   );
   for(const id of ['hamburger-menu','gooey-menu','origin-dropdown']){
-    await demo(page,id);const menu=page.locator(`[data-kittu="${id}"] button`).first();await menu.click();
+    await demo(page,id);const menu=page.locator(`[data-kit="${id}"] button`).first();await menu.click();
     await expect(menu).toHaveAttribute('aria-expanded','true');const first=page.getByRole('button',{name:'Design',exact:true});await first.focus();await first.press('ArrowDown');
     await expect(page.getByRole('button',{name:'Build',exact:true})).toBeFocused();await expect(menu).toHaveAttribute('aria-expanded','true');
     await page.keyboard.press('Escape');await expect(menu).toHaveAttribute('aria-expanded','false');await expect(menu).toBeFocused();

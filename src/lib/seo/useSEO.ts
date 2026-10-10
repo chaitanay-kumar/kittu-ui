@@ -109,9 +109,9 @@ export function useSEO({
       // catalog schema. This keeps the initial app-shell bundle free of
       // the 386 KB components-data.ts module.
       let cancelled = false;
-      import('../../components/registry/components-data').then(({ KITTU_COMPONENTS }) => {
+      import('../../components/registry/components-data').then(({ KIT_COMPONENTS }) => {
         if (cancelled) return;
-        const structuredData = generateComponentCatalogSchema(KITTU_COMPONENTS, componentPage);
+        const structuredData = generateComponentCatalogSchema(KIT_COMPONENTS, componentPage);
 
         updatePageMetadata({
           title: pageTitle,

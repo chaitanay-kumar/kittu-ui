@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface TimelineEvent {
   id: string;
   title: string;
@@ -48,7 +48,7 @@ export function TimelineScrubber({
   }
   return (
     <section
-      className="kittu-control kittu-surface kittu-stack"
+      className="kit-control kit-surface kit-stack"
       aria-busy={loading}
     >
       <label htmlFor={id}>Timeline · {events.length} events</label>
@@ -65,12 +65,12 @@ export function TimelineScrubber({
         }
         onChange={(e) => select(Number(e.target.value))}
       />
-      <div role="status" className="kittu-stack">
+      <div role="status" className="kit-stack">
         {loading ? (
           <p>Loading timeline…</p>
         ) : event ? (
           <>
-            <p className="kittu-muted">
+            <p className="kit-muted">
               {event.time} · {index + 1} of {events.length}
             </p>
             <h3>{event.title}</h3>
@@ -80,7 +80,7 @@ export function TimelineScrubber({
           <p>No events yet.</p>
         )}
       </div>
-      <div className="kittu-row">
+      <div className="kit-row">
         <button
           type="button"
           disabled={disabled || loading || index === 0}

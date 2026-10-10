@@ -6,7 +6,7 @@ export default function Preview({ isHovered = false }: ComponentPreviewProps) {
     <div className="relative w-full h-full min-h-[260px] sm:min-h-[300px] flex flex-col items-center justify-center p-6 bg-transparent overflow-hidden select-none">
       <div className="flex flex-col items-center gap-3 relative z-10 text-center">
         <GlitchText
-          text="KITTU_UI MOTION"
+          text="KIT_UI MOTION"
           variant={isHovered ? 'rgb-split' : 'slice'}
           intensity={isHovered ? 'high' : 'medium'}
           color1="#FFFFFF"

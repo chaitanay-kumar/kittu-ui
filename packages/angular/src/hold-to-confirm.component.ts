@@ -9,13 +9,13 @@ import {
 } from "@angular/core";
 
 @Component({
-  selector: "kittu-hold-to-confirm",
+  selector: "kit-hold-to-confirm",
   standalone: true,
   host: { style: "display:block" },
-  template: ` <div class="kittu-control kittu-stack">
+  template: ` <div class="kit-control kit-stack">
     <button
       type="button"
-      class="kittu-hold"
+      class="kit-hold"
       [disabled]="disabled() || state() === 'pending' || state() === 'success'"
       (pointerdown)="pointerStart($event)"
       (pointerup)="cancel()"
@@ -26,7 +26,7 @@ import {
       (keyup)="keyUp($event)"
     >
       <span
-        class="kittu-hold-fill"
+        class="kit-hold-fill"
         [style.transform]="'scaleX(' + progress() + ')'"
       ></span
       >{{
@@ -42,7 +42,7 @@ import {
       max="1"
       [value]="progress()"
     ></progress>
-    <p class="kittu-status" role="status">
+    <p class="kit-status" role="status">
       {{
         state() === "error"
           ? "Confirmation failed. Hold again to retry."
@@ -58,7 +58,7 @@ import {
     }
   </div>`,
 })
-export class KittuHoldToConfirmComponent {
+export class KitHoldToConfirmComponent {
   readonly label = input("Hold to confirm");
   readonly duration = input(1200);
   readonly disabled = input(false);

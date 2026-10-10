@@ -3,7 +3,7 @@ import type { AgentActivityItemData } from './agent-activity-types';
 
 /** Native equivalent of the React AgentActivity context. */
 @Directive()
-export class KittuAgentActivityController {
+export class KitAgentActivityController {
   readonly activities = input<AgentActivityItemData[]>([]);
   readonly isRunning = input(false);
   readonly title = input('Activity');

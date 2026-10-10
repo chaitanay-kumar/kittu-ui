@@ -75,7 +75,7 @@ const PRO_SHIMMER_STYLES = `
   /* ---------------------------------------------------------------- */
   /* Keyframes                                                        */
   /* ---------------------------------------------------------------- */
-  @keyframes kittu-ui-pro-shimmer {
+  @keyframes kit-ui-pro-shimmer {
     0%   { transform: translateX(-110%); }
     100% { transform: translateX(110%); }
   }
@@ -85,7 +85,7 @@ const PRO_SHIMMER_STYLES = `
   /* always-on, so the "polished metal" surface reads at rest too.    */
   /* ---------------------------------------------------------------- */
   .group\\/cta:hover [data-pro-shimmer] {
-    animation: kittu-ui-pro-shimmer 1600ms ease-out forwards;
+    animation: kit-ui-pro-shimmer 1600ms ease-out forwards;
     opacity: 1;
   }
 
@@ -93,7 +93,7 @@ const PRO_SHIMMER_STYLES = `
   /* Reduced motion: disable all motion but keep the static sheen.    */
   /* ---------------------------------------------------------------- */
   @media (prefers-reduced-motion: reduce) {
-    @keyframes kittu-ui-pro-shimmer {
+    @keyframes kit-ui-pro-shimmer {
       0%, 100% { transform: translateX(-110%); opacity: 0; }
     }
     [data-pro-shimmer] {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface HoldToConfirmProps {
   label?: string;
   duration?: number;
@@ -83,10 +83,10 @@ export function HoldToConfirm({
     }, 16);
   };
   return (
-    <div className="kittu-control kittu-stack">
+    <div className="kit-control kit-stack">
       <button
         type="button"
-        className="kittu-hold"
+        className="kit-hold"
         disabled={disabled || status === "pending" || status === "success"}
         onPointerDown={(e) => {
           if (e.button !== 0) return;
@@ -112,7 +112,7 @@ export function HoldToConfirm({
         }}
       >
         <span
-          className="kittu-hold-fill"
+          className="kit-hold-fill"
           style={{ transform: `scaleX(${progress})` }}
         />
         {status === "pending"
@@ -126,7 +126,7 @@ export function HoldToConfirm({
         max={1}
         value={progress}
       />
-      <p className="kittu-status" role="status">
+      <p className="kit-status" role="status">
         {status === "error"
           ? "Confirmation failed. Hold again to retry."
           : status === "success"

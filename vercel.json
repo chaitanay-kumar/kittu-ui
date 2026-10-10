@@ -68,7 +68,7 @@
       ]
     },
     {
-      "source": "/(og-image|kittu-ui-og-concept-v3).(png|webp|jpg)",
+      "source": "/(og-image|kit-ui-og-concept-v3).(png|webp|jpg)",
       "headers": [
         {
           "key": "Cache-Control",

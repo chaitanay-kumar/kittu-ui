@@ -5,7 +5,7 @@ export type ComponentCategory = 'All' | 'Recent' | 'Motion' | 'Buttons' | 'Navig
  *
  * Contains only the fields required by the homepage, routing, and card previews.
  * Heavy fields (usageCode, props, accessibility, features, files) are omitted
- * to keep the entry chunk small. The full KittuComponentMeta is available only
+ * to keep the entry chunk small. The full KitComponentMeta is available only
  * in lazy-loaded route chunks that actually need it.
  */
 export interface ComponentCatalogIndex {
@@ -31,7 +31,7 @@ export interface ComponentProp {
  * Human-written metadata for an Kit UI component.
  * Slugs, dependencies, source paths, and CLI commands are auto-derived.
  */
-export interface KittuUIComponentMeta {
+export interface KitUIComponentMeta {
   title: string;
   description: string;
   category?: Exclude<ComponentCategory, 'All'>;
@@ -49,7 +49,7 @@ export interface KittuUIComponentMeta {
  * Complete component catalog entry used across the Kit UI website.
  * Contains human-written metadata + auto-derived attributes.
  */
-export interface KittuComponentMeta {
+export interface KitComponentMeta {
   id: string;
   name: string;
   tagline: string;

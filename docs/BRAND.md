@@ -25,8 +25,12 @@ The canonical editable asset is `public/kit-fox.svg`. `src/components/layout/Kit
 
 Run `npm run brand:generate` with the supported Node version to regenerate the transparent navigation logo, adaptive SVG favicon, ICO, install icons, and SVG/PNG/WebP social cards. Keep the component's path synchronized with the canonical SVG when changing the mark. Regeneration uses Sharp and native SVG artwork; no generated raster source is required.
 
-## Name and compatibility
+## Names and integration identifiers
 
-The public product name is **Kit UI**, with **Kit Fox** as its mascot. The former public name was Kittu UI. The existing `chaitanay-kumar/kittu-ui` repository, `/kittu-ui/` Pages address, `kittu-ui-angular` package artifact, `Kittu*` public exports, selectors, and existing integration prefixes remain compatibility identifiers. A visual rebrand does not silently break consuming applications or shared URLs. A future namespace migration should provide aliases and explicit migration instructions.
+The public product name is **Kit UI**, with **Kit Fox** as its mascot. The canonical repository is `chaitanay-kumar/kit-ui`, the implementation branch is `feat/kit-ui-library`, and the Pages site uses `/kit-ui/`.
 
-Update UI copy, documentation headings, manifests, metadata, and social assets to the current name. Preserve the original MIT notices verbatim and maintain independent upstream attribution. Kit UI is not affiliated with EasyUI.
+Use `kit-ui-angular` for Angular package imports, `Kit*` for public Angular exports, `kit-*` for element selectors, and `kitButton` / `kitNeonEdgeButton` for button directives. CSS, DOM data attributes, storage keys, and iframe messages use the `kit` prefix. The root npm project is `kit-ui`.
+
+This namespace migration changes consumer imports and templates. Follow [the migration guide](KIT_NAMESPACE_MIGRATION.md) when updating an existing application. New examples and commands must use the current identifiers.
+
+Preserve original MIT notices verbatim and maintain independent upstream attribution. Kit UI is not affiliated with EasyUI.

@@ -1,11 +1,11 @@
 import { Component, DestroyRef, inject, signal } from '@angular/core';
-import { KittuAiAgentActivityComponent } from 'kittu-ui-angular';
-import type { AgentActivityItemData } from 'kittu-ui-angular';
+import { KitAiAgentActivityComponent } from 'kit-ui-angular';
+import type { AgentActivityItemData } from 'kit-ui-angular';
 import { INITIAL_ACTIVITIES } from './agent-data';
 
-@Component({selector:'kittu-agent-demo',standalone:true,imports:[KittuAiAgentActivityComponent],styleUrls:['./agent-demo.css'],template:`
+@Component({selector:'kit-agent-demo',standalone:true,imports:[KitAiAgentActivityComponent],styleUrls:['./agent-demo.css'],template:`
 <div class="k-aa-demo"><div class="k-aa-demo-controls"><div><span>Status:</span>@if(isRunning()){<span class="k-aa-demo-running"><i></i>Running trace</span>}@else{<span>Completed</span>}</div><button type="button" (click)="restart()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg><span>Restart</span></button></div>
-<kittu-ai-agent-activity [activities]="activities()" [isRunning]="isRunning()" [defaultExpandedIds]="['act-1','act-4']"/>
+<kit-ai-agent-activity [activities]="activities()" [isRunning]="isRunning()" [defaultExpandedIds]="['act-1','act-4']"/>
 </div>`})
 export class AgentDemoComponent {
  readonly activities=signal<AgentActivityItemData[]>([...INITIAL_ACTIVITIES]);

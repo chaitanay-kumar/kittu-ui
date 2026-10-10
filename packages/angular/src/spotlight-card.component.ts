@@ -3,8 +3,8 @@ import { Component, ElementRef, computed, inject, input, signal } from '@angular
 import {ViewEncapsulation} from '@angular/core';
 import type {SpotlightCardMouseHandler} from './spotlight-card-types';
 @Component({
- selector:"kittu-spotlight-card", standalone:true,
- host:{'data-kittu':'spotlight-card','[class]':'"k-spotlight-parity group "+className()','(mousemove)':'move($event)','(mouseleave)':'leave($event)'},
+ selector:"kit-spotlight-card", standalone:true,
+ host:{'data-kit':'spotlight-card','[class]':'"k-spotlight-parity group "+className()','(mousemove)':'move($event)','(mouseleave)':'leave($event)'},
  encapsulation:ViewEncapsulation.None,styleUrls:["./spotlight-card.css"],
 template:`
 <div class="k-spotlight-border" [style.background]="borderGradient()">
@@ -16,7 +16,7 @@ template:`
 </div>
 `
 })
-export class KittuSpotlightCardComponent {
+export class KitSpotlightCardComponent {
 readonly spotlightColor=input<string,string|undefined>('rgba(56, 189, 248, 0.08)',{transform:value=>value===undefined?'rgba(56, 189, 248, 0.08)':value});
 readonly spotlightSize=input<number,number|undefined>(350,{transform:value=>value===undefined?350:value});
 readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});

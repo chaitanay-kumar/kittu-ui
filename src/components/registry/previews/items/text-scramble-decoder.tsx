@@ -7,7 +7,7 @@ export default function Preview({ isHovered = false }: ComponentPreviewProps) {
           <div className="h-52 flex items-center justify-center p-4">
             <TextScrambleDecoder
               key={hovered ? 'hovered' : 'idle'}
-              text="KITTU_UI.SYNCED"
+              text="KIT_UI.SYNCED"
               trigger="mount"
               duration={650}
               className="text-xs"

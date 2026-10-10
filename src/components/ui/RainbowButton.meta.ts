@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from "../../types/component";
+import type { KitUIComponentMeta } from "../../types/component";
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: "Rainbow Button",
   description:
     "A vibrant button featuring an animated chromatic rainbow gradient border, dynamic 3D surface reflections, and an ambient blurred rainbow underglow.",

@@ -1,20 +1,20 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
 import { Component } from '@angular/core';
-import { KittuActionController } from './port-controllers';
+import { KitActionController } from './port-controllers';
 
 @Component({
- selector:"kittu-typewriter-button", standalone:true,
- host:{'data-kittu':"typewriter-button",style:'display:block;min-width:0'},
+ selector:"kit-typewriter-button", standalone:true,
+ host:{'data-kit':"typewriter-button",style:'display:block;min-width:0'},
  template:`
-<div class="kittu-control kittu-stack">
+<div class="kit-control kit-stack">
 <button class="k-action" type="button" [disabled]="blocked()" [attr.aria-busy]="loading()||busy()" (click)="run()">
 <span class="k-button-text">
 <ng-content>{{busy()?'Working…':label()||'Start a new story'}}</ng-content>
 </span>
 </button>
-<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}</div>
+<p role="status" class="kit-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}</div>
 `
 })
-export class KittuTypewriterButtonComponent extends KittuActionController {
+export class KitTypewriterButtonComponent extends KitActionController {
 
 }

@@ -3,7 +3,7 @@ import type { TemplateRef } from '@angular/core';
 import type { ColumnDef, DataTableRowContext, DataTableViewMode, SortDirection } from './data-table-types';
 
 @Directive()
-export class KittuDataTableController<T = any> {
+export class KitDataTableController<T = any> {
   readonly data = input<T[]>([]);
   readonly columns = input<ColumnDef<T>[]>([]);
   readonly getRowId = input<(row: T, index: number) => string>((row: any, index) => row.id || `row-${index}`);

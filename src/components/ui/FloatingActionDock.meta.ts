@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Floating Action Dock',
   description: 'A floating quick-action toolbar inspired by macOS dock physics with smooth magnification and subtle tooltips.',
   category: 'Navigation',

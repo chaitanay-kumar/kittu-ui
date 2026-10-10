@@ -1,23 +1,23 @@
-.kittu-control {
+.kit-control {
   width: 100%;
   min-width: 0;
   color: var(--text-primary, #202020);
   font: inherit;
   box-sizing: border-box;
 }
-.kittu-control *, .kittu-control *::before, .kittu-control *::after { box-sizing: border-box; }
-.kittu-control > *, .kittu-row > * { min-width: 0; max-width: 100%; }
-.kittu-control textarea { min-width: 0; resize: vertical; }
-.kittu-control input[type=file] { width: 100%; min-width: 0; }
-.kittu-surface {
+.kit-control *, .kit-control *::before, .kit-control *::after { box-sizing: border-box; }
+.kit-control > *, .kit-row > * { min-width: 0; max-width: 100%; }
+.kit-control textarea { min-width: 0; resize: vertical; }
+.kit-control input[type=file] { width: 100%; min-width: 0; }
+.kit-surface {
   padding: 1.25rem;
   border: 1px solid var(--border, #d4d4d4);
   border-radius: 1.25rem;
   background: var(--bg-elevated, var(--bg, #fff));
   box-shadow: 0 8px 24px #00000008;
 }
-.kittu-control button,
-.kittu-button {
+.kit-control button,
+.kit-button {
   max-width: 100%;
   overflow-wrap: anywhere;
   padding: 0.6rem 0.9rem;
@@ -31,21 +31,21 @@
     background 0.18s;
   font: inherit;
 }
-.kittu-control button:hover:not(:disabled) {
+.kit-control button:hover:not(:disabled) {
   background: var(--surface-hover, #8882);
   transform: translateY(-1px);
 }
-.kittu-control :is(button, input, textarea, select):focus-visible,
-.kittu-button:focus-visible {
+.kit-control :is(button, input, textarea, select):focus-visible,
+.kit-button:focus-visible {
   outline: 2px solid var(--text-primary, #333);
   outline-offset: 3px;
 }
-.kittu-control :disabled {
+.kit-control :disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.kittu-control input:not([type="range"]):not([type="file"]),
-.kittu-control textarea {
+.kit-control input:not([type="range"]):not([type="file"]),
+.kit-control textarea {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid var(--border, #ccc);
@@ -54,39 +54,39 @@
   color: inherit;
   font: inherit;
 }
-.kittu-control p,
-.kittu-control h3 {
+.kit-control p,
+.kit-control h3 {
   margin: 0;
   overflow-wrap: anywhere;
 }
-.kittu-control h3 {
+.kit-control h3 {
   font-weight: 600;
 }
-.kittu-muted {
+.kit-muted {
   color: var(--text-secondary, #737373);
   font-size: 0.875rem;
 }
-.kittu-stack {
+.kit-stack {
   display: grid;
   gap: 0.85rem;
 }
-.kittu-row {
+.kit-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem;
 }
-.kittu-status {
+.kit-status {
   min-height: 1.5em;
   font-size: 0.875rem;
   overflow-wrap: anywhere;
 }
-.kittu-control progress {
+.kit-control progress {
   width: 100%;
   height: 0.5rem;
   accent-color: var(--text-primary, #333);
 }
-.kittu-dialog {
+.kit-dialog {
   color: var(--text-primary, #222);
   background: var(--bg, #fff);
   border: 1px solid var(--border, #ccc);
@@ -95,11 +95,11 @@
   max-width: min(36rem, calc(100vw - 2rem));
   width: 100%;
 }
-.kittu-dialog::backdrop {
+.kit-dialog::backdrop {
   background: #0008;
   backdrop-filter: blur(4px);
 }
-.kittu-sheet {
+.kit-sheet {
   position: fixed;
   inset: auto 0 0;
   margin: 0 auto;
@@ -109,12 +109,12 @@
   overflow: auto;
   transition: height 0.25s;
 }
-.kittu-sheet-handle {
+.kit-sheet-handle {
   touch-action: none;
   width: 100%;
   user-select: none;
 }
-.kittu-sheet-handle::before {
+.kit-sheet-handle::before {
   content: "";
   display: block;
   width: 3rem;
@@ -124,38 +124,38 @@
   margin: 0 auto 0.5rem;
   opacity: 0.4;
 }
-.kittu-list {
+.kit-list {
   padding: 0;
   margin: 0;
   list-style: none;
   display: grid;
   gap: 0.6rem;
 }
-.kittu-list button {
+.kit-list button {
   width: 100%;
   text-align: left;
 }
-.kittu-list [aria-selected="true"] {
+.kit-list [aria-selected="true"] {
   background: var(--text-primary, #222);
   color: var(--bg, #fff);
 }
-.kittu-preview {
+.kit-preview {
   max-width: 5rem;
   max-height: 4rem;
   object-fit: cover;
   border-radius: 0.5rem;
 }
-.kittu-swipe {
+.kit-swipe {
   touch-action: pan-y;
   transition: transform 0.2s;
   min-width: 0;
 }
-.kittu-hold {
+.kit-hold {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
-.kittu-hold-fill {
+.kit-hold-fill {
   position: absolute;
   inset: 0;
   background: #8884;
@@ -163,8 +163,8 @@
   z-index: -1;
 }
 @media (prefers-reduced-motion: reduce) {
-  .kittu-control *,
-  .kittu-dialog {
+  .kit-control *,
+  .kit-dialog {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;

@@ -14,12 +14,12 @@
 
     <!-- Pre-mount theme bootstrap. Runs synchronously before React paints so
          there is no flash of incorrect theme on first load. Reads
-         localStorage('kittu-ui-theme') first, then falls back to the OS
+         localStorage('kit-ui-theme') first, then falls back to the OS
          prefers-color-scheme. -->
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem('kittu-ui-theme');
+          var stored = localStorage.getItem('kit-ui-theme');
           var theme = stored === 'light' || stored === 'dark'
             ? stored
             : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -67,7 +67,7 @@
     <meta name="twitter:image:alt" content="Kit UI — Nimble by nature. Precise by design." />
 
     <!-- Base JSON-LD Structured Data for Initial Crawl -->
-    <script id="kittu-ui-seo-jsonld" type="application/ld+json">
+    <script id="kit-ui-seo-jsonld" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -80,7 +80,7 @@
           "author": {
             "@type": "Person",
             "name": "Kit UI contributors",
-            "url": "https://github.com/chaitanay-kumar/kittu-ui"
+            "url": "https://github.com/chaitanay-kumar/kit-ui"
           },
           "potentialAction": {
             "@type": "SearchAction",
@@ -97,7 +97,7 @@
           "url": "http://localhost:5173",
           "logo": "http://localhost:5173/logo.png",
           "sameAs": [
-            "https://github.com/chaitanay-kumar/kittu-ui"
+            "https://github.com/chaitanay-kumar/kit-ui"
           ],
           "founder": {
             "@type": "Person",

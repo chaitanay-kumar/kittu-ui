@@ -2,16 +2,16 @@ export const buttonPort={
  imports:`import {ViewEncapsulation,booleanAttribute} from '@angular/core';
 import {NgTemplateOutlet} from '@angular/common';
 import type {ButtonVariant,ButtonSize,ButtonIcon} from './button-types';
-import {installButtonPress} from './button-motion';`,componentImports:'NgTemplateOutlet',stylesFile:'./button.css',componentSelector:'kittu-button,button[kittuButton]',
- hostMetadata:`{'data-kittu':'button','[class]':'native ? buttonClass() : "k-button-host"','[attr.type]':'native ? type() : null','[attr.disabled]':'native && blocked() ? "" : null','[attr.aria-busy]':'native ? isLoading() : null'}`,
+import {installButtonPress} from './button-motion';`,componentImports:'NgTemplateOutlet',stylesFile:'./button.css',componentSelector:'kit-button,button[kitButton]',
+ hostMetadata:`{'data-kit':'button','[class]':'native ? buttonClass() : "k-button-host"','[attr.type]':'native ? type() : null','[attr.disabled]':'native && blocked() ? "" : null','[attr.aria-busy]':'native ? isLoading() : null'}`,
  description:'React-matched native button with nine visual variants, four sizes, projected content/icons, loading text, disabled state and native form events.',
  inputs:['variant: ButtonVariant','size: ButtonSize','isLoading: boolean','loadingText: string','leftIcon: ButtonIcon','rightIcon: ButtonIcon','fullWidth: boolean','disabled: boolean','type: button | submit | reset','className: string'],outputs:[],
  template:`<ng-template #content>
 @if(variant()==='gradient'){<div class="k-button-shimmer" aria-hidden="true"></div>}
 @if(isLoading()){<svg aria-hidden="true" class="k-button-spinner" [class.k-button-spinner-sm]="size()==='sm'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>}
-@else{<span class="k-button-slot">@if(leftIcon()){<ng-container [ngTemplateOutlet]="leftIcon()!"/>}@else{<ng-content select="[kittuButtonLeftIcon]"/>}</span>}
+@else{<span class="k-button-slot">@if(leftIcon()){<ng-container [ngTemplateOutlet]="leftIcon()!"/>}@else{<ng-content select="[kitButtonLeftIcon]"/>}</span>}
 @if(isLoading() && loadingText()){<span>{{loadingText()}}</span>}@else{<span class="k-button-content"><ng-content/></span>}
-@if(!isLoading()){<span class="k-button-slot">@if(rightIcon()){<ng-container [ngTemplateOutlet]="rightIcon()!"/>}@else{<ng-content select="[kittuButtonRightIcon]"/>}</span>}
+@if(!isLoading()){<span class="k-button-slot">@if(rightIcon()){<ng-container [ngTemplateOutlet]="rightIcon()!"/>}@else{<ng-content select="[kitButtonRightIcon]"/>}</span>}
 </ng-template>
 @if(native){<ng-container [ngTemplateOutlet]="content"/>}@else{<button [class]="buttonClass()" [type]="type()" [disabled]="blocked()" [attr.aria-busy]="isLoading()"><ng-container [ngTemplateOutlet]="content"/></button>}`,
  body:`readonly native=inject<ElementRef<HTMLElement>>(ElementRef).nativeElement.tagName==='BUTTON';readonly variant=input<ButtonVariant,ButtonVariant|undefined>('primary',{transform:value=>value===undefined?'primary':value});readonly size=input<ButtonSize,ButtonSize|undefined>('md',{transform:value=>value===undefined?'md':value});readonly isLoading=input(false,{transform:booleanAttribute});readonly loadingText=input<string>();readonly leftIcon=input<ButtonIcon>();readonly rightIcon=input<ButtonIcon>();readonly fullWidth=input(false,{transform:booleanAttribute});readonly disabled=input(false,{transform:booleanAttribute});readonly type=input<'button'|'submit'|'reset','button'|'submit'|'reset'|undefined>('button',{transform:value=>value===undefined?'button':value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});readonly blocked=computed(()=>this.disabled()||this.isLoading());readonly buttonClass=computed(()=>['k-button-parity','k-button-'+this.variant(),this.variant()==='link'?'':'k-button-'+this.size(),this.fullWidth()?'k-button-full':'',this.blocked()?'k-button-disabled':'',this.className()].filter(Boolean).join(' '));constructor(){installButtonPress(this.blocked);}`

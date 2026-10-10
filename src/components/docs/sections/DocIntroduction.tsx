@@ -27,7 +27,7 @@ export const DocIntroduction: React.FC<DocIntroductionProps> = ({ onNavigateSect
 
       <p className="text-sm text-text-secondary">
         Kit UI is independently maintained. Read the{' '}
-        <a className="underline focus-ring" href="https://github.com/chaitanay-kumar/kittu-ui/blob/feat/kittu-ui-library/ATTRIBUTION.md">origin and license attribution</a>.
+        <a className="underline focus-ring" href="https://github.com/chaitanay-kumar/kit-ui/blob/feat/kit-ui-library/ATTRIBUTION.md">origin and license attribution</a>.
       </p>
 
       {/* Quick Copy Installation */}
@@ -46,7 +46,7 @@ export const DocIntroduction: React.FC<DocIntroductionProps> = ({ onNavigateSect
           folder.
         </p>
         <DocCodeBlock
-          code="npx shadcn@latest add chaitanay-kumar/kittu-ui/magnetic-button"
+          code="npx shadcn@latest add chaitanay-kumar/kit-ui/magnetic-button"
           language="bash"
           isTerminal={true}
         />

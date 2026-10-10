@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Animated Tabs',
   description: 'A tabbed switcher with physical pill indicator sliding smoothly between active items with content cross-fades.',
   category: 'Navigation',

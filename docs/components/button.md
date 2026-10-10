@@ -15,7 +15,7 @@ A unified, production-ready Button component supporting 8 visual variants, 4 siz
 ## Installation
 
 ```bash
-npx shadcn@latest add chaitanay-kumar/kittu-ui/button
+npx shadcn@latest add chaitanay-kumar/kit-ui/button
 ```
 
 ## Basic Usage

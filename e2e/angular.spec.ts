@@ -25,11 +25,11 @@ for (const [id, name] of components) {
     const frame = page.frameLocator(
       `iframe[title="${name} — native Angular demo"]`,
     );
-    await expect(frame.locator("kittu-angular-demo")).toHaveAttribute(
+    await expect(frame.locator("kit-angular-demo")).toHaveAttribute(
       "ng-version",
       /^20\./,
     );
-    await expect(frame.locator(".kittu-control").first()).toBeVisible();
+    await expect(frame.locator(".kit-control").first()).toBeVisible();
     expect(
       await frame
         .locator("body")
@@ -66,7 +66,7 @@ test("framework switch persists, filters catalog, and restores React detail", as
   ).toBeVisible();
   await page.goto("/components/magnetic-button?framework=angular");
   await expect(page.getByRole('heading',{name:'Magnetic Button',exact:true})).toBeVisible();
-  await expect(page.frameLocator('iframe').locator('kittu-magnetic-button')).toBeVisible();
+  await expect(page.frameLocator('iframe').locator('kit-magnetic-button')).toBeVisible();
 });
 test("Angular interactions cancel, retry and preserve drafts", async ({
   page,
@@ -160,7 +160,7 @@ test("Angular hold confirmation, timeline and expandable card support keyboard",
 });
 
 test("download serves the built Angular package", async ({ request }) => {
-  const response = await request.get("/downloads/kittu-ui-angular-0.1.0.tgz");
+  const response = await request.get("/downloads/kit-ui-angular-0.1.0.tgz");
   expect(response.ok()).toBe(true);
   const bytes = await response.body();
   expect(bytes.length).toBeGreaterThan(10000);

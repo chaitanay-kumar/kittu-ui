@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Login',
   description: 'A production-ready authentication card built with the Kit UI form system, featuring password show/hide, remember me, validation states, and social logins.',
   category: 'Auth',

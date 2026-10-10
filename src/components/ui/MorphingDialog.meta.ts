@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Morphing Dialog',
   description: 'An expandable card trigger that fluidly morphs into a centered dialog without jarring popup animations.',
   category: 'Overlays',

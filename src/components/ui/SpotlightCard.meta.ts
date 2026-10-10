@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Spotlight Card',
   description: 'A dark elevated surface that illuminates border and inner surfaces dynamically based on mouse pointer coordinates.',
   category: 'Motion',

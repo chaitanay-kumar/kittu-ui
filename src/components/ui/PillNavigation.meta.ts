@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Pill Navigation',
   description: 'A restrained segmented navigation control with shared pill layout morphing and nested submenu dropdown support.',
   category: 'Navigation',

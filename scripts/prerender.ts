@@ -18,7 +18,7 @@ import {
   ComponentDetailPage,
 } from '../src/App';
 import { preloadComponentDemo } from '../src/components/docs/ComponentDetailPage';
-import { KITTU_COMPONENTS } from '../src/components/registry/components-data';
+import { KIT_COMPONENTS } from '../src/components/registry/components-data';
 import { ITEMS_PER_PAGE } from '../src/lib/components';
 import { SEO_CONFIG } from '../src/lib/seo/config';
 import {
@@ -124,9 +124,9 @@ function buildHtml(
   // Replace JSON-LD script tag
   if (route.structuredData) {
     const jsonLdString = JSON.stringify(route.structuredData, null, 2);
-    const jsonLdTag = `<script id="kittu-ui-seo-jsonld" type="application/ld+json">\n${jsonLdString}\n    </script>`;
-    if (html.includes('id="kittu-ui-seo-jsonld"')) {
-      html = html.replace(/<script\s+id="kittu-ui-seo-jsonld"[^>]*>[\s\S]*?<\/script>/i, jsonLdTag);
+    const jsonLdTag = `<script id="kit-ui-seo-jsonld" type="application/ld+json">\n${jsonLdString}\n    </script>`;
+    if (html.includes('id="kit-ui-seo-jsonld"')) {
+      html = html.replace(/<script\s+id="kit-ui-seo-jsonld"[^>]*>[\s\S]*?<\/script>/i, jsonLdTag);
     } else {
       html = html.replace('</head>', `    ${jsonLdTag}\n  </head>`);
     }
@@ -172,7 +172,7 @@ export async function prerenderAllRoutes(): Promise<void> {
     AllComponentsPage.preload(),
     DocsPage.preload(),
     ComponentDetailPage.preload(),
-    ...KITTU_COMPONENTS.map((comp) => preloadComponentDemo(comp.id)),
+    ...KIT_COMPONENTS.map((comp) => preloadComponentDemo(comp.id)),
   ]);
 
   const makePrerenderElement = (routePath: string) =>
@@ -205,7 +205,7 @@ export async function prerenderAllRoutes(): Promise<void> {
 
   // 2. All Components Directory (/components)
   const componentsCanonical = getCanonicalUrl('components');
-  const catalogSchema = generateComponentCatalogSchema(KITTU_COMPONENTS, 1);
+  const catalogSchema = generateComponentCatalogSchema(KIT_COMPONENTS, 1);
   const catalogElement = makePrerenderElement('/components');
 
   routes.push({
@@ -257,7 +257,7 @@ export async function prerenderAllRoutes(): Promise<void> {
     // Each catalog page gets one canonical directory output. Keeping the
     // pagination routes explicit prevents the server from serving page 1's
     // HTML for every page number.
-    const totalComponentPages = Math.ceil(KITTU_COMPONENTS.length / ITEMS_PER_PAGE);
+    const totalComponentPages = Math.ceil(KIT_COMPONENTS.length / ITEMS_PER_PAGE);
     for (let page = 2; page <= totalComponentPages; page++) {
       const routePath = `/components/page/${page}`;
       routes.push({
@@ -267,14 +267,14 @@ export async function prerenderAllRoutes(): Promise<void> {
         description:
           'Explore Kit UI production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.',
         canonical: getCanonicalUrl(`components/page/${page}`),
-        structuredData: generateComponentCatalogSchema(KITTU_COMPONENTS, page),
+        structuredData: generateComponentCatalogSchema(KIT_COMPONENTS, page),
         element: makePrerenderElement(routePath),
       });
     }
 
-    // 4. All Individual Components (dynamically discovered from KITTU_COMPONENTS)
-    console.log(`Discovered ${KITTU_COMPONENTS.length} components for static pre-rendering:`);
-    for (const comp of KITTU_COMPONENTS) {
+    // 4. All Individual Components (dynamically discovered from KIT_COMPONENTS)
+    console.log(`Discovered ${KIT_COMPONENTS.length} components for static pre-rendering:`);
+    for (const comp of KIT_COMPONENTS) {
       const compSEO = getComponentSEO(comp);
       const compSchema = generateComponentSchema(comp);
       const compElement = makePrerenderElement(`/components/${comp.id}`);
@@ -307,7 +307,7 @@ export async function prerenderAllRoutes(): Promise<void> {
   console.log(`  - 1 Homepage (/)`);
   console.log(`  - ${totalComponentPages} Components catalog pages (/components[/page/*])`);
   console.log(`  - ${docTopicIds.length} Documentation topics (/docs/*)`);
-  console.log(`  - ${KITTU_COMPONENTS.length} Component detail pages (/components/*)`);
+  console.log(`  - ${KIT_COMPONENTS.length} Component detail pages (/components/*)`);
   console.log('========================================================\n');
 }
 

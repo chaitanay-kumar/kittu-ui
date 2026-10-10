@@ -10,7 +10,7 @@ const COMPONENTS_DATA_PATH = path.join(ROOT_DIR, 'src', 'components', 'registry'
 const PACKAGE_JSON_PATH = path.join(ROOT_DIR, 'package.json');
 const UI_DIR = path.join(ROOT_DIR, 'src', 'components', 'ui');
 
-const REPO_SLUG = 'chaitanay-kumar/kittu-ui';
+const REPO_SLUG = 'chaitanay-kumar/kit-ui';
 
 interface RegistryFile {
   path: string;
@@ -75,8 +75,8 @@ function validateRegistry(): void {
     errors.push(`Invalid or missing "$schema" in registry.json. Expected "https://ui.shadcn.com/schema/registry.json", got "${registry.$schema}"`);
   }
 
-  if (registry.name !== 'kittu-ui') {
-    errors.push(`Invalid registry "name". Expected "kittu-ui", got "${registry.name}"`);
+  if (registry.name !== 'kit-ui') {
+    errors.push(`Invalid registry "name". Expected "kit-ui", got "${registry.name}"`);
   }
 
   if (!registry.homepage || !registry.homepage.includes(REPO_SLUG)) {
@@ -200,8 +200,8 @@ function validateRegistry(): void {
     errors.push(`components-data.ts does not exist at ${COMPONENTS_DATA_PATH}`);
   } else {
     const catalogRaw = fs.readFileSync(COMPONENTS_DATA_PATH, 'utf-8');
-    if (!catalogRaw.includes('export const KITTU_COMPONENTS')) {
-      errors.push('components-data.ts does not export KITTU_COMPONENTS.');
+    if (!catalogRaw.includes('export const KIT_COMPONENTS')) {
+      errors.push('components-data.ts does not export KIT_COMPONENTS.');
     }
     if (!catalogRaw.includes('"createdAt":')) {
       errors.push('components-data.ts entries are missing the "createdAt" timestamp field.');

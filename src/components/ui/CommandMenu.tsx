@@ -114,7 +114,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({
         icon: <Terminal className="w-4 h-4 text-[#A1A1A1]" />,
         shortcut: '⌘C',
         onSelect: () => {
-          copyToClipboard('npx shadcn@latest add chaitanay-kumar/kittu-ui/magnetic-button');
+          copyToClipboard('npx shadcn@latest add chaitanay-kumar/kit-ui/magnetic-button');
           onClose();
         },
       },

@@ -2,10 +2,10 @@
 import { Component, input, output } from '@angular/core';
 
 @Component({
- selector:"kittu-not-found", standalone:true,
- host:{'data-kittu':"not-found",style:'display:block;min-width:0'},
+ selector:"kit-not-found", standalone:true,
+ host:{'data-kit':"not-found",style:'display:block;min-width:0'},
  template:`
-<section class="kittu-control kittu-surface kittu-stack k-empty">
+<section class="kit-control kit-surface kit-stack k-empty">
 <strong class="k-error-code">{{code()}}</strong>
 <h3>{{title()}}</h3>
 <p>{{description()}}</p>
@@ -15,6 +15,6 @@ import { Component, input, output } from '@angular/core';
 </section>
 `
 })
-export class KittuNotFoundComponent {
+export class KitNotFoundComponent {
 readonly code=input('404');readonly title=input('We could not find that page');readonly description=input('Try another path or return to your workspace.');readonly actionLabel=input('Go back');readonly disabled=input(false);readonly recover=output<void>();
 }

@@ -91,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({
 
               <p className="text-text-muted sm:text-right">
                 © {new Date().getFullYear()} Kit UI <span className="px-1.5 text-text-subtle">·</span> Built by{' '}
-                <a href="https://github.com/chaitanay-kumar/kittu-ui" target="_blank" rel="noopener noreferrer" className="text-text-secondary transition-colors hover:text-text-primary">Kit UI contributors</a>
+                <a href="https://github.com/chaitanay-kumar/kit-ui" target="_blank" rel="noopener noreferrer" className="text-text-secondary transition-colors hover:text-text-primary">Kit UI contributors</a>
               </p>
             </div>
           </div>

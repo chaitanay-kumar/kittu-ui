@@ -46,7 +46,7 @@ function SetupGuide() {
         not been published to npm.
       </p>
       <a
-        href={withBasePath('/downloads/kittu-ui-angular-0.1.0.tgz')}
+        href={withBasePath('/downloads/kit-ui-angular-0.1.0.tgz')}
         download
         className="inline-flex rounded-full bg-text-primary text-background px-5 py-2 text-sm font-medium focus-ring"
       >
@@ -54,11 +54,11 @@ function SetupGuide() {
       </a>
       <CodeBlock
         label="Terminal · install the downloaded file"
-        code="npm install ./kittu-ui-angular-0.1.0.tgz"
+        code="npm install ./kit-ui-angular-0.1.0.tgz"
       />
       <CodeBlock
         label="Your global styles.css"
-        code="@import 'kittu-ui-angular/styles.css';"
+        code="@import 'kit-ui-angular/styles.css';"
       />
       <p className="text-sm text-text-secondary">
         Import a component in your Angular component's <code>imports</code>{" "}
@@ -204,24 +204,24 @@ export default function AngularExperience({
               </section>
             </>
           ) : unsupported ? (
-            <section className="kittu-surface kittu-stack">
+            <section className="kit-surface kit-stack">
               <h1 className="text-2xl">
                 Component not found.
               </h1>
               <p className="text-text-secondary">
                 Choose a component from the Angular catalog.
               </p>
-              <div className="kittu-row">
+              <div className="kit-row">
                 <button
                   type="button"
-                  className="kittu-button"
+                  className="kit-button"
                   onClick={() => setFramework("react")}
                 >
                   Switch to React
                 </button>
                 <button
                   type="button"
-                  className="kittu-button"
+                  className="kit-button"
                   onClick={onBrowse}
                 >
                   Browse Angular components

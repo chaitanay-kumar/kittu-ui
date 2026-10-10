@@ -2,10 +2,10 @@
 import { Component, input } from '@angular/core';
 
 @Component({
- selector:"kittu-morphing-shape-loader", standalone:true,
- host:{'data-kittu':"morphing-shape-loader",style:'display:block;min-width:0'},
+ selector:"kit-morphing-shape-loader", standalone:true,
+ host:{'data-kit':"morphing-shape-loader",style:'display:block;min-width:0'},
  template:`
-<section class="kittu-control kittu-stack" [attr.aria-busy]="loading()">
+<section class="kit-control kit-stack" [attr.aria-busy]="loading()">
 <div class="k-loader k-shape-loader" [class.k-paused]="paused()||!loading()" aria-hidden="true">
 <span>
 </span>
@@ -20,6 +20,6 @@ import { Component, input } from '@angular/core';
 </section>
 `
 })
-export class KittuMorphingShapeLoaderComponent {
+export class KitMorphingShapeLoaderComponent {
 readonly label=input('Loading…');readonly loading=input(true);readonly paused=input(false);
 }

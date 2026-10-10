@@ -2,10 +2,10 @@
 import { Component, input, model } from '@angular/core';
 
 @Component({
- selector:"kittu-draw-checkbox", standalone:true,
- host:{'data-kittu':"draw-checkbox",style:'display:block;min-width:0'},
+ selector:"kit-draw-checkbox", standalone:true,
+ host:{'data-kit':"draw-checkbox",style:'display:block;min-width:0'},
  template:`
-<label class="kittu-control k-toggle">
+<label class="kit-control k-toggle">
 <input type="checkbox" role="checkbox" [checked]="checked()" [disabled]="disabled()" (change)="checked.set($any($event.target).checked)" />
 <span class="k-toggle-track" aria-hidden="true">
 <span>✓</span>
@@ -14,6 +14,6 @@ import { Component, input, model } from '@angular/core';
 </label>
 `
 })
-export class KittuDrawCheckboxComponent {
+export class KitDrawCheckboxComponent {
 readonly checked=model(false);readonly disabled=input(false);readonly label=input('');
 }

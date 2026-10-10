@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "../../lib/kittu-controls.css";
+import "../../lib/kit-controls.css";
 export interface SwipeItem {
   id: string;
   title: string;
@@ -39,9 +39,9 @@ function SwipeRow({
   const [offset, setOffset] = useState(0);
   const [revealed, setRevealed] = useState(false);
   return (
-    <li className="kittu-surface kittu-stack" style={{ overflow: "hidden" }}>
+    <li className="kit-surface kit-stack" style={{ overflow: "hidden" }}>
       <div
-        className="kittu-swipe"
+        className="kit-swipe"
         style={{ transform: `translateX(${offset}px)` }}
         onPointerDown={(e) => {
           if (disabled || e.button !== 0) return;
@@ -71,9 +71,9 @@ function SwipeRow({
         }}
       >
         <h3>{item.title}</h3>
-        <p className="kittu-muted">{item.description}</p>
+        <p className="kit-muted">{item.description}</p>
       </div>
-      <div className="kittu-row">
+      <div className="kit-row">
         <button
           type="button"
           disabled={disabled}
@@ -125,15 +125,15 @@ export function SwipeActionList({
   const visible = items.filter((i) => !done.includes(i.id));
   return (
     <section
-      className="kittu-control kittu-stack"
+      className="kit-control kit-stack"
       aria-label="Swipe actions"
       aria-busy={loading || !!pending}
     >
-      <p className="kittu-muted">Swipe left or use Show actions.</p>
+      <p className="kit-muted">Swipe left or use Show actions.</p>
       {loading ? (
         <p>Loading items…</p>
       ) : (
-        <ul className="kittu-list">
+        <ul className="kit-list">
           {visible.map((item) => (
             <SwipeRow
               key={item.id}
@@ -146,7 +146,7 @@ export function SwipeActionList({
         </ul>
       )}
       {!loading && !visible.length && <p>All clear. No items to show.</p>}
-      <p role="status" className="kittu-status">
+      <p role="status" className="kit-status">
         {status}
       </p>
       {done.length > 0 && (

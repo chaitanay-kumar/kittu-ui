@@ -30,8 +30,8 @@ export function ElasticSheetDemo() {
 }
 export function SmartUploadDemo() {
   return (
-    <div className="kittu-stack">
-      <p className="kittu-muted">
+    <div className="kit-stack">
+      <p className="kit-muted">
         Local simulation. Files stay on your device. A filename containing
         “fail” demonstrates retry errors.
       </p>
@@ -65,8 +65,8 @@ export function TimelineScrubberDemo() {
 }
 export function AIPromptComposerDemo() {
   return (
-    <div className="kittu-stack">
-      <p className="kittu-muted">
+    <div className="kit-stack">
+      <p className="kit-muted">
         Local simulation. No AI service is connected. Include “fail” to
         demonstrate draft recovery.
       </p>

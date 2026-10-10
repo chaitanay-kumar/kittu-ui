@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'VelocityToast',
   description: 'A toast that enters with velocity and settles, with a progress indicator that responds naturally — pauses on hover, resumes with no jump, and eases slightly in the final 10% so dismissal feels intentional.',
   category: 'Feedback',
@@ -42,7 +42,7 @@ export function Demo() {
         open={open}
         onDismiss={() => setOpen(false)}
         title="File uploaded"
-        description="kittu-ui-2026-09.zip is ready."
+        description="kit-ui-2026-09.zip is ready."
         variant="success"
         position="bottom-right"
       />

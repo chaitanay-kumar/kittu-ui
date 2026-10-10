@@ -15,7 +15,7 @@ A comprehensive user registration card with live password strength telemetry, pa
 ## Installation
 
 ```bash
-npx shadcn@latest add chaitanay-kumar/kittu-ui/sign-up
+npx shadcn@latest add chaitanay-kumar/kit-ui/sign-up
 ```
 
 ## Basic Usage

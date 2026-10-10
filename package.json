@@ -1,5 +1,5 @@
 {
-  "name": "kittu-ui",
+  "name": "kit-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -82,7 +82,7 @@
   "description": "Independent, tactile React and Angular components. Copy the source and make it yours.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chaitanay-kumar/kittu-ui.git"
+    "url": "https://github.com/chaitanay-kumar/kit-ui.git"
   },
   "license": "MIT",
   "engines": {

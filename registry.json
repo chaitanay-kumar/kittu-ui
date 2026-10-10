@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "kittu-ui",
-  "homepage": "https://github.com/chaitanay-kumar/kittu-ui",
+  "name": "kit-ui",
+  "homepage": "https://github.com/chaitanay-kumar/kit-ui",
   "items": [
     {
       "name": "activity-feed",
@@ -86,9 +86,9 @@
           "target": "components/ui/ai-prompt-composer.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },
@@ -709,9 +709,9 @@
           "target": "components/ui/elastic-sheet.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },
@@ -1043,9 +1043,9 @@
           "target": "components/ui/hold-to-confirm.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },
@@ -1061,9 +1061,9 @@
           "target": "components/ui/interactive-data-card.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },
@@ -1160,9 +1160,9 @@
           "target": "components/ui/liquid-command-palette.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },
@@ -2269,9 +2269,9 @@
           "target": "components/ui/smart-upload.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },
@@ -2568,9 +2568,9 @@
           "target": "components/ui/swipe-action-list.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },
@@ -2620,9 +2620,9 @@
           "target": "components/ui/timeline-scrubber.tsx"
         },
         {
-          "path": "src/lib/kittu-controls.css",
+          "path": "src/lib/kit-controls.css",
           "type": "registry:lib",
-          "target": "lib/kittu-controls.css"
+          "target": "lib/kit-controls.css"
         }
       ]
     },

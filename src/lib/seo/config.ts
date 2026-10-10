@@ -19,7 +19,7 @@ export const SEO_CONFIG = {
   twitterCard: 'summary_large_image',
   twitterHandle: '',
   author: 'Kit UI contributors',
-  repository: 'https://github.com/chaitanay-kumar/kittu-ui',
+  repository: 'https://github.com/chaitanay-kumar/kit-ui',
   locale: 'en_US',
   themeColor: '#050505',
   keywords: [

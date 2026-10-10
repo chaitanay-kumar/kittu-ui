@@ -4,7 +4,7 @@ import type { ActivityEvent, ActivityEventType } from './activity-feed-types';
 
 /** Dedicated controller: input names, defaults and event shape follow React. */
 @Directive()
-export class KittuActivityFeedController {
+export class KitActivityFeedController {
   readonly events = input<ActivityEvent[]>([]);
   readonly enableLiveSimulation = input(true);
   readonly enableFilters = input(true);

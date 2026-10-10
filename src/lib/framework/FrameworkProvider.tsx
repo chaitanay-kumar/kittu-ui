@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 export type Framework = "react" | "angular";
-const KEY = "kittu-ui-framework";
+const KEY = "kit-ui-framework";
 const Context = createContext<{
   framework: Framework;
   setFramework: (value: Framework) => void;

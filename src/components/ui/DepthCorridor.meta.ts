@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Depth Corridor',
   description: 'A 3D spatial layer stack with receding perspective depth, progressive focal blurs, and pointer parallax motion.',
   category: 'Motion',

@@ -9,23 +9,23 @@ import {
 } from "@angular/core";
 
 @Component({
-  selector: "kittu-elastic-sheet",
+  selector: "kit-elastic-sheet",
   standalone: true,
-  template: ` <div class="kittu-control">
+  template: ` <div class="kit-control">
     <button type="button" [disabled]="disabled()" (click)="open()">
       Open elastic sheet ↗
     </button>
     <dialog
       #dialog
-      class="kittu-dialog kittu-sheet kittu-control"
+      class="kit-dialog kit-sheet kit-control"
       [style.height]="height() + 'dvh'"
       aria-label="Elastic sheet"
       (close)="origin = null"
     >
-      <div class="kittu-stack">
+      <div class="kit-stack">
         <button
           type="button"
-          class="kittu-sheet-handle"
+          class="kit-sheet-handle"
           aria-label="Resize sheet. Use arrow keys to change snap position"
           (keydown)="resizeKey($event)"
           (pointerdown)="start($event)"
@@ -35,11 +35,11 @@ import {
         >
           Drag to resize
         </button>
-        <div class="kittu-row" style="justify-content:space-between">
+        <div class="kit-row" style="justify-content:space-between">
           <h3>{{ title() }}</h3>
           <button type="button" (click)="close()">Close</button>
         </div>
-        <div class="kittu-row" aria-label="Sheet size">
+        <div class="kit-row" aria-label="Sheet size">
           @for (position of positions(); track position) {
             <button
               type="button"
@@ -51,7 +51,7 @@ import {
           }
         </div>
         <ng-content
-          ><p class="kittu-muted">
+          ><p class="kit-muted">
             Drag the handle, use its arrow keys, or choose a snap position.
             Escape closes the sheet.
           </p></ng-content
@@ -61,7 +61,7 @@ import {
   </div>`,
   host: { style: "display:block" },
 })
-export class KittuElasticSheetComponent {
+export class KitElasticSheetComponent {
   readonly title = input("Make room for the details");
   readonly disabled = input(false);
   readonly snapPositions = input<number[]>([35, 65, 90]);

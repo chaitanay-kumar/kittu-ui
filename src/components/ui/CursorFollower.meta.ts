@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Cursor Follower',
   description:
     'A smooth spring-based cursor follower with customizable physics, velocity scaling, and custom child icons or badges.',

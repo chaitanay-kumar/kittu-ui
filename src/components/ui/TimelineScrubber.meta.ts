@@ -1,5 +1,5 @@
-import type { KittuUIComponentMeta } from '../../types/component';
-const meta: KittuUIComponentMeta = {
+import type { KitUIComponentMeta } from '../../types/component';
+const meta: KitUIComponentMeta = {
   "title": "Timeline Scrubber",
   "description": "Navigate events with a native range control, previous/next buttons, and spoken event details.",
   "category": "Navigation",

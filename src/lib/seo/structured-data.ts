@@ -1,6 +1,6 @@
 import { SEO_CONFIG } from './config';
 import type { ComponentCatalogIndex } from '../../types/component';
-import type { KittuComponentMeta } from '../../types/component';
+import type { KitComponentMeta } from '../../types/component';
 import { getCanonicalUrl } from './helpers';
 
 /**
@@ -194,7 +194,7 @@ export function generateDocArticleSchema(topic: {
  * ItemList schema for the All Components directory.
  */
 export function generateComponentCatalogSchema(
-  components: KittuComponentMeta[],
+  components: KitComponentMeta[],
   currentPage = 1
 ): Record<string, any> {
   const canonical = getCanonicalUrl(currentPage > 1 ? `components/page/${currentPage}` : 'components');

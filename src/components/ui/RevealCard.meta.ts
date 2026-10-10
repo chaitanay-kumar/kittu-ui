@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Reveal Card',
   description: 'A high-definition product card with smooth cursor-driven 3D perspective rotation, dynamic glare, and revealed content.',
   category: 'Motion',

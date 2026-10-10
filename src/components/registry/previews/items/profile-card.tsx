@@ -16,11 +16,11 @@ export default function Preview(_props: ComponentPreviewProps) {
               >
                 <ProfileCard
                   name="Kit UI contributors"
-                  username="@kittu-ui"
+                  username="@kit-ui"
                   description="Building Kit UI. Engineer."
                   followers="200K"
                   posts="72"
-                  website="github.com/chaitanay-kumar/kittu-ui"
+                  website="github.com/chaitanay-kumar/kit-ui"
                 />
               </div>
             </div>

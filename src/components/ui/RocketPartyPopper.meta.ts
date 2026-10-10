@@ -1,6 +1,6 @@
-import type { KittuUIComponentMeta } from '../../types/component';
+import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: 'Rocket Party Popper',
   description: 'An interactive black rocket launch that blasts into a colorful party popper confetti shower to reveal celebratory milestones.',
   category: 'Feedback',

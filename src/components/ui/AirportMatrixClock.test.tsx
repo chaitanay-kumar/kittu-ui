@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { AIRPORT_MATRIX_CITIES, AirportMatrixClock, type AirportMatrixCityId } from './AirportMatrixClock';
 import AirportMatrixClockPreview from '../registry/previews/items/airport-matrix-clock';
-import type { KittuComponentMeta } from '../../types/component';
+import type { KitComponentMeta } from '../../types/component';
 
 afterEach(() => {
   cleanup();
@@ -81,7 +81,7 @@ describe('AirportMatrixClock', () => {
   });
 
   it('keeps the catalog preview compact and unchanged on hover', () => {
-    render(<AirportMatrixClockPreview isHovered component={{} as KittuComponentMeta} />);
+    render(<AirportMatrixClockPreview isHovered component={{} as KitComponentMeta} />);
 
     expect(screen.getAllByRole('list')).toHaveLength(1);
     expect(screen.getByRole('list').querySelectorAll('li')).toHaveLength(3);

@@ -13,7 +13,7 @@ test('component search navigation survives framework switching', async ({ page }
   const switches = page.getByRole('group', { name: 'Component framework' });
   await switches.getByRole('button', { name: 'Angular', exact: true }).click();
   await expect(page).toHaveURL(/typewriter-button\?framework=angular/);
-  await expect(page.frameLocator('iframe').locator('kittu-typewriter-button')).toBeVisible();
+  await expect(page.frameLocator('iframe').locator('kit-typewriter-button')).toBeVisible();
   if (mobile) await toggle.click();
   await expect(search).toHaveValue('Button');
   await expect(search).toBeVisible();
@@ -25,7 +25,7 @@ test('component search navigation survives framework switching', async ({ page }
     : page.getByRole('complementary', { name: 'Component navigation' }).getByRole('link', { name: 'Magnetic Button', exact: true });
   await target.click();
   await expect(page).toHaveURL(/magnetic-button\?framework=angular/);
-  await expect(page.frameLocator('iframe').locator('kittu-magnetic-button')).toBeVisible();
+  await expect(page.frameLocator('iframe').locator('kit-magnetic-button')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Magnetic Button', exact: true })).toBeVisible();
 
   await switches.getByRole('button', { name: 'React', exact: true }).click();

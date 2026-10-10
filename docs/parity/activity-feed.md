@@ -6,7 +6,7 @@ Status: validated baseline. React source: `src/components/ui/ActivityFeed.tsx`. 
 
 ## Replaced implementation
 
-The previous Angular component was a generic collection timeline using `KittuItem[]`, an Inspect event button and native details elements. It lacked the React telemetry contract, category counts, trace copying, replay controls, JSON inspector and live simulation.
+The previous Angular component was a generic collection timeline using `KitItem[]`, an Inspect event button and native details elements. It lacked the React telemetry contract, category counts, trace copying, replay controls, JSON inspector and live simulation.
 
 ## Current contract
 

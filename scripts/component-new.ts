@@ -75,9 +75,9 @@ export const ${componentName}: React.FC<${componentName}Props> = ({
 };
 `;
 
-  const metaTemplate = `import type { KittuUIComponentMeta } from '../../types/component';
+  const metaTemplate = `import type { KitUIComponentMeta } from '../../types/component';
 
-const meta: KittuUIComponentMeta = {
+const meta: KitUIComponentMeta = {
   title: '${title}',
   description: 'A responsive, accessible ${title.toLowerCase()} component for React applications built with Tailwind CSS and Framer Motion.',
   category: 'Motion',

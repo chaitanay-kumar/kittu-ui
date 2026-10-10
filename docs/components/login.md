@@ -15,7 +15,7 @@ A production-ready authentication card built with the Kit UI form system, featur
 ## Installation
 
 ```bash
-npx shadcn@latest add chaitanay-kumar/kittu-ui/login
+npx shadcn@latest add chaitanay-kumar/kit-ui/login
 ```
 
 ## Basic Usage

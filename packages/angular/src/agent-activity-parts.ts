@@ -1,5 +1,5 @@
 import { Component, computed, inject, input } from '@angular/core';
-import { KittuAgentActivityController } from './agent-activity-controller';
+import { KitAgentActivityController } from './agent-activity-controller';
 import type { AgentActivityItemData } from './agent-activity-types';
 /*
 ISC License
@@ -47,13 +47,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 */
-@Component({selector:'kittu-agent-activity-header',standalone:true,host:{style:'display:contents'},template:`<div [class]="'k-aa-header '+className()"><div class="k-aa-header-info"><div class="k-aa-heading"><h3>{{title()}}</h3>@if(agentName()){<span>— {{agentName()}}</span>}</div><span class="k-aa-divider"></span><div class="k-aa-progress">@if(agent.isRunning()){<span class="k-aa-running"><i></i>Running</span>}@else{<span>{{completedCount()}} of {{agent.activities().length}} completed</span>}</div></div>@if(showControls()){<div class="k-aa-controls"><button type="button" (click)="agent.expandAll()">Expand all</button><span>/</span><button type="button" (click)="agent.collapseAll()">Collapse all</button></div>}</div>`})
-export class KittuAgentActivityHeaderComponent {
- readonly agent=inject(KittuAgentActivityController);
+@Component({selector:'kit-agent-activity-header',standalone:true,host:{style:'display:contents'},template:`<div [class]="'k-aa-header '+className()"><div class="k-aa-header-info"><div class="k-aa-heading"><h3>{{title()}}</h3>@if(agentName()){<span>— {{agentName()}}</span>}</div><span class="k-aa-divider"></span><div class="k-aa-progress">@if(agent.isRunning()){<span class="k-aa-running"><i></i>Running</span>}@else{<span>{{completedCount()}} of {{agent.activities().length}} completed</span>}</div></div>@if(showControls()){<div class="k-aa-controls"><button type="button" (click)="agent.expandAll()">Expand all</button><span>/</span><button type="button" (click)="agent.collapseAll()">Collapse all</button></div>}</div>`})
+export class KitAgentActivityHeaderComponent {
+ readonly agent=inject(KitAgentActivityController);
  readonly title=input('Activity');readonly agentName=input<string>();readonly showControls=input(true);readonly className=input('');
  readonly completedCount=computed(()=>this.agent.activities().filter(activity=>activity.status==='success').length);
 }
-@Component({selector:'kittu-agent-activity-item',standalone:true,host:{style:'display:contents'},template:`<div [class]="'k-aa-item '+className()" [attr.data-activity-id]="activity().id">
+@Component({selector:'kit-agent-activity-item',standalone:true,host:{style:'display:contents'},template:`<div [class]="'k-aa-item '+className()" [attr.data-activity-id]="activity().id">
 @if(!isLast()){<div class="k-aa-connector" aria-hidden="true"></div>}
 <div class="k-aa-indicator" role="img" [attr.aria-label]="activity().status"><div [class]="'k-aa-status k-aa-status-'+activity().status">@switch(activity().status){@case('running'){<svg class="k-aa-svg k-aa-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>}@case('success'){<svg class="k-aa-svg k-aa-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>}@case('error'){<svg class="k-aa-svg k-aa-error" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>}@case('cancelled'){<svg class="k-aa-svg k-aa-cancelled" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></svg>}@default{<span class="k-aa-pending"></span>}}</div></div>
 <div class="k-aa-body"><div class="k-aa-summary" [class.k-aa-interactive]="hasDetails()" [attr.role]="hasDetails()?'button':null" [attr.tabindex]="hasDetails()?0:null" [attr.aria-expanded]="hasDetails()?expanded():null" (click)="toggle()" (keydown.enter)="activate($event)" (keydown.space)="activate($event)"><div class="k-aa-row-heading"><div class="k-aa-title-wrap"><span class="k-aa-title" [class.k-aa-title-running]="activity().status==='running'">{{activity().title}}</span></div><div class="k-aa-row-meta">@if(activity().duration){<span>{{activity().duration}}</span>}@if(hasDetails()){<span class="k-aa-chevron" [class.k-aa-chevron-expanded]="expanded()"><svg class="k-aa-svg " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>}</div></div>@if(activity().description){<p>{{activity().description}}</p>}</div>
@@ -63,8 +63,8 @@ export class KittuAgentActivityHeaderComponent {
 @if(activity().details?.output){<div class="k-aa-detail-block"><div class="k-aa-detail-label">Output Result</div><div class="k-aa-detail-value k-aa-output">{{format(activity().details!.output!)}}</div></div>}
 @if(metadata().length){<div class="k-aa-metadata">@for(entry of metadata();track entry[0]){<span><span>{{entry[0]}}:</span><strong>{{string(entry[1])}}</strong></span>}</div>}
 </div></div>}</div></div>`})
-export class KittuAgentActivityItemComponent {
- readonly agent=inject(KittuAgentActivityController);
+export class KitAgentActivityItemComponent {
+ readonly agent=inject(KitAgentActivityController);
  readonly activity=input.required<AgentActivityItemData>();readonly isLast=input(false);readonly className=input('');
  readonly expanded=computed(()=>this.agent.expandedIds().has(this.activity().id));
  readonly hasDetails=computed(()=>Boolean(this.activity().details||this.activity().metadata));
@@ -74,5 +74,5 @@ export class KittuAgentActivityItemComponent {
  format(value:string|Record<string,unknown>):string{return typeof value==='string'?value:JSON.stringify(value,null,2);}
  string(value:unknown):string{return String(value);}
 }
-@Component({selector:'kittu-agent-activity-timeline',standalone:true,imports:[KittuAgentActivityItemComponent],host:{style:'display:contents'},template:`@if(!agent.activities().length){<div class="k-aa-empty">No activity recorded</div>}@else{<div [class]="'k-aa-timeline '+className()">@for(activity of agent.activities();track activity.id;let last=$last){<kittu-agent-activity-item [activity]="activity" [isLast]="last"/>}</div>}`})
-export class KittuAgentActivityTimelineComponent {readonly agent=inject(KittuAgentActivityController);readonly className=input('');}
+@Component({selector:'kit-agent-activity-timeline',standalone:true,imports:[KitAgentActivityItemComponent],host:{style:'display:contents'},template:`@if(!agent.activities().length){<div class="k-aa-empty">No activity recorded</div>}@else{<div [class]="'k-aa-timeline '+className()">@for(activity of agent.activities();track activity.id;let last=$last){<kit-agent-activity-item [activity]="activity" [isLast]="last"/>}</div>}`})
+export class KitAgentActivityTimelineComponent {readonly agent=inject(KitAgentActivityController);readonly className=input('');}

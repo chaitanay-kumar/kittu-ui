@@ -125,12 +125,12 @@ function PhysicalDigit({ char, index, containerRef, reducedMotion }: PhysicalDig
       resetPhysics();
     };
 
-    el.addEventListener('kittu-ui:proximity' as any, handleContainerMove as EventListener);
-    el.addEventListener('kittu-ui:leave' as any, handleContainerLeave as EventListener);
+    el.addEventListener('kit-ui:proximity' as any, handleContainerMove as EventListener);
+    el.addEventListener('kit-ui:leave' as any, handleContainerLeave as EventListener);
 
     return () => {
-      el.removeEventListener('kittu-ui:proximity' as any, handleContainerMove as EventListener);
-      el.removeEventListener('kittu-ui:leave' as any, handleContainerLeave as EventListener);
+      el.removeEventListener('kit-ui:proximity' as any, handleContainerMove as EventListener);
+      el.removeEventListener('kit-ui:leave' as any, handleContainerLeave as EventListener);
     };
   }, [updateProximity, resetPhysics]);
 
@@ -199,7 +199,7 @@ export function NotFound({
 
     const digits = containerRef.current.querySelectorAll('[role="presentation"]');
     digits.forEach((digit) => {
-      digit.dispatchEvent(new CustomEvent('kittu-ui:proximity', { detail: { x, y } }));
+      digit.dispatchEvent(new CustomEvent('kit-ui:proximity', { detail: { x, y } }));
     });
   };
 
@@ -207,7 +207,7 @@ export function NotFound({
     if (reducedMotion || !containerRef.current) return;
     const digits = containerRef.current.querySelectorAll('[role="presentation"]');
     digits.forEach((digit) => {
-      digit.dispatchEvent(new CustomEvent('kittu-ui:leave'));
+      digit.dispatchEvent(new CustomEvent('kit-ui:leave'));
     });
   };
 

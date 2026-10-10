@@ -1,17 +1,17 @@
 # AI Prompt Composer parity review
 
-React is the source of truth: [component](../../src/components/ui/AIPromptComposer.tsx), [demo](../../src/components/docs/KittuDemos.tsx), and [shared control styles](../../src/lib/kittu-controls.css).
+React is the source of truth: [component](../../src/components/ui/AIPromptComposer.tsx), [demo](../../src/components/docs/KitDemos.tsx), and [shared control styles](../../src/lib/kit-controls.css).
 
 ## Changes and migration
 
 Angular previously nested controls inside their labels, producing different grid spacing, used a differently named send input, and omitted the attachment size from rejection feedback. Labels are now siblings of the textarea/file input and reference unique IDs, matching React's structure. Feedback strings and default suggestion text match React. The preview now uses the same width, fonts, line heights, theme borders and native file-control styling.
 
-Use `onSend: SendHandler` to match React's callback name. `SendHandler` accepts `PromptPayload` (`text: string`, `attachments: File[]`) and `AbortSignal`, returning `Promise<void>`. Existing `sendHandler` remains as a deprecated compatibility alias; `onSend` takes precedence when both are supplied. The export `KittuAIPromptComposerComponent` and selector `kittu-ai-prompt-composer` remain unchanged.
+Use `onSend: SendHandler` to match React's callback name. `SendHandler` accepts `PromptPayload` (`text: string`, `attachments: File[]`) and `AbortSignal`, returning `Promise<void>`. Existing `sendHandler` remains as a deprecated compatibility alias; `onSend` takes precedence when both are supplied. The export `KitAIPromptComposerComponent` and selector `kit-ai-prompt-composer` remain unchanged.
 
 Other inputs retain the React contract: suggestions default to Explain this simply / Help me find a direction / Review my draft, `disabled` defaults false, `maxAttachments` defaults 4, and `maxAttachmentSize` defaults 10 MiB. The textarea retains four rows and an 8000-character limit. Empty/whitespace text or a missing handler prevents sending. Ctrl/Command Enter submits the same request as the Send button.
 
 ```html
-<kittu-ai-prompt-composer [onSend]="send" [suggestions]="suggestions" />
+<kit-ai-prompt-composer [onSend]="send" [suggestions]="suggestions" />
 ```
 
 Cancellation and errors retain text and attachments. Successful sending clears both. Only one request can be active; cancellation permits a new request, and the previous request's completion cannot clear or settle the new one. Destruction aborts the active signal. Files are checked as a batch against the count and per-file size; invalid batches do not partially attach, and the file input resets after each selection. These behaviors follow React's implementation.
