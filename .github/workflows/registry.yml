@@ -73,6 +73,8 @@ jobs:
         run: npm run test:spotlight-card
       - name: Verify native Morphing Icon contract
         run: npm run test:morphing-icon
+      - name: Verify native Morphing Button contract
+        run: npm run test:morphing-button
 
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

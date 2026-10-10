@@ -33,7 +33,8 @@
     "test:neon-edge-button": "node scripts/verify-neon-edge-button.mjs",
     "test:orbital-loading-ring": "node scripts/verify-orbital-loading-ring.mjs",
     "test:spotlight-card": "node scripts/verify-spotlight-card.mjs",
-    "test:morphing-icon": "node scripts/verify-morphing-icon.mjs"
+    "test:morphing-icon": "node scripts/verify-morphing-icon.mjs",
+    "test:morphing-button": "node scripts/verify-morphing-button.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

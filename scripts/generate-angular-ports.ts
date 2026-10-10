@@ -1,6 +1,7 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
+import {morphingButtonPort} from "./angular-morphing-button";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
@@ -113,6 +114,8 @@ const itemButton = `<button type="button" data-item [disabled]="disabled() || it
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
 add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
+add("morphing-button","plain",morphingButtonPort.description,morphingButtonPort.template,morphingButtonPort.body,morphingButtonPort);
+
 // Buttons keep native button semantics and an application-owned async action.
 for (const [id, label] of [
 
@@ -120,7 +123,7 @@ for (const [id, label] of [
 
   ["rainbow-button", "Make something colorful"],
   ["typewriter-button", "Start a new story"],
-  ["morphing-button", "Save changes"],
+
 ]) {
   add(
     id,
