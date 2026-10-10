@@ -5,6 +5,7 @@ import {pressButtonPort} from "./angular-press-button";
 import {magneticButtonPort} from "./angular-magnetic-button";
 import {morphingButtonPort} from "./angular-morphing-button";
 import {typewriterButtonPort} from "./angular-typewriter-button";
+import {rainbowButtonPort} from "./angular-rainbow-button";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
@@ -120,23 +121,8 @@ add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,
 add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
 add("morphing-button","plain",morphingButtonPort.description,morphingButtonPort.template,morphingButtonPort.body,morphingButtonPort);
+add("rainbow-button","plain",rainbowButtonPort.description,rainbowButtonPort.template,rainbowButtonPort.body,rainbowButtonPort);
 
-// Buttons keep native button semantics and an application-owned async action.
-for (const [id, label] of [
-
-
-  ["rainbow-button", "Make something colorful"],
-
-
-
-]) {
-  add(
-    id,
-    "action",
-    `${label}: native keyboard activation, disabled and asynchronous action states.`,
-    `<div class="kit-control kit-stack"><button class="k-action" type="button" [disabled]="blocked()" [attr.aria-busy]="loading()||busy()" (click)="run()"><span class="k-button-text"><ng-content>{{busy()?'Working…':label()||'${label}'}}</ng-content></span></button>${actionFeedback}</div>`,
-  );
-}
 add("magnetic-button","plain",magneticButtonPort.description,magneticButtonPort.template,magneticButtonPort.body,magneticButtonPort);
 add(
   "liquid-ripple-button",

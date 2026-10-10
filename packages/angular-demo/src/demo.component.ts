@@ -48,11 +48,13 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   });
 }
 
+import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
+
 @Component({
   selector: "kit-angular-demo",
   standalone: true,
   imports: [
-    PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,
+    PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,RainbowButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
     SpotlightCardDemoComponent,
@@ -79,6 +81,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
       @case("magnetic-button"){<kit-magnetic-button-demo/>}
       @case("morphing-button"){<kit-morphing-button-demo/>}
       @case("typewriter-button"){<kit-typewriter-button-demo/>}
+      @case("rainbow-button"){<kit-rainbow-button-demo/>}
       @case("button"){<kit-button-demo/>}
       @case("neon-edge-button"){<kit-neon-edge-button-demo/>}
       @case("orbital-loading-ring"){<kit-orbital-loading-ring-demo/>}

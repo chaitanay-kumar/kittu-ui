@@ -82,5 +82,8 @@ jobs:
       - name: Verify native Morphing Button contract
         run: npm run test:morphing-button
 
+      - name: Verify Rainbow Button contract
+        run: npm run test:rainbow-button
+
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

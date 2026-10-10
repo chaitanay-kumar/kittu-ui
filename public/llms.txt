@@ -222,7 +222,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Pricing for Angular](http://localhost:5173/components/pricing?framework=angular): Selectable pricing plans with monthly/yearly billing, real price inputs and an application-owned selection event.
 - [Profile Card for Angular](http://localhost:5173/components/profile-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
 - [Pull to Refresh for Angular](http://localhost:5173/components/pull-to-refresh?framework=angular): Pull down within a contained list or use a keyboard refresh button; async failures remain retryable.
-- [Rainbow Button for Angular](http://localhost:5173/components/rainbow-button?framework=angular): Make something colorful: native keyboard activation, disabled and asynchronous action states.
+- [Rainbow Button for Angular](http://localhost:5173/components/rainbow-button?framework=angular): React-matched rainbow button with two variants, four sizes, five customizable colors, animation speed, glow, projected content and native element composition.
 - [Recovery Ledger for Angular](http://localhost:5173/components/recovery-ledger?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.
 - [Reveal Card for Angular](http://localhost:5173/components/reveal-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
 - [Rocket Party Popper for Angular](http://localhost:5173/components/rocket-party-popper?framework=angular): Trigger a local particle celebration with a keyboard button, visible motion controls and cleanup.

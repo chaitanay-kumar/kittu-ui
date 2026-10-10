@@ -30,11 +30,12 @@
     "test:prompt-composer": "node scripts/verify-prompt-composer.mjs",
     "test:loader": "node scripts/verify-loader.mjs",
     "test:button": "node scripts/verify-button.mjs",
-    "test:magnetic-button": "node scripts/verify-magnetic-button.mjs",
     "test:neon-edge-button": "node scripts/verify-neon-edge-button.mjs",
     "test:orbital-loading-ring": "node scripts/verify-orbital-loading-ring.mjs",
     "test:spotlight-card": "node scripts/verify-spotlight-card.mjs",
     "test:morphing-icon": "node scripts/verify-morphing-icon.mjs",
+    "test:rainbow-button": "node scripts/verify-rainbow-button.mjs",
+    "test:magnetic-button": "node scripts/verify-magnetic-button.mjs",
     "test:press-button": "node scripts/verify-press-button.mjs",
     "test:morphing-button": "node scripts/verify-morphing-button.mjs",
     "test:typewriter-button": "node scripts/verify-typewriter-button.mjs"

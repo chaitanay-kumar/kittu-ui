@@ -1417,16 +1417,23 @@ export const ANGULAR_PORTS = [
     "name": "Rainbow Button",
     "exportName": "KitRainbowButtonComponent",
     "selector": "kit-rainbow-button",
-    "description": "Make something colorful: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched rainbow button with two variants, four sizes, five customizable colors, animation speed, glow, projected content and native element composition.",
     "inputs": [
-      "label: string",
+      "variant: RainbowButtonVariant",
+      "size: RainbowButtonSize",
+      "color1: string",
+      "color2: string",
+      "color3: string",
+      "color4: string",
+      "color5: string",
+      "speed: number",
+      "glow: boolean",
+      "style: RainbowButtonStyle",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "recovery-ledger",
