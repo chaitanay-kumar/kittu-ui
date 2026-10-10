@@ -1961,7 +1961,8 @@ export const ANGULAR_PORTS = [
       "onClick: TypewriterButtonCallback",
       "disabled: boolean",
       "type: button | submit | reset",
-      "className: string"
+      "className: string",
+      "aria-label: string | undefined"
     ],
     "outputs": []
   },

@@ -4,7 +4,7 @@ React reference: `src/components/ui/TypewriterButton.tsx`. Native authored port:
 
 ## API and behavior
 
-Replaced the generic async action/status UI with the source component. Required Angular `text` maps to React's required string `children`; arbitrary projected rich content is deliberately excluded because the source accepts only a string. Inputs include `charDuration` (75), `soundEnabled` (false), `soundVolume` (0.25), `variant` (primary), `autoStart` (false), `onComplete`, `onClick`, `disabled`, native `type` and `className`. Exported `TypewriterButtonVariant` and `TypewriterButtonCallback`. Optional undefined values restore source defaults.
+Replaced the generic async action/status UI with the source component. Required Angular `text` maps to React's required string `children`; arbitrary projected rich content is deliberately excluded because the source accepts only a string. Inputs include `charDuration` (75), `soundEnabled` (false), `soundVolume` (0.25), `variant` (primary), `autoStart` (false), `onComplete`, `onClick`, `disabled`, native `type` and `className`. Omitted `type` defaults to button; explicitly undefined removes the attribute and lets HTML default to submit, matching the source props spread. Exported `TypewriterButtonVariant` and `TypewriterButtonCallback`. Optional undefined values restore source defaults. Omitted `aria-label` defaults to full text; a supplied string overrides it and explicitly undefined removes it, matching the source props spread.
 
 `<button kitTypewriterButton>` supports native HTML attributes, Angular event bindings, form ownership and element references. `<kit-typewriter-button text="...">` provides a convenience wrapper with an inner native button. Native click handlers run only on clicks accepted by the typing guard. Form defaults remain native even while click callbacks are suppressed.
 
@@ -24,7 +24,7 @@ The docs preview now matches the two React examples (`npx kit-ui add button`, `g
 
 ## Validation
 
-- 32 broad browser checks pass (28 component checks and four existing async/batch regressions); eight focused held-pointer/touch/keyboard edge checks pass after the final motion refinements.
+- 32 broad browser checks pass (28 component checks and four existing async/batch regressions); eight focused held-pointer/touch/keyboard edge checks pass after the final motion refinements, and eight explicit aria-label/type override checks pass after the final API refinements. Final package contract and all four compiler matrices were rerun after those API refinements.
 - Desktop/mobile actual React versus built native Angular comparisons, with light/dark themes and mobile reduced motion: all variants, disabled and utility overrides, undefined defaults, typing timeline/cursor/completion, suppressed repeat clicks, keyboard, auto-start, dynamic dependency interruption, unmount, hover/focus, exact color transition properties/duration/timing, forms and docs preview content.
 - Synthesized audio spy checks buffer geometry, gain/ramp values, start and closed contexts; blocked-audio constructor checks graceful completion. No external audio assets.
 - Generic Liquid Ripple async failure/cancel/retry and batch selection regressions pass.
