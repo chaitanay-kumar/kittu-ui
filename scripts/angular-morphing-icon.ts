@@ -1,0 +1,17 @@
+export const morphingIconPort={
+ imports:`import {afterEveryRender,TemplateRef,ViewEncapsulation} from '@angular/core';
+import {DOCUMENT,NgTemplateOutlet} from '@angular/common';
+import {MorphingIconMotion} from './morphing-icon-motion';
+import type {MorphingIconStyle} from './morphing-icon-types';`,componentImports:'NgTemplateOutlet',stylesFile:'./morphing-icon.css',
+ hostMetadata:`{'data-kittu':'morphing-icon','[class]':'"k-morphing-parity "+className()','[style]':'resolvedStyle()'}`,
+ description:'React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.',
+ inputs:['from: TemplateRef<unknown> (required)','to: TemplateRef<unknown> (required)','active: boolean','duration: number','size: number','className: string','style: MorphingIconStyle | string'],outputs:[],
+ template:`<div #fromLayer class="k-morphing-layer" [attr.aria-hidden]="active()" [style.opacity]="initialActive?0:1" [style.transform]="initialActive?'scale(0.65) rotate(-90deg)':'none'"><ng-container [ngTemplateOutlet]="from()"/></div><div #toLayer class="k-morphing-layer" [attr.aria-hidden]="!active()" [style.opacity]="initialActive?1:0" [style.transform]="initialActive?'none':'scale(0.65) rotate(90deg)'"><ng-container [ngTemplateOutlet]="to()"/></div>`,
+ body:`readonly from=input.required<TemplateRef<unknown>>();readonly to=input.required<TemplateRef<unknown>>();
+readonly active=input<boolean,boolean|undefined>(false,{transform:value=>value===undefined?false:value});readonly duration=input<number,number|undefined>(.3,{transform:value=>value===undefined?.3:value});readonly size=input<number,number|undefined>(20,{transform:value=>value===undefined?20:value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});
+private readonly defaultStyle=Symbol('default style');readonly style=input<MorphingIconStyle|string|symbol|undefined,MorphingIconStyle|string|undefined>(this.defaultStyle,{transform:value=>value});private readonly document=inject(DOCUMENT);
+readonly resolvedStyle=computed(()=>{const value=this.style();if(typeof value==='symbol')return{width:this.size()+'px',height:this.size()+'px'};if(typeof value==='string'||value===undefined)return value;const result:Record<string,string|undefined>={};const probe=this.document.createElement('div').style;for(const[key,entry]of Object.entries(value)){if(typeof entry!=='number'){result[key]=entry;continue;}const cssKey=key.startsWith('--')?key:key.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase());probe.removeProperty(cssKey);probe.setProperty(cssKey,String(entry));result[key]=probe.getPropertyValue(cssKey)?String(entry):entry+'px';}return result;});
+readonly fromLayer=viewChild.required<ElementRef<HTMLElement>>('fromLayer');readonly toLayer=viewChild.required<ElementRef<HTMLElement>>('toLayer');initialActive=false;private previous:boolean|undefined;private readonly motion=new MorphingIconMotion();
+ngOnInit():void{this.initialActive=this.active();}
+constructor(){afterEveryRender(()=>{const active=this.active();if(active===this.previous)return;const animate=this.previous!==undefined;this.motion.update(this.fromLayer().nativeElement,active,this.duration(),animate);this.motion.updateTarget(this.toLayer().nativeElement,active,this.duration(),animate);this.previous=active;});inject(DestroyRef).onDestroy(()=>this.motion.destroy());}`
+};

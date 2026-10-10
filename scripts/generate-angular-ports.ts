@@ -1,4 +1,5 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
+import {morphingIconPort} from "./angular-morphing-icon";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -14,6 +15,8 @@ interface Port {
   description: string;
   imports?: string;
   componentImports?: string;
+  stylesFile?: string;
+  hostMetadata?: string;
 }
 const ports: Port[] = [];
 const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
@@ -83,6 +86,8 @@ function add(
     outputs: [...common[kind].outputs, ...(extra.outputs ?? [])],
     imports: extra.imports,
     componentImports: extra.componentImports,
+    stylesFile: extra.stylesFile,
+    hostMetadata: extra.hostMetadata,
   });
 }
 const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
@@ -570,16 +575,7 @@ add(
   "Switch projected page summaries through a restrained car/smoke CSS transition with keyboard navigation.",
   `<section class="kittu-control kittu-stack"><nav class="kittu-row" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-road" aria-hidden="true"><span class="k-car">▰</span><span class="k-smoke"></span></div>@for(item of [current()];track item?.id){<article class="kittu-surface k-page-enter"><h3>{{item?.label}}</h3><p>{{item?.description}}</p><ng-content></ng-content></article>}</section>`,
 );
-add(
-  "morphing-icon",
-  "plain",
-  "An accessible, controlled icon toggle animated with CSS, with no external icon runtime.",
-  `<button type="button" class="kittu-button k-icon-toggle" [disabled]="disabled()" [attr.aria-label]="label()" [attr.aria-pressed]="active()" (click)="active.set(!active())"><svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true"><path [attr.d]="active()?'M8 8L24 24M24 8L8 24':'M5 8H27M5 16H27M5 24H27'" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></button>`,
-  `readonly active=model(false);readonly disabled=input(false);readonly label=input('Toggle menu icon');`,
-  {
-    inputs: ["active: boolean (two-way)", "disabled: boolean", "label: string"],
-  },
-);
+add("morphing-icon","plain",morphingIconPort.description,morphingIconPort.template,morphingIconPort.body,morphingIconPort);
 
 // Text, counters and clocks use real values and tear down their own timers.
 for (const [id, variant] of [
@@ -853,8 +849,7 @@ for (const port of ports) {
       '<div class="k-cards',
       `<nav class="kittu-row" aria-label="Choose a card" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-cards`,
     );
-  if (port.id === "morphing-icon")
-    port.template = `<button type="button" class="kittu-button k-icon-toggle" [disabled]="disabled()" [attr.aria-label]="label()" [attr.aria-pressed]="active()" (click)="active.set(!active())"><svg viewBox="0 0 32 32" width="36" height="36" [class.k-active]="active()" aria-hidden="true"><path class="k-icon-top" d="M5 8H27"/><path class="k-icon-mid" d="M5 16H27"/><path class="k-icon-bottom" d="M5 24H27"/></svg></button>`;
+
 }
 const directory = path.join(root, "packages/angular/src");
 const pascal = (id: string) =>
@@ -915,7 +910,7 @@ const entries = ports
       "KittuCompareFeature",
       "KittuChatHandler",
     ].filter(used);
-    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
+    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:${port.hostMetadata ?? `{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'}`},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}${port.stylesFile ? `encapsulation:ViewEncapsulation.None,styleUrls:[${JSON.stringify(port.stylesFile)}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
     fs.writeFileSync(path.join(directory, `${port.id}.component.ts`), source);
     const outputs = [
       ...port.outputs,

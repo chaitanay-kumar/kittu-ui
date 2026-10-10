@@ -140,5 +140,14 @@ export function angularUsage(entry: AngularEntry) {
         : entry.id === "liquid-command-palette"
           ? "LiquidCommand"
           : undefined;
+  if(entry.id === "morphing-icon") return `import { Component } from '@angular/core';
+import { KittuMorphingIconComponent } from 'kittu-ui-angular';
+
+@Component({
+  selector: 'app-example',
+  imports: [KittuMorphingIconComponent],
+  template: \`<ng-template #from>○</ng-template><ng-template #to>●</ng-template><button (click)="active=!active"><kittu-morphing-icon [from]="from" [to]="to" [active]="active" [size]="20"/>Toggle icon</button>\`,
+})
+export class ExampleComponent { active=false; }`;
   return `import { Component } from '@angular/core';\nimport { ${entry.exportName}${type ? `, type ${type}` : ""} } from 'kittu-ui-angular';\n\n@Component({\n  selector: 'app-example',\n  imports: [${entry.exportName}],\n  template: \`<${entry.selector}${entry.binding ? " " + entry.binding : ""} />\`,\n})\nexport class ExampleComponent {\n${entry.handler ?? ""}\n}`;
 }

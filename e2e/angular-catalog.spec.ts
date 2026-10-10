@@ -26,7 +26,7 @@ for (const theme of ["light", "dark"]) {
           dispatchEvent(new PopStateEvent("popstate"));
         }, port.id);
         const component = page.locator(`[data-kittu="${port.id}"]`);
-        await expect(component).toBeVisible();
+        if(port.id === "morphing-icon"){await expect(component).toHaveCount(6);await expect(component.first()).toBeVisible();}else await expect(component).toBeVisible();
         await expect(
           page.getByText("Select an available Angular component."),
         ).toHaveCount(0);
@@ -88,6 +88,7 @@ test("Angular website has the complete catalog and framework-specific usage", as
   await catalog.getByRole("button").click();
   await expect(page).toHaveURL(/advanced-data-table\?framework=angular/);
   await expect(page.frameLocator("iframe").getByRole("table")).toBeVisible();
+  await page.getByRole("tab",{name:"Usage",exact:true}).click();
   await expect(
     page.getByText("KittuAdvancedDataTableComponent", { exact: false }).first(),
   ).toBeVisible();

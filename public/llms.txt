@@ -203,7 +203,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Morphing Blob for Angular](http://localhost:5173/components/morphing-blob?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Morphing Button for Angular](http://localhost:5173/components/morphing-button?framework=angular): Save changes: native keyboard activation, disabled and asynchronous action states.
 - [Morphing Dialog for Angular](http://localhost:5173/components/morphing-dialog?framework=angular): A native modal dialog with focus containment, Escape, projected content and asynchronous confirmation.
-- [Morphing Icon for Angular](http://localhost:5173/components/morphing-icon?framework=angular): An accessible, controlled icon toggle animated with CSS, with no external icon runtime.
+- [Morphing Icon for Angular](http://localhost:5173/components/morphing-icon?framework=angular): React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.
 - [Morphing Shape Loader for Angular](http://localhost:5173/components/morphing-shape-loader?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
 - [Neon Edge Button for Angular](http://localhost:5173/components/neon-edge-button?framework=angular): Light the way: native keyboard activation, disabled and asynchronous action states.
 - [Nimbu Mirchi for Angular](http://localhost:5173/components/nimbu-mirchi?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.

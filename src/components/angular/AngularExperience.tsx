@@ -262,7 +262,7 @@ export default function AngularExperience({
                   Running the Angular component. Demos with requests simulate
                   them locally.
                 </p>
-                <div className="rounded-2xl border border-border bg-background overflow-hidden">
+                <div className={entry.id === "morphing-icon" ? "px-[22px] sm:px-[44px] border border-transparent overflow-hidden" : "rounded-2xl border border-border bg-background overflow-hidden"}>
                   <AngularPreview
                     key={entry.id}
                     id={entry.id}

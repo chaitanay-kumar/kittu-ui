@@ -1059,15 +1059,17 @@ export const ANGULAR_PORTS = [
     "name": "Morphing Icon",
     "exportName": "KittuMorphingIconComponent",
     "selector": "kittu-morphing-icon",
-    "description": "An accessible, controlled icon toggle animated with CSS, with no external icon runtime.",
+    "description": "React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.",
     "inputs": [
-      "active: boolean (two-way)",
-      "disabled: boolean",
-      "label: string"
+      "from: TemplateRef<unknown> (required)",
+      "to: TemplateRef<unknown> (required)",
+      "active: boolean",
+      "duration: number",
+      "size: number",
+      "className: string",
+      "style: MorphingIconStyle | string"
     ],
-    "outputs": [
-      "activeChange: boolean"
-    ]
+    "outputs": []
   },
   {
     "id": "morphing-shape-loader",
