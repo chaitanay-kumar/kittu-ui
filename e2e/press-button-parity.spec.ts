@@ -38,3 +38,22 @@ for(const framework of ['react','angular'])test(`${framework} press cancellation
 for(const framework of ['react','angular'])test(`${framework} press showcase matches reference content`,async({page},info)=>{
  await page.goto(`/components/press-button?framework=${framework}`);const scope=framework==='react'?page:page.frameLocator('iframe');await expect(scope.getByRole('button',{name:'Save changes',exact:true})).toBeVisible();await expect(scope.getByRole('button',{name:'Cancel',exact:true})).toBeVisible();await scope.getByRole('button',{name:'Save changes',exact:true}).screenshot({path:info.outputPath(`${framework}-press-button.png`),animations:'disabled'});
 });
+
+for(const framework of ['react','angular'])test(`${framework} press remains held outside and reacts to strength changes`,async({page})=>{
+ await consumer(page,framework);const button=page.locator('#action');const scale=()=>button.evaluate(el=>{const m=new DOMMatrixReadOnly(getComputedStyle(el).transform);return[m.a,m.d];});
+ const box=await button.boundingBox();await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.waitForTimeout(600);
+ await page.mouse.move(500,500);await page.waitForTimeout(600);expect((await scale())[0]).toBeCloseTo(.97*.96,3);expect((await scale())[1]).toBeCloseTo(.97*.936,3);
+ await update(page,{pressStrength:.06});await page.waitForTimeout(600);expect((await scale())[0]).toBeCloseTo(.97*.94,3);expect((await scale())[1]).toBeCloseTo(.97*.904,3);
+ await page.mouse.up();await page.waitForTimeout(600);expect(await scale()).toEqual([1,1]);
+ await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);await page.mouse.down();await page.waitForTimeout(600);await page.mouse.move(500,500);
+ await page.evaluate(()=>window.dispatchEvent(new PointerEvent('pointercancel',{pointerType:'mouse',button:0,isPrimary:true,bubbles:true})));await page.mouse.up();await page.waitForTimeout(600);expect(await scale()).toEqual([1,1]);
+});
+for(const framework of ['react','angular'])test(`${framework} press ignores secondary touch and mouse inputs`,async({page})=>{
+ await consumer(page,framework);const button=page.locator('#action');const scale=()=>button.evaluate(el=>{const m=new DOMMatrixReadOnly(getComputedStyle(el).transform);return[m.a,m.d];});
+ for(const init of [{pointerType:'touch',isPrimary:false,button:0,pointerId:2},{pointerType:'mouse',isPrimary:true,button:2,pointerId:3}]){
+  await button.evaluate((el,init)=>el.dispatchEvent(new PointerEvent('pointerdown',{...init,bubbles:true})),init);await page.waitForTimeout(600);expect(await scale()).toEqual([1,1]);
+  await page.evaluate(init=>window.dispatchEvent(new PointerEvent('pointerup',{...init,bubbles:true})),init);
+ }
+ await button.evaluate(el=>el.dispatchEvent(new PointerEvent('pointerdown',{pointerType:'touch',isPrimary:true,button:0,pointerId:1,bubbles:true})));await page.waitForTimeout(600);expect((await scale())[0]).toBeCloseTo(.97*.96,3);
+ await page.evaluate(()=>window.dispatchEvent(new PointerEvent('pointercancel',{pointerType:'touch',isPrimary:true,button:0,pointerId:1,bubbles:true})));await page.waitForTimeout(600);expect(await scale()).toEqual([1,1]);
+});
