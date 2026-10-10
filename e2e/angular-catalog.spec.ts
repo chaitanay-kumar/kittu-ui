@@ -198,7 +198,7 @@ test("tabs, menus, tooltip and modal retain accessible focus behavior", async ({
     "true",
   );
   await demo(page,'hamburger-menu');
-  const hamburger=page.getByRole('button',{name:'Open Menu',exact:true});
+  const hamburger=page.locator('[data-kit="hamburger-menu"] button');
   await hamburger.focus();await hamburger.press('Space');
   await expect(hamburger).toHaveAttribute('aria-expanded','true');
   await hamburger.press('Escape');await expect(hamburger).toHaveAttribute('aria-expanded','true');
