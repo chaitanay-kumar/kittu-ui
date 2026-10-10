@@ -14,7 +14,7 @@ Independent checks on this integration branch: native library/demo build and pac
 
 Reviewed the source’s uncontrolled query, truthy whitespace behavior, delayed focus, empty-only blur collapse, optional callback and source clear-button form behavior. The clear button intentionally omits its type, but its synchronous removal prevents submission; the Angular view now commits this update before the native default action. Both unkeyed presence branches use the same child key, so the shortcut is removed immediately rather than retained for exit. String-color springs report zero velocity in the installed Motion version, while numeric width retains its interrupted velocity.
 
-Independent checks on the integration branch: native build and packaged contract pass, and **24 actual React / Angular browser cases pass** on desktop/mobile. The PR subsequently strengthened immediate shortcut removal and phase-aligned fade checks; those focused cases are being independently rerun. Shared-file merge conflicts were resolved by retaining both native component registrations, demo cases, contract scripts and CSS exclusions, then regenerating catalog outputs.
+Independent checks on the integration branch: native build and packaged contract pass, and **24 actual React / Angular browser cases pass** on desktop/mobile. The PR subsequently strengthened immediate shortcut removal and phase-aligned fade checks; **both focused desktop/mobile cases pass** independently. Shared-file merge conflicts were resolved by retaining both native component registrations, demo cases, contract scripts and CSS exclusions, then regenerating catalog outputs.
 
 ## Remaining batch work
 
