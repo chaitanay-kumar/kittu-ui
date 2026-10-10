@@ -2,6 +2,7 @@
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
 import {pressButtonPort} from "./angular-press-button";
+import {hamburgerMenuPort} from "./angular-hamburger-menu";
 import {magneticButtonPort} from "./angular-magnetic-button";
 import {morphingButtonPort} from "./angular-morphing-button";
 import {typewriterButtonPort} from "./angular-typewriter-button";
@@ -123,6 +124,7 @@ add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort
 add("morphing-button","plain",morphingButtonPort.description,morphingButtonPort.template,morphingButtonPort.body,morphingButtonPort);
 add("rainbow-button","plain",rainbowButtonPort.description,rainbowButtonPort.template,rainbowButtonPort.body,rainbowButtonPort);
 
+add("hamburger-menu","plain",hamburgerMenuPort.description,hamburgerMenuPort.template,hamburgerMenuPort.body,hamburgerMenuPort);
 add("magnetic-button","plain",magneticButtonPort.description,magneticButtonPort.template,magneticButtonPort.body,magneticButtonPort);
 add(
   "liquid-ripple-button",
@@ -271,7 +273,6 @@ for (const [id, layout] of [
   );
 }
 for (const [id, title] of [
-  ["hamburger-menu", "Menu"],
   ["gooey-menu", "Explore"],
   ["origin-dropdown", "Choose an action"],
 ]) {
@@ -797,7 +798,7 @@ const cardDefaults: Record<
   ],
 };
 for (const port of ports) {
-  if(['hamburger-menu','gooey-menu','origin-dropdown'].includes(port.id)){
+  if(['gooey-menu','origin-dropdown'].includes(port.id)){
     port.template=port.template.replace('(keydown.escape)="open.set(false)"','(keydown.escape)="closeMenu()"').replace('<button type="button" [disabled]','<button #trigger type="button" [disabled]').replace('(click)="select(item);open.set(false)"','(click)="pick(item)"');
     port.body+=`readonly trigger=viewChild<ElementRef<HTMLButtonElement>>('trigger');closeMenu():void{this.open.set(false);this.trigger()?.nativeElement.focus();}pick(item:KitItem):void{if(this.disabled()||this.loading()||item.disabled)return;this.select(item);this.closeMenu();}override keys(event:KeyboardEvent):void{if(!['ArrowDown','ArrowUp','Home','End'].includes(event.key)||this.disabled())return;const buttons=Array.from((event.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('button[data-item]:not(:disabled)'));if(!buttons.length)return;event.preventDefault();const index=buttons.indexOf(event.target as HTMLButtonElement);const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(index+(event.key==='ArrowUp'?-1:1)+buttons.length)%buttons.length;buttons[next].focus();}`;
   }

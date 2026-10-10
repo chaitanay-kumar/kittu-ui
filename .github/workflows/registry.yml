@@ -69,6 +69,8 @@ jobs:
         run: npm run test:typewriter-button
       - name: Verify Button contract
         run: npm run test:button
+      - name: Verify Hamburger Menu packaged contract
+        run: npm run test:hamburger-menu
       - name: Verify Magnetic Button contract
         run: npm run test:magnetic-button
       - name: Verify Neon Edge Button contract

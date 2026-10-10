@@ -764,23 +764,21 @@ export const ANGULAR_PORTS = [
     "name": "Hamburger Menu",
     "exportName": "KitHamburgerMenuComponent",
     "selector": "kit-hamburger-menu",
-    "description": "An expandable action menu with Escape, arrow keys and disabled-item handling.",
+    "description": "Controlled three-line menu toggle with React-matched spring transforms, native button attributes and accessible open/close labels.",
     "inputs": [
-      "items: KitItem[]",
+      "isOpen: boolean (required)",
+      "size: number",
+      "color: string",
       "label: string",
       "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "type: button | submit | reset",
+      "className: string",
+      "aria-label: string | null",
+      "aria-expanded: boolean | string | null",
+      "onClick: ((event: MouseEvent) => void) | null"
     ],
     "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
+      "change: boolean"
     ]
   },
   {
