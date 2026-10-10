@@ -1899,11 +1899,15 @@ export const ANGULAR_PORTS = [
     "name": "StretchSwitch",
     "exportName": "KitStretchSwitchComponent",
     "selector": "kit-stretch-switch",
-    "description": "A native toggle with two-way checked binding, visible focus and a disabled state.",
+    "description": "React-matched controlled or uncontrolled switch with initial defaultChecked, text or template label, description, change callback and spring thumb motion.",
     "inputs": [
-      "checked: boolean (two-way)",
+      "checked: boolean | undefined (controlled)",
+      "defaultChecked: boolean",
       "disabled: boolean",
-      "label: string"
+      "onChange: StretchSwitchChangeHandler",
+      "label: StretchSwitchLabel",
+      "description: string",
+      "className: string"
     ],
     "outputs": [
       "checkedChange: boolean"

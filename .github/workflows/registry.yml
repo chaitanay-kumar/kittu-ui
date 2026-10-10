@@ -85,5 +85,8 @@ jobs:
       - name: Verify Rainbow Button contract
         run: npm run test:rainbow-button
 
+      - name: Verify Stretch Switch contract
+        run: npm run test:stretch-switch
+
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

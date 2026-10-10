@@ -38,7 +38,8 @@
     "test:magnetic-button": "node scripts/verify-magnetic-button.mjs",
     "test:press-button": "node scripts/verify-press-button.mjs",
     "test:morphing-button": "node scripts/verify-morphing-button.mjs",
-    "test:typewriter-button": "node scripts/verify-typewriter-button.mjs"
+    "test:typewriter-button": "node scripts/verify-typewriter-button.mjs",
+    "test:stretch-switch": "node scripts/verify-stretch-switch.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

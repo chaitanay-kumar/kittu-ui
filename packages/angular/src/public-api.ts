@@ -27,6 +27,8 @@ export * from './morphing-button-types';
 export * from './typewriter-button-types';
 export * from './rainbow-button-types';
 
+export * from './stretch-switch-types';
+
 // Generated catalog exports.
 export * from "./port-types";
 export * from './activity-feed.component';

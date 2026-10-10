@@ -1,3 +1,4 @@
+import {StretchSwitchDemoComponent} from "./stretch-switch-demo";
 import {PressButtonDemoComponent} from "./press-button-demo";
 import {MagneticButtonDemoComponent} from "./magnetic-button-demo";
 import {MorphingButtonDemoComponent} from "./morphing-button-demo";
@@ -54,7 +55,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
   selector: "kit-angular-demo",
   standalone: true,
   imports: [
-    PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,RainbowButtonDemoComponent,
+    StretchSwitchDemoComponent,PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,RainbowButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
     SpotlightCardDemoComponent,
@@ -77,6 +78,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
       @case ("advanced-data-table") { <kit-table-demo/> }
       @case ("ai-agent-activity") { <kit-agent-demo/> }
       @case("loader"){<kit-loader-demo/>}
+      @case("stretch-switch"){<kit-stretch-switch-demo/>}
       @case("press-button"){<kit-press-button-demo/>}
       @case("magnetic-button"){<kit-magnetic-button-demo/>}
       @case("morphing-button"){<kit-morphing-button-demo/>}

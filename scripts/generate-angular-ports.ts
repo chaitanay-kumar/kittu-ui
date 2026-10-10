@@ -1,3 +1,4 @@
+import {stretchSwitchPort} from "./angular-stretch-switch";
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
@@ -163,10 +164,11 @@ add(
   `override readonly items=input<KitItem[]>([{id:'install',label:'Install',description:'npm install ./kit-ui-angular-0.1.0.tgz'},{id:'import',label:'Import',description:"import { KitButtonComponent } from 'kit-ui-angular';"}]);async copy():Promise<void>{try{await navigator.clipboard.writeText(this.current()?.description??'');this.status.set('Copied.');}catch{this.actionError.set('Clipboard unavailable. Select and copy the snippet manually.');}}`,
 );
 
+add("stretch-switch","plain",stretchSwitchPort.description,stretchSwitchPort.template,stretchSwitchPort.body,stretchSwitchPort);
+
 // Native toggles expose Angular two-way binding rather than React event props.
 for (const [id, label, role] of [
   ["draw-checkbox", "Mark as complete", "checkbox"],
-  ["stretch-switch", "Stretch switch", "switch"],
   ["liquid-toggle", "Liquid toggle", "switch"],
 ]) {
   add(
