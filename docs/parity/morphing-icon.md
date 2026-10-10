@@ -22,7 +22,7 @@ Settled transforms/styles are compared; exact intermediate frames, reversal velo
 
 ## Recorded results (2026-10-10)
 
-- 22 focused checks validated: 14 consuming-app/initial-state/native-motion checks passed, then all eight website-action/screenshot checks passed after the inherited-color correction. Four final screenshot checks passed again with the corrected square iframe edges. The consuming matrix exercises eight configurations in both frameworks across both themes/motion preferences on desktop/mobile.
+- All 24 focused checks passed in the final full suite with the packaged shared CSS loaded. Coverage includes eight consuming configurations, initial states, motion timing/interruption/disposal, all website actions, square iframe edges/screenshots and projected-button keyboard/focus comparisons across both themes/motion preferences on desktop/mobile. Legacy minimum-width/focus defaults exclude this wrapper without increasing selector specificity for other ports.
 - All 24 catalog/framework-navigation checks passed, including loading and disposing all ports across the demo's stylesheet installation/removal.
 - Packaged contract passed. Strict Angular 20.0.0/20.3.33/21.2.25/22.2.1 consumers compiled all 116 selectors, required template bindings and undefined optional inputs.
 - All 117 unit tests passed. Final production build and 289 SEO checks passed.
