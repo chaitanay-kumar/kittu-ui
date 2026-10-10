@@ -9,6 +9,9 @@ export * from "./timeline-scrubber.component";
 export * from "./ai-prompt-composer.component";
 
 export * from "./activity-feed-types";
+export * from './data-table-types';
+export * from './data-table-parts';
+export * from './data-table-controller';
 
 // Generated catalog exports.
 export * from "./port-types";

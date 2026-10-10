@@ -87,38 +87,28 @@ test("Angular website has the complete catalog and framework-specific usage", as
     .fill("Advanced Data Table");
   await catalog.getByRole("button").click();
   await expect(page).toHaveURL(/advanced-data-table\?framework=angular/);
-  await expect(page.frameLocator("iframe").getByRole("table")).toBeVisible();
-  await page.getByRole("tab", { name: "Usage", exact: true }).click();
+  await expect(page.frameLocator("iframe").getByRole("heading",{name:"Component Registry",exact:true})).toBeVisible();
+  await page.getByRole("tab",{name:"Usage",exact:true}).click();
   await expect(
     page.getByText("KittuAdvancedDataTableComponent", { exact: false }).first(),
   ).toBeVisible();
 });
 
-test("data table sorts, filters, selects, expands and runs a bulk action", async ({
-  page,
-}) => {
-  await demo(page, "advanced-data-table");
-  await page.getByRole("button", { name: "Task", exact: true }).click();
-  await expect(page.getByRole("row").nth(1)).toContainText(
-    "Angular components",
-  );
-  await page.getByText("Columns and filters", { exact: true }).click();
-  await page.getByLabel("Filter Status").selectOption("Ready");
-  await expect(page.getByRole("table")).not.toContainText("Angular components");
-  await page
-    .getByRole("checkbox", { name: "Select all filtered rows" })
-    .check();
-  await expect(page.getByText("2 selected", { exact: true })).toBeVisible();
-  await page
-    .getByRole("button", { name: "Apply bulk action", exact: true })
-    .click();
-  await expect(page.getByRole("status")).toContainText(
-    "Bulk action completed.",
-  );
-  await page.getByRole("button", { name: "Details 1", exact: true }).click();
-  await expect(page.locator("pre")).toContainText("Design tokens");
-  await page.getByLabel("Search rows").fill("does not exist");
-  await expect(page.getByRole("table")).toContainText("No matching rows.");
+test("data table sorts, filters, selects, expands and exports selected IDs", async ({page}) => {
+  await demo(page,"advanced-data-table");
+  if(!await page.getByRole('table').isVisible())await page.getByRole('button',{name:'Toggle view mode'}).click();
+  await page.getByRole('button',{name:'Component',exact:true}).click();
+  await expect(page.getByRole('row').nth(1)).toContainText('AI Agent Activity');
+  await page.getByRole('button',{name:'AI',exact:true}).click();
+  await expect(page.getByText('Showing',{exact:false})).toContainText('of 3 records');
+  await page.getByRole('checkbox',{name:'Select all rows',exact:true}).check();
+  await expect(page.getByText('3 selected',{exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Export',exact:true}).click();
+  await expect(page.getByRole('status')).toContainText('Exported 3 records');
+  await page.getByRole('button',{name:'Expand row details'}).first().click();
+  await expect(page.getByText('AI Agent Activity Specifications',{exact:true})).toBeVisible();
+  await page.getByPlaceholder('Search...').fill('does not exist');
+  await expect(page.getByText('No matching records found',{exact:true})).toBeVisible();
 });
 
 test("OTP, switches and rotary dial support native keyboard interaction", async ({

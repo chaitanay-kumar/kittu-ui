@@ -9,7 +9,7 @@ const ports = JSON.parse(
   fs.readFileSync(path.join(root, "packages/angular/catalog.json"), "utf8"),
 );
 const portImports = ports.map((port) => port.exportName).join(", ");
-const portTemplates = ports.map((port) => `<${port.selector} />`).join("\n");
+const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kittu-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : `<${port.selector} />`).join("\n");
 // Each consumer installs and runs its own compiler. Reusing the repository's
 // compiler would miss incompatibilities with older Angular versions.
 const matrix = [
@@ -55,11 +55,10 @@ for (const { angularVersion, typescript } of matrix) {
     { cwd: target, stdio: "inherit" },
   );
   if (install.status !== 0) process.exit(install.status ?? 1);
-  fs.writeFileSync(
-    path.join(target, "app.ts"),
-    `import { Component } from '@angular/core';
+  const consumerSources = [
+`import { Component } from '@angular/core';
 import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kittu-ui-angular';
-@Component({selector:'consumer-app',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+@Component({selector:'consumer-app-0',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
   ${portTemplates}
   <kittu-activity-feed [events]="events" [enableLiveSimulation]="false" [enableFilters]="true" [enableSearch]="true" [maxEntries]="10" [onEventReplay]="replay" className="consumer-feed" (eventReplay)="lastEvent = $event" />
   <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
@@ -71,9 +70,30 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
-export class ConsumerApp { readonly events:ActivityEvent[]=[{id:'one',type:'deploy',status:'success',title:'Release',timestamp:'Now',payload:{version:1}}];lastEvent:ActivityEvent|undefined;readonly replay=(event:ActivityEvent)=>{this.lastEvent=event;};height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+export class ConsumerApp0 { readonly events:ActivityEvent[]=[{id:'one',type:'deploy',status:'success',title:'Release',timestamp:'Now',payload:{version:1}}];lastEvent:ActivityEvent|undefined;readonly replay=(event:ActivityEvent)=>{this.lastEvent=event;};height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `,
-  );
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ColumnDef, KittuDataTableComponent, KittuDataTableToolbarComponent, KittuDataTableContentComponent, KittuDataTablePaginationComponent } from 'kittu-ui-angular';
+interface Row {id:string;name:string;}
+@Component({selector:'consumer-app-1',imports:[KittuDataTableComponent,KittuDataTableToolbarComponent,KittuDataTableContentComponent,KittuDataTablePaginationComponent,${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <ng-template #cell let-row let-value="value">{{row.name}} {{value}}</ng-template>
+  <ng-template #details let-row>Details {{row.name}}</ng-template>
+  <kittu-advanced-data-table [data]="rows" [columns]="columns" [getRowId]="rowId" [defaultPageSize]="2" defaultViewMode="cards" accentColor="#333" [renderSubComponent]="details" [isLoading]="false" [error]="null" [onBulkDelete]="bulk" [onBulkExport]="bulk" (bulkDelete)="ids=$event" (bulkExport)="ids=$event" className="consumer"/>
+  <kittu-data-table [data]="rows" [columns]="[{id:'name',header:'Name',accessorKey:'name',cell:cell}]"><kittu-data-table-toolbar title="Consumer"/><kittu-data-table-content emptyTitle="Empty"/><kittu-data-table-pagination [pageSizeOptions]="[2,4]"/></kittu-data-table>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp1 {readonly rows:Row[]=[{id:'1',name:'Kit UI'}];readonly columns:ColumnDef<Row>[]=[{id:'name',header:'Name',accessorKey:'name',sortable:true}];readonly rowId=(row:Row)=>row.id;readonly bulk=(ids:string[])=>{this.ids=ids;};ids:string[]=[]; height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`
+  ];
+  consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
   fs.writeFileSync(
     path.join(target, "tsconfig.json"),
     JSON.stringify(
@@ -91,7 +111,7 @@ export class ConsumerApp { readonly events:ActivityEvent[]=[{id:'one',type:'depl
           strictTemplates: true,
           compilationMode: "full",
         },
-        files: ["app.ts"],
+        files: consumerSources.map((_, index) => `app${index}.ts`),
       },
       null,
       2,

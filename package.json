@@ -24,7 +24,8 @@
     "angular:build": "npm run angular:sync && node scripts/build-angular.mjs",
     "test:angular-package": "node scripts/verify-angular-package.mjs",
     "test:activity-feed": "node scripts/verify-activity-feed.mjs",
-    "predev": "npm run angular:build"
+    "predev": "npm run angular:build",
+    "test:data-table": "node scripts/verify-data-table.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

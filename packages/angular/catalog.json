@@ -23,25 +23,26 @@
     "name": "Advanced Data Table",
     "exportName": "KittuAdvancedDataTableComponent",
     "selector": "kittu-advanced-data-table",
-    "description": "A responsive data table with sorting, global and column filters, selection, column visibility, row details, pagination and application-owned bulk actions.",
+    "description": "React-compatible native table and cards, typed columns, custom cell/detail templates, multi-value filters, current-page selection and bulk callbacks.",
     "inputs": [
-      "data: KittuTableRow[]",
-      "columns: KittuTableColumn[]",
-      "label: string",
-      "loading: boolean",
-      "error: string",
-      "disabled: boolean",
-      "page: number (two-way)",
-      "pageSize: number",
-      "selectedIds: string[] (two-way)",
-      "bulkAction: KittuTableAction"
+      "data: T[]",
+      "columns: ColumnDef<T>[]",
+      "getRowId: (row: T, index: number) => string",
+      "title: string",
+      "searchPlaceholder: string",
+      "defaultPageSize: number",
+      "defaultViewMode: DataTableViewMode",
+      "accentColor: string",
+      "renderSubComponent: TemplateRef<DataTableRowContext<T>>",
+      "isLoading: boolean",
+      "error: string | null",
+      "className: string",
+      "onBulkDelete: (ids: string[]) => void",
+      "onBulkExport: (ids: string[]) => void"
     ],
     "outputs": [
-      "rowSelect: KittuTableRow",
-      "bulkComplete: KittuTableRow[]",
-      "bulkRequested: KittuTableRow[]",
-      "pageChange: number",
-      "selectedIdsChange: string[]"
+      "bulkDelete: string[]",
+      "bulkExport: string[]"
     ]
   },
   {

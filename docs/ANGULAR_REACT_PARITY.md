@@ -2,7 +2,7 @@
 
 React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
 
-Current progress: 1 component has a validated baseline, 1 is under review, and 114 await review. Activity Feed changes are on `feat/angular-activity-feed-parity`. Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
+Current progress: 2 components have validated baselines and 114 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table changes are on `feat/angular-advanced-data-table-parity`. Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
 
 ## Review requirements
 
@@ -18,8 +18,8 @@ Current progress: 1 component has a validated baseline, 1 is under review, and 1
 
 | Order | Component | ID | Status | Report |
 | --- | --- | --- | --- | --- |
-| 1 | Activity Feed | `activity-feed` | Validated baseline | [Review](parity/activity-feed.md) |
-| 2 | Advanced Data Table | `advanced-data-table` | Under review | [Review](parity/advanced-data-table.md) |
+| 1 | Activity Feed | `activity-feed` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-activity-feed-parity/docs/parity/activity-feed.md) |
+| 2 | Advanced Data Table | `advanced-data-table` | Validated baseline | [Review](parity/advanced-data-table.md) |
 | 3 | AI Agent Activity | `ai-agent-activity` | Queued | — |
 | 4 | AI Prompt Composer | `ai-prompt-composer` | Queued | — |
 | 5 | AI Response | `ai-response` | Queued | — |

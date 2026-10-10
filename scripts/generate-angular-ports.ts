@@ -16,6 +16,7 @@ interface Port {
   imports?: string;
   componentImports?: string;
   controller?: string;
+  typeParameters?: string;
 }
 const ports: Port[] = [];
 const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
@@ -86,6 +87,7 @@ function add(
     imports: extra.imports,
     componentImports: extra.componentImports,
     controller: extra.controller,
+    typeParameters: extra.typeParameters,
   });
 }
 const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
@@ -828,18 +830,6 @@ for (const port of ports) {
     port.body += `\nprivate lastScroll=0;@HostListener('window:scroll') scroll():void{if(this.disabled()||this.paused()||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const delta=window.scrollY-this.lastScroll;this.lastScroll=window.scrollY;this.transform.set('translateX('+Math.max(-25,Math.min(25,delta*.15))+'px)');clearTimeout(this.settle);this.settle=setTimeout(()=>this.transform.set('translateX(0)'),180);}`;
   if (port.id === "rocket-party-popper")
     port.body = port.body.replace("mode='burst'", "mode='rocket'");
-  if (port.id === "advanced-data-table") {
-    port.outputs.push("bulkRequested: KittuTableRow[]");
-    port.body = port.body
-      .replace(
-        "readonly bulkComplete=output<KittuTableRow[]>();",
-        "readonly bulkComplete=output<KittuTableRow[]>();readonly bulkRequested=output<KittuTableRow[]>();",
-      )
-      .replace(
-        "const handler=this.bulkAction();if(!handler){this.bulkComplete.emit(rows);",
-        "this.bulkRequested.emit(rows);const handler=this.bulkAction();if(!handler){",
-      );
-  }
   if (port.id === "particle-delete")
     port.body = port.body.replace(
       "await this.run();",
@@ -919,7 +909,7 @@ const entries = ports
       "KittuCompareFeature",
       "KittuChatHandler",
     ].filter(used);
-    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
+    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${port.typeParameters ?? ""}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
     fs.writeFileSync(path.join(directory, `${port.id}.component.ts`), source);
     const outputs = [
       ...port.outputs,
