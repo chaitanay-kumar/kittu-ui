@@ -85,5 +85,8 @@ jobs:
       - name: Verify Rainbow Button contract
         run: npm run test:rainbow-button
 
+      - name: Verify Smooth Accordion contract
+        run: npm run test:smooth-accordion
+
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

@@ -235,7 +235,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [SlidePagination for Angular](http://localhost:5173/components/slide-pagination?framework=angular): Bounded page navigation with direct page buttons, arrow keys and two-way page binding.
 - [Small Floating Dock for Angular](http://localhost:5173/components/small-floating-dock?framework=angular): Keyboard-navigable selection with active state, disabled items and application navigation output.
 - [Smart Comparison for Angular](http://localhost:5173/components/smart-comparison?framework=angular): Searchable plan comparison with differences-only filtering, collapsible categories and plan selection.
-- [Smooth Accordion for Angular](http://localhost:5173/components/smooth-accordion?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.
+- [Smooth Accordion for Angular](http://localhost:5173/components/smooth-accordion?framework=angular): React-matched item accordion with initial defaultOpen, single/multiple disclosure, template content and interruptible height/opacity/chevron springs.
 - [Sparkles Core for Angular](http://localhost:5173/components/sparkles-core?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Speed Warp for Angular](http://localhost:5173/components/speed-warp?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Split Button for Angular](http://localhost:5173/components/split-button?framework=angular): A primary action with a separately accessible action chooser.
