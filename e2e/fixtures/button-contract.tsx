@@ -1,3 +1,4 @@
+import "../../packages/angular/styles.css";
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import '@angular/compiler';
@@ -7,7 +8,7 @@ import {KittuButtonComponent} from '../../packages/angular/dist/fesm2022/kittu-u
 import {Button,type ButtonProps} from '../../src/components/ui/Button';
 import '../../src/styles/index.css';
 type Options=ButtonProps&{icons?:boolean;content?:boolean};
-const params=new URLSearchParams(location.search);document.documentElement.classList.toggle('dark',params.get('theme')==='dark');document.body.style.margin='20px';document.body.style.width='320px';const style=document.createElement('style');style.textContent='button{transition:none!important}';document.head.append(style);
+const params=new URLSearchParams(location.search);document.documentElement.classList.toggle('dark',params.get('theme')==='dark');document.body.style.margin='20px';document.body.style.width='320px';const style=document.createElement('style');style.textContent='button{transition:none!important}';if(!params.has('transitions'))document.head.append(style);
 const events:string[]=[];const api=window as unknown as {setButtonOptions:(options:Options)=>void;destroyButton:()=>void;buttonEvents:string[]};api.buttonEvents=events;
 if(params.get('framework')==='react'){
  const node=document.createElement('div');document.body.append(node);const root=createRoot(node);

@@ -10,6 +10,8 @@ Date: 2026-10-10. Scope: the ten existing component PRs (#1–#10), targeting `f
 - CI runs every component's package contract. Angular consumer verification compiles the original strict consumer scenarios in separate application components, avoiding field-name collisions or dropping earlier API checks.
 - Both Lucide notice files are included and checked in the package. The build explicitly copies the Lucide/Feather notice used by the earlier components.
 - Loader optional inputs now retain React defaults when explicitly undefined. Omitting the aria-label override uses the label; explicitly undefined removes the attribute, matching React's final props spread. Packaged runtime and strict optional-input consumer checks cover this correction.
+- Shared generic minimum-width, focus-ring and reduced-motion rules are scoped away from the reviewed components that own those styles. Loader follows its explicit motion option; Button retains its spinner/shimmer behavior; Neon Edge Button uses its own static reduced-motion beam while retaining source transitions. Spotlight Card and Morphing Icon projected controls retain their source focus behavior.
+- Loader, Button, Neon Edge Button and Spotlight Card consumer fixtures now import the actual shared package stylesheet. `e2e/shared-parity-styles.spec.ts` compares Button/Neon transition durations, minimum widths and keyboard focus against React with both motion preferences. Final follow-up browser results are recorded on the integration PR before merge.
 - No React component source or runtime dependencies changed. The ten source branches are preserved in the integration's merge ancestry.
 
 ## Validation

@@ -1,3 +1,4 @@
+import "../../packages/angular/styles.css";
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import '@angular/compiler';
@@ -8,7 +9,7 @@ import {SpotlightCard,type SpotlightCardProps} from '../../src/components/ui/Spo
 import '../../src/styles/index.css';
 type Options=Omit<SpotlightCardProps,'children'|'onMouseMove'|'onMouseLeave'>&{moveOverride?:boolean;leaveOverride?:boolean;handler?:boolean;ancestorGroup?:boolean};
 const params=new URLSearchParams(location.search);document.documentElement.classList.toggle('dark',params.get('theme')==='dark');document.body.style.margin='20px';
-const style=document.createElement('style');style.textContent='.consumer-frame{width:300px;max-width:100%;padding:12px}.consumer-card{width:100%}.consumer-content{color:#fafafa}.consumer-content p{font-size:12px;margin:0 0 8px}.consumer-content button{color:white;border:1px solid #777;padding:4px 8px}';document.head.append(style);
+const style=document.createElement('style');style.textContent='.consumer-frame{width:300px;max-width:100%;padding:12px}.consumer-card{width:100%}.consumer-content{color:#fafafa}.consumer-content p{font-size:12px;margin:0 0 8px}.consumer-content button{color:white;border:1px solid #777;padding:4px 8px}';if(!params.has('transitions'))document.head.append(style);
 const api=window as unknown as {setSpotlightOptions:(options:Options)=>void;destroySpotlight:()=>void;events:string[]};api.events=[];
 if(params.get('framework')==='react'){
  const node=document.createElement('div');document.body.append(node);const root=createRoot(node);

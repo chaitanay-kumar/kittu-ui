@@ -1,3 +1,4 @@
+import "../../packages/angular/styles.css";
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import '@angular/compiler';
@@ -8,7 +9,7 @@ import {NeonEdgeButton} from '../../src/components/ui/NeonEdgeButton';
 import '../../src/styles/index.css';
 type Options={speed?:number;glow?:boolean;disabled?:boolean;type?:'button'|'submit'|'reset';className?:string;custom?:boolean};
 const params=new URLSearchParams(location.search);document.documentElement.classList.toggle('dark',params.get('theme')==='dark');document.body.style.margin='20px';
-const style=document.createElement('style');style.textContent='button,button *{transition:none!important}';document.head.append(style);
+const style=document.createElement('style');style.textContent='button,button *{transition:none!important}';if(!params.has('transitions'))document.head.append(style);
 const events:string[]=[];const api=window as unknown as {setNeonOptions:(options:Options)=>void;destroyNeon:()=>void;neonEvents:string[]};api.neonEvents=events;
 if(params.get('framework')==='react'){
  const node=document.createElement('div');document.body.append(node);const root=createRoot(node);api.setNeonOptions=options=>root.render(<form onSubmit={e=>{e.preventDefault();events.push('submit');}} onReset={()=>events.push('reset')}><NeonEdgeButton {...options} id="action" aria-label="Action" className={'consumer-neon '+(options.className||'')} onClick={()=>events.push('click')}>{options.custom?<>Ship <em>now</em></>:undefined}</NeonEdgeButton></form>);api.destroyNeon=()=>root.unmount();api.setNeonOptions({});
