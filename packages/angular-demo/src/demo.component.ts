@@ -44,10 +44,13 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   });
 }
 
+import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
+
 @Component({
   selector: "kit-angular-demo",
   standalone: true,
   imports: [
+    RainbowButtonDemoComponent,
     ButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
@@ -71,6 +74,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
       @case ("advanced-data-table") { <kit-table-demo/> }
       @case ("ai-agent-activity") { <kit-agent-demo/> }
       @case("loader"){<kit-loader-demo/>}
+      @case("rainbow-button"){<kit-rainbow-button-demo/>}
       @case("button"){<kit-button-demo/>}
       @case("neon-edge-button"){<kit-neon-edge-button-demo/>}
       @case("orbital-loading-ring"){<kit-orbital-loading-ring-demo/>}

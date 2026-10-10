@@ -59,7 +59,11 @@ for (const { angularVersion, typescript } of matrix) {
 import {KitLoaderComponent, type LoaderVariant} from 'kit-ui-angular';
 @Component({selector:'loader-optional-consumer',imports:[KitLoaderComponent],template:'<kit-loader [size]="size" [variant]="variant" [label]="label" [reduceMotion]="motion" [color]="color" [className]="classes" [aria-label]="ariaLabel"/>'})
 export class LoaderOptionalConsumer {size:number|undefined;variant:LoaderVariant|undefined;label:string|undefined;motion:boolean|undefined;color:string|undefined;classes:string|undefined;ariaLabel:string|undefined;}`;
-  const consumerSources = [loaderOptionalConsumer,
+  const rainbowConsumer=`import {Component} from '@angular/core';
+import {KitRainbowButtonComponent,type RainbowButtonVariant,type RainbowButtonSize,type RainbowButtonStyle} from 'kit-ui-angular';
+@Component({selector:'rainbow-consumer',standalone:true,imports:[KitRainbowButtonComponent],template:'<button kitRainbowButton [variant]="variant" [size]="size" [speed]="speed" [glow]="glow" [color1]="color" [color2]="color" [color3]="color" [color4]="color" [color5]="color" [style]="styles" [className]="classes" [disabled]="false" type="reset">Content</button><a kitRainbowButton href="/target" variant="outline">Link</a><button kitRainbowButton type="button">Child</button><kit-rainbow-button>Projected content</kit-rainbow-button>'})
+export class RainbowConsumer{variant:RainbowButtonVariant|undefined;size:RainbowButtonSize|undefined;speed:number|undefined;glow:boolean|undefined;color:string|undefined;styles:RainbowButtonStyle|undefined;classes:string|undefined;}`;
+  const consumerSources = [rainbowConsumer,loaderOptionalConsumer,
 `import { Component } from '@angular/core';
 import { ${portImports}, KitElasticSheetComponent, KitSmartUploadComponent, KitLiquidCommandPaletteComponent, KitHoldToConfirmComponent, KitSwipeActionListComponent, KitInteractiveDataCardComponent, KitTimelineScrubberComponent, KitAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kit-ui-angular';
 @Component({selector:'consumer-app-0',imports:[${portImports}, KitElasticSheetComponent,KitSmartUploadComponent,KitLiquidCommandPaletteComponent,KitHoldToConfirmComponent,KitSwipeActionListComponent,KitInteractiveDataCardComponent,KitTimelineScrubberComponent,KitAIPromptComposerComponent],template:\`
