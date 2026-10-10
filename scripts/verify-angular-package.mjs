@@ -191,6 +191,23 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
 export class ConsumerApp7 { readonly optionalSize:number|undefined=undefined;readonly optionalSpeed:number|undefined=undefined;readonly optionalVariant:OrbitalLoadingRingVariant|undefined=undefined;readonly optionalLabel:string|undefined=undefined;readonly optionalClass:string|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type SpotlightCardMouseHandler } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-8',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <kittu-spotlight-card [spotlightColor]="optionalColor" [spotlightSize]="optionalSize" [className]="optionalClass" [onMouseMove]="optionalHandler" [onMouseLeave]="optionalHandler"><button (click)="done=true">Projected action</button></kittu-spotlight-card>
+  <kittu-spotlight-card spotlightColor="rgba(255,255,255,.1)" [spotlightSize]="180" [onMouseMove]="moved">Projected content</kittu-spotlight-card>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp8 { readonly optionalColor:string|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalHandler:SpotlightCardMouseHandler|undefined=undefined;readonly moved:SpotlightCardMouseHandler=event=>{this.height=event.clientX;}; height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `
   ];
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));

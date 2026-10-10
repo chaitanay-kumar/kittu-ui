@@ -1734,24 +1734,15 @@ export const ANGULAR_PORTS = [
     "name": "Spotlight Card",
     "exportName": "KittuSpotlightCardComponent",
     "selector": "kittu-spotlight-card",
-    "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
+    "description": "React-matched single content card with pointer-following border and ambient radial spotlights, projected children, customizable color/size and native HTML event overrides.",
     "inputs": [
-      "items: KittuItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "spotlightColor: string",
+      "spotlightSize: number",
+      "className: string",
+      "onMouseMove: SpotlightCardMouseHandler",
+      "onMouseLeave: SpotlightCardMouseHandler"
     ],
-    "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "spotlight-search",

@@ -239,7 +239,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Sparkles Core for Angular](http://localhost:5173/components/sparkles-core?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Speed Warp for Angular](http://localhost:5173/components/speed-warp?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Split Button for Angular](http://localhost:5173/components/split-button?framework=angular): A primary action with a separately accessible action chooser.
-- [Spotlight Card for Angular](http://localhost:5173/components/spotlight-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
+- [Spotlight Card for Angular](http://localhost:5173/components/spotlight-card?framework=angular): React-matched single content card with pointer-following border and ambient radial spotlights, projected children, customizable color/size and native HTML event overrides.
 - [Spotlight Search for Angular](http://localhost:5173/components/spotlight-search?framework=angular): A native modal command search with keyboard navigation, async errors and focus restoration.
 - [SpringSelect for Angular](http://localhost:5173/components/spring-select?framework=angular): A native accessible select with keyboard typeahead and selected-item output.
 - [Stack Unfold Panel for Angular](http://localhost:5173/components/stack-unfold-panel?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.

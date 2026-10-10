@@ -1,6 +1,7 @@
 import {ButtonDemoComponent} from "./button-demo";
 import {NeonEdgeButtonDemoComponent} from "./neon-edge-button-demo";
 import {OrbitalLoadingRingDemoComponent} from "./orbital-loading-ring-demo";
+import {SpotlightCardDemoComponent} from "./spotlight-card-demo";
 import { Component, HostListener, signal } from "@angular/core";
 import { TableDemoComponent } from "./table-demo";
 import { AgentDemoComponent } from "./agent-demo";
@@ -49,6 +50,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
     ButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
+    SpotlightCardDemoComponent,
     NgComponentOutlet,
     TableDemoComponent,
     AgentDemoComponent,
@@ -70,6 +72,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
       @case("button"){<kittu-button-demo/>}
       @case("neon-edge-button"){<kittu-neon-edge-button-demo/>}
       @case("orbital-loading-ring"){<kittu-orbital-loading-ring-demo/>}
+      @case("spotlight-card"){<kittu-spotlight-card-demo/>}
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }

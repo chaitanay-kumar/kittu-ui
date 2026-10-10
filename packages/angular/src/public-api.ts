@@ -18,6 +18,7 @@ export * from './agent-activity-parts';
 export * from "./loader-types";
 export * from "./button-types";
 export * from "./orbital-loading-ring-types";
+export type {SpotlightCardMouseHandler} from "./spotlight-card-types";
 
 // Generated catalog exports.
 export * from "./port-types";

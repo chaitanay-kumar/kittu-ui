@@ -20,7 +20,7 @@ Controls expose signal models rather than `ControlValueAccessor`; direct `[formC
 | Pricing and comparison | Billing-period calculations, plan output events, search, differences-only filtering and collapsible feature groups |
 | Collections and feedback | Batch selection, notification dismissal/restore, expandable audit/timeline entries and application-owned recovery actions |
 | Dialogs and tooltips | Native modal focus containment and Escape restoration; tooltip hover, keyboard focus, touch and Escape dismissal |
-| Cards | Profile, wallet, folder, stack, story, spotlight, peek and reveal layouts with selection and disclosure |
+| Cards | Profile, wallet, folder, stack, story, peek and reveal layouts with selection and disclosure; Spotlight Card projects arbitrary content with pointer-driven illumination |
 | Motion | Native CSS transitions, counters, clocks, rotary controls, pointer effects and Canvas 2D visual engines with cleanup and pause controls |
 
 ## Application services
@@ -66,3 +66,5 @@ Button follows React’s nine visual variants, four sizes, loading text, icon te
 Neon Edge Button follows React’s travelling beam, speed/glow controls, projected content, hover/press styling and reduced-motion highlight. The native `button[kittuNeonEdgeButton]` selector preserves HTML form semantics and events; the existing custom selector remains available. See [the review](parity/neon-edge-button.md) for migration and verified coverage.
 ## Orbital Loading Ring parity baseline
 Orbital Loading Ring follows React’s three variants, size/speed defaults, SVG tracks/satellites/core, accessible label precedence and static reduced-motion state. The host is the status element; native attributes/styles/events apply directly. The showcase uses the same 96px dense ring and caption. See [the review](parity/orbital-loading-ring.md) for migration and verified coverage.
+## Spotlight Card parity baseline
+`KittuSpotlightCardComponent` follows React's single projected-content card, spotlightColor/spotlightSize defaults, native attributes and mouse-handler overrides. Its former collection/selection/disclosure/action API is removed. See [contract and validation](parity/spotlight-card.md).

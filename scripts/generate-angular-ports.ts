@@ -4,6 +4,7 @@ import {loaderPort} from "./angular-loader";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
+import {spotlightCardPort} from "./angular-spotlight-card";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -428,7 +429,6 @@ for (const [id, title, layout] of [
   ["wallet-card", "Your wallet", "wallet"],
   ["peek-card", "A closer look", "peek"],
   ["reveal-card", "Reveal the details", "reveal"],
-  ["spotlight-card", "Small details matter", "spotlight"],
   ["mac-os-folder-cards", "Project folders", "folders"],
   ["stacked-cards", "Your collection", "stacked"],
   ["story-card", "Your stories", "stories"],
@@ -441,6 +441,7 @@ for (const [id, title, layout] of [
     `spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}`,
   );
 }
+add("spotlight-card", "plain", spotlightCardPort.description, spotlightCardPort.template, spotlightCardPort.body, spotlightCardPort);
 add(
   "avatar-stack",
   "collection",
@@ -813,14 +814,6 @@ const cardDefaults: Record<
       label: "Behind the surface",
       description:
         "Uncover another layer of information, with the keyboard or a pointer.",
-    },
-  ],
-  "spotlight-card": [
-    {
-      id: "spotlight",
-      label: "Small details matter",
-      description:
-        "A pointer-following highlight gives this surface a little depth.",
     },
   ],
 };
