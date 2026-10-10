@@ -120,20 +120,47 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
     description:
       "Draft prompts with suggestions and attachments; preserve work on cancellation or failure.",
     inputs: [
-      "sendHandler: SendHandler",
+      "onSend: SendHandler",
+      "sendHandler: SendHandler (deprecated alias)",
       "suggestions: string[]",
       "maxAttachments: number",
       "maxAttachmentSize: number",
       "disabled: boolean",
     ],
-    binding: '[sendHandler]="send"',
+    binding: '[onSend]="send"',
     handler: `  readonly send: SendHandler = async ({ text, attachments }, signal) => {\n    const form = new FormData();\n    form.append('text', text);\n    attachments.forEach(file => form.append('attachments', file));\n    const response = await fetch('/api/prompts', { method: 'POST', body: form, signal });\n    if (!response.ok) throw new Error('Send failed');\n  };`,
   },
-  ...ANGULAR_PORTS,
+  ...ANGULAR_PORTS.map(entry => entry.id === "activity-feed" ? {
+    ...entry,
+    binding: '[events]="events"',
+    handler: `  readonly events: ActivityEvent[] = [{
+    id: 'evt-1', type: 'deploy', status: 'success',
+    title: 'Production release verified', timestamp: '2 mins ago',
+    traceId: 'trc_98fa20', actor: { name: 'CI Pipeline' },
+    payload: { version: '2.4.0' },
+  }];`,
+  } : entry),
 ];
 export function angularUsage(entry: AngularEntry) {
+  if (entry.id === 'advanced-data-table') return `import { Component } from '@angular/core';
+import { KittuAdvancedDataTableComponent, type ColumnDef } from 'kittu-ui-angular';
+interface Row { id: string; name: string; }
+@Component({selector:'app-example',imports:[KittuAdvancedDataTableComponent],template:\`<kittu-advanced-data-table title="Directory" [data]="rows" [columns]="columns" [onBulkExport]="exportRows"/>\`})
+export class ExampleComponent {
+  readonly rows: Row[] = [{id:'1',name:'Kit UI'}];
+  readonly columns: ColumnDef<Row>[] = [{id:'name',header:'Name',accessorKey:'name',sortable:true}];
+  readonly exportRows = (ids: string[]) => { console.log(ids); };
+}`;
+  if (entry.id === 'ai-agent-activity') return `import { Component } from '@angular/core';
+import { KittuAiAgentActivityComponent, type AgentActivityItemData } from 'kittu-ui-angular';
+@Component({selector:'app-example',imports:[KittuAiAgentActivityComponent],template:\`<kittu-ai-agent-activity title="Agent trace" [activities]="activities" [isRunning]="false" [defaultExpandedIds]="['analyze']"/>\`})
+export class ExampleComponent {
+ readonly activities:AgentActivityItemData[]=[{id:'analyze',type:'thinking',title:'Analyze request',status:'success',details:{input:{query:'Build a timeline'},output:'Ready'}}];
+}`;
   const type =
-    entry.id === "smart-upload"
+    entry.id === "activity-feed"
+      ? "ActivityEvent"
+      : entry.id === "smart-upload"
       ? "UploadHandler"
       : entry.id === "ai-prompt-composer"
         ? "SendHandler"

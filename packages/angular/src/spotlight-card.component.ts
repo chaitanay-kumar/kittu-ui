@@ -1,28 +1,33 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, input } from '@angular/core';
-import { KittuCollectionController } from './port-controllers';
-import type { KittuItem } from './port-types';
-
+import { Component, ElementRef, computed, inject, input, signal } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
+import type {SpotlightCardMouseHandler} from './spotlight-card-types';
 @Component({
  selector:"kittu-spotlight-card", standalone:true,
- host:{'data-kittu':"spotlight-card",style:'display:block;min-width:0'},
- template:`
-<section class="kittu-control kittu-stack">
-<h3>{{label()||'Small details matter'}}</h3>
-<div class="k-cards k-spotlight">@for(item of items();track item.id){<article class="k-card kittu-surface" [class.k-active]="current()?.id===item.id" (pointermove)="spot($event)" (pointerleave)="clearSpot($event)">
-<button type="button" [disabled]="loading()||disabled()||item.disabled" [attr.aria-expanded]="expanded().includes(item.id)" (click)="select(item);toggle(item.id)">{{item.label}}</button>
-<p>{{item.value}}</p>
-<div [hidden]="!expanded().includes(item.id)">
-<p>{{item.description}}</p>
-<ng-content>
-</ng-content>
-<button type="button" [disabled]="loading()||disabled()||busy()||item.disabled" (click)="execute([item])">Select {{item.label}}</button>
+ host:{'data-kittu':'spotlight-card','[class]':'"k-spotlight-parity group "+className()','(mousemove)':'move($event)','(mouseleave)':'leave($event)'},
+ encapsulation:ViewEncapsulation.None,styleUrls:["./spotlight-card.css"],
+template:`
+<div class="k-spotlight-border" [style.background]="borderGradient()">
 </div>
-</article>}</div>@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kittu-status">{{busy()?'Working…':status()}}</p>
-</section>
+<div class="k-spotlight-glow" [style.background]="backgroundGradient()">
+</div>
+<div class="k-spotlight-content">
+<ng-content/>
+</div>
 `
 })
-export class KittuSpotlightCardComponent extends KittuCollectionController {
-spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}
-override readonly items=input<KittuItem[]>([{"id":"spotlight","label":"Small details matter","description":"A pointer-following highlight gives this surface a little depth."}]);
+export class KittuSpotlightCardComponent {
+readonly spotlightColor=input<string,string|undefined>('rgba(56, 189, 248, 0.08)',{transform:value=>value===undefined?'rgba(56, 189, 248, 0.08)':value});
+readonly spotlightSize=input<number,number|undefined>(350,{transform:value=>value===undefined?350:value});
+readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});
+private readonly defaultHandler=Symbol('internal handler');
+readonly onMouseMove=input<SpotlightCardMouseHandler|symbol|undefined,SpotlightCardMouseHandler|undefined>(this.defaultHandler,{transform:value=>value});
+readonly onMouseLeave=input<SpotlightCardMouseHandler|symbol|undefined,SpotlightCardMouseHandler|undefined>(this.defaultHandler,{transform:value=>value});
+private readonly element=inject<ElementRef<HTMLElement>>(ElementRef);
+readonly point=signal({x:-1000,y:-1000});
+// React useMotionTemplate omits falsy numeric fragments; zero produces invalid CSS and retains the previous painted gradient.
+readonly backgroundGradient=computed(()=>'radial-gradient('+(this.spotlightSize()||'')+'px circle at '+this.point().x+'px '+this.point().y+'px, '+this.spotlightColor()+', transparent 80%)');
+readonly borderGradient=computed(()=>'radial-gradient(220px circle at '+this.point().x+'px '+this.point().y+'px, rgba(255, 255, 255, 0.18), transparent 80%)');
+move(event:MouseEvent):void{const handler=this.onMouseMove();if(typeof handler==='symbol'){const rect=this.element.nativeElement.getBoundingClientRect();this.point.set({x:event.clientX-rect.left,y:event.clientY-rect.top});}else handler?.(event);}
+leave(event:MouseEvent):void{const handler=this.onMouseLeave();if(typeof handler==='symbol')this.point.set({x:-1000,y:-1000});else handler?.(event);}
 }

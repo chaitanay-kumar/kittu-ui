@@ -1,0 +1,11 @@
+@layer components {
+  .k-spotlight-parity { display:block;position:relative;border-radius:calc(var(--radius, .875rem) * 1.4);border:1px solid #1f1f1f;background:#0e0e0e;padding:24px;overflow:hidden;transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;transition-duration:300ms;transition-timing-function:cubic-bezier(.4,0,.2,1) }
+  .k-spotlight-parity > .k-spotlight-border,.k-spotlight-parity > .k-spotlight-glow {pointer-events:none;position:absolute;opacity:0;transition-property:opacity;transition-duration:300ms;transition-timing-function:cubic-bezier(.4,0,.2,1)}
+  .k-spotlight-parity > .k-spotlight-border {inset:-1px;border-radius:inherit}
+  .k-spotlight-parity > .k-spotlight-glow {inset:0}
+  .k-spotlight-parity > .k-spotlight-content {position:relative;z-index:10}
+  @media(hover:hover) {
+    .k-spotlight-parity:hover {border-color:#4a4a4a}
+    .group:hover .k-spotlight-parity > .k-spotlight-border,.group:hover .k-spotlight-parity > .k-spotlight-glow,.k-spotlight-parity.group:hover > .k-spotlight-border,.k-spotlight-parity.group:hover > .k-spotlight-glow {opacity:1}
+  }
+}

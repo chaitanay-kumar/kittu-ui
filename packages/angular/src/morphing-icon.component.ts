@@ -1,19 +1,29 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, input, model } from '@angular/core';
-
+import { Component, DestroyRef, ElementRef, computed, inject, input, viewChild } from '@angular/core';
+import {afterEveryRender,TemplateRef,ViewEncapsulation} from '@angular/core';
+import {DOCUMENT,NgTemplateOutlet} from '@angular/common';
+import {MorphingIconMotion} from './morphing-icon-motion';
+import type {MorphingIconStyle} from './morphing-icon-types';
 @Component({
  selector:"kittu-morphing-icon", standalone:true,
- host:{'data-kittu':"morphing-icon",style:'display:block;min-width:0'},
- template:`
-<button type="button" class="kittu-button k-icon-toggle" [disabled]="disabled()" [attr.aria-label]="label()" [attr.aria-pressed]="active()" (click)="active.set(!active())">
-<svg viewBox="0 0 32 32" width="36" height="36" [class.k-active]="active()" aria-hidden="true">
-<path class="k-icon-top" d="M5 8H27"/>
-<path class="k-icon-mid" d="M5 16H27"/>
-<path class="k-icon-bottom" d="M5 24H27"/>
-</svg>
-</button>
+ host:{'data-kittu':'morphing-icon','[class]':'"k-morphing-parity "+className()','[style]':'resolvedStyle()'},
+ imports:[NgTemplateOutlet],
+encapsulation:ViewEncapsulation.None,styleUrls:["./morphing-icon.css"],
+template:`
+<div #fromLayer class="k-morphing-layer" [attr.aria-hidden]="active()" [style.opacity]="initialActive?0:1" [style.transform]="initialActive?'scale(0.65) rotate(-90deg)':'none'">
+<ng-container [ngTemplateOutlet]="from()"/>
+</div>
+<div #toLayer class="k-morphing-layer" [attr.aria-hidden]="!active()" [style.opacity]="initialActive?1:0" [style.transform]="initialActive?'none':'scale(0.65) rotate(90deg)'">
+<ng-container [ngTemplateOutlet]="to()"/>
+</div>
 `
 })
 export class KittuMorphingIconComponent {
-readonly active=model(false);readonly disabled=input(false);readonly label=input('Toggle menu icon');
+readonly from=input.required<TemplateRef<unknown>>();readonly to=input.required<TemplateRef<unknown>>();
+readonly active=input<boolean,boolean|undefined>(false,{transform:value=>value===undefined?false:value});readonly duration=input<number,number|undefined>(.3,{transform:value=>value===undefined?.3:value});readonly size=input<number,number|undefined>(20,{transform:value=>value===undefined?20:value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});
+private readonly defaultStyle=Symbol('default style');readonly style=input<MorphingIconStyle|string|symbol|undefined,MorphingIconStyle|string|undefined>(this.defaultStyle,{transform:value=>value});private readonly document=inject(DOCUMENT);
+readonly resolvedStyle=computed(()=>{const value=this.style();if(typeof value==='symbol')return{width:this.size()+'px',height:this.size()+'px'};if(typeof value==='string'||value===undefined)return value;const result:Record<string,string|undefined>={};const probe=this.document.createElement('div').style;for(const[key,entry]of Object.entries(value)){if(typeof entry!=='number'){result[key]=entry;continue;}const cssKey=key.startsWith('--')?key:key.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase());probe.removeProperty(cssKey);probe.setProperty(cssKey,String(entry));result[key]=probe.getPropertyValue(cssKey)?String(entry):entry+'px';}return result;});
+readonly fromLayer=viewChild.required<ElementRef<HTMLElement>>('fromLayer');readonly toLayer=viewChild.required<ElementRef<HTMLElement>>('toLayer');initialActive=false;private previous:boolean|undefined;private readonly motion=new MorphingIconMotion();
+ngOnInit():void{this.initialActive=this.active();}
+constructor(){afterEveryRender(()=>{const active=this.active();if(active===this.previous)return;const animate=this.previous!==undefined;this.motion.update(this.fromLayer().nativeElement,active,this.duration(),animate);this.motion.updateTarget(this.toLayer().nativeElement,active,this.duration(),animate);this.previous=active;});inject(DestroyRef).onDestroy(()=>this.motion.destroy());}
 }

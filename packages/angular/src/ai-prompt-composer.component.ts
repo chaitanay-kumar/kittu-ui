@@ -1,6 +1,8 @@
 import { Component, DestroyRef, inject, input, signal } from "@angular/core";
 import type { SendHandler } from "./types";
 
+let nextComposerId = 0;
+
 @Component({
   selector: "kittu-ai-prompt-composer",
   standalone: true,
@@ -11,8 +13,9 @@ import type { SendHandler } from "./types";
     [attr.aria-busy]="pending()"
     (submit)="submit($event)"
   >
-    <label
-      >What are you thinking?<textarea
+    <label [attr.for]="id">What are you thinking?</label>
+    <textarea
+        [id]="id"
         rows="4"
         maxlength="8000"
         [value]="text()"
@@ -21,26 +24,23 @@ import type { SendHandler } from "./types";
         (keydown)="keyDown($event)"
         placeholder="Start with a small idea…"
       ></textarea>
-    </label>
     <div class="kittu-row" aria-label="Prompt suggestions">
       @for (suggestion of suggestions(); track $index) {
         <button
           type="button"
           [disabled]="disabled() || pending()"
           (click)="text.set(suggestion)"
-        >
-          {{ suggestion }}
-        </button>
+        >{{ suggestion }}</button>
       }
     </div>
-    <label
-      >Attachments · up to {{ maxAttachments()
-      }}<input
+    <label [attr.for]="id + '-files'">Attachments · up to {{ maxAttachments() }}</label>
+    <input
+        [id]="id + '-files'"
         type="file"
         multiple
         [disabled]="disabled() || pending()"
         (change)="attach($event)"
-    /></label>
+    />
     <ul class="kittu-list">
       @for (file of files(); track $index) {
         <li class="kittu-row">
@@ -60,10 +60,8 @@ import type { SendHandler } from "./types";
         >{{ text().length }}/8000 · ⌘ / Ctrl Enter to send</span
       ><button
         type="submit"
-        [disabled]="disabled() || pending() || !text().trim() || !sendHandler()"
-      >
-        {{ pending() ? "Sending…" : "Send prompt ↗" }}
-      </button>
+        [disabled]="disabled() || pending() || !text().trim() || !handler()"
+      >{{ pending() ? "Sending…" : "Send prompt ↗" }}</button>
       @if (pending()) {
         <button type="button" (click)="cancel()">Cancel</button>
       }
@@ -71,20 +69,24 @@ import type { SendHandler } from "./types";
     <p role="status" class="kittu-status">
       {{
         status() ||
-          (sendHandler()
+          (handler()
             ? "Your draft stays here until sending succeeds."
-            : "Connect a sendHandler to send prompts.")
+            : "Connect an onSend handler to send prompts.")
       }}
     </p>
   </form>`,
 })
 export class KittuAIPromptComposerComponent {
+  readonly id = `kittu-prompt-${++nextComposerId}`;
   readonly suggestions = input<string[]>([
     "Explain this simply",
     "Help me find a direction",
     "Review my draft",
   ]);
+  readonly onSend = input<SendHandler>();
+  /** @deprecated Use onSend to match the React API. */
   readonly sendHandler = input<SendHandler>();
+  handler(): SendHandler | undefined { return this.onSend() ?? this.sendHandler(); }
   readonly disabled = input(false);
   readonly maxAttachments = input(4);
   readonly maxAttachmentSize = input(10 * 1024 * 1024);
@@ -113,7 +115,7 @@ export class KittuAIPromptComposerComponent {
       incoming.some((file) => file.size > this.maxAttachmentSize())
     )
       this.status.set(
-        `Choose up to ${this.maxAttachments()} attachments within the size limit.`,
+        `Choose up to ${this.maxAttachments()} attachments, each under ${Math.round(this.maxAttachmentSize() / 1024 / 1024)} MB.`,
       );
     else {
       this.files.update((files) => [...files, ...incoming]);
@@ -138,7 +140,7 @@ export class KittuAIPromptComposerComponent {
     this.status.set("Sending cancelled. Your draft is saved.");
   }
   async send(): Promise<void> {
-    const handler = this.sendHandler();
+    const handler = this.handler();
     if (this.disabled() || this.controller || !this.text().trim() || !handler)
       return;
     const request = new AbortController();

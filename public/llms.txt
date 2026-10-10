@@ -147,9 +147,9 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Interactive Data Card for Angular](http://localhost:5173/components/interactive-data-card?framework=angular): Expandable summaries and projected details with asynchronous actions.
 - [Timeline Scrubber for Angular](http://localhost:5173/components/timeline-scrubber?framework=angular): Explore events with native range navigation and readable event announcements.
 - [AI Prompt Composer for Angular](http://localhost:5173/components/ai-prompt-composer?framework=angular): Draft prompts with suggestions and attachments; preserve work on cancellation or failure.
-- [Activity Feed for Angular](http://localhost:5173/components/activity-feed?framework=angular): Filter chronological events, inspect event payloads and select an event without simulated network activity.
-- [Advanced Data Table for Angular](http://localhost:5173/components/advanced-data-table?framework=angular): A responsive data table with sorting, global and column filters, selection, column visibility, row details, pagination and application-owned bulk actions.
-- [AI Agent Activity for Angular](http://localhost:5173/components/ai-agent-activity?framework=angular): Filter chronological events, inspect event payloads and select an event without simulated network activity.
+- [Activity Feed for Angular](http://localhost:5173/components/activity-feed?framework=angular): React-matched telemetry cards, category counts, search, trace copying, replay, JSON inspection and optional live simulation.
+- [Advanced Data Table for Angular](http://localhost:5173/components/advanced-data-table?framework=angular): React-compatible native table and cards, typed columns, custom cell/detail templates, multi-value filters, current-page selection and bulk callbacks.
+- [AI Agent Activity for Angular](http://localhost:5173/components/ai-agent-activity?framework=angular): React-matched agent activity contracts, status timeline, independent detail drawers, expand/collapse controls and native compound composition.
 - [AI Response for Angular](http://localhost:5173/components/ai-response?framework=angular): Application-provided response text with optional progressive reveal, reasoning disclosure, sources and clipboard feedback.
 - [Airport Matrix Clock for Angular](http://localhost:5173/components/airport-matrix-clock?framework=angular): A live timezone-aware split-flap-style clock with pause and accessible time text.
 - [Animated File Upload for Angular](http://localhost:5173/components/animated-file-upload?framework=angular): File previews, validation, progress, abort and retry using the native Angular upload engine.
@@ -159,7 +159,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Batch Gesture Tray for Angular](http://localhost:5173/components/batch-gesture-tray?framework=angular): Select individual items or all items, then run a cancellable application-owned batch action.
 - [Book Call Button for Angular](http://localhost:5173/components/book-call-button?framework=angular): A date/time booking dialog that emits a request for your scheduling application.
 - [Branching Submenu for Angular](http://localhost:5173/components/branching-submenu?framework=angular): Parent and child navigation with keyboard selection and independently disclosed branches.
-- [Button for Angular](http://localhost:5173/components/button?framework=angular): Continue: native keyboard activation, disabled and asynchronous action states.
+- [Button for Angular](http://localhost:5173/components/button?framework=angular): React-matched native button with nine visual variants, four sizes, projected content/icons, loading text, disabled state and native form events.
 - [Car Smoke Page Transition for Angular](http://localhost:5173/components/car-smoke-page-transition?framework=angular): Switch projected page summaries through a restrained car/smoke CSS transition with keyboard navigation.
 - [Chat for Angular](http://localhost:5173/components/chat?framework=angular): An application-connected conversation with sending, cancellation, retry, preserved drafts and accessible message history.
 - [Circular Orbit for Angular](http://localhost:5173/components/circular-orbit?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
@@ -193,7 +193,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [iOS-style Search Bar for Angular](http://localhost:5173/components/ios-search-bar?framework=angular): Live filtering with clear/cancel controls, keyboard navigation and selected-result output.
 - [Liquid Ripple Button for Angular](http://localhost:5173/components/liquid-ripple-button?framework=angular): A native action button with a ripple originating at the pointer or keyboard activation.
 - [Liquid Toggle for Angular](http://localhost:5173/components/liquid-toggle?framework=angular): A native toggle with two-way checked binding, visible focus and a disabled state.
-- [Loader for Angular](http://localhost:5173/components/loader?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
+- [Loader for Angular](http://localhost:5173/components/loader?framework=angular): Native React-matched arc, breathing dots, sliding line and expanding rings with size/color, accessible labeling and explicit reduced-motion keyframes.
 - [LockInput for Angular](http://localhost:5173/components/lock-input?framework=angular): A password field with a deliberate edit lock and accessible visibility control.
 - [Login for Angular](http://localhost:5173/components/login?framework=angular): Validated native fields, password visibility, cancellable application submission and preserved errors.
 - [macOS Folder Cards for Angular](http://localhost:5173/components/mac-os-folder-cards?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
@@ -203,14 +203,14 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Morphing Blob for Angular](http://localhost:5173/components/morphing-blob?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Morphing Button for Angular](http://localhost:5173/components/morphing-button?framework=angular): Save changes: native keyboard activation, disabled and asynchronous action states.
 - [Morphing Dialog for Angular](http://localhost:5173/components/morphing-dialog?framework=angular): A native modal dialog with focus containment, Escape, projected content and asynchronous confirmation.
-- [Morphing Icon for Angular](http://localhost:5173/components/morphing-icon?framework=angular): An accessible, controlled icon toggle animated with CSS, with no external icon runtime.
+- [Morphing Icon for Angular](http://localhost:5173/components/morphing-icon?framework=angular): React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.
 - [Morphing Shape Loader for Angular](http://localhost:5173/components/morphing-shape-loader?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
-- [Neon Edge Button for Angular](http://localhost:5173/components/neon-edge-button?framework=angular): Light the way: native keyboard activation, disabled and asynchronous action states.
+- [Neon Edge Button for Angular](http://localhost:5173/components/neon-edge-button?framework=angular): React-matched travelling edge light with speed/glow controls, projected button content, native HTML form behavior and a static reduced-motion highlight.
 - [Nimbu Mirchi for Angular](http://localhost:5173/components/nimbu-mirchi?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Not Found for Angular](http://localhost:5173/components/not-found?framework=angular): A configurable empty/not-found state with an application-owned recovery action.
 - [Notification Bell for Angular](http://localhost:5173/components/notification-bell?framework=angular): Dismissible notifications with restore actions and restrained live announcements.
 - [Notification Stack for Angular](http://localhost:5173/components/notification-stack?framework=angular): Dismissible notifications with restore actions and restrained live announcements.
-- [Orbital Loading Ring for Angular](http://localhost:5173/components/orbital-loading-ring?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
+- [Orbital Loading Ring for Angular](http://localhost:5173/components/orbital-loading-ring?framework=angular): React-matched orbital status indicator with three variants, size/speed controls, labelled SVG tracks, rotating satellites and a static reduced-motion fallback.
 - [OriginDropdown for Angular](http://localhost:5173/components/origin-dropdown?framework=angular): An expandable action menu with Escape, arrow keys and disabled-item handling.
 - [OTP Input for Angular](http://localhost:5173/components/otp-input?framework=angular): A one-time-code field with digit validation, paste, autofill and completion output.
 - [Particle Delete for Angular](http://localhost:5173/components/particle-delete?framework=angular): A deliberate local item dismissal with a particle transition and restore control.
@@ -239,7 +239,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Sparkles Core for Angular](http://localhost:5173/components/sparkles-core?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Speed Warp for Angular](http://localhost:5173/components/speed-warp?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Split Button for Angular](http://localhost:5173/components/split-button?framework=angular): A primary action with a separately accessible action chooser.
-- [Spotlight Card for Angular](http://localhost:5173/components/spotlight-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
+- [Spotlight Card for Angular](http://localhost:5173/components/spotlight-card?framework=angular): React-matched single content card with pointer-following border and ambient radial spotlights, projected children, customizable color/size and native HTML event overrides.
 - [Spotlight Search for Angular](http://localhost:5173/components/spotlight-search?framework=angular): A native modal command search with keyboard navigation, async errors and focus restoration.
 - [SpringSelect for Angular](http://localhost:5173/components/spring-select?framework=angular): A native accessible select with keyboard typeahead and selected-item output.
 - [Stack Unfold Panel for Angular](http://localhost:5173/components/stack-unfold-panel?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.

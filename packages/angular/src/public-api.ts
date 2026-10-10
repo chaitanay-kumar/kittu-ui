@@ -8,6 +8,19 @@ export * from "./interactive-data-card.component";
 export * from "./timeline-scrubber.component";
 export * from "./ai-prompt-composer.component";
 
+export * from "./activity-feed-types";
+export * from './data-table-types';
+export * from './data-table-parts';
+export * from './data-table-controller';
+export * from './agent-activity-types';
+export * from './agent-activity-controller';
+export * from './agent-activity-parts';
+export * from "./loader-types";
+export * from "./button-types";
+export * from "./orbital-loading-ring-types";
+export type {SpotlightCardMouseHandler} from "./spotlight-card-types";
+export type {MorphingIconStyle} from "./morphing-icon-types";
+
 // Generated catalog exports.
 export * from "./port-types";
 export * from './activity-feed.component';

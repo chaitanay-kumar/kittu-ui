@@ -53,5 +53,26 @@ jobs:
       - name: Run build
         run: npm run build
 
+      - name: Verify Activity Feed package contract
+        run: npm run test:activity-feed
+      - name: Verify Data Table package contract
+        run: npm run test:data-table
+      - name: Verify Agent Activity package contract
+        run: npm run test:agent-activity
+      - name: Verify Prompt Composer package contract
+        run: npm run test:prompt-composer
+      - name: Verify Loader package contract
+        run: npm run test:loader
+      - name: Verify Button contract
+        run: npm run test:button
+      - name: Verify Neon Edge Button contract
+        run: npm run test:neon-edge-button
+      - name: Verify Orbital Loading Ring contract
+        run: npm run test:orbital-loading-ring
+      - name: Verify native Spotlight Card contract
+        run: npm run test:spotlight-card
+      - name: Verify native Morphing Icon contract
+        run: npm run test:morphing-icon
+
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

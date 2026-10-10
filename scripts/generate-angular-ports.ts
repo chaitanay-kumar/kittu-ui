@@ -1,7 +1,15 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
+import { agentActivityPort } from "./angular-agent-activity";
+import {loaderPort} from "./angular-loader";
+import {buttonPort} from "./angular-button";
+import {neonEdgeButtonPort} from "./angular-neon-edge-button";
+import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
+import {spotlightCardPort} from "./angular-spotlight-card";
+import {morphingIconPort} from "./angular-morphing-icon";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
+import { activityFeedPort } from "./angular-activity-feed";
 const root = process.cwd();
 type Kind = "action" | "collection" | "form" | "canvas" | "plain";
 interface Port {
@@ -14,6 +22,12 @@ interface Port {
   description: string;
   imports?: string;
   componentImports?: string;
+  controller?: string;
+  typeParameters?: string;
+  providers?: string;
+  stylesFile?: string;
+  hostMetadata?: string;
+  componentSelector?: string;
 }
 const ports: Port[] = [];
 const common: Record<Kind, { inputs: string[]; outputs: string[] }> = {
@@ -83,17 +97,27 @@ function add(
     outputs: [...common[kind].outputs, ...(extra.outputs ?? [])],
     imports: extra.imports,
     componentImports: extra.componentImports,
+    componentSelector: extra.componentSelector,
+    controller: extra.controller,
+    typeParameters: extra.typeParameters,
+    providers: extra.providers,
+    stylesFile: extra.stylesFile,
+    hostMetadata: extra.hostMetadata,
+
   });
 }
 const actionFeedback = `<p role="status" class="kittu-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}`;
 const collectionFeedback = `@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kittu-status">{{busy()?'Working…':status()}}</p>`;
 const itemButton = `<button type="button" data-item [disabled]="disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>`;
 
+add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
+add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
+
 // Buttons keep native button semantics and an application-owned async action.
 for (const [id, label] of [
-  ["button", "Continue"],
+
   ["press-button", "Press me"],
-  ["neon-edge-button", "Light the way"],
+
   ["rainbow-button", "Make something colorful"],
   ["typewriter-button", "Start a new story"],
   ["morphing-button", "Save changes"],
@@ -332,6 +356,8 @@ add(
   `readonly progress=signal(0);readonly scroller=viewChild.required<ElementRef<HTMLElement>>('scroller');jump(item:KittuItem):void{this.select(item);const node=Array.from(this.scroller().nativeElement.children).find(el=>el.id===this.uid+'-'+item.id) as HTMLElement|undefined;this.scroller().nativeElement.scrollTo({top:node?.offsetTop?node.offsetTop-this.scroller().nativeElement.offsetTop:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}track(event:Event):void{const el=event.target as HTMLElement;this.progress.set(el.scrollHeight<=el.clientHeight?100:el.scrollTop/(el.scrollHeight-el.clientHeight)*100);}`,
 );
 
+add("activity-feed", "plain", activityFeedPort.description, activityFeedPort.template, "", activityFeedPort);
+
 // Expandable information and selectable collections.
 for (const [id, title] of [
   ["faq", "Frequently asked questions"],
@@ -348,9 +374,9 @@ for (const [id, title] of [
     `<section class="kittu-control kittu-surface kittu-stack"><h3>{{label()||'${title}'}}</h3>@for(item of items();track item.id){<details class="k-disclosure"><summary>{{item.label}} @if(item.value!==undefined){<span>{{item.value}}</span>}</summary><div class="kittu-stack"><p>{{item.description}}</p><ng-content></ng-content>${id === "recovery-ledger" ? '<button type="button" [disabled]="disabled()||busy()||item.disabled" (click)="execute([item])">Restore snapshot</button>' : ""}</div></details>}@empty{<p>No items yet.</p>}${collectionFeedback}</section>`,
   );
 }
+add('ai-agent-activity','plain',agentActivityPort.description,agentActivityPort.template,agentActivityPort.body,agentActivityPort);
 for (const [id, title] of [
-  ["activity-feed", "Activity"],
-  ["ai-agent-activity", "Agent activity"],
+
   ["interactive-timeline", "Your timeline"],
 ]) {
   add(
@@ -404,7 +430,6 @@ for (const [id, title, layout] of [
   ["wallet-card", "Your wallet", "wallet"],
   ["peek-card", "A closer look", "peek"],
   ["reveal-card", "Reveal the details", "reveal"],
-  ["spotlight-card", "Small details matter", "spotlight"],
   ["mac-os-folder-cards", "Project folders", "folders"],
   ["stacked-cards", "Your collection", "stacked"],
   ["story-card", "Your stories", "stories"],
@@ -417,6 +442,7 @@ for (const [id, title, layout] of [
     `spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}`,
   );
 }
+add("spotlight-card", "plain", spotlightCardPort.description, spotlightCardPort.template, spotlightCardPort.body, spotlightCardPort);
 add(
   "avatar-stack",
   "collection",
@@ -442,10 +468,11 @@ add(
   },
 );
 
+add("loader","plain",loaderPort.description,loaderPort.template,loaderPort.body,loaderPort);
+
 // Loading indicators can be stopped and honor reduced motion in CSS.
+add("orbital-loading-ring","plain",orbitalLoadingRingPort.description,orbitalLoadingRingPort.template,orbitalLoadingRingPort.body,orbitalLoadingRingPort);
 for (const [id, shape] of [
-  ["loader", "spinner"],
-  ["orbital-loading-ring", "orbit-loader"],
   ["morphing-shape-loader", "shape-loader"],
   ["intro-loader", "intro-loader"],
 ]) {
@@ -570,16 +597,7 @@ add(
   "Switch projected page summaries through a restrained car/smoke CSS transition with keyboard navigation.",
   `<section class="kittu-control kittu-stack"><nav class="kittu-row" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-road" aria-hidden="true"><span class="k-car">▰</span><span class="k-smoke"></span></div>@for(item of [current()];track item?.id){<article class="kittu-surface k-page-enter"><h3>{{item?.label}}</h3><p>{{item?.description}}</p><ng-content></ng-content></article>}</section>`,
 );
-add(
-  "morphing-icon",
-  "plain",
-  "An accessible, controlled icon toggle animated with CSS, with no external icon runtime.",
-  `<button type="button" class="kittu-button k-icon-toggle" [disabled]="disabled()" [attr.aria-label]="label()" [attr.aria-pressed]="active()" (click)="active.set(!active())"><svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true"><path [attr.d]="active()?'M8 8L24 24M24 8L8 24':'M5 8H27M5 16H27M5 24H27'" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></button>`,
-  `readonly active=model(false);readonly disabled=input(false);readonly label=input('Toggle menu icon');`,
-  {
-    inputs: ["active: boolean (two-way)", "disabled: boolean", "label: string"],
-  },
-);
+add("morphing-icon","plain",morphingIconPort.description,morphingIconPort.template,morphingIconPort.body,morphingIconPort);
 
 // Text, counters and clocks use real values and tear down their own timers.
 for (const [id, variant] of [
@@ -790,14 +808,6 @@ const cardDefaults: Record<
         "Uncover another layer of information, with the keyboard or a pointer.",
     },
   ],
-  "spotlight-card": [
-    {
-      id: "spotlight",
-      label: "Small details matter",
-      description:
-        "A pointer-following highlight gives this surface a little depth.",
-    },
-  ],
 };
 for (const port of ports) {
   if(['hamburger-menu','gooey-menu','origin-dropdown'].includes(port.id)){
@@ -824,18 +834,6 @@ for (const port of ports) {
     port.body += `\nprivate lastScroll=0;@HostListener('window:scroll') scroll():void{if(this.disabled()||this.paused()||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const delta=window.scrollY-this.lastScroll;this.lastScroll=window.scrollY;this.transform.set('translateX('+Math.max(-25,Math.min(25,delta*.15))+'px)');clearTimeout(this.settle);this.settle=setTimeout(()=>this.transform.set('translateX(0)'),180);}`;
   if (port.id === "rocket-party-popper")
     port.body = port.body.replace("mode='burst'", "mode='rocket'");
-  if (port.id === "advanced-data-table") {
-    port.outputs.push("bulkRequested: KittuTableRow[]");
-    port.body = port.body
-      .replace(
-        "readonly bulkComplete=output<KittuTableRow[]>();",
-        "readonly bulkComplete=output<KittuTableRow[]>();readonly bulkRequested=output<KittuTableRow[]>();",
-      )
-      .replace(
-        "const handler=this.bulkAction();if(!handler){this.bulkComplete.emit(rows);",
-        "this.bulkRequested.emit(rows);const handler=this.bulkAction();if(!handler){",
-      );
-  }
   if (port.id === "particle-delete")
     port.body = port.body.replace(
       "await this.run();",
@@ -853,8 +851,7 @@ for (const port of ports) {
       '<div class="k-cards',
       `<nav class="kittu-row" aria-label="Choose a card" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-cards`,
     );
-  if (port.id === "morphing-icon")
-    port.template = `<button type="button" class="kittu-button k-icon-toggle" [disabled]="disabled()" [attr.aria-label]="label()" [attr.aria-pressed]="active()" (click)="active.set(!active())"><svg viewBox="0 0 32 32" width="36" height="36" [class.k-active]="active()" aria-hidden="true"><path class="k-icon-top" d="M5 8H27"/><path class="k-icon-mid" d="M5 16H27"/><path class="k-icon-bottom" d="M5 24H27"/></svg></button>`;
+
 }
 const directory = path.join(root, "packages/angular/src");
 const pascal = (id: string) =>
@@ -875,7 +872,7 @@ const entries = ports
     const name = CATALOG_INDEX.find((c) => c.id === port.id)!.name;
     const exportName = `Kittu${pascal(port.id)}Component`;
     const selector = `kittu-${port.id}`;
-    const controller = base[port.kind];
+    const controller = port.controller ?? base[port.kind];
     const body = port.body.replace(
       "const from=this.displayed();",
       "const from=untracked(this.displayed);",
@@ -901,7 +898,7 @@ const entries = ports
     ];
     const controllers = [
       ...(used("portId") ? ["portId"] : []),
-      ...(controller && port.kind !== "canvas" ? [controller] : []),
+      ...(controller && !port.controller && port.kind !== "canvas" ? [controller] : []),
     ];
     const types = [
       "KittuItem",
@@ -915,7 +912,7 @@ const entries = ports
       "KittuCompareFeature",
       "KittuChatHandler",
     ].filter(used);
-    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(selector)}, standalone:true,\n host:{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
+    const source = `// Generated from authored native templates in scripts/generate-angular-ports.ts.\nimport { ${core.join(", ")} } from '@angular/core';\n${controllers.length ? `import { ${controllers.join(", ")} } from './port-controllers';\n` : ""}${port.kind === "canvas" ? `import { ${controller} } from './port-canvas';\n` : ""}${types.length ? `import type { ${types.join(", ")} } from './port-types';\n` : ""}${port.imports ?? ""}\n@Component({\n selector:${JSON.stringify(port.componentSelector ?? selector)}, standalone:true,\n host:${port.hostMetadata ?? `{'data-kittu':${JSON.stringify(port.id)},style:'display:block;min-width:0'}`},\n ${port.componentImports ? `imports:[${port.componentImports}],\n` : ""}${port.stylesFile ? `encapsulation:ViewEncapsulation.None,styleUrls:[${JSON.stringify(port.stylesFile)}],\n` : ""}${port.providers ? `providers:${port.providers},\n` : ""}template:\`\n${port.template.replaceAll("><", ">\n<").replaceAll("`", "\\`").replaceAll("${", "\\${")}\n\`\n})\nexport class ${exportName}${port.typeParameters ?? ""}${controller ? ` extends ${controller}` : ""} {\n${body}\n}\n`;
     fs.writeFileSync(path.join(directory, `${port.id}.component.ts`), source);
     const outputs = [
       ...port.outputs,

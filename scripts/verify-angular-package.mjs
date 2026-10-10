@@ -9,7 +9,7 @@ const ports = JSON.parse(
   fs.readFileSync(path.join(root, "packages/angular/catalog.json"), "utf8"),
 );
 const portImports = ports.map((port) => port.exportName).join(", ");
-const portTemplates = ports.map((port) => `<${port.selector} />`).join("\n");
+const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kittu-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : `<${port.selector} />`).join("\n");
 // Each consumer installs and runs its own compiler. Reusing the repository's
 // compiler would miss incompatibilities with older Angular versions.
 const matrix = [
@@ -55,12 +55,16 @@ for (const { angularVersion, typescript } of matrix) {
     { cwd: target, stdio: "inherit" },
   );
   if (install.status !== 0) process.exit(install.status ?? 1);
-  fs.writeFileSync(
-    path.join(target, "app.ts"),
-    `import { Component } from '@angular/core';
-import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
-@Component({selector:'consumer-app',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  const loaderOptionalConsumer = `import {Component} from '@angular/core';
+import {KittuLoaderComponent, type LoaderVariant} from 'kittu-ui-angular';
+@Component({selector:'loader-optional-consumer',imports:[KittuLoaderComponent],template:'<kittu-loader [size]="size" [variant]="variant" [label]="label" [reduceMotion]="motion" [color]="color" [className]="classes" [aria-label]="ariaLabel"/>'})
+export class LoaderOptionalConsumer {size:number|undefined;variant:LoaderVariant|undefined;label:string|undefined;motion:boolean|undefined;color:string|undefined;classes:string|undefined;ariaLabel:string|undefined;}`;
+  const consumerSources = [loaderOptionalConsumer,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-0',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
   ${portTemplates}
+  <kittu-activity-feed [events]="events" [enableLiveSimulation]="false" [enableFilters]="true" [enableSearch]="true" [maxEntries]="10" [onEventReplay]="replay" className="consumer-feed" (eventReplay)="lastEvent = $event" />
   <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
   <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
   <kittu-liquid-command-palette [commands]="[]" />
@@ -70,9 +74,163 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
-export class ConsumerApp { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+export class ConsumerApp0 { readonly events:ActivityEvent[]=[{id:'one',type:'deploy',status:'success',title:'Release',timestamp:'Now',payload:{version:1}}];lastEvent:ActivityEvent|undefined;readonly replay=(event:ActivityEvent)=>{this.lastEvent=event;};height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `,
-  );
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ColumnDef, KittuDataTableComponent, KittuDataTableToolbarComponent, KittuDataTableContentComponent, KittuDataTablePaginationComponent } from 'kittu-ui-angular';
+interface Row {id:string;name:string;}
+@Component({selector:'consumer-app-1',imports:[KittuDataTableComponent,KittuDataTableToolbarComponent,KittuDataTableContentComponent,KittuDataTablePaginationComponent,${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <ng-template #cell let-row let-value="value">{{row.name}} {{value}}</ng-template>
+  <ng-template #details let-row>Details {{row.name}}</ng-template>
+  <kittu-advanced-data-table [data]="rows" [columns]="columns" [getRowId]="rowId" [defaultPageSize]="2" defaultViewMode="cards" accentColor="#333" [renderSubComponent]="details" [isLoading]="false" [error]="null" [onBulkDelete]="bulk" [onBulkExport]="bulk" (bulkDelete)="ids=$event" (bulkExport)="ids=$event" className="consumer"/>
+  <kittu-data-table [data]="rows" [columns]="[{id:'name',header:'Name',accessorKey:'name',cell:cell}]"><kittu-data-table-toolbar title="Consumer"/><kittu-data-table-content emptyTitle="Empty"/><kittu-data-table-pagination [pageSizeOptions]="[2,4]"/></kittu-data-table>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp1 {readonly rows:Row[]=[{id:'1',name:'Kit UI'}];readonly columns:ColumnDef<Row>[]=[{id:'name',header:'Name',accessorKey:'name',sortable:true}];readonly rowId=(row:Row)=>row.id;readonly bulk=(ids:string[])=>{this.ids=ids;};ids:string[]=[]; height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type AgentActivityItemData, KittuAgentActivityHeaderComponent, KittuAgentActivityTimelineComponent, KittuAgentActivityItemComponent } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-2',imports:[KittuAgentActivityHeaderComponent,KittuAgentActivityTimelineComponent,KittuAgentActivityItemComponent,${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <kittu-ai-agent-activity [activities]="activities" [isRunning]="false" title="Trace" agentName="Consumer" accentColor="#333" [defaultExpandedIds]="['trace']" className="consumer"/>
+  <kittu-ai-agent-activity [activities]="activities"><kittu-agent-activity-header title="Custom trace" [showControls]="false"/><kittu-agent-activity-timeline className="custom-timeline"/></kittu-ai-agent-activity>
+  <kittu-ai-agent-activity [activities]="activities"><kittu-agent-activity-item [activity]="activities[0]" [isLast]="true"/></kittu-ai-agent-activity>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp2 {readonly activities:AgentActivityItemData[]=[{id:'trace',type:'thinking',title:'Analyze',status:'success',details:{input:{query:'hello'},output:'Ready',codeSnippet:'const ready = true;',language:'typescript'},metadata:{score:2}}]; height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-3',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [onSend]="send" />
+\`})
+export class ConsumerApp3 { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-4',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-loader [size]="48" variant="rings" color="#ff8800" label="Working" [reduceMotion]="true" className="consumer-loader" aria-label="Override" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp4 { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ButtonVariant, type ButtonSize } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-5',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+<button kittuButton variant="success" size="sm" [isLoading]="false" loadingText="Saving" [fullWidth]="true" [disabled]="false" type="submit">Save</button>
+<button kittuButton [variant]="optionalVariant" [size]="optionalSize" [type]="optionalType" [className]="optionalClass">Defaults</button>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp5 { readonly optionalVariant:ButtonVariant|undefined=undefined;readonly optionalSize:ButtonSize|undefined=undefined;readonly optionalType:'button'|'submit'|'reset'|undefined=undefined;readonly optionalClass:string|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-6',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+<button kittuNeonEdgeButton [speed]="2" [glow]="false" [disabled]="false" type="submit" className="customer-neon">Ship</button>
+<button kittuNeonEdgeButton [speed]="optionalSpeed" [glow]="optionalGlow" [type]="optionalType" [className]="optionalClass">Defaults</button>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp6 { readonly optionalSpeed:number|undefined=undefined;readonly optionalGlow:boolean|undefined=undefined;readonly optionalType:'button'|'submit'|'reset'|undefined=undefined;readonly optionalClass:string|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type OrbitalLoadingRingVariant } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-7',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+<kittu-orbital-loading-ring [size]="96" [speed]="2" variant="dense" label="Reading" aria-label="Custom name" className="customer-ring"/>
+<kittu-orbital-loading-ring [size]="optionalSize" [speed]="optionalSpeed" [variant]="optionalVariant" [label]="optionalLabel" [className]="optionalClass" [aria-label]="optionalLabel"/>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp7 { readonly optionalSize:number|undefined=undefined;readonly optionalSpeed:number|undefined=undefined;readonly optionalVariant:OrbitalLoadingRingVariant|undefined=undefined;readonly optionalLabel:string|undefined=undefined;readonly optionalClass:string|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type SpotlightCardMouseHandler } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-8',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <kittu-spotlight-card [spotlightColor]="optionalColor" [spotlightSize]="optionalSize" [className]="optionalClass" [onMouseMove]="optionalHandler" [onMouseLeave]="optionalHandler"><button (click)="done=true">Projected action</button></kittu-spotlight-card>
+  <kittu-spotlight-card spotlightColor="rgba(255,255,255,.1)" [spotlightSize]="180" [onMouseMove]="moved">Projected content</kittu-spotlight-card>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp8 { readonly optionalColor:string|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalHandler:SpotlightCardMouseHandler|undefined=undefined;readonly moved:SpotlightCardMouseHandler=event=>{this.height=event.clientX;}; height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type MorphingIconStyle } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-9',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <kittu-morphing-icon [from]="genericIcon" [to]="genericIcon" [active]="optionalActive" [size]="optionalSize" [duration]="optionalDuration" [className]="optionalClass" [style]="optionalStyle"/>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp9 { readonly optionalActive:boolean|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalDuration:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalStyle:MorphingIconStyle|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`
+  ];
+  consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
   fs.writeFileSync(
     path.join(target, "tsconfig.json"),
     JSON.stringify(
@@ -90,7 +248,7 @@ export class ConsumerApp { height=0;done=false;readonly upload:UploadHandler=asy
           strictTemplates: true,
           compilationMode: "full",
         },
-        files: ["app.ts"],
+        files: consumerSources.map((_, index) => `app${index}.ts`),
       },
       null,
       2,
@@ -110,7 +268,7 @@ export class ConsumerApp { height=0;done=false;readonly upload:UploadHandler=asy
   );
   if (compile.status !== 0) process.exit(compile.status ?? 1);
   const installed = path.join(target, "node_modules/kittu-ui-angular");
-  for (const asset of ["styles.css", "LICENSE", "UPSTREAM-MIT.txt"])
+  for (const asset of ["styles.css", "LICENSE", "UPSTREAM-MIT.txt", "LUCIDE.txt", "LUCIDE-LICENSE.txt"])
     if (!fs.existsSync(path.join(installed, asset)))
       throw new Error(`Missing package asset: ${asset}`);
   console.log(

@@ -1,5 +1,13 @@
+import {ButtonDemoComponent} from "./button-demo";
+import {NeonEdgeButtonDemoComponent} from "./neon-edge-button-demo";
+import {OrbitalLoadingRingDemoComponent} from "./orbital-loading-ring-demo";
+import {SpotlightCardDemoComponent} from "./spotlight-card-demo";
+import {MorphingIconDemoComponent} from "./morphing-icon-demo";
 import { Component, HostListener, signal } from "@angular/core";
+import { TableDemoComponent } from "./table-demo";
+import { AgentDemoComponent } from "./agent-demo";
 import { NgComponentOutlet } from "@angular/common";
+import {LoaderDemoComponent} from "./loader-demo";
 import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
 import {
   KittuElasticSheetComponent,
@@ -15,6 +23,7 @@ import type {
   LiquidCommand,
   UploadHandler,
   SendHandler,
+  ActivityEvent,
 } from "kittu-ui-angular";
 
 function wait(ms: number, signal?: AbortSignal): Promise<void> {
@@ -39,7 +48,15 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   selector: "kittu-angular-demo",
   standalone: true,
   imports: [
+    ButtonDemoComponent,
+    NeonEdgeButtonDemoComponent,
+    OrbitalLoadingRingDemoComponent,
+    SpotlightCardDemoComponent,
+    MorphingIconDemoComponent,
     NgComponentOutlet,
+    TableDemoComponent,
+    AgentDemoComponent,
+    LoaderDemoComponent,
     KittuElasticSheetComponent,
     KittuSmartUploadComponent,
     KittuLiquidCommandPaletteComponent,
@@ -51,6 +68,14 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   ],
   template: `<main class="kittu-stack" aria-label="Native Angular demo">
     @switch (component) {
+      @case ("advanced-data-table") { <kittu-table-demo/> }
+      @case ("ai-agent-activity") { <kittu-agent-demo/> }
+      @case("loader"){<kittu-loader-demo/>}
+      @case("button"){<kittu-button-demo/>}
+      @case("neon-edge-button"){<kittu-neon-edge-button-demo/>}
+      @case("orbital-loading-ring"){<kittu-orbital-loading-ring-demo/>}
+      @case("spotlight-card"){<kittu-spotlight-card-demo/>}
+      @case("morphing-icon"){<kittu-morphing-icon-demo/>}
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }
@@ -82,7 +107,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
           Local simulation. No AI service is connected. Include “fail” to
           demonstrate draft recovery.
         </p>
-        <kittu-ai-prompt-composer [sendHandler]="send" />
+        <kittu-ai-prompt-composer [onSend]="send" />
       }
       @default {
         @if (port) {
@@ -96,10 +121,10 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
               />Simulate request failure</label
             >
           }
-          <p class="kittu-muted">
+          @if(component !== "activity-feed") {<p class="kittu-muted">
             Local demo data. Application actions are simulated; no account,
             payment, booking, or AI service is connected.
-          </p>
+          </p>}
         } @else {
           <p role="alert">Select an available Angular component.</p>
         }
@@ -129,7 +154,7 @@ export class DemoComponent {
     return (
       ["action", "collection", "form"].includes(
         DEMO_PORT_KINDS[this.component],
-      ) || this.component === "advanced-data-table"
+      )
     );
   }
   readonly portAction = async (signal: AbortSignal) => {
@@ -162,11 +187,10 @@ export class DemoComponent {
     return "Local demo reply: " + text;
   };
   get portInputs(): Record<string, unknown> {
+    if (this.component === "activity-feed") return { events: this.activityEvents };
     if (this.component === "animated-file-upload")
       return { upload: this.upload };
     if (this.component === "chat") return { sendHandler: this.portChat };
-    if (this.component === "advanced-data-table")
-      return { bulkAction: this.portCollectionAction };
     const kind = DEMO_PORT_KINDS[this.component];
     return kind === "action"
       ? { action: this.portAction }
@@ -176,6 +200,44 @@ export class DemoComponent {
           ? { submitHandler: this.portSubmit }
           : {};
   }
+  readonly activityEvents: ActivityEvent[] = [
+                {
+                  id: 'evt-1',
+                  type: 'deploy',
+                  status: 'success',
+                  title: 'Production release v2.4.0 verified',
+                  timestamp: '2 mins ago',
+                  duration: '380ms',
+                  traceId: 'trc_98fa20',
+                  description: 'All 32 edge clusters updated. Zero errors encountered.',
+                  actor: { name: 'CI Pipeline', email: 'ci@example.com' },
+                  payload: { version: '2.4.0', sha: '8f3b2a', regions: ['iad1', 'sfo1', 'fra1'] },
+                },
+                {
+                  id: 'evt-2',
+                  type: 'security',
+                  status: 'warning',
+                  title: 'Token rotation required for API key',
+                  timestamp: '14 mins ago',
+                  duration: '12ms',
+                  traceId: 'trc_77b31c',
+                  description: 'Secret key has exceeded 90-day recommended rotation window.',
+                  actor: { name: 'Security Guard' },
+                  payload: { keyId: 'key_prod_8819', ageDays: 92, action: 'notify' },
+                },
+                {
+                  id: 'evt-3',
+                  type: 'api',
+                  status: 'success',
+                  title: 'POST /v1/chat/completions 200 OK',
+                  timestamp: '28 mins ago',
+                  duration: '22ms',
+                  traceId: 'trc_55e10a',
+                  description: 'Streaming token generation handled with 0.12s first-byte latency.',
+                  actor: { name: 'External Client' },
+                  payload: { model: 'example-model', promptTokens: 140, completionTokens: 420 },
+                },
+              ];
   readonly commandStatus = signal("");
   readonly commands: LiquidCommand[] = [
     {

@@ -5,23 +5,18 @@ export const ANGULAR_PORTS = [
     "name": "Activity Feed",
     "exportName": "KittuActivityFeedComponent",
     "selector": "kittu-activity-feed",
-    "description": "Filter chronological events, inspect event payloads and select an event without simulated network activity.",
+    "description": "React-matched telemetry cards, category counts, search, trace copying, replay, JSON inspection and optional live simulation.",
     "inputs": [
-      "items: KittuItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "events: ActivityEvent[]",
+      "enableLiveSimulation: boolean",
+      "enableFilters: boolean",
+      "enableSearch: boolean",
+      "maxEntries: number",
+      "onEventReplay: (event: ActivityEvent) => void",
+      "className: string"
     ],
     "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
+      "eventReplay: ActivityEvent"
     ]
   },
   {
@@ -29,25 +24,26 @@ export const ANGULAR_PORTS = [
     "name": "Advanced Data Table",
     "exportName": "KittuAdvancedDataTableComponent",
     "selector": "kittu-advanced-data-table",
-    "description": "A responsive data table with sorting, global and column filters, selection, column visibility, row details, pagination and application-owned bulk actions.",
+    "description": "React-compatible native table and cards, typed columns, custom cell/detail templates, multi-value filters, current-page selection and bulk callbacks.",
     "inputs": [
-      "data: KittuTableRow[]",
-      "columns: KittuTableColumn[]",
-      "label: string",
-      "loading: boolean",
-      "error: string",
-      "disabled: boolean",
-      "page: number (two-way)",
-      "pageSize: number",
-      "selectedIds: string[] (two-way)",
-      "bulkAction: KittuTableAction"
+      "data: T[]",
+      "columns: ColumnDef<T>[]",
+      "getRowId: (row: T, index: number) => string",
+      "title: string",
+      "searchPlaceholder: string",
+      "defaultPageSize: number",
+      "defaultViewMode: DataTableViewMode",
+      "accentColor: string",
+      "renderSubComponent: TemplateRef<DataTableRowContext<T>>",
+      "isLoading: boolean",
+      "error: string | null",
+      "className: string",
+      "onBulkDelete: (ids: string[]) => void",
+      "onBulkExport: (ids: string[]) => void"
     ],
     "outputs": [
-      "rowSelect: KittuTableRow",
-      "bulkComplete: KittuTableRow[]",
-      "bulkRequested: KittuTableRow[]",
-      "pageChange: number",
-      "selectedIdsChange: string[]"
+      "bulkDelete: string[]",
+      "bulkExport: string[]"
     ]
   },
   {
@@ -55,24 +51,17 @@ export const ANGULAR_PORTS = [
     "name": "AI Agent Activity",
     "exportName": "KittuAiAgentActivityComponent",
     "selector": "kittu-ai-agent-activity",
-    "description": "Filter chronological events, inspect event payloads and select an event without simulated network activity.",
+    "description": "React-matched agent activity contracts, status timeline, independent detail drawers, expand/collapse controls and native compound composition.",
     "inputs": [
-      "items: KittuItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "activities: AgentActivityItemData[]",
+      "isRunning: boolean",
+      "title: string",
+      "agentName: string",
+      "accentColor: string",
+      "defaultExpandedIds: string[]",
+      "className: string"
     ],
-    "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "ai-response",
@@ -256,16 +245,20 @@ export const ANGULAR_PORTS = [
     "name": "Button",
     "exportName": "KittuButtonComponent",
     "selector": "kittu-button",
-    "description": "Continue: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched native button with nine visual variants, four sizes, projected content/icons, loading text, disabled state and native form events.",
     "inputs": [
-      "label: string",
+      "variant: ButtonVariant",
+      "size: ButtonSize",
+      "isLoading: boolean",
+      "loadingText: string",
+      "leftIcon: ButtonIcon",
+      "rightIcon: ButtonIcon",
+      "fullWidth: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KittuAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "car-smoke-page-transition",
@@ -887,11 +880,14 @@ export const ANGULAR_PORTS = [
     "name": "Loader",
     "exportName": "KittuLoaderComponent",
     "selector": "kittu-loader",
-    "description": "A labeled loading indicator with a settled state and reduced-motion fallback.",
+    "description": "Native React-matched arc, breathing dots, sliding line and expanding rings with size/color, accessible labeling and explicit reduced-motion keyframes.",
     "inputs": [
+      "size: number",
+      "variant: LoaderVariant",
       "label: string",
-      "loading: boolean",
-      "paused: boolean"
+      "reduceMotion: boolean",
+      "color: string",
+      "className: string"
     ],
     "outputs": []
   },
@@ -1059,15 +1055,17 @@ export const ANGULAR_PORTS = [
     "name": "Morphing Icon",
     "exportName": "KittuMorphingIconComponent",
     "selector": "kittu-morphing-icon",
-    "description": "An accessible, controlled icon toggle animated with CSS, with no external icon runtime.",
+    "description": "React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.",
     "inputs": [
-      "active: boolean (two-way)",
-      "disabled: boolean",
-      "label: string"
+      "from: TemplateRef<unknown> (required)",
+      "to: TemplateRef<unknown> (required)",
+      "active: boolean",
+      "duration: number",
+      "size: number",
+      "className: string",
+      "style: MorphingIconStyle | string"
     ],
-    "outputs": [
-      "activeChange: boolean"
-    ]
+    "outputs": []
   },
   {
     "id": "morphing-shape-loader",
@@ -1087,16 +1085,15 @@ export const ANGULAR_PORTS = [
     "name": "Neon Edge Button",
     "exportName": "KittuNeonEdgeButtonComponent",
     "selector": "kittu-neon-edge-button",
-    "description": "Light the way: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched travelling edge light with speed/glow controls, projected button content, native HTML form behavior and a static reduced-motion highlight.",
     "inputs": [
-      "label: string",
+      "speed: number",
+      "glow: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KittuAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "nimbu-mirchi",
@@ -1184,11 +1181,13 @@ export const ANGULAR_PORTS = [
     "name": "Orbital Loading Ring",
     "exportName": "KittuOrbitalLoadingRingComponent",
     "selector": "kittu-orbital-loading-ring",
-    "description": "A labeled loading indicator with a settled state and reduced-motion fallback.",
+    "description": "React-matched orbital status indicator with three variants, size/speed controls, labelled SVG tracks, rotating satellites and a static reduced-motion fallback.",
     "inputs": [
+      "size: number",
+      "speed: number",
+      "variant: OrbitalLoadingRingVariant",
       "label: string",
-      "loading: boolean",
-      "paused: boolean"
+      "className: string"
     ],
     "outputs": []
   },
@@ -1737,24 +1736,15 @@ export const ANGULAR_PORTS = [
     "name": "Spotlight Card",
     "exportName": "KittuSpotlightCardComponent",
     "selector": "kittu-spotlight-card",
-    "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
+    "description": "React-matched single content card with pointer-following border and ambient radial spotlights, projected children, customizable color/size and native HTML event overrides.",
     "inputs": [
-      "items: KittuItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KittuCollectionAction"
+      "spotlightColor: string",
+      "spotlightSize: number",
+      "className: string",
+      "onMouseMove: SpotlightCardMouseHandler",
+      "onMouseLeave: SpotlightCardMouseHandler"
     ],
-    "outputs": [
-      "itemSelect: KittuItem",
-      "actionRequested: KittuItem[]",
-      "actionComplete: KittuItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "spotlight-search",

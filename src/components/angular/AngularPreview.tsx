@@ -36,7 +36,7 @@ export function AngularPreview({ id, name }: { id: string; name: string }) {
           window.location.origin,
         )
       }
-      style={{ height, width: "100%", border: 0, borderRadius: 16 }}
+      style={{ height, width: "100%", border: 0, borderRadius: id === "morphing-icon" ? 0 : 16 }}
     />
   );
 }
