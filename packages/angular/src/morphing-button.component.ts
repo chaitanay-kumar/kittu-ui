@@ -1,20 +1,36 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component } from '@angular/core';
-import { KitActionController } from './port-controllers';
-
+import { Component, ElementRef, computed, inject, input, signal } from '@angular/core';
+import {ViewEncapsulation,booleanAttribute} from '@angular/core';
+import {NgTemplateOutlet} from '@angular/common';
+import type {ButtonStatusState,MorphingButtonVariant,MorphingButtonIcon} from './morphing-button-types';
+import {installButtonPress} from './button-motion';
+import {installMorphingButtonMotion} from './morphing-button-motion';
 @Component({
- selector:"kit-morphing-button", standalone:true,
- host:{'data-kit':"morphing-button",style:'display:block;min-width:0'},
- template:`
-<div class="kit-control kit-stack">
-<button class="k-action" type="button" [disabled]="blocked()" [attr.aria-busy]="loading()||busy()" (click)="run()">
-<span class="k-button-text">
-<ng-content>{{busy()?'Working…':label()||'Save changes'}}</ng-content>
-</span>
-</button>
-<p role="status" class="kit-status">{{loading() || busy() ? 'Working…' : status()}}</p>@if(error()){<p role="alert">{{error()}}</p>}@if(busy()){<button type="button" (click)="cancel()">Cancel</button>}</div>
+ selector:"kit-morphing-button,button[kitMorphingButton]", standalone:true,
+ host:{'data-kit':'morphing-button','[class]':'native ? buttonClass() : "k-mb-host"','[attr.type]':'native ? type() : null','[attr.disabled]':'native && blocked() ? "" : null'},
+ imports:[NgTemplateOutlet],
+encapsulation:ViewEncapsulation.None,styleUrls:["./morphing-button.css"],
+template:`
+<ng-template #content>
+<span class="k-mb-content" [class.k-mb-success]="displayed()==='success'" [class.k-mb-error]="displayed()==='error'">@switch(displayed()){@case("idle"){@if(idleIcon() !== null){@if(idleIcon()){<ng-container [ngTemplateOutlet]="idleIcon()!"/>}@else{<svg aria-hidden="true" class="k-mb-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+<path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/>
+<path d="M7 3v4a1 1 0 0 0 1 1h7"/>
+</svg>}}<span>{{idleText()}}</span>}@case("loading"){<svg aria-hidden="true" class="k-mb-icon k-mb-spin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+</svg>
+<span>{{loadingText()}}</span>}@case("success"){@if(successIcon() !== null){@if(successIcon()){<ng-container [ngTemplateOutlet]="successIcon()!"/>}@else{<svg aria-hidden="true" class="k-mb-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20 6 9 17l-5-5"/>
+</svg>}}<span>{{successText()}}</span>}@case("error"){@if(errorIcon() !== null){@if(errorIcon()){<ng-container [ngTemplateOutlet]="errorIcon()!"/>}@else{<svg aria-hidden="true" class="k-mb-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" x2="12" y1="8" y2="12"/>
+<line x1="12" x2="12.01" y1="16" y2="16"/>
+</svg>}}<span>{{errorText()}}</span>}}</span>
+</ng-template>@if(native){<ng-container [ngTemplateOutlet]="content"/>}@else{<button [class]="buttonClass()" [attr.type]="type()" [disabled]="blocked()">
+<ng-container [ngTemplateOutlet]="content"/>
+</button>}
 `
 })
-export class KitMorphingButtonComponent extends KitActionController {
-
+export class KitMorphingButtonComponent {
+readonly native=inject<ElementRef<HTMLElement>>(ElementRef).nativeElement.tagName==='BUTTON';readonly status=input<ButtonStatusState,ButtonStatusState|undefined>('idle',{transform:value=>value===undefined?'idle':value});readonly variant=input<MorphingButtonVariant,MorphingButtonVariant|undefined>('primary',{transform:value=>value===undefined?'primary':value});readonly disabled=input(false,{transform:booleanAttribute});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});readonly type=input<'button'|'submit'|'reset'|undefined>();readonly blocked=computed(()=>this.disabled()||this.status()==='loading');readonly buttonClass=computed(()=>['k-mb-parity','k-mb-'+this.variant(),this.disabled()?'k-mb-disabled':'',this.className()].filter(Boolean).join(' '));readonly displayed=signal<ButtonStatusState>('idle');readonly idleText=input<string,string|undefined>('Save Changes',{transform:value=>value===undefined?'Save Changes':value});readonly loadingText=input<string,string|undefined>('Saving...',{transform:value=>value===undefined?'Saving...':value});readonly successText=input<string,string|undefined>('Saved',{transform:value=>value===undefined?'Saved':value});readonly errorText=input<string,string|undefined>('Failed',{transform:value=>value===undefined?'Failed':value});readonly idleIcon=input<MorphingButtonIcon>();readonly successIcon=input<MorphingButtonIcon>();readonly errorIcon=input<MorphingButtonIcon>();constructor(){installButtonPress(this.blocked);installMorphingButtonMotion(this.status,this.displayed);}
 }

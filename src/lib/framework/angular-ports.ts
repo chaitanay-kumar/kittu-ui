@@ -1019,16 +1019,22 @@ export const ANGULAR_PORTS = [
     "name": "Morphing Button",
     "exportName": "KitMorphingButtonComponent",
     "selector": "kit-morphing-button",
-    "description": "Save changes: native keyboard activation, disabled and asynchronous action states.",
+    "description": "Controlled React-matched status button with four variants, default Lucide or template icons, spring presence transitions and native form events.",
     "inputs": [
-      "label: string",
+      "status: ButtonStatusState",
+      "variant: MorphingButtonVariant",
+      "idleText: string",
+      "loadingText: string",
+      "successText: string",
+      "errorText: string",
+      "idleIcon: MorphingButtonIcon",
+      "successIcon: MorphingButtonIcon",
+      "errorIcon: MorphingButtonIcon",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "morphing-dialog",

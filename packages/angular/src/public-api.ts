@@ -23,6 +23,7 @@ export type {SpotlightCardMouseHandler} from "./spotlight-card-types";
 export type {MorphingIconStyle} from "./morphing-icon-types";
 
 export * from './press-button-types';
+export * from './morphing-button-types';
 
 // Generated catalog exports.
 export * from "./port-types";
