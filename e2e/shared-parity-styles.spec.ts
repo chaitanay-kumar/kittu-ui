@@ -12,6 +12,8 @@ for (const component of ['button', 'neon-edge-button']) {
         await expect(button).toBeVisible();
         await page.keyboard.press('Tab');
         await expect(button).toBeFocused();
+        // Compare settled focus styles, not independently sampled animation frames.
+        await page.waitForTimeout(200);
         results.push(await button.evaluate(el => {
           const root=getComputedStyle(el);
           const icon=el.querySelector('svg');
