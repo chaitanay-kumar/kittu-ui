@@ -1179,11 +1179,13 @@ export const ANGULAR_PORTS = [
     "name": "Orbital Loading Ring",
     "exportName": "KittuOrbitalLoadingRingComponent",
     "selector": "kittu-orbital-loading-ring",
-    "description": "A labeled loading indicator with a settled state and reduced-motion fallback.",
+    "description": "React-matched orbital status indicator with three variants, size/speed controls, labelled SVG tracks, rotating satellites and a static reduced-motion fallback.",
     "inputs": [
+      "size: number",
+      "speed: number",
+      "variant: OrbitalLoadingRingVariant",
       "label: string",
-      "loading: boolean",
-      "paused: boolean"
+      "className: string"
     ],
     "outputs": []
   },

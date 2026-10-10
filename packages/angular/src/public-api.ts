@@ -17,6 +17,7 @@ export * from './agent-activity-controller';
 export * from './agent-activity-parts';
 export * from "./loader-types";
 export * from "./button-types";
+export * from "./orbital-loading-ring-types";
 
 // Generated catalog exports.
 export * from "./port-types";

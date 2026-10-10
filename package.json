@@ -30,7 +30,8 @@
     "test:prompt-composer": "node scripts/verify-prompt-composer.mjs",
     "test:loader": "node scripts/verify-loader.mjs",
     "test:button": "node scripts/verify-button.mjs",
-    "test:neon-edge-button": "node scripts/verify-neon-edge-button.mjs"
+    "test:neon-edge-button": "node scripts/verify-neon-edge-button.mjs",
+    "test:orbital-loading-ring": "node scripts/verify-orbital-loading-ring.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

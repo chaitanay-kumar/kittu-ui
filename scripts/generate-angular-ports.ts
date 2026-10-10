@@ -3,6 +3,7 @@ import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
+import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -468,8 +469,8 @@ add(
 add("loader","plain",loaderPort.description,loaderPort.template,loaderPort.body,loaderPort);
 
 // Loading indicators can be stopped and honor reduced motion in CSS.
+add("orbital-loading-ring","plain",orbitalLoadingRingPort.description,orbitalLoadingRingPort.template,orbitalLoadingRingPort.body,orbitalLoadingRingPort);
 for (const [id, shape] of [
-  ["orbital-loading-ring", "orbit-loader"],
   ["morphing-shape-loader", "shape-loader"],
   ["intro-loader", "intro-loader"],
 ]) {
