@@ -12,11 +12,12 @@ export function installMagneticMotion(strength:Signal<number>,disabled:Signal<bo
  const start=()=>{if(!frame){last=performance.now();frame=requestAnimationFrame(tick);}};
  const move=(event:Event)=>{const node=button();if(!node)return;const e=event as MouseEvent,r=node.getBoundingClientRect();axes[0].target=(e.clientX-r.left-r.width/2)*strength();axes[1].target=(e.clientY-r.top-r.height/2)*strength();start();};
  const enter=()=>hovered.set(true),leave=()=>{hovered.set(false);axes[0].target=axes[1].target=0;start();};
- const down=(event:Event)=>{if(disabled()||(event instanceof PointerEvent&&event.button!==0))return;axes[2].target=.96;start();};
- const release=()=>{axes[2].target=1;start();};
+ const validPointer=(event:Event)=>!(event instanceof PointerEvent)||(event.pointerType==='mouse'?event.button<=0:event.isPrimary!==false);
+ const down=(event:Event)=>{if(disabled()||!validPointer(event))return;axes[2].target=.96;start();};
+ const release=(event?:Event)=>{if(event&&!validPointer(event))return;axes[2].target=1;start();};
  const keydown=(event:Event)=>{if((event as KeyboardEvent).key==='Enter')down(event);},keyup=(event:Event)=>{if((event as KeyboardEvent).key==='Enter')release();};
- const bindings:[EventTarget,string,EventListener][]=[[host,'mousemove',move],[host,'mouseenter',enter],[host,'mouseleave',leave],[host,'pointerdown',down],[host,'pointercancel',release],[host,'pointerleave',release],[host,'blur',release],[host,'keydown',keydown],[host,'keyup',keyup]];
- if(typeof document!=='undefined')bindings.push([document,'pointerup',release]);
- for(const [target,name,listener] of bindings)target.addEventListener(name,listener,name==='blur');
- inject(DestroyRef).onDestroy(()=>{if(frame)cancelAnimationFrame(frame);for(const [target,name,listener] of bindings)target.removeEventListener(name,listener,name==='blur');});
+ const bindings:[EventTarget,string,EventListener][]=[[host,'mousemove',move],[host,'mouseenter',enter],[host,'mouseleave',leave],[host,'pointerdown',down],[host,'pointercancel',release],[host,'blur',release],[host,'keydown',keydown],[host,'keyup',keyup]];
+ if(typeof window!=='undefined')bindings.push([window,'pointerup',release],[window,'pointercancel',release]);
+ for(const [target,name,listener] of bindings)target.addEventListener(name,listener,name==='blur'||(typeof window!=='undefined'&&target===window));
+ inject(DestroyRef).onDestroy(()=>{if(frame)cancelAnimationFrame(frame);for(const [target,name,listener] of bindings)target.removeEventListener(name,listener,name==='blur'||(typeof window!=='undefined'&&target===window));});
 }
