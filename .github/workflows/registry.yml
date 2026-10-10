@@ -79,6 +79,8 @@ jobs:
         run: npm run test:neon-edge-button
       - name: Verify Orbital Loading Ring contract
         run: npm run test:orbital-loading-ring
+      - name: Verify native Reveal Card contract
+        run: npm run test:reveal-card
       - name: Verify native Spotlight Card contract
         run: npm run test:spotlight-card
       - name: Verify native Morphing Icon contract

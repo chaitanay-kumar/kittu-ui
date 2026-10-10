@@ -142,6 +142,17 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
   } : entry),
 ];
 export function angularUsage(entry: AngularEntry) {
+  if (entry.id === 'reveal-card') return `import { Component } from '@angular/core';
+import { KitRevealCardComponent } from 'kit-ui-angular';
+@Component({
+ selector: 'app-example',
+ imports: [KitRevealCardComponent],
+ template: \`<ng-template #details><p>More information</p><button>Explore</button></ng-template>
+ <kit-reveal-card [revealContent]="details" [maxTilt]="12" className="max-w-sm">
+   <h2>Interactive 3D Tilt</h2><p>Hover to reveal the details.</p>
+ </kit-reveal-card>\`,
+})
+export class ExampleComponent {}`;
   if (entry.id === 'advanced-data-table') return `import { Component } from '@angular/core';
 import { KitAdvancedDataTableComponent, type ColumnDef } from 'kit-ui-angular';
 interface Row { id: string; name: string; }
