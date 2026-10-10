@@ -2,7 +2,7 @@
 
 React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
 
-Current progress: 3 components have validated baselines and 113 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity changes are on `feat/angular-ai-agent-activity-parity`. Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
+Current progress: 4 components have validated baselines and 112 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer changes are on `feat/angular-ai-prompt-composer-parity`. Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
 
 ## Review requirements
 
@@ -20,8 +20,8 @@ Current progress: 3 components have validated baselines and 113 await review. Ac
 | --- | --- | --- | --- | --- |
 | 1 | Activity Feed | `activity-feed` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-activity-feed-parity/docs/parity/activity-feed.md) |
 | 2 | Advanced Data Table | `advanced-data-table` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-advanced-data-table-parity/docs/parity/advanced-data-table.md) |
-| 3 | AI Agent Activity | `ai-agent-activity` | Validated baseline | [Review](parity/ai-agent-activity.md) |
-| 4 | AI Prompt Composer | `ai-prompt-composer` | Queued | — |
+| 3 | AI Agent Activity | `ai-agent-activity` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-agent-activity-parity/docs/parity/ai-agent-activity.md) |
+| 4 | AI Prompt Composer | `ai-prompt-composer` | Validated baseline | [Review](parity/ai-prompt-composer.md) |
 | 5 | AI Response | `ai-response` | Queued | — |
 | 6 | Airport Matrix Clock | `airport-matrix-clock` | Queued | — |
 | 7 | Animated File Upload | `animated-file-upload` | Queued | — |
@@ -142,3 +142,5 @@ Activity Feed: 14 component browser checks and 24 catalog/navigation checks pass
 These results cover the first component and integration regressions; they do not establish parity for queued components. Physical devices, Safari/Firefox and exhaustive accessibility coverage are outside the recorded validation.
 
 AI Agent Activity: 20 focused browser checks, 24 catalog/sidebar checks, the built-package contract, 117 unit tests, four Angular consumer builds and production build with 289 SEO checks pass. Lint retains 21 inherited warnings. See its report for motion coverage limits.
+
+AI Prompt Composer: 8 focused browser checks, 24 catalog/sidebar checks, packaged async/attachment contracts, four Angular consumer builds, 117 unit tests and production build with 289 SEO checks pass. Lint retains 21 inherited warnings.

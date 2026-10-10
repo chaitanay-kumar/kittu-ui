@@ -59,6 +59,8 @@ jobs:
         run: npm run test:data-table
       - name: Verify Agent Activity package contract
         run: npm run test:agent-activity
+      - name: Verify Prompt Composer package contract
+        run: npm run test:prompt-composer
 
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

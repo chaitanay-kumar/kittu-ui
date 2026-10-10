@@ -56,3 +56,5 @@ Run `npm run test:activity-feed` after building the tarball to test public input
 The native table now follows React's typed columns, cards/table views, current-page selection and ID-based bulk callbacks. Custom cells and details use Angular templates; compound components are available for custom composition. See [migration and validation details](parity/advanced-data-table.md) and the [component parity tracker](ANGULAR_REACT_PARITY.md).
 ## AI Agent Activity parity
 This component now follows React’s typed activities, five statuses, detail sections and independent disclosure controls. Native compound components support custom headers, timelines and items. See [migration, validation and screenshots](parity/ai-agent-activity.md) and the [parity tracker](ANGULAR_REACT_PARITY.md).
+## AI Prompt Composer parity
+The composer now accepts React’s `onSend` input and uses the same labels, attachment feedback and website preview layout. `sendHandler` remains a deprecated compatibility alias. See [validation and migration](parity/ai-prompt-composer.md) and the [parity tracker](ANGULAR_REACT_PARITY.md).

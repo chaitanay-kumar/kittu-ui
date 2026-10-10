@@ -26,7 +26,8 @@
     "test:activity-feed": "node scripts/verify-activity-feed.mjs",
     "predev": "npm run angular:build",
     "test:data-table": "node scripts/verify-data-table.mjs",
-    "test:agent-activity": "node scripts/verify-agent-activity.mjs"
+    "test:agent-activity": "node scripts/verify-agent-activity.mjs",
+    "test:prompt-composer": "node scripts/verify-prompt-composer.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
