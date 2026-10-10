@@ -10,3 +10,4 @@ Native Angular Activity Feed SVG icons use the same Lucide icon paths as React. 
 Native Angular data table icons reproduce Lucide SVG paths. See [Lucide notices](licenses/LUCIDE.txt) for the ISC and Feather MIT license notices.
 Native Angular agent activity icons reproduce Lucide SVG paths. See [Lucide notices](licenses/LUCIDE.txt) for the ISC and Feather MIT license notices.
 The native Angular Button’s Loader2 SVG path is derived from Lucide React. Its ISC license is preserved in `packages/angular/LUCIDE-LICENSE.txt` and included in the built package.
+The native Angular Neon Edge Button’s Zap SVG path is derived from Lucide React. Its ISC license is preserved in `packages/angular/LUCIDE-LICENSE.txt` and included in the built package.

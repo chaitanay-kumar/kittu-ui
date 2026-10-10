@@ -2,9 +2,9 @@
 
 React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
 
-Current progress: 6 components have validated baselines and 110 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
+Current progress: 7 components have validated baselines and 109 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
 
-User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kittu-ui/pull/6). Next quick reviews: Neon Edge Button and Orbital Loading Ring. The original inventory order remains below for tracking, not execution priority.
+User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kittu-ui/pull/6). Neon Edge Button is in [PR #7](https://github.com/chaitanay-kumar/kittu-ui/pull/7). Next quick review: Orbital Loading Ring. The original inventory order remains below for tracking, not execution priority.
 
 ## Review requirements
 
@@ -33,7 +33,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 11 | Batch Gesture Tray | `batch-gesture-tray` | Queued | — |
 | 12 | Book Call Button | `book-call-button` | Queued | — |
 | 13 | Branching Submenu | `branching-submenu` | Queued | — |
-| 14 | Button | `button` | Validated baseline | [Review](parity/button.md) |
+| 14 | Button | `button` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-button-parity/docs/parity/button.md) |
 | 15 | Car Smoke Page Transition | `car-smoke-page-transition` | Queued | — |
 | 16 | Chat | `chat` | Queued | — |
 | 17 | Circular Orbit | `circular-orbit` | Queued | — |
@@ -83,7 +83,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 61 | Morphing Dialog | `morphing-dialog` | Queued | — |
 | 62 | Morphing Icon | `morphing-icon` | Queued | — |
 | 63 | Morphing Shape Loader | `morphing-shape-loader` | Queued | — |
-| 64 | Neon Edge Button | `neon-edge-button` | Queued | — |
+| 64 | Neon Edge Button | `neon-edge-button` | Validated baseline | [Review](parity/neon-edge-button.md) |
 | 65 | Nimbu Mirchi | `nimbu-mirchi` | Queued | — |
 | 66 | Not Found | `not-found` | Queued | — |
 | 67 | Notification Bell | `notification-bell` | Queued | — |

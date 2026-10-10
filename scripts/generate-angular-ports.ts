@@ -2,6 +2,7 @@
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
 import {buttonPort} from "./angular-button";
+import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -107,12 +108,13 @@ const collectionFeedback = `@if(loading()){<p role="status">Loading…</p>}@if(e
 const itemButton = `<button type="button" data-item [disabled]="disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>`;
 
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
+add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
 // Buttons keep native button semantics and an application-owned async action.
 for (const [id, label] of [
 
   ["press-button", "Press me"],
-  ["neon-edge-button", "Light the way"],
+
   ["rainbow-button", "Make something colorful"],
   ["typewriter-button", "Start a new story"],
   ["morphing-button", "Save changes"],

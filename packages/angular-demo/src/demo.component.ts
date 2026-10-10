@@ -1,4 +1,5 @@
 import {ButtonDemoComponent} from "./button-demo";
+import {NeonEdgeButtonDemoComponent} from "./neon-edge-button-demo";
 import { Component, HostListener, signal } from "@angular/core";
 import { TableDemoComponent } from "./table-demo";
 import { AgentDemoComponent } from "./agent-demo";
@@ -45,6 +46,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   standalone: true,
   imports: [
     ButtonDemoComponent,
+    NeonEdgeButtonDemoComponent,
     NgComponentOutlet,
     TableDemoComponent,
     AgentDemoComponent,
@@ -64,6 +66,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
       @case ("ai-agent-activity") { <kittu-agent-demo/> }
       @case("loader"){<kittu-loader-demo/>}
       @case("button"){<kittu-button-demo/>}
+      @case("neon-edge-button"){<kittu-neon-edge-button-demo/>}
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }

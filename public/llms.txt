@@ -205,7 +205,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Morphing Dialog for Angular](http://localhost:5173/components/morphing-dialog?framework=angular): A native modal dialog with focus containment, Escape, projected content and asynchronous confirmation.
 - [Morphing Icon for Angular](http://localhost:5173/components/morphing-icon?framework=angular): An accessible, controlled icon toggle animated with CSS, with no external icon runtime.
 - [Morphing Shape Loader for Angular](http://localhost:5173/components/morphing-shape-loader?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
-- [Neon Edge Button for Angular](http://localhost:5173/components/neon-edge-button?framework=angular): Light the way: native keyboard activation, disabled and asynchronous action states.
+- [Neon Edge Button for Angular](http://localhost:5173/components/neon-edge-button?framework=angular): React-matched travelling edge light with speed/glow controls, projected button content, native HTML form behavior and a static reduced-motion highlight.
 - [Nimbu Mirchi for Angular](http://localhost:5173/components/nimbu-mirchi?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Not Found for Angular](http://localhost:5173/components/not-found?framework=angular): A configurable empty/not-found state with an application-owned recovery action.
 - [Notification Bell for Angular](http://localhost:5173/components/notification-bell?framework=angular): Dismissible notifications with restore actions and restrained live announcements.

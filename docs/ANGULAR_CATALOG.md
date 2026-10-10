@@ -62,3 +62,5 @@ The composer now accepts React’s `onSend` input and uses the same labels, atta
 Loader now follows React’s four visual variants, size/color API, accessible label and explicit reduced-motion animation options. Native HTML attributes and events apply to its status host. See [migration and validation](parity/loader.md).
 ## Button parity baseline
 Button follows React’s nine visual variants, four sizes, loading text, icon templates/projection, disabled state and fullWidth behavior. Use the native `button[kittuButton]` selector for DOM attributes, native form behavior and events; `kittu-button` remains available with an internal button. See [the review](parity/button.md) for migration notes and verified coverage.
+## Neon Edge Button parity baseline
+Neon Edge Button follows React’s travelling beam, speed/glow controls, projected content, hover/press styling and reduced-motion highlight. The native `button[kittuNeonEdgeButton]` selector preserves HTML form semantics and events; the existing custom selector remains available. See [the review](parity/neon-edge-button.md) for migration and verified coverage.

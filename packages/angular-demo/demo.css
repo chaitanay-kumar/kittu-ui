@@ -28,3 +28,5 @@ body:has(kittu-button-demo){padding:0;background:#f1f1f2;font-family:"Inter Vari
 .dark body:has(kittu-button-demo){background:#18181b}
 body:has(kittu-button-demo){--border:oklch(.92 .004 286.32)}
 .dark body:has(kittu-button-demo){--border:oklch(1 0 0 / .1)}
+body:has(kittu-neon-edge-button-demo){padding:0;background:#f1f1f2;font-family:"Inter Variable",sans-serif;font-size:16px;line-height:24px;letter-spacing:-.011em;font-feature-settings:'cv02','cv03','cv04','cv11';-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.dark body:has(kittu-neon-edge-button-demo){background:#18181b}

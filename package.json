@@ -29,7 +29,8 @@
     "test:agent-activity": "node scripts/verify-agent-activity.mjs",
     "test:prompt-composer": "node scripts/verify-prompt-composer.mjs",
     "test:loader": "node scripts/verify-loader.mjs",
-    "test:button": "node scripts/verify-button.mjs"
+    "test:button": "node scripts/verify-button.mjs",
+    "test:neon-edge-button": "node scripts/verify-neon-edge-button.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
