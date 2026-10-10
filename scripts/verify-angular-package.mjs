@@ -230,6 +230,10 @@ import { ${portImports}, KitElasticSheetComponent, KitSmartUploadComponent, KitL
 export class ConsumerApp9 { readonly optionalActive:boolean|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalDuration:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalStyle:MorphingIconStyle|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `
   ];
+  consumerSources.push(`import {Component} from '@angular/core';
+import {KitPressButtonComponent,type PressButtonVariant,type PressButtonSize} from 'kit-ui-angular';
+@Component({selector:'press-consumer',imports:[KitPressButtonComponent],template:\`<button kitPressButton [variant]="variant" [size]="size" [pressStrength]="strength" [fullWidth]="false" [disabled]="false" [type]="type" [className]="className" name="action" value="save">Save</button><kit-press-button variant="ghost" size="icon">Cancel</kit-press-button>\`})
+export class PressConsumer{variant:PressButtonVariant|undefined=undefined;size:PressButtonSize|undefined=undefined;strength:number|undefined=undefined;type:'button'|'submit'|'reset'|undefined=undefined;className:string|undefined=undefined;}`);
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
   fs.writeFileSync(
     path.join(target, "tsconfig.json"),

@@ -1336,16 +1336,17 @@ export const ANGULAR_PORTS = [
     "name": "PressButton",
     "exportName": "KitPressButtonComponent",
     "selector": "kit-press-button",
-    "description": "Press me: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched tactile button with four variants, four sizes, configurable layered press compression, projected content and native form semantics.",
     "inputs": [
-      "label: string",
+      "variant: PressButtonVariant",
+      "size: PressButtonSize",
+      "pressStrength: number",
+      "fullWidth: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "pricing",
