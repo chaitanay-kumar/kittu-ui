@@ -28,7 +28,8 @@
     "test:data-table": "node scripts/verify-data-table.mjs",
     "test:agent-activity": "node scripts/verify-agent-activity.mjs",
     "test:prompt-composer": "node scripts/verify-prompt-composer.mjs",
-    "test:loader": "node scripts/verify-loader.mjs"
+    "test:loader": "node scripts/verify-loader.mjs",
+    "test:button": "node scripts/verify-button.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

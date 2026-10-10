@@ -63,6 +63,8 @@ jobs:
         run: npm run test:prompt-composer
       - name: Verify Loader package contract
         run: npm run test:loader
+      - name: Verify Button contract
+        run: npm run test:button
 
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

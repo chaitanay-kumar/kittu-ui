@@ -60,3 +60,5 @@ This component now follows React’s typed activities, five statuses, detail sec
 The composer now accepts React’s `onSend` input and uses the same labels, attachment feedback and website preview layout. `sendHandler` remains a deprecated compatibility alias. See [validation and migration](parity/ai-prompt-composer.md) and the [parity tracker](ANGULAR_REACT_PARITY.md).
 ## Loader parity
 Loader now follows React’s four visual variants, size/color API, accessible label and explicit reduced-motion animation options. Native HTML attributes and events apply to its status host. See [migration and validation](parity/loader.md).
+## Button parity baseline
+Button follows React’s nine visual variants, four sizes, loading text, icon templates/projection, disabled state and fullWidth behavior. Use the native `button[kittuButton]` selector for DOM attributes, native form behavior and events; `kittu-button` remains available with an internal button. See [the review](parity/button.md) for migration notes and verified coverage.

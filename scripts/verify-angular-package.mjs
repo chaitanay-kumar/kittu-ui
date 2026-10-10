@@ -140,6 +140,23 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
 export class ConsumerApp4 { height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ButtonVariant, type ButtonSize } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-5',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+<button kittuButton variant="success" size="sm" [isLoading]="false" loadingText="Saving" [fullWidth]="true" [disabled]="false" type="submit">Save</button>
+<button kittuButton [variant]="optionalVariant" [size]="optionalSize" [type]="optionalType" [className]="optionalClass">Defaults</button>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp5 { readonly optionalVariant:ButtonVariant|undefined=undefined;readonly optionalSize:ButtonSize|undefined=undefined;readonly optionalType:'button'|'submit'|'reset'|undefined=undefined;readonly optionalClass:string|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `
   ];
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));

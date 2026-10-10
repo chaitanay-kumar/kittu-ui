@@ -159,7 +159,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Batch Gesture Tray for Angular](http://localhost:5173/components/batch-gesture-tray?framework=angular): Select individual items or all items, then run a cancellable application-owned batch action.
 - [Book Call Button for Angular](http://localhost:5173/components/book-call-button?framework=angular): A date/time booking dialog that emits a request for your scheduling application.
 - [Branching Submenu for Angular](http://localhost:5173/components/branching-submenu?framework=angular): Parent and child navigation with keyboard selection and independently disclosed branches.
-- [Button for Angular](http://localhost:5173/components/button?framework=angular): Continue: native keyboard activation, disabled and asynchronous action states.
+- [Button for Angular](http://localhost:5173/components/button?framework=angular): React-matched native button with nine visual variants, four sizes, projected content/icons, loading text, disabled state and native form events.
 - [Car Smoke Page Transition for Angular](http://localhost:5173/components/car-smoke-page-transition?framework=angular): Switch projected page summaries through a restrained car/smoke CSS transition with keyboard navigation.
 - [Chat for Angular](http://localhost:5173/components/chat?framework=angular): An application-connected conversation with sending, cancellation, retry, preserved drafts and accessible message history.
 - [Circular Orbit for Angular](http://localhost:5173/components/circular-orbit?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.

@@ -2,9 +2,9 @@
 
 React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
 
-Current progress: 5 components have validated baselines and 111 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
+Current progress: 6 components have validated baselines and 110 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
 
-User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Next quick review: Button, followed by other small controls. The original inventory order remains below for tracking, not execution priority.
+User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kittu-ui/pull/6). Next quick reviews: Neon Edge Button and Orbital Loading Ring. The original inventory order remains below for tracking, not execution priority.
 
 ## Review requirements
 
@@ -24,7 +24,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 2 | Advanced Data Table | `advanced-data-table` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-advanced-data-table-parity/docs/parity/advanced-data-table.md) |
 | 3 | AI Agent Activity | `ai-agent-activity` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-agent-activity-parity/docs/parity/ai-agent-activity.md) |
 | 4 | AI Prompt Composer | `ai-prompt-composer` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-prompt-composer-parity/docs/parity/ai-prompt-composer.md) |
-| 5 | AI Response | `ai-response` | In progress, deferred for simpler controls | [Audit](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-response-parity/docs/parity/ai-response-audit.md) |
+| 5 | AI Response | `ai-response` | In progress, deferred for simpler controls | Local audit on deferred branch |
 | 6 | Airport Matrix Clock | `airport-matrix-clock` | Queued | — |
 | 7 | Animated File Upload | `animated-file-upload` | Queued | — |
 | 8 | Animated Number Morph | `animated-number` | Queued | — |
@@ -33,7 +33,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 11 | Batch Gesture Tray | `batch-gesture-tray` | Queued | — |
 | 12 | Book Call Button | `book-call-button` | Queued | — |
 | 13 | Branching Submenu | `branching-submenu` | Queued | — |
-| 14 | Button | `button` | Queued | — |
+| 14 | Button | `button` | Validated baseline | [Review](parity/button.md) |
 | 15 | Car Smoke Page Transition | `car-smoke-page-transition` | Queued | — |
 | 16 | Chat | `chat` | Queued | — |
 | 17 | Circular Orbit | `circular-orbit` | Queued | — |
@@ -71,7 +71,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 49 | Liquid Command Palette | `liquid-command-palette` | Queued | — |
 | 50 | Liquid Ripple Button | `liquid-ripple-button` | Queued | — |
 | 51 | Liquid Toggle | `liquid-toggle` | Queued | — |
-| 52 | Loader | `loader` | Validated baseline | [Review](parity/loader.md) |
+| 52 | Loader | `loader` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-loader-parity/docs/parity/loader.md) |
 | 53 | LockInput | `lock-input` | Queued | — |
 | 54 | Login | `login` | Queued | — |
 | 55 | macOS Folder Cards | `mac-os-folder-cards` | Queued | — |
