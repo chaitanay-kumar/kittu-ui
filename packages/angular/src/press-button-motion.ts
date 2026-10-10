@@ -9,12 +9,15 @@ export function installPressButtonMotion(blocked:Signal<boolean>,strength:Signal
   animation=node.animate(frames,{duration:500,fill:'forwards'});
  };
  const release=()=>{if(!pressed)return;pressed=false;keyPressed=false;animate(1);};
- const down=(event:Event)=>{if(blocked())return;if(event instanceof PointerEvent&&event.button!==0)return;pressed=true;animate(.97);};
+ const primary=(event:Event)=>!(event instanceof PointerEvent)||(event.pointerType==='mouse'?event.button<=0:event.isPrimary!==false);
+ const down=(event:Event)=>{if(blocked()||!primary(event))return;pressed=true;animate(.97);};
+ const pointerEnd=(event:Event)=>{if(primary(event))release();};
+ const blur=()=>{if(keyPressed)release();};
  const keydown=(event:Event)=>{const key=event as KeyboardEvent;if(key.key==='Enter'&&!key.repeat&&!blocked()){keyPressed=true;down(event);}};
  const keyup=(event:Event)=>{if(keyPressed&&(event as KeyboardEvent).key==='Enter')release();};
- const bindings:[EventTarget,string,EventListener][]=[[host,'pointerdown',down],[host,'pointerleave',release],[host,'pointercancel',release],[host,'blur',release],[host,'keydown',keydown],[host,'keyup',keyup]];
- if(typeof document!=='undefined')bindings.push([document,'pointerup',release]);
+ const bindings:[EventTarget,string,EventListener][]=[[host,'pointerdown',down],[host,'blur',blur],[host,'keydown',keydown],[host,'keyup',keyup]];
+ if(typeof window!=='undefined')bindings.push([window,'pointerup',pointerEnd],[window,'pointercancel',pointerEnd]);
  for(const [target,name,listener] of bindings)target.addEventListener(name,listener,true);
- effect(()=>{if(blocked()){pressed=false;keyPressed=false;animation?.cancel();animation=undefined;}});
+ effect(()=>{const disabled=blocked();strength();if(disabled){pressed=false;keyPressed=false;animation?.cancel();animation=undefined;}else if(pressed){animate(.97);}});
  inject(DestroyRef).onDestroy(()=>{animation?.cancel();for(const [target,name,listener] of bindings)target.removeEventListener(name,listener,true);});
 }
