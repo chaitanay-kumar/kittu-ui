@@ -1,6 +1,11 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
+import {pressButtonPort} from "./angular-press-button";
+import {magneticButtonPort} from "./angular-magnetic-button";
+import {morphingButtonPort} from "./angular-morphing-button";
+import {typewriterButtonPort} from "./angular-typewriter-button";
+import {rainbowButtonPort} from "./angular-rainbow-button";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
@@ -110,33 +115,15 @@ const actionFeedback = `<p role="status" class="kit-status">{{loading() || busy(
 const collectionFeedback = `@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kit-status">{{busy()?'Working…':status()}}</p>`;
 const itemButton = `<button type="button" data-item [disabled]="disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>`;
 
+add("press-button","plain",pressButtonPort.description,pressButtonPort.template,pressButtonPort.body,pressButtonPort);
+add("typewriter-button","plain",typewriterButtonPort.description,typewriterButtonPort.template,typewriterButtonPort.body,typewriterButtonPort);
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
 add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
-// Buttons keep native button semantics and an application-owned async action.
-for (const [id, label] of [
+add("morphing-button","plain",morphingButtonPort.description,morphingButtonPort.template,morphingButtonPort.body,morphingButtonPort);
+add("rainbow-button","plain",rainbowButtonPort.description,rainbowButtonPort.template,rainbowButtonPort.body,rainbowButtonPort);
 
-  ["press-button", "Press me"],
-
-  ["rainbow-button", "Make something colorful"],
-  ["typewriter-button", "Start a new story"],
-  ["morphing-button", "Save changes"],
-]) {
-  add(
-    id,
-    "action",
-    `${label}: native keyboard activation, disabled and asynchronous action states.`,
-    `<div class="kit-control kit-stack"><button class="k-action" type="button" [disabled]="blocked()" [attr.aria-busy]="loading()||busy()" (click)="run()"><span class="k-button-text"><ng-content>{{busy()?'Working…':label()||'${label}'}}</ng-content></span></button>${actionFeedback}</div>`,
-  );
-}
-add(
-  "magnetic-button",
-  "action",
-  "A pointer-attracted button with bounded movement, keyboard activation and reduced-motion support.",
-  `<div class="kit-control kit-stack"><button type="button" class="k-action" [disabled]="blocked()" [style.transform]="transform()" (pointermove)="move($event)" (pointerleave)="reset()" (pointercancel)="reset()" (blur)="reset()" (click)="run()"><ng-content>{{label()||'A little attraction'}}</ng-content></button>${actionFeedback}</div>`,
-  `readonly strength=input(.35);readonly transform=signal('translate(0,0)');move(event:PointerEvent):void{if(this.blocked()||event.pointerType==='touch'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=(event.currentTarget as HTMLElement).getBoundingClientRect();const s=Math.max(0,Math.min(1,this.strength()));this.transform.set('translate('+Math.max(-24,Math.min(24,(event.clientX-r.left-r.width/2)*s))+'px,'+Math.max(-24,Math.min(24,(event.clientY-r.top-r.height/2)*s))+'px)');}reset():void{this.transform.set('translate(0,0)');}`,
-  { inputs: ["strength: number (0–1)"] },
-);
+add("magnetic-button","plain",magneticButtonPort.description,magneticButtonPort.template,magneticButtonPort.body,magneticButtonPort);
 add(
   "liquid-ripple-button",
   "action",

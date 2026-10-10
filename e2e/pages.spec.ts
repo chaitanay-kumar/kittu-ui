@@ -10,7 +10,7 @@ test('project Pages supports deep links, frameworks, navigation and downloads', 
   });
   await page.goto('/kit-ui/components/typewriter-button/?framework=angular');
   await expect(page.getByRole('heading', { name: 'Typewriter Button', exact: true })).toBeVisible();
-  await expect(page.frameLocator('iframe').locator('kit-typewriter-button')).toBeVisible();
+  await expect(page.frameLocator('iframe').getByRole('button', {name:'npx kit-ui add button',exact:true})).toBeVisible();
   await expect(page.locator('iframe')).toHaveAttribute('src', /^\/kit-ui\/angular-demo\//);
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://chaitanay-kumar.github.io/kit-ui/components/typewriter-button/?framework=angular');
   const toggle = page.getByRole('group', { name: 'Component framework' });

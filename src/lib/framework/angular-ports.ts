@@ -953,17 +953,17 @@ export const ANGULAR_PORTS = [
     "name": "Magnetic Button",
     "exportName": "KitMagneticButtonComponent",
     "selector": "kit-magnetic-button",
-    "description": "A pointer-attracted button with bounded movement, keyboard activation and reduced-motion support.",
+    "description": "React-matched magnetic spring button with projected content, four variants, three sizes, hover glow and native form attributes/events.",
     "inputs": [
-      "label: string",
+      "strength: number",
+      "variant: primary | secondary | outline | ghost",
+      "size: sm | md | lg",
+      "glow: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction",
-      "strength: number (0–1)"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "meteors",
@@ -1019,16 +1019,22 @@ export const ANGULAR_PORTS = [
     "name": "Morphing Button",
     "exportName": "KitMorphingButtonComponent",
     "selector": "kit-morphing-button",
-    "description": "Save changes: native keyboard activation, disabled and asynchronous action states.",
+    "description": "Controlled React-matched status button with four variants, default Lucide or template icons, spring presence transitions and native form events.",
     "inputs": [
-      "label: string",
+      "status: ButtonStatusState",
+      "variant: MorphingButtonVariant",
+      "idleText: string",
+      "loadingText: string",
+      "successText: string",
+      "errorText: string",
+      "idleIcon: MorphingButtonIcon",
+      "successIcon: MorphingButtonIcon",
+      "errorIcon: MorphingButtonIcon",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "morphing-dialog",
@@ -1336,16 +1342,17 @@ export const ANGULAR_PORTS = [
     "name": "PressButton",
     "exportName": "KitPressButtonComponent",
     "selector": "kit-press-button",
-    "description": "Press me: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched tactile button with four variants, four sizes, configurable layered press compression, projected content and native form semantics.",
     "inputs": [
-      "label: string",
+      "variant: PressButtonVariant",
+      "size: PressButtonSize",
+      "pressStrength: number",
+      "fullWidth: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "pricing",
@@ -1410,16 +1417,23 @@ export const ANGULAR_PORTS = [
     "name": "Rainbow Button",
     "exportName": "KitRainbowButtonComponent",
     "selector": "kit-rainbow-button",
-    "description": "Make something colorful: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched rainbow button with two variants, four sizes, five customizable colors, animation speed, glow, projected content and native element composition.",
     "inputs": [
-      "label: string",
+      "variant: RainbowButtonVariant",
+      "size: RainbowButtonSize",
+      "color1: string",
+      "color2: string",
+      "color3: string",
+      "color4: string",
+      "color5: string",
+      "speed: number",
+      "glow: boolean",
+      "style: RainbowButtonStyle",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "recovery-ledger",
@@ -1949,16 +1963,22 @@ export const ANGULAR_PORTS = [
     "name": "Typewriter Button",
     "exportName": "KitTypewriterButtonComponent",
     "selector": "kit-typewriter-button",
-    "description": "Start a new story: native keyboard activation, disabled and asynchronous action states.",
+    "description": "React-matched character-by-character button with required text, typing duration, auto-start, completion callback and optional synthesized keystroke audio.",
     "inputs": [
-      "label: string",
+      "text: string (required; React children)",
+      "variant: TypewriterButtonVariant",
+      "charDuration: number",
+      "autoStart: boolean",
+      "soundEnabled: boolean",
+      "soundVolume: number",
+      "onComplete: TypewriterButtonCallback",
+      "onClick: TypewriterButtonCallback",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction"
+      "type: button | submit | reset",
+      "className: string",
+      "aria-label: string | undefined"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "undo-toast",

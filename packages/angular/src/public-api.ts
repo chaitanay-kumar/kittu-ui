@@ -1,4 +1,5 @@
 export * from "./types";
+export * from "./magnetic-button-types";
 export * from "./elastic-sheet.component";
 export * from "./smart-upload.component";
 export * from "./liquid-command-palette.component";
@@ -20,6 +21,11 @@ export * from "./button-types";
 export * from "./orbital-loading-ring-types";
 export type {SpotlightCardMouseHandler} from "./spotlight-card-types";
 export type {MorphingIconStyle} from "./morphing-icon-types";
+
+export * from './press-button-types';
+export * from './morphing-button-types';
+export * from './typewriter-button-types';
+export * from './rainbow-button-types';
 
 // Generated catalog exports.
 export * from "./port-types";

@@ -197,11 +197,11 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [LockInput for Angular](http://localhost:5173/components/lock-input?framework=angular): A password field with a deliberate edit lock and accessible visibility control.
 - [Login for Angular](http://localhost:5173/components/login?framework=angular): Validated native fields, password visibility, cancellable application submission and preserved errors.
 - [macOS Folder Cards for Angular](http://localhost:5173/components/mac-os-folder-cards?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
-- [Magnetic Button for Angular](http://localhost:5173/components/magnetic-button?framework=angular): A pointer-attracted button with bounded movement, keyboard activation and reduced-motion support.
+- [Magnetic Button for Angular](http://localhost:5173/components/magnetic-button?framework=angular): React-matched magnetic spring button with projected content, four variants, three sizes, hover glow and native form attributes/events.
 - [Meteors for Angular](http://localhost:5173/components/meteors?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Metric HUD for Angular](http://localhost:5173/components/metric-hud?framework=angular): A metric readout with bounded progress, signed trend and application-controlled loading/error states.
 - [Morphing Blob for Angular](http://localhost:5173/components/morphing-blob?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
-- [Morphing Button for Angular](http://localhost:5173/components/morphing-button?framework=angular): Save changes: native keyboard activation, disabled and asynchronous action states.
+- [Morphing Button for Angular](http://localhost:5173/components/morphing-button?framework=angular): Controlled React-matched status button with four variants, default Lucide or template icons, spring presence transitions and native form events.
 - [Morphing Dialog for Angular](http://localhost:5173/components/morphing-dialog?framework=angular): A native modal dialog with focus containment, Escape, projected content and asynchronous confirmation.
 - [Morphing Icon for Angular](http://localhost:5173/components/morphing-icon?framework=angular): React-matched controlled two-template icon wrapper with opacity, scale and rotation morphs, size/duration controls, native attributes and style override precedence.
 - [Morphing Shape Loader for Angular](http://localhost:5173/components/morphing-shape-loader?framework=angular): A labeled loading indicator with a settled state and reduced-motion fallback.
@@ -218,11 +218,11 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Payment Status for Angular](http://localhost:5173/components/payment-status?framework=angular): A controlled payment-status display; it never simulates a real payment or charges a card.
 - [Peek Card for Angular](http://localhost:5173/components/peek-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
 - [Pill Navigation for Angular](http://localhost:5173/components/pill-navigation?framework=angular): Keyboard-navigable selection with active state, disabled items and application navigation output.
-- [PressButton for Angular](http://localhost:5173/components/press-button?framework=angular): Press me: native keyboard activation, disabled and asynchronous action states.
+- [PressButton for Angular](http://localhost:5173/components/press-button?framework=angular): React-matched tactile button with four variants, four sizes, configurable layered press compression, projected content and native form semantics.
 - [Pricing for Angular](http://localhost:5173/components/pricing?framework=angular): Selectable pricing plans with monthly/yearly billing, real price inputs and an application-owned selection event.
 - [Profile Card for Angular](http://localhost:5173/components/profile-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
 - [Pull to Refresh for Angular](http://localhost:5173/components/pull-to-refresh?framework=angular): Pull down within a contained list or use a keyboard refresh button; async failures remain retryable.
-- [Rainbow Button for Angular](http://localhost:5173/components/rainbow-button?framework=angular): Make something colorful: native keyboard activation, disabled and asynchronous action states.
+- [Rainbow Button for Angular](http://localhost:5173/components/rainbow-button?framework=angular): React-matched rainbow button with two variants, four sizes, five customizable colors, animation speed, glow, projected content and native element composition.
 - [Recovery Ledger for Angular](http://localhost:5173/components/recovery-ledger?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.
 - [Reveal Card for Angular](http://localhost:5173/components/reveal-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
 - [Rocket Party Popper for Angular](http://localhost:5173/components/rocket-party-popper?framework=angular): Trigger a local particle celebration with a keyboard button, visible motion controls and cleanup.
@@ -250,7 +250,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Text Scramble Decoder for Angular](http://localhost:5173/components/text-scramble-decoder?framework=angular): Configurable readable text with a restrained visual treatment and reduced-motion fallback.
 - [Thinking Orb for Angular](http://localhost:5173/components/thinking-orb?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Torque Dial for Angular](http://localhost:5173/components/torque-dial?framework=angular): A bounded rotary input with pointer dragging, a native range alternative and keyboard increments.
-- [Typewriter Button for Angular](http://localhost:5173/components/typewriter-button?framework=angular): Start a new story: native keyboard activation, disabled and asynchronous action states.
+- [Typewriter Button for Angular](http://localhost:5173/components/typewriter-button?framework=angular): React-matched character-by-character button with required text, typing duration, auto-start, completion callback and optional synthesized keystroke audio.
 - [Undo Toast for Angular](http://localhost:5173/components/undo-toast?framework=angular): Dismissible notifications with restore actions and restrained live announcements.
 - [UnfoldAccordion for Angular](http://localhost:5173/components/unfold-accordion?framework=angular): Expandable item details with keyboard-native disclosure and application-owned recovery actions.
 - [VelocityToast for Angular](http://localhost:5173/components/velocity-toast?framework=angular): Dismissible notifications with restore actions and restrained live announcements.

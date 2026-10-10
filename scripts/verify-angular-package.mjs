@@ -9,7 +9,7 @@ const ports = JSON.parse(
   fs.readFileSync(path.join(root, "packages/angular/catalog.json"), "utf8"),
 );
 const portImports = ports.map((port) => port.exportName).join(", ");
-const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kit-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : `<${port.selector} />`).join("\n");
+const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kit-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : port.id === "typewriter-button" ? `<kit-typewriter-button text="Type this"/>` : `<${port.selector} />`).join("\n");
 // Each consumer installs and runs its own compiler. Reusing the repository's
 // compiler would miss incompatibilities with older Angular versions.
 const matrix = [
@@ -59,7 +59,16 @@ for (const { angularVersion, typescript } of matrix) {
 import {KitLoaderComponent, type LoaderVariant} from 'kit-ui-angular';
 @Component({selector:'loader-optional-consumer',imports:[KitLoaderComponent],template:'<kit-loader [size]="size" [variant]="variant" [label]="label" [reduceMotion]="motion" [color]="color" [className]="classes" [aria-label]="ariaLabel"/>'})
 export class LoaderOptionalConsumer {size:number|undefined;variant:LoaderVariant|undefined;label:string|undefined;motion:boolean|undefined;color:string|undefined;classes:string|undefined;ariaLabel:string|undefined;}`;
-  const consumerSources = [loaderOptionalConsumer,
+  const magneticConsumer = `import {Component} from '@angular/core';
+import {KitMagneticButtonComponent,type MagneticButtonVariant,type MagneticButtonSize} from 'kit-ui-angular';
+@Component({selector:'magnetic-consumer',imports:[KitMagneticButtonComponent],template:'<button kitMagneticButton [strength]="strength" [variant]="variant" [size]="size" [glow]="glow" [type]="type" [className]="classes" [disabled]="false" name="intent" value="save" (click)="clicked=true">Save <em>now</em></button><kit-magnetic-button variant="ghost" size="sm">Projected</kit-magnetic-button>'})
+export class MagneticConsumer{strength:number|undefined;variant:MagneticButtonVariant|undefined;size:MagneticButtonSize|undefined;glow:boolean|undefined;type:'button'|'submit'|'reset'|undefined;classes:string|undefined;clicked=false;}`;
+  const morphingConsumer=`import {Component} from "@angular/core";import {KitMorphingButtonComponent,type ButtonStatusState,type MorphingButtonVariant} from "kit-ui-angular";@Component({selector:"morphing-consumer",imports:[KitMorphingButtonComponent],template:\`<ng-template #icon><b>Icon</b></ng-template><button kitMorphingButton [status]="status" [variant]="variant" [idleIcon]="icon" [successIcon]="null" [disabled]="false" type="submit" (click)="clicked=true"></button><kit-morphing-button [status]="status" idleText="Go"/>\`})export class MorphingConsumer{status:ButtonStatusState|undefined=undefined;variant:MorphingButtonVariant|undefined=undefined;clicked=false;}`;
+  const rainbowConsumer=`import {Component} from '@angular/core';
+import {KitRainbowButtonComponent,type RainbowButtonVariant,type RainbowButtonSize,type RainbowButtonStyle} from 'kit-ui-angular';
+@Component({selector:'rainbow-consumer',standalone:true,imports:[KitRainbowButtonComponent],template:'<button kitRainbowButton [variant]="variant" [size]="size" [speed]="speed" [glow]="glow" [color1]="color" [color2]="color" [color3]="color" [color4]="color" [color5]="color" [style]="styles" [className]="classes" [disabled]="false" type="reset">Content</button><a kitRainbowButton href="/target" variant="outline">Link</a><button kitRainbowButton type="button">Child</button><kit-rainbow-button>Projected content</kit-rainbow-button>'})
+export class RainbowConsumer{variant:RainbowButtonVariant|undefined;size:RainbowButtonSize|undefined;speed:number|undefined;glow:boolean|undefined;color:string|undefined;styles:RainbowButtonStyle|undefined;classes:string|undefined;}`;
+  const consumerSources = [loaderOptionalConsumer,magneticConsumer,morphingConsumer,rainbowConsumer,
 `import { Component } from '@angular/core';
 import { ${portImports}, KitElasticSheetComponent, KitSmartUploadComponent, KitLiquidCommandPaletteComponent, KitHoldToConfirmComponent, KitSwipeActionListComponent, KitInteractiveDataCardComponent, KitTimelineScrubberComponent, KitAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kit-ui-angular';
 @Component({selector:'consumer-app-0',imports:[${portImports}, KitElasticSheetComponent,KitSmartUploadComponent,KitLiquidCommandPaletteComponent,KitHoldToConfirmComponent,KitSwipeActionListComponent,KitInteractiveDataCardComponent,KitTimelineScrubberComponent,KitAIPromptComposerComponent],template:\`
@@ -230,6 +239,14 @@ import { ${portImports}, KitElasticSheetComponent, KitSmartUploadComponent, KitL
 export class ConsumerApp9 { readonly optionalActive:boolean|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalDuration:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalStyle:MorphingIconStyle|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `
   ];
+  consumerSources.push(`import {Component} from '@angular/core';
+import {KitPressButtonComponent,type PressButtonVariant,type PressButtonSize} from 'kit-ui-angular';
+@Component({selector:'press-consumer',imports:[KitPressButtonComponent],template:\`<button kitPressButton [variant]="variant" [size]="size" [pressStrength]="strength" [fullWidth]="false" [disabled]="false" [type]="type" [className]="className" name="action" value="save">Save</button><kit-press-button variant="ghost" size="icon">Cancel</kit-press-button>\`})
+export class PressConsumer{variant:PressButtonVariant|undefined=undefined;size:PressButtonSize|undefined=undefined;strength:number|undefined=undefined;type:'button'|'submit'|'reset'|undefined=undefined;className:string|undefined=undefined;}`);
+  consumerSources.push(`import {Component} from '@angular/core';
+import {KitTypewriterButtonComponent,type TypewriterButtonVariant,type TypewriterButtonCallback} from 'kit-ui-angular';
+@Component({selector:'typewriter-consumer',imports:[KitTypewriterButtonComponent],template:\`<button kitTypewriterButton text="Save" [variant]="variant" [charDuration]="duration" [soundVolume]="volume" [soundEnabled]="sound" [autoStart]="auto" [onComplete]="complete" [onClick]="click" [type]="type" [className]="classes" name="action" value="save"></button><kit-typewriter-button text="Cancel" variant="outline"/>\`})
+export class TypewriterConsumer{variant:TypewriterButtonVariant|undefined=undefined;duration:number|undefined=undefined;volume:number|undefined=undefined;sound:boolean|undefined=undefined;auto:boolean|undefined=undefined;complete:TypewriterButtonCallback|undefined=undefined;click:TypewriterButtonCallback|undefined=undefined;type:'button'|'submit'|'reset'|undefined=undefined;classes:string|undefined=undefined;}`);
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
   fs.writeFileSync(
     path.join(target, "tsconfig.json"),
