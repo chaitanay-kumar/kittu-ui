@@ -875,11 +875,14 @@
     "name": "Loader",
     "exportName": "KittuLoaderComponent",
     "selector": "kittu-loader",
-    "description": "A labeled loading indicator with a settled state and reduced-motion fallback.",
+    "description": "Native React-matched arc, breathing dots, sliding line and expanding rings with size/color, accessible labeling and explicit reduced-motion keyframes.",
     "inputs": [
+      "size: number",
+      "variant: LoaderVariant",
       "label: string",
-      "loading: boolean",
-      "paused: boolean"
+      "reduceMotion: boolean",
+      "color: string",
+      "className: string"
     ],
     "outputs": []
   },

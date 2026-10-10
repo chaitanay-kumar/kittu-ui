@@ -58,3 +58,5 @@ The native table now follows React's typed columns, cards/table views, current-p
 This component now follows React’s typed activities, five statuses, detail sections and independent disclosure controls. Native compound components support custom headers, timelines and items. See [migration, validation and screenshots](parity/ai-agent-activity.md) and the [parity tracker](ANGULAR_REACT_PARITY.md).
 ## AI Prompt Composer parity
 The composer now accepts React’s `onSend` input and uses the same labels, attachment feedback and website preview layout. `sendHandler` remains a deprecated compatibility alias. See [validation and migration](parity/ai-prompt-composer.md) and the [parity tracker](ANGULAR_REACT_PARITY.md).
+## Loader parity
+Loader now follows React’s four visual variants, size/color API, accessible label and explicit reduced-motion animation options. Native HTML attributes and events apply to its status host. See [migration and validation](parity/loader.md).

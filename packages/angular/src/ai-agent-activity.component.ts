@@ -8,8 +8,8 @@ import { installAgentActivityMotion } from './agent-activity-motion';
  selector:"kittu-ai-agent-activity", standalone:true,
  host:{'data-kittu':"ai-agent-activity",style:'display:block;min-width:0'},
  imports:[KittuAgentActivityHeaderComponent,KittuAgentActivityTimelineComponent],
-providers:[{provide:KittuAgentActivityController,useExisting:forwardRef(()=>KittuAiAgentActivityComponent)}],
 encapsulation:ViewEncapsulation.None,styleUrls:["./agent-activity.css"],
+providers:[{provide:KittuAgentActivityController,useExisting:forwardRef(()=>KittuAiAgentActivityComponent)}],
 template:`
 <div [class]="'k-ai-agent-activity '+className()" [style.--accent-custom]="accentColor()">
 <ng-content>

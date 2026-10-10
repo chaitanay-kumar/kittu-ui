@@ -2,6 +2,7 @@ import { Component, HostListener, signal } from "@angular/core";
 import { TableDemoComponent } from "./table-demo";
 import { AgentDemoComponent } from "./agent-demo";
 import { NgComponentOutlet } from "@angular/common";
+import {LoaderDemoComponent} from "./loader-demo";
 import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
 import {
   KittuElasticSheetComponent,
@@ -45,6 +46,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
     NgComponentOutlet,
     TableDemoComponent,
     AgentDemoComponent,
+    LoaderDemoComponent,
     KittuElasticSheetComponent,
     KittuSmartUploadComponent,
     KittuLiquidCommandPaletteComponent,
@@ -58,6 +60,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
     @switch (component) {
       @case ("advanced-data-table") { <kittu-table-demo/> }
       @case ("ai-agent-activity") { <kittu-agent-demo/> }
+      @case("loader"){<kittu-loader-demo/>}
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }

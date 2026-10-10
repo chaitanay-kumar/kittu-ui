@@ -22,3 +22,5 @@ body:has(kittu-ai-prompt-composer) .kittu-control label{display:block;gap:normal
 body:has(kittu-ai-prompt-composer) :is(button,input,textarea){font:inherit;letter-spacing:inherit}
 body:has(kittu-ai-prompt-composer) input[type=file]::file-selector-button{font:inherit;border:0 solid;padding:0;margin:0 4px 0 0;background:transparent;color:inherit}
 body:has(kittu-ai-prompt-composer) textarea::placeholder{color:color-mix(in oklab,currentColor 50%,transparent);opacity:1}
+body:has(kittu-loader-demo){padding:0;background:#f1f1f2;font-family:"Inter Variable",sans-serif;font-size:16px;line-height:1.5;letter-spacing:-.011em;font-feature-settings:'cv02','cv03','cv04','cv11';-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.dark body:has(kittu-loader-demo){background:#18181b}

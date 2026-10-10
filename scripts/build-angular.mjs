@@ -76,6 +76,8 @@ function dependencies(file, visited = new Set()) {
   for (const match of fs.readFileSync(file, "utf8").matchAll(/styleUrls:\s*\[\s*['"](\.\/[^'"]+)['"]/g)) {
     const target = path.resolve(path.dirname(file), match[1]);
     if (target.startsWith(sourceRoot + path.sep) && fs.existsSync(target)) result[path.relative(sourceRoot, target)] = fs.readFileSync(target, "utf8");
+  for(const match of fs.readFileSync(file,"utf8").matchAll(/styleUrls:\s*\[\s*['"](\.\/[^'"]+)['"]/g)){
+    const target=path.resolve(path.dirname(file),match[1]);if(target.startsWith(sourceRoot+path.sep)&&fs.existsSync(target))result[path.relative(sourceRoot,target)]=fs.readFileSync(target,"utf8");
   }
   return result;
 }

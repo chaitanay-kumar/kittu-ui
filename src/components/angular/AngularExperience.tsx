@@ -262,7 +262,7 @@ export default function AngularExperience({
                   Running the Angular component. Demos with requests simulate
                   them locally.
                 </p>
-                <div className={entry.id === "activity-feed" ? "rounded-[26px] border border-border bg-background overflow-hidden p-[22px] sm:p-11" : entry.id === "advanced-data-table" ? "rounded-2xl border border-border bg-[#F1F1F2] dark:bg-[#18181B] overflow-hidden px-[22px] sm:px-[44px]" : entry.id === "ai-agent-activity" ? "rounded-2xl border border-border bg-[#F1F1F2] dark:bg-[#18181B] overflow-hidden px-[22px] sm:px-[44px]" : entry.id === "ai-prompt-composer" ? "w-full max-w-xl mx-auto px-[23px] sm:px-0" : "rounded-2xl border border-border bg-background overflow-hidden"}>
+                <div className={entry.id === "activity-feed" ? "rounded-[26px] border border-border bg-background overflow-hidden p-[22px] sm:p-11" : entry.id === "advanced-data-table" ? "rounded-2xl border border-border bg-[#F1F1F2] dark:bg-[#18181B] overflow-hidden px-[22px] sm:px-[44px]" : entry.id === "ai-agent-activity" ? "rounded-2xl border border-border bg-[#F1F1F2] dark:bg-[#18181B] overflow-hidden px-[22px] sm:px-[44px]" : entry.id === "ai-prompt-composer" ? "w-full max-w-xl mx-auto px-[23px] sm:px-0" : entry.id === "loader" ? "px-[22px] sm:px-[44px] bg-[#F1F1F2] dark:bg-[#18181B]" : "rounded-2xl border border-border bg-background overflow-hidden"}>
                   <AngularPreview
                     key={entry.id}
                     id={entry.id}
