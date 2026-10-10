@@ -1,6 +1,7 @@
 /** Authored native implementations. Generation keeps exports, demos and API docs aligned. */
 import { agentActivityPort } from "./angular-agent-activity";
 import {loaderPort} from "./angular-loader";
+import {typewriterButtonPort} from "./angular-typewriter-button";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
@@ -110,6 +111,7 @@ const actionFeedback = `<p role="status" class="kit-status">{{loading() || busy(
 const collectionFeedback = `@if(loading()){<p role="status">Loading…</p>}@if(error()){<p role="alert">{{error()}}</p>}@if(actionError()){<p role="alert">{{actionError()}}</p>}<p role="status" class="kit-status">{{busy()?'Working…':status()}}</p>`;
 const itemButton = `<button type="button" data-item [disabled]="disabled() || item.disabled" [attr.aria-pressed]="current()?.id===item.id" (click)="select(item)">{{item.label}}</button>`;
 
+add("typewriter-button","plain",typewriterButtonPort.description,typewriterButtonPort.template,typewriterButtonPort.body,typewriterButtonPort);
 add("button","plain",buttonPort.description,buttonPort.template,buttonPort.body,buttonPort);
 add("neon-edge-button","plain",neonEdgeButtonPort.description,neonEdgeButtonPort.template,neonEdgeButtonPort.body,neonEdgeButtonPort);
 
@@ -119,7 +121,6 @@ for (const [id, label] of [
   ["press-button", "Press me"],
 
   ["rainbow-button", "Make something colorful"],
-  ["typewriter-button", "Start a new story"],
   ["morphing-button", "Save changes"],
 ]) {
   add(

@@ -1,11 +1,11 @@
 /* Native Angular ports; theme tokens are optional and have light defaults. */
-[data-kit]:where(:not(.k-morphing-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-neon-parity,.k-neon-host,.k-orbital-parity,.k-spotlight-parity)) {
+[data-kit]:where(:not(.k-morphing-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-typewriter-parity,.k-typewriter-host,.k-neon-parity,.k-neon-host,.k-orbital-parity,.k-spotlight-parity)) {
   min-width: 0;
 }
 [data-kit] [hidden] {
   display: none !important;
 }
-[data-kit]:where(:not(.k-morphing-parity,.k-button-parity,.k-button-host,.k-neon-parity,.k-neon-host,.k-spotlight-parity))
+[data-kit]:where(:not(.k-morphing-parity,.k-button-parity,.k-button-host,.k-typewriter-parity,.k-typewriter-host,.k-neon-parity,.k-neon-host,.k-spotlight-parity))
   :is(button, input, textarea, select, summary, a, [tabindex]):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
@@ -941,9 +941,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  [data-kit]:where(:not(.k-spotlight-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-neon-parity,.k-neon-host,.k-morphing-parity)) *,
-  [data-kit]:where(:not(.k-spotlight-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-neon-parity,.k-neon-host,.k-morphing-parity)) *::before,
-  [data-kit]:where(:not(.k-spotlight-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-neon-parity,.k-neon-host,.k-morphing-parity)) *::after {
+  [data-kit]:where(:not(.k-spotlight-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-typewriter-parity,.k-typewriter-host,.k-neon-parity,.k-neon-host,.k-morphing-parity)) *,
+  [data-kit]:where(:not(.k-spotlight-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-typewriter-parity,.k-typewriter-host,.k-neon-parity,.k-neon-host,.k-morphing-parity)) *::before,
+  [data-kit]:where(:not(.k-spotlight-parity,.k-loader-parity,.k-button-parity,.k-button-host,.k-typewriter-parity,.k-typewriter-host,.k-neon-parity,.k-neon-host,.k-morphing-parity)) *::after {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;

@@ -21,6 +21,8 @@ export * from "./orbital-loading-ring-types";
 export type {SpotlightCardMouseHandler} from "./spotlight-card-types";
 export type {MorphingIconStyle} from "./morphing-icon-types";
 
+export * from './typewriter-button-types';
+
 // Generated catalog exports.
 export * from "./port-types";
 export * from './activity-feed.component';

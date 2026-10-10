@@ -9,7 +9,7 @@ const ports = JSON.parse(
   fs.readFileSync(path.join(root, "packages/angular/catalog.json"), "utf8"),
 );
 const portImports = ports.map((port) => port.exportName).join(", ");
-const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kit-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : `<${port.selector} />`).join("\n");
+const portTemplates = ports.map((port) => port.id === "morphing-icon" ? `<ng-template #genericIcon>Icon</ng-template><kit-morphing-icon [from]="genericIcon" [to]="genericIcon"/>` : port.id === "typewriter-button" ? `<kit-typewriter-button text="Type this"/>` : `<${port.selector} />`).join("\n");
 // Each consumer installs and runs its own compiler. Reusing the repository's
 // compiler would miss incompatibilities with older Angular versions.
 const matrix = [
@@ -230,6 +230,10 @@ import { ${portImports}, KitElasticSheetComponent, KitSmartUploadComponent, KitL
 export class ConsumerApp9 { readonly optionalActive:boolean|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalDuration:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalStyle:MorphingIconStyle|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `
   ];
+  consumerSources.push(`import {Component} from '@angular/core';
+import {KitTypewriterButtonComponent,type TypewriterButtonVariant,type TypewriterButtonCallback} from 'kit-ui-angular';
+@Component({selector:'typewriter-consumer',imports:[KitTypewriterButtonComponent],template:\`<button kitTypewriterButton text="Save" [variant]="variant" [charDuration]="duration" [soundVolume]="volume" [soundEnabled]="sound" [autoStart]="auto" [onComplete]="complete" [onClick]="click" [type]="type" [className]="classes" name="action" value="save"></button><kit-typewriter-button text="Cancel" variant="outline"/>\`})
+export class TypewriterConsumer{variant:TypewriterButtonVariant|undefined=undefined;duration:number|undefined=undefined;volume:number|undefined=undefined;sound:boolean|undefined=undefined;auto:boolean|undefined=undefined;complete:TypewriterButtonCallback|undefined=undefined;click:TypewriterButtonCallback|undefined=undefined;type:'button'|'submit'|'reset'|undefined=undefined;classes:string|undefined=undefined;}`);
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
   fs.writeFileSync(
     path.join(target, "tsconfig.json"),
