@@ -30,3 +30,14 @@ TemplateRef is Angular's equivalent to ReactNode for custom icons; native DOM ev
 - After spring settling thresholds were aligned with Framer, the final status/tone matrix, controlled/form/keyboard/cleanup, interrupted-state and newly added focus/hover checks: **14 passed** in 1.6 minutes.
 - Packaged runtime contract: passed. Strict installed consumers: Angular **20.0.0, 20.3.33, 21.2.25, 22.2.1**, all passed.
 - Full production/native build, **289 SEO checks**, **117 unit tests**, TypeScript and lint: passed; lint retains the existing catalog warnings.
+
+## Independent review follow-up
+
+Interrupted presence now preserves the outgoing element's current opacity, transform and spring velocity while retaining the latest pending status. Returning to the displayed status reverses its spring smoothly; rapid updates no longer restart the fade or flash the outgoing label. Spring advancement uses the full elapsed frame time, so delayed animation frames do not stretch the exit. Active frame callbacks are canceled on destruction.
+
+The shared Button press helper now keeps mouse presses active outside the button and across focus changes until global release/cancel, ignores secondary touch contacts, and releases keyboard presses on blur. Existing Button and Morphing Button both have actual React/native regression coverage for these changes.
+
+- Final interrupted-state, delayed-frame, held-press and cleanup checks: **22 passed**.
+- Expanded mouse/keyboard blur checks for Button and Morphing: **8 passed**.
+- Existing Button browser suite: **22 passed**; existing Morphing controlled/form/keyboard/cleanup/exit checks: **8 passed**.
+- Morphing and Button packaged contracts, native build, lint and TypeScript: passed. The retained installed consumers also passed Angular **20.0.0, 20.3.33, 21.2.25 and 22.2.1**.

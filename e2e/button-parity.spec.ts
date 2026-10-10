@@ -37,3 +37,12 @@ for(const theme of ['light','dark'])test(`button hover and focus styles match in
   }
  }
 });
+for(const framework of ['react','angular'])test(`${framework} button holds press outside until global release and ignores secondary touch`,async({page})=>{
+ await consumer(page,framework);await update(page,{type:'button'});const button=page.locator('#action');await button.hover();await page.mouse.down();await page.waitForTimeout(550);
+ expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);await page.evaluate(()=>{const field=document.createElement('input');document.body.append(field);field.focus();});await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);
+ await page.mouse.move(500,500);await page.waitForTimeout(550);
+ expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);await page.mouse.up();await page.waitForTimeout(550);
+ expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(1,2);await button.dispatchEvent('pointerdown',{pointerType:'touch',button:0,isPrimary:false});await page.waitForTimeout(550);
+ expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(1,2);
+ await button.focus();await page.keyboard.down('Enter');await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);await page.evaluate(()=>{const field=document.createElement('input');document.body.append(field);field.focus();});await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(1,2);await page.keyboard.up('Enter');
+});

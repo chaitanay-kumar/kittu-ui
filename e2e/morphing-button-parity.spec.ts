@@ -8,3 +8,39 @@ for(const framework of ['react','angular'])test(`${framework} morphing controlle
 for(const framework of ['react','angular'])test(`${framework} morphing exit-before-enter and interrupted state`,async({page})=>{await consumer(page,framework);await page.evaluate(()=>(window as any).setMorphingOptions({status:'loading'}));await page.waitForTimeout(60);await expect(page.locator('#action')).toBeDisabled();await expect(page.locator('#action')).toHaveText('Save Changes');await page.waitForTimeout(1050);await expect(page.locator('#action')).toHaveText('Saving...');await page.evaluate(()=>(window as any).setMorphingOptions({status:'success'}));await page.waitForTimeout(40);await page.evaluate(()=>(window as any).setMorphingOptions({status:'error'}));await page.waitForTimeout(1150);await expect(page.locator('#action')).toHaveText('Failed');await expect(page.locator('#action')).toBeEnabled();});
 for(const framework of ['react','angular'])test(`${framework} morphing documentation four statuses`,async({page},info)=>{await page.goto(`/components/morphing-button?framework=${framework}`);const scope=framework==='react'?page:page.frameLocator('iframe');await expect(scope.getByRole('button',{name:'Save Changes',exact:true})).toBeVisible();await expect(scope.getByRole('button',{name:'Saving...',exact:true})).toBeDisabled();await expect(scope.getByRole('button',{name:'Saved ✓',exact:true})).toBeVisible();await expect(scope.getByRole('button',{name:'Failed',exact:true})).toBeVisible();await expect(scope.getByText('Maintains physical shape & size across asynchronous state morphs')).toBeVisible();await scope.getByRole('button',{name:'Save Changes',exact:true}).screenshot({path:info.outputPath(`${framework}-morphing-button.png`)});});
 for(const theme of ['light','dark'])test(`morphing hover and keyboard focus match ${theme}`,async({page})=>{const results:unknown[]=[];for(const framework of ['react','angular']){await consumer(page,framework,theme);let index=0;for(const variant of ['primary','secondary','danger','ghost']){await update(page,{variant,type:'button'});const button=page.locator('#action');await button.focus();await page.waitForTimeout(250);const focus=await button.evaluate(el=>{const s=getComputedStyle(el);return[s.outline,s.outlineOffset];});await button.hover();await page.waitForTimeout(250);const hover=await button.evaluate(el=>{const s=getComputedStyle(el);return[s.color,s.backgroundColor,s.borderColor];});if(framework==='react')results.push({focus,hover});else expect({focus,hover}).toEqual(results[index]);index++;}}});
+for(const framework of ['react','angular'])test(`${framework} morphing preserves the outgoing exit across rapid status updates`,async({page})=>{
+ await consumer(page,framework);const content=page.locator('#action > span');
+ const started=await page.evaluate(()=>{(window as any).setMorphingOptions({status:'loading'});return performance.now();});
+ await page.waitForTimeout(160);const before=Number(await content.evaluate(el=>getComputedStyle(el).opacity));expect(before).toBeLessThan(.45);
+ await page.evaluate(()=>(window as any).setMorphingOptions({status:'success'}));await page.waitForTimeout(35);
+ const after=Number(await content.evaluate(el=>getComputedStyle(el).opacity));expect(after).toBeLessThan(before+.05);
+ await page.waitForTimeout(70);await page.evaluate(()=>(window as any).setMorphingOptions({status:'error'}));
+ await expect(page.locator('#action')).toHaveText('Failed');
+ const elapsed=await page.evaluate(started=>performance.now()-started,started);expect(elapsed).toBeLessThan(650);
+ await page.waitForTimeout(550);await expect(content).toHaveCSS('opacity','1');
+});
+for(const framework of ['react','angular'])test(`${framework} morphing reverses a cancelled exit without snapping`,async({page})=>{
+ await consumer(page,framework);const content=page.locator('#action > span');await page.evaluate(()=>(window as any).setMorphingOptions({status:'loading'}));await page.waitForTimeout(160);
+ expect(Number(await content.evaluate(el=>getComputedStyle(el).opacity))).toBeLessThan(.45);
+ await page.evaluate(()=>(window as any).setMorphingOptions({status:'idle'}));await page.waitForTimeout(35);
+ const returning=Number(await content.evaluate(el=>getComputedStyle(el).opacity));expect(returning).toBeGreaterThan(.02);expect(returning).toBeLessThan(.8);
+ await expect(page.locator('#action')).toHaveText('Save Changes');await page.waitForTimeout(650);await expect(content).toHaveCSS('opacity','1');
+});
+for(const framework of ['react','angular'])test(`${framework} morphing holds press outside until global release and ignores secondary touch`,async({page})=>{
+ await consumer(page,framework);await update(page,{type:'button'});const button=page.locator('#action');await button.hover();await page.mouse.down();await page.waitForTimeout(550);
+ expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);
+ await page.evaluate(()=>{const field=document.createElement('input');document.body.append(field);field.focus();});await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);
+ await page.mouse.move(500,500);await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);
+ await page.mouse.up();await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(1,2);
+ await button.dispatchEvent('pointerdown',{pointerType:'touch',button:0,isPrimary:false});await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(1,2);
+ await button.focus();await page.keyboard.down('Enter');await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(.97,2);await page.evaluate(()=>{const field=document.createElement('input');document.body.append(field);field.focus();});await page.waitForTimeout(550);expect(await button.evaluate(el=>new DOMMatrixReadOnly(getComputedStyle(el).transform).a)).toBeCloseTo(1,2);await page.keyboard.up('Enter');
+});
+test('angular morphing cancels presence frames during teardown',async({page})=>{
+ await consumer(page,'angular');await page.evaluate(()=>{const live=new Set<number>(),request=window.requestAnimationFrame.bind(window),cancel=window.cancelAnimationFrame.bind(window);(window as any).morphingFrames=live;window.requestAnimationFrame=callback=>{const id=request(time=>{live.delete(id);callback(time);});live.add(id);return id;};window.cancelAnimationFrame=id=>{live.delete(id);cancel(id);};(window as any).setMorphingOptions({status:'loading'});});
+ await page.waitForTimeout(90);expect(await page.evaluate(()=>(window as any).morphingFrames.size)).toBeGreaterThan(0);await page.evaluate(()=>(window as any).destroyMorphing());await expect(page.locator('#action')).toHaveCount(0);await expect.poll(()=>page.evaluate(()=>(window as any).morphingFrames.size)).toBe(0);
+});
+for(const framework of ['react','angular'])test(`${framework} morphing presence follows elapsed time with delayed frames`,async({page})=>{
+ await page.addInitScript(()=>{const request=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=callback=>request(()=>setTimeout(()=>callback(performance.now()),80));});
+ await consumer(page,framework);await page.waitForTimeout(250);await page.evaluate(()=>(window as any).setMorphingOptions({status:'loading'}));await page.waitForTimeout(750);
+ await expect(page.locator('#action')).toHaveText('Saving...');expect(Number(await page.locator('#action > span').evaluate(el=>getComputedStyle(el).opacity))).toBeGreaterThan(.4);
+});

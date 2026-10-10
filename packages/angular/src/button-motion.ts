@@ -8,13 +8,15 @@ export function installButtonPress(blocked:Signal<boolean>):void{
   const frames=Array.from({length:61},(_,index)=>{const time=index/120;const progress=1-(r2*Math.exp(r1*time)-r1*Math.exp(r2*time))/(r2-r1);return{transform:`scale(${start+(target-start)*progress})`,offset:index/60};});frames[60].transform=`scale(${target})`;
   animation=node.animate(frames,{duration:500,fill:'forwards'});
  };
- const release=()=>{if(!pressed)return;pressed=false;keyPressed=false;animate(1);};
- const down=(event:Event)=>{if(blocked())return;if(event instanceof PointerEvent&&event.button!==0)return;pressed=true;animate(.97);};
+ const validPointer=(event:Event)=>!(event instanceof PointerEvent)||(event.pointerType==='mouse'?event.button<=0:event.isPrimary!==false);
+ const release=(event?:Event)=>{if((event&&!validPointer(event))||!pressed)return;pressed=false;keyPressed=false;animate(1);};
+ const down=(event:Event)=>{if(blocked())return;if(!validPointer(event))return;pressed=true;animate(.97);};
  const keydown=(event:Event)=>{const key=event as KeyboardEvent;if(key.key==='Enter'&&!key.repeat&&!blocked()){keyPressed=true;down(event);}};
  const keyup=(event:Event)=>{if(keyPressed&&(event as KeyboardEvent).key==='Enter')release();};
- const bindings:[EventTarget,string,EventListener][]=[[host,'pointerdown',down],[host,'pointerleave',release],[host,'pointercancel',release],[host,'blur',release],[host,'keydown',keydown],[host,'keyup',keyup]];
- if(typeof document!=='undefined')bindings.push([document,'pointerup',release]);
+ const blur=()=>{if(keyPressed)release();};
+ const bindings:[EventTarget,string,EventListener][]=[[host,'pointerdown',down],[host,'pointercancel',release],[host,'blur',blur],[host,'keydown',keydown],[host,'keyup',keyup]];
+ if(typeof window!=='undefined')bindings.push([window,'pointerup',release],[window,'pointercancel',release]);
  for(const [target,name,listener] of bindings)target.addEventListener(name,listener,true);
- effect(()=>{if(blocked()){pressed=false;keyPressed=false;animation?.cancel();animation=undefined;}});
+ effect(()=>{if(blocked()&&pressed)release();});
  inject(DestroyRef).onDestroy(()=>{animation?.cancel();for(const [target,name,listener] of bindings)target.removeEventListener(name,listener,true);});
 }

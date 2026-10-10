@@ -1,34 +1,52 @@
 import {DestroyRef,ElementRef,effect,inject,untracked,type Signal,type WritableSignal} from '@angular/core';
 import type {ButtonStatusState} from './morphing-button-types';
 const root1=-30+Math.sqrt(140),root2=-30-Math.sqrt(140);
-/** Reference spring: stiffness 380, damping 30, mass .5, zero initial velocity. */
-function sample(from:number,to:number,time:number):{value:number;done:boolean}{
- const t=time/1000,delta=to-from;
- const remaining=(root2*Math.exp(root1*t)-root1*Math.exp(root2*t))/(root2-root1);
- const velocity=-delta*root1*root2*(Math.exp(root1*t)-Math.exp(root2*t))/(root2-root1);
- const granular=Math.abs(delta)<5;
- const done=Math.abs(delta*remaining)<=(granular?.005:.5)&&Math.abs(velocity)<=(granular?.01:2);
- return{value:done?to:to-delta*remaining,done};
+type Axis={value:number;velocity:number;target:number;delta:number;speed:number};
+const axis=(value:number):Axis=>({value,velocity:0,target:value,delta:.005,speed:.01});
+function retarget(value:Axis,target:number):void{
+ const granular=Math.abs(target-value.value)<5;value.target=target;value.delta=granular?.005:.5;value.speed=granular?.01:2;
 }
-/** Presence mode wait: retain the outgoing status until its opacity spring rests. */
+/** Advance the 380/30/.5 spring analytically, retaining interrupted velocity. */
+function advance(value:Axis,time:number):boolean{
+ const x=value.value-value.target,c1=(value.velocity-root2*x)/(root1-root2),c2=x-c1;
+ value.value=value.target+c1*Math.exp(root1*time)+c2*Math.exp(root2*time);
+ value.velocity=root1*c1*Math.exp(root1*time)+root2*c2*Math.exp(root2*time);
+ const done=Math.abs(value.value-value.target)<=value.delta&&Math.abs(value.velocity)<=value.speed;
+ if(done){value.value=value.target;value.velocity=0;}return done;
+}
+/** AnimatePresence wait: one uninterrupted outgoing exit, latest pending child. */
 export function installMorphingButtonMotion(status:Signal<ButtonStatusState>,displayed:WritableSignal<ButtonStatusState>):void{
  const host=inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
- let initialized=false,animation:Animation|undefined,timer:ReturnType<typeof setTimeout>|undefined,generation=0,destroyed=false;
- const frames=(state:ButtonStatusState,enter:boolean)=>{
-  const scaled=state==='success'||state==='error';const opacityFrom=enter?0:1,opacityTo=enter?1:0;
-  const transformFrom=scaled?(enter?.8:1):(enter?(state==='idle'?-6:6):0);
-  const transformTo=scaled?(enter?1:.8):(enter?0:(state==='idle'?6:-6));
-  let duration=0;while(duration<1000&&!sample(opacityFrom,opacityTo,duration).done)duration+=10;
-  const count=Math.ceil(duration/8.333);
-  const keyframes=Array.from({length:count+1},(_,i)=>{const time=duration*i/count;return{opacity:sample(opacityFrom,opacityTo,time).value,transform:scaled?`scale(${sample(transformFrom,transformTo,time).value})`:`translateY(${sample(transformFrom,transformTo,time).value}px)`,offset:i/count};});
-  return{duration,keyframes};
+ const opacity=axis(1),position=axis(0);
+ const nativeFrames=typeof requestAnimationFrame==='function';
+ let initialized=false,destroyed=false,pending:ButtonStatusState='idle',phase:'rest'|'enter'|'exit'='rest';
+ let frame:number|ReturnType<typeof setTimeout>|undefined,last=0;
+ const schedule=()=>nativeFrames?requestAnimationFrame(tick):setTimeout(()=>tick(performance.now()),16);
+ const scaled=()=>displayed()==='success'||displayed()==='error';
+ const write=()=>{const node=host.querySelector<HTMLElement>('.k-mb-content');if(node){node.style.opacity=String(opacity.value);node.style.transform=phase==='rest'?'none':scaled()?`scale(${position.value})`:`translateY(${position.value}px)`;}};
+ const tick=(time:number)=>{
+  frame=undefined;if(destroyed)return;const dt=Math.max((time-last)/1000,0);last=time;
+  const opacityDone=advance(opacity,dt),positionDone=advance(position,dt);write();
+  if(opacityDone&&positionDone){
+   if(phase==='exit'){
+    const next=pending;displayed.set(next);phase='enter';
+    opacity.value=0;opacity.velocity=0;position.value=scaled()?.8:(next==='idle'?-6:6);position.velocity=0;
+    retarget(opacity,1);retarget(position,scaled()?1:0);write();
+   }else{phase='rest';write();}
+  }
+  if(phase!=='rest')frame=schedule();
  };
- const animate=(state:ButtonStatusState,enter:boolean)=>{const node=host.querySelector('.k-mb-content');const data=frames(state,enter);if(node&&typeof node.animate==='function')animation=node.animate(data.keyframes,{duration:data.duration,fill:'forwards'});return data.duration;};
+ const start=()=>{if(frame===undefined){last=performance.now();frame=schedule();}};
  effect(()=>{const next=status();untracked(()=>{
-  if(!initialized){initialized=true;displayed.set(next);return;}
-  const current=displayed(),id=++generation;if(timer)clearTimeout(timer);animation?.cancel();if(next===current)return;
-  const duration=animate(current,false);
-  timer=setTimeout(()=>{if(destroyed||id!==generation)return;animation?.cancel();displayed.set(next);timer=setTimeout(()=>{if(!destroyed&&id===generation)animate(next,true);},0);},duration);
+  pending=next;
+  if(!initialized){initialized=true;displayed.set(next);position.value=scaled()?1:0;position.target=position.value;return;}
+  const current=displayed();
+  if(phase==='exit'&&next!==current)return; // Do not restart the departing child.
+  if(next===current){
+   if(phase==='exit'){phase='enter';retarget(opacity,1);retarget(position,scaled()?1:0);start();}
+   return;
+  }
+  phase='exit';retarget(opacity,0);retarget(position,scaled()?.8:(current==='idle'?6:-6));start();
  });});
- inject(DestroyRef).onDestroy(()=>{destroyed=true;generation++;if(timer)clearTimeout(timer);animation?.cancel();});
+ inject(DestroyRef).onDestroy(()=>{destroyed=true;if(frame!==undefined){if(nativeFrames)cancelAnimationFrame(frame as number);else clearTimeout(frame as ReturnType<typeof setTimeout>);}});
 }
