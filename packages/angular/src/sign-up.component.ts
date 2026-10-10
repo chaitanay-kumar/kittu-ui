@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, input } from '@angular/core';
+import { ViewEncapsulation, Component, input } from '@angular/core';
 import { KittuFormController } from './port-controllers';
 import type { KittuField } from './port-types';
 

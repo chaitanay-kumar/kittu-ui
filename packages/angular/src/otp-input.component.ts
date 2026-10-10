@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, computed, input, model, output } from '@angular/core';
+import { ViewEncapsulation, Component, computed, input, model, output } from '@angular/core';
 
 @Component({
  selector:"kittu-otp-input", standalone:true,

@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, computed, input, model, output, signal } from '@angular/core';
+import { ViewEncapsulation, Component, computed, input, model, output, signal } from '@angular/core';
 import type { KittuPlan, KittuCompareFeature } from './port-types';
 import type { KittuCompareCategory } from './port-types';
 @Component({

@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, ElementRef, output, signal, viewChild } from '@angular/core';
+import { ViewEncapsulation, Component, ElementRef, output, signal, viewChild } from '@angular/core';
 import { KittuActionController } from './port-controllers';
 
 @Component({

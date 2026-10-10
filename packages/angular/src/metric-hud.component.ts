@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, computed, input } from '@angular/core';
+import { ViewEncapsulation, Component, computed, input } from '@angular/core';
 
 @Component({
  selector:"kittu-metric-hud", standalone:true,

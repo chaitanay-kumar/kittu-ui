@@ -12,6 +12,9 @@ export * from "./activity-feed-types";
 export * from './data-table-types';
 export * from './data-table-parts';
 export * from './data-table-controller';
+export * from './agent-activity-types';
+export * from './agent-activity-controller';
+export * from './agent-activity-parts';
 
 // Generated catalog exports.
 export * from "./port-types";

@@ -1,5 +1,6 @@
 import { Component, HostListener, signal } from "@angular/core";
 import { TableDemoComponent } from "./table-demo";
+import { AgentDemoComponent } from "./agent-demo";
 import { NgComponentOutlet } from "@angular/common";
 import { DEMO_PORTS, DEMO_PORT_KINDS } from "./ports";
 import {
@@ -43,6 +44,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   imports: [
     NgComponentOutlet,
     TableDemoComponent,
+    AgentDemoComponent,
     KittuElasticSheetComponent,
     KittuSmartUploadComponent,
     KittuLiquidCommandPaletteComponent,
@@ -55,6 +57,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   template: `<main class="kittu-stack" aria-label="Native Angular demo">
     @switch (component) {
       @case ("advanced-data-table") { <kittu-table-demo/> }
+      @case ("ai-agent-activity") { <kittu-agent-demo/> }
       @case ("elastic-sheet") {
         <kittu-elastic-sheet />
       }

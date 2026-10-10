@@ -57,6 +57,8 @@ jobs:
         run: npm run test:activity-feed
       - name: Verify Data Table package contract
         run: npm run test:data-table
+      - name: Verify Agent Activity package contract
+        run: npm run test:agent-activity
 
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package

@@ -8,3 +8,4 @@ Kit UI is not affiliated with, endorsed by, or maintained by EasyUI. The Kit Fox
 
 Native Angular Activity Feed SVG icons use the same Lucide icon paths as React. Lucide and derived Feather notices are preserved in `licenses/LUCIDE.txt` and included in the Angular package.
 Native Angular data table icons reproduce Lucide SVG paths. See [Lucide notices](licenses/LUCIDE.txt) for the ISC and Feather MIT license notices.
+Native Angular agent activity icons reproduce Lucide SVG paths. See [Lucide notices](licenses/LUCIDE.txt) for the ISC and Feather MIT license notices.

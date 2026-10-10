@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, input, output } from '@angular/core';
+import { ViewEncapsulation, Component, input, output } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { KittuDataTableComponent,KittuDataTableToolbarComponent,KittuDataTableFiltersComponent,KittuDataTableContentComponent,KittuDataTablePaginationComponent } from './data-table-parts';
 import type { ColumnDef, DataTableRowContext, DataTableViewMode } from './data-table-types';

@@ -25,7 +25,8 @@
     "test:angular-package": "node scripts/verify-angular-package.mjs",
     "test:activity-feed": "node scripts/verify-activity-feed.mjs",
     "predev": "npm run angular:build",
-    "test:data-table": "node scripts/verify-data-table.mjs"
+    "test:data-table": "node scripts/verify-data-table.mjs",
+    "test:agent-activity": "node scripts/verify-agent-activity.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

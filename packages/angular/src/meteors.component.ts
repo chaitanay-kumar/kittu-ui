@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component } from '@angular/core';
+import { ViewEncapsulation, Component } from '@angular/core';
 import { KittuCanvasController } from './port-canvas';
 
 @Component({

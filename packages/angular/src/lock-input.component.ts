@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, input, model, signal } from '@angular/core';
+import { ViewEncapsulation, Component, input, model, signal } from '@angular/core';
 
 @Component({
  selector:"kittu-lock-input", standalone:true,

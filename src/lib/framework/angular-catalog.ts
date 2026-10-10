@@ -150,6 +150,12 @@ export class ExampleComponent {
   readonly columns: ColumnDef<Row>[] = [{id:'name',header:'Name',accessorKey:'name',sortable:true}];
   readonly exportRows = (ids: string[]) => { console.log(ids); };
 }`;
+  if (entry.id === 'ai-agent-activity') return `import { Component } from '@angular/core';
+import { KittuAiAgentActivityComponent, type AgentActivityItemData } from 'kittu-ui-angular';
+@Component({selector:'app-example',imports:[KittuAiAgentActivityComponent],template:\`<kittu-ai-agent-activity title="Agent trace" [activities]="activities" [isRunning]="false" [defaultExpandedIds]="['analyze']"/>\`})
+export class ExampleComponent {
+ readonly activities:AgentActivityItemData[]=[{id:'analyze',type:'thinking',title:'Analyze request',status:'success',details:{input:{query:'Build a timeline'},output:'Ready'}}];
+}`;
   const type =
     entry.id === "activity-feed"
       ? "ActivityEvent"

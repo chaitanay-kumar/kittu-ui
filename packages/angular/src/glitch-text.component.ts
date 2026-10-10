@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, DestroyRef, computed, inject, input, signal } from '@angular/core';
+import { ViewEncapsulation, Component, DestroyRef, computed, inject, input, signal } from '@angular/core';
 
 @Component({
  selector:"kittu-glitch-text", standalone:true,

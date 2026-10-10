@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, input, model } from '@angular/core';
+import { ViewEncapsulation, Component, input, model } from '@angular/core';
 
 @Component({
  selector:"kittu-draw-checkbox", standalone:true,

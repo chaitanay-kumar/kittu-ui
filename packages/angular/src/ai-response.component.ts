@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component, DestroyRef, effect, inject, input, output, signal } from '@angular/core';
+import { ViewEncapsulation, Component, DestroyRef, effect, inject, input, output, signal } from '@angular/core';
 import type { KittuItem } from './port-types';
 
 @Component({

@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { Component } from '@angular/core';
+import { ViewEncapsulation, Component } from '@angular/core';
 import { KittuActivityFeedController } from './activity-feed-controller';
 /*
 ISC License
