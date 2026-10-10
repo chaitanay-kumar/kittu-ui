@@ -253,6 +253,10 @@ export class TypewriterConsumer{variant:TypewriterButtonVariant|undefined=undefi
 import {KitExpandableSearchComponent,type ExpandableSearchHandler} from 'kit-ui-angular';
 @Component({selector:'expandable-search-consumer',imports:[KitExpandableSearchComponent],template:\`<kit-expandable-search [placeholder]="placeholder" [onSearch]="search" [className]="classes"/><kit-expandable-search/>\`})
 export class ExpandableSearchConsumer{placeholder:string|undefined=undefined;classes:string|undefined=undefined;search:ExpandableSearchHandler|undefined=undefined;}`);
+  consumerSources.push(`import {Component} from "@angular/core";
+import {KitStretchSwitchComponent,type StretchSwitchLabel,type StretchSwitchChangeHandler} from "kit-ui-angular";
+@Component({selector:"stretch-consumer",imports:[KitStretchSwitchComponent],template:\`<ng-template #label><b>Template label</b></ng-template><kit-stretch-switch [label]="label" [checked]="checked" [defaultChecked]="initial" [disabled]="disabled" [description]="description" [className]="classes" [onChange]="change" (checkedChange)="last=$event"/><div kitStretchSwitch [label]="text">Projected</div><kit-stretch-switch [label]="true"/>\`})
+export class StretchConsumer{checked:boolean|undefined;initial:boolean|undefined;disabled:boolean|undefined;description:string|undefined;classes:string|undefined;text:StretchSwitchLabel=0;change:StretchSwitchChangeHandler|undefined;last=false;}`);
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
   fs.writeFileSync(
     path.join(target, "tsconfig.json"),

@@ -29,6 +29,7 @@ export * from './rainbow-button-types';
 
 export * from './expandable-search-types';
 export * from './smooth-accordion-types';
+export * from './stretch-switch-types';
 
 // Generated catalog exports.
 export * from "./port-types";

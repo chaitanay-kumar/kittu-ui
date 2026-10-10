@@ -26,7 +26,7 @@ for (const theme of ["light", "dark"]) {
           dispatchEvent(new PopStateEvent("popstate"));
         }, port.id);
         const roots = page.locator(`[data-kit="${port.id}"]`);
-        const demoCounts: Record<string, number> = {button:11, "morphing-icon":6, "morphing-button":4, "press-button":2, "typewriter-button":2, "rainbow-button":2};
+        const demoCounts: Record<string, number> = {button:11, "morphing-icon":6, "morphing-button":4, "press-button":2, "typewriter-button":2, "rainbow-button":2, "stretch-switch":2};
         const expectedCount = demoCounts[port.id] ?? 1;
         await expect(roots).toHaveCount(expectedCount);
         const component = roots.first();
@@ -123,7 +123,7 @@ test("OTP, switches and rotary dial support native keyboard interaction", async 
   await expect(page.getByRole("textbox")).toHaveValue("12345");
   await page.getByRole("textbox").fill("123456");
   await expect(page.getByRole("status")).toHaveText("Code complete.");
-  await demo(page, "stretch-switch");
+  await demo(page, "liquid-toggle");
   await page.getByRole("switch").focus();
   await page.keyboard.press("Space");
   await expect(page.getByRole("switch")).toBeChecked();

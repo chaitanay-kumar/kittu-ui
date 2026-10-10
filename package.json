@@ -41,7 +41,8 @@
     "test:typewriter-button": "node scripts/verify-typewriter-button.mjs",
     "test:hamburger-menu": "node scripts/verify-hamburger-menu.mjs",
     "test:expandable-search": "node scripts/verify-expandable-search.mjs",
-    "test:smooth-accordion": "node scripts/verify-smooth-accordion.mjs"
+    "test:smooth-accordion": "node scripts/verify-smooth-accordion.mjs",
+    "test:stretch-switch": "node scripts/verify-stretch-switch.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

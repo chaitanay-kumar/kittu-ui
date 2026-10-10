@@ -246,7 +246,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [Stacked Cards for Angular](http://localhost:5173/components/stacked-cards?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
 - [Sticky Pages for Angular](http://localhost:5173/components/sticky-pages?framework=angular): Scrollable page sections with contained sticky headers and readable long-content layout.
 - [Story Cards for Angular](http://localhost:5173/components/story-card?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
-- [StretchSwitch for Angular](http://localhost:5173/components/stretch-switch?framework=angular): A native toggle with two-way checked binding, visible focus and a disabled state.
+- [StretchSwitch for Angular](http://localhost:5173/components/stretch-switch?framework=angular): React-matched controlled or uncontrolled switch with initial defaultChecked, text or template label, description, change callback and spring thumb motion.
 - [Text Scramble Decoder for Angular](http://localhost:5173/components/text-scramble-decoder?framework=angular): Configurable readable text with a restrained visual treatment and reduced-motion fallback.
 - [Thinking Orb for Angular](http://localhost:5173/components/thinking-orb?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Torque Dial for Angular](http://localhost:5173/components/torque-dial?framework=angular): A bounded rotary input with pointer dragging, a native range alternative and keyboard increments.

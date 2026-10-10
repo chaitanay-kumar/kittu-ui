@@ -91,6 +91,8 @@ jobs:
 
       - name: Verify Smooth Accordion contract
         run: npm run test:smooth-accordion
+      - name: Verify Stretch Switch contract
+        run: npm run test:stretch-switch
 
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package
