@@ -197,7 +197,13 @@ test("tabs, menus, tooltip and modal retain accessible focus behavior", async ({
     "aria-selected",
     "true",
   );
-  for(const id of ['hamburger-menu','gooey-menu','origin-dropdown']){
+  await demo(page,'hamburger-menu');
+  const hamburger=page.getByRole('button',{name:'Open Menu',exact:true});
+  await hamburger.focus();await hamburger.press('Space');
+  await expect(hamburger).toHaveAttribute('aria-expanded','true');
+  await hamburger.press('Escape');await expect(hamburger).toHaveAttribute('aria-expanded','true');
+  await hamburger.press('Enter');await expect(hamburger).toHaveAttribute('aria-expanded','false');
+  for(const id of ['gooey-menu','origin-dropdown']){
     await demo(page,id);const menu=page.locator(`[data-kit="${id}"] button`).first();await menu.click();
     await expect(menu).toHaveAttribute('aria-expanded','true');const first=page.getByRole('button',{name:'Design',exact:true});await first.focus();await first.press('ArrowDown');
     await expect(page.getByRole('button',{name:'Build',exact:true})).toBeFocused();await expect(menu).toHaveAttribute('aria-expanded','true');
