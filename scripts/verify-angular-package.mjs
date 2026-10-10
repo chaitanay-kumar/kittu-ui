@@ -59,7 +59,11 @@ for (const { angularVersion, typescript } of matrix) {
 import {KitLoaderComponent, type LoaderVariant} from 'kit-ui-angular';
 @Component({selector:'loader-optional-consumer',imports:[KitLoaderComponent],template:'<kit-loader [size]="size" [variant]="variant" [label]="label" [reduceMotion]="motion" [color]="color" [className]="classes" [aria-label]="ariaLabel"/>'})
 export class LoaderOptionalConsumer {size:number|undefined;variant:LoaderVariant|undefined;label:string|undefined;motion:boolean|undefined;color:string|undefined;classes:string|undefined;ariaLabel:string|undefined;}`;
-  const consumerSources = [loaderOptionalConsumer,
+  const magneticConsumer = `import {Component} from '@angular/core';
+import {KitMagneticButtonComponent,type MagneticButtonVariant,type MagneticButtonSize} from 'kit-ui-angular';
+@Component({selector:'magnetic-consumer',imports:[KitMagneticButtonComponent],template:'<button kitMagneticButton [strength]="strength" [variant]="variant" [size]="size" [glow]="glow" [type]="type" [className]="classes" [disabled]="false" name="intent" value="save" (click)="clicked=true">Save <em>now</em></button><kit-magnetic-button variant="ghost" size="sm">Projected</kit-magnetic-button>'})
+export class MagneticConsumer{strength:number|undefined;variant:MagneticButtonVariant|undefined;size:MagneticButtonSize|undefined;glow:boolean|undefined;type:'button'|'submit'|'reset'|undefined;classes:string|undefined;clicked=false;}`;
+  const consumerSources = [loaderOptionalConsumer,magneticConsumer,
 `import { Component } from '@angular/core';
 import { ${portImports}, KitElasticSheetComponent, KitSmartUploadComponent, KitLiquidCommandPaletteComponent, KitHoldToConfirmComponent, KitSwipeActionListComponent, KitInteractiveDataCardComponent, KitTimelineScrubberComponent, KitAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kit-ui-angular';
 @Component({selector:'consumer-app-0',imports:[${portImports}, KitElasticSheetComponent,KitSmartUploadComponent,KitLiquidCommandPaletteComponent,KitHoldToConfirmComponent,KitSwipeActionListComponent,KitInteractiveDataCardComponent,KitTimelineScrubberComponent,KitAIPromptComposerComponent],template:\`

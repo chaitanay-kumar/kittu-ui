@@ -1,4 +1,5 @@
 export * from "./types";
+export * from "./magnetic-button-types";
 export * from "./elastic-sheet.component";
 export * from "./smart-upload.component";
 export * from "./liquid-command-palette.component";

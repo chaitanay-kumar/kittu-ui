@@ -30,6 +30,7 @@
     "test:prompt-composer": "node scripts/verify-prompt-composer.mjs",
     "test:loader": "node scripts/verify-loader.mjs",
     "test:button": "node scripts/verify-button.mjs",
+    "test:magnetic-button": "node scripts/verify-magnetic-button.mjs",
     "test:neon-edge-button": "node scripts/verify-neon-edge-button.mjs",
     "test:orbital-loading-ring": "node scripts/verify-orbital-loading-ring.mjs",
     "test:spotlight-card": "node scripts/verify-spotlight-card.mjs",

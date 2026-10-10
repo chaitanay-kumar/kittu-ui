@@ -952,17 +952,17 @@
     "name": "Magnetic Button",
     "exportName": "KitMagneticButtonComponent",
     "selector": "kit-magnetic-button",
-    "description": "A pointer-attracted button with bounded movement, keyboard activation and reduced-motion support.",
+    "description": "React-matched magnetic spring button with projected content, four variants, three sizes, hover glow and native form attributes/events.",
     "inputs": [
-      "label: string",
+      "strength: number",
+      "variant: primary | secondary | outline | ghost",
+      "size: sm | md | lg",
+      "glow: boolean",
       "disabled: boolean",
-      "loading: boolean",
-      "action: KitAction",
-      "strength: number (0–1)"
+      "type: button | submit | reset",
+      "className: string"
     ],
-    "outputs": [
-      "activated: void"
-    ]
+    "outputs": []
   },
   {
     "id": "meteors",
