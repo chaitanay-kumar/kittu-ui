@@ -13,6 +13,7 @@ function run(file, args) {
 for (const [source, target] of [
   ["LICENSE", "LICENSE"],
   ["licenses/UPSTREAM-MIT.txt", "UPSTREAM-MIT.txt"],
+  ["licenses/LUCIDE.txt", "LUCIDE.txt"],
 ])
   fs.copyFileSync(
     path.join(root, source),

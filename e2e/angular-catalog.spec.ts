@@ -88,6 +88,7 @@ test("Angular website has the complete catalog and framework-specific usage", as
   await catalog.getByRole("button").click();
   await expect(page).toHaveURL(/advanced-data-table\?framework=angular/);
   await expect(page.frameLocator("iframe").getByRole("table")).toBeVisible();
+  await page.getByRole("tab", { name: "Usage", exact: true }).click();
   await expect(
     page.getByText("KittuAdvancedDataTableComponent", { exact: false }).first(),
   ).toBeVisible();

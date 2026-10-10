@@ -129,11 +129,22 @@ export const ANGULAR_COMPONENTS: AngularEntry[] = [
     binding: '[sendHandler]="send"',
     handler: `  readonly send: SendHandler = async ({ text, attachments }, signal) => {\n    const form = new FormData();\n    form.append('text', text);\n    attachments.forEach(file => form.append('attachments', file));\n    const response = await fetch('/api/prompts', { method: 'POST', body: form, signal });\n    if (!response.ok) throw new Error('Send failed');\n  };`,
   },
-  ...ANGULAR_PORTS,
+  ...ANGULAR_PORTS.map(entry => entry.id === "activity-feed" ? {
+    ...entry,
+    binding: '[events]="events"',
+    handler: `  readonly events: ActivityEvent[] = [{
+    id: 'evt-1', type: 'deploy', status: 'success',
+    title: 'Production release verified', timestamp: '2 mins ago',
+    traceId: 'trc_98fa20', actor: { name: 'CI Pipeline' },
+    payload: { version: '2.4.0' },
+  }];`,
+  } : entry),
 ];
 export function angularUsage(entry: AngularEntry) {
   const type =
-    entry.id === "smart-upload"
+    entry.id === "activity-feed"
+      ? "ActivityEvent"
+      : entry.id === "smart-upload"
       ? "UploadHandler"
       : entry.id === "ai-prompt-composer"
         ? "SendHandler"

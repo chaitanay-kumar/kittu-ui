@@ -38,3 +38,17 @@ Motion respects reduced-motion preferences. Canvas engines stop their animation 
 `npm run angular:sync` generates the 108 authored native templates, their export list, demo registry and API catalog. Edit the authored definitions in `scripts/generate-angular-ports.ts` or `scripts/angular-complex-ports.ts`, and shared native behavior in `packages/angular/src/port-controllers.ts` and `port-canvas.ts`. Coverage generation fails on missing or duplicate catalog IDs. The components are generated from authored Angular templates, not by rendering React inside Angular.
 
 `npm run angular:build` synchronizes, compiles and packages the library and demos. `npm run test:angular-package` installs the tarball into separate compiler environments and strictly compiles every selector. Browser coverage mounts and disposes all 108 added ports in both themes on desktop/mobile emulation, then checks representative keyboard, async, data and canvas interactions.
+
+## React parity work
+
+See the [component tracker](ANGULAR_REACT_PARITY.md) for the full review order, status and detailed findings.
+
+React is the reference for ongoing Angular improvements. Catalog coverage alone does not establish matching visuals, behavior or APIs. Components are reviewed individually; the remaining native ports retain the limitations above until verified.
+
+Activity Feed now uses the React `ActivityEvent`, `ActivityActor`, event type and status contracts, exported from the Angular package. It accepts `events`, `enableLiveSimulation` (default true), `enableFilters` (true), `enableSearch` (true), `maxEntries` (20), `onEventReplay` and `className`. The named replay callback controls visibility of replay buttons, matching React; `eventReplay` also emits the event for Angular subscribers. Native attributes and DOM events can be attached to the component host.
+
+Migrate the previous generic Activity Feed `items` records to `events` (`label` becomes `title`; add `type`, `status` and `timestamp`). Generic collection inputs and outputs are replaced by the event-specific contract. The package remains native Angular with no React runtime dependency.
+
+The demo uses the same three events as React. The fixed dark telemetry palette stays dark in either website theme, as React does. Typography follows the rendered React font stack; applications can override `--kittu-activity-font`. Native Web Animations use React's snappy spring constants for event entry, exit and layout movement. CSS handles JSON disclosure; reduced motion disables motion. Timers, clipboard feedback and animations are disposed with the component.
+
+Run `npm run test:activity-feed` after building the tarball to test public inputs, external event replacement, replay callbacks/outputs, feature flags, entry limits and timer cleanup. `e2e/activity-feed-parity.spec.ts` compares React and Angular interactions, control geometry, typography, icons and themes on desktop/mobile, and saves component screenshots for review. Angular 20.0/20.3/21/22 consumer compilation includes the event-specific bindings.
