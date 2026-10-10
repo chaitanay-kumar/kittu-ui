@@ -25,7 +25,7 @@ test('component search navigation survives framework switching', async ({ page }
     : page.getByRole('complementary', { name: 'Component navigation' }).getByRole('link', { name: 'Magnetic Button', exact: true });
   await target.click();
   await expect(page).toHaveURL(/magnetic-button\?framework=angular/);
-  await expect(page.frameLocator('iframe').locator('kit-magnetic-button')).toBeVisible();
+  await expect(page.frameLocator('iframe').getByRole('button', {name:'Magnetic Button',exact:true})).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Magnetic Button', exact: true })).toBeVisible();
 
   await switches.getByRole('button', { name: 'React', exact: true }).click();
