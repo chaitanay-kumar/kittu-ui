@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { KittuSmartUploadComponent } from './smart-upload.component';
 import type { UploadHandler } from './types';
 @Component({

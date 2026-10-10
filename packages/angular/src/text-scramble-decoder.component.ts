@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, DestroyRef, computed, inject, input, signal } from '@angular/core';
+import { Component, DestroyRef, computed, inject, input, signal } from '@angular/core';
 
 @Component({
  selector:"kittu-text-scramble-decoder", standalone:true,

@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, ElementRef, computed, inject, input, signal } from '@angular/core';
+import { Component, ElementRef, computed, inject, input, signal } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 import type {SpotlightCardMouseHandler} from './spotlight-card-types';
 @Component({

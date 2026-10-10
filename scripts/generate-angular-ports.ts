@@ -5,6 +5,7 @@ import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
 import {spotlightCardPort} from "./angular-spotlight-card";
+import {morphingIconPort} from "./angular-morphing-icon";
 import fs from "node:fs";
 import path from "node:path";
 import { CATALOG_INDEX } from "../src/components/registry/catalog-index";
@@ -596,16 +597,7 @@ add(
   "Switch projected page summaries through a restrained car/smoke CSS transition with keyboard navigation.",
   `<section class="kittu-control kittu-stack"><nav class="kittu-row" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-road" aria-hidden="true"><span class="k-car">▰</span><span class="k-smoke"></span></div>@for(item of [current()];track item?.id){<article class="kittu-surface k-page-enter"><h3>{{item?.label}}</h3><p>{{item?.description}}</p><ng-content></ng-content></article>}</section>`,
 );
-add(
-  "morphing-icon",
-  "plain",
-  "An accessible, controlled icon toggle animated with CSS, with no external icon runtime.",
-  `<button type="button" class="kittu-button k-icon-toggle" [disabled]="disabled()" [attr.aria-label]="label()" [attr.aria-pressed]="active()" (click)="active.set(!active())"><svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true"><path [attr.d]="active()?'M8 8L24 24M24 8L8 24':'M5 8H27M5 16H27M5 24H27'" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></button>`,
-  `readonly active=model(false);readonly disabled=input(false);readonly label=input('Toggle menu icon');`,
-  {
-    inputs: ["active: boolean (two-way)", "disabled: boolean", "label: string"],
-  },
-);
+add("morphing-icon","plain",morphingIconPort.description,morphingIconPort.template,morphingIconPort.body,morphingIconPort);
 
 // Text, counters and clocks use real values and tear down their own timers.
 for (const [id, variant] of [
@@ -859,8 +851,7 @@ for (const port of ports) {
       '<div class="k-cards',
       `<nav class="kittu-row" aria-label="Choose a card" (keydown)="keys($event)">@for(item of items();track item.id){${itemButton}}</nav><div class="k-cards`,
     );
-  if (port.id === "morphing-icon")
-    port.template = `<button type="button" class="kittu-button k-icon-toggle" [disabled]="disabled()" [attr.aria-label]="label()" [attr.aria-pressed]="active()" (click)="active.set(!active())"><svg viewBox="0 0 32 32" width="36" height="36" [class.k-active]="active()" aria-hidden="true"><path class="k-icon-top" d="M5 8H27"/><path class="k-icon-mid" d="M5 16H27"/><path class="k-icon-bottom" d="M5 24H27"/></svg></button>`;
+
 }
 const directory = path.join(root, "packages/angular/src");
 const pascal = (id: string) =>
@@ -888,7 +879,7 @@ const entries = ports
     );
     const used = (symbol: string) =>
       new RegExp(`(?<![.$\\w])${symbol}\\b`).test(body);
-    const core = ["ViewEncapsulation",
+    const core = [
       "Component",
       ...[
         "DestroyRef",

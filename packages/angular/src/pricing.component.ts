@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, input, model, output } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 import type { KittuPlan } from './port-types';
 
 @Component({

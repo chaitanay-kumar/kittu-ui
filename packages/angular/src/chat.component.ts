@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, DestroyRef, inject, input, model, output, signal } from '@angular/core';
+import { Component, DestroyRef, inject, input, model, output, signal } from '@angular/core';
 import type { KittuMessage, KittuChatHandler } from './port-types';
 
 @Component({

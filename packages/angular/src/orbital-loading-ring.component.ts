@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, computed, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 import type {OrbitalLoadingRingVariant} from './orbital-loading-ring-types';
 @Component({

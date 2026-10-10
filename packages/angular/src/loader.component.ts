@@ -1,11 +1,11 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, computed, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 import type {LoaderVariant} from './loader-types';
 import {installLoaderMotion} from './loader-motion';
 @Component({
  selector:"kittu-loader", standalone:true,
- host:{'data-kittu':'loader','role':'status','aria-busy':'true','[attr.aria-label]':'ariaLabel() ?? label()','[class]':'"k-loader-parity "+className()'},
+ host:{'data-kittu':'loader','role':'status','aria-busy':'true','[attr.aria-label]':'accessibleLabel()','[class]':'"k-loader-parity "+className()'},
  encapsulation:ViewEncapsulation.None,styleUrls:["./loader.css"],
 template:`
 
@@ -30,5 +30,5 @@ template:`
 `
 })
 export class KittuLoaderComponent {
-readonly size=input(32);readonly variant=input<LoaderVariant>('arc');readonly label=input('Loading...');readonly ariaLabel=input<string|undefined>(undefined,{alias:'aria-label'});readonly reduceMotion=input(false);readonly color=input('currentColor');readonly className=input('');readonly dotSize=computed(()=>Math.max(4,this.size()*.18));readonly lineSize=computed(()=>Math.max(3,this.size()*.08));readonly centerSize=computed(()=>Math.max(4,this.size()*.2));constructor(){installLoaderMotion(this.variant,this.reduceMotion);}
+private readonly defaultAriaLabel=Symbol('default aria-label');readonly size=input<number,number|undefined>(32,{transform:value=>value===undefined?32:value});readonly variant=input<LoaderVariant,LoaderVariant|undefined>('arc',{transform:value=>value===undefined?'arc':value});readonly label=input<string,string|undefined>('Loading...',{transform:value=>value===undefined?'Loading...':value});readonly ariaLabel=input<string|symbol|undefined,string|undefined>(this.defaultAriaLabel,{alias:'aria-label',transform:value=>value});readonly accessibleLabel=computed(()=>{const value=this.ariaLabel();return typeof value==='symbol'?this.label():value;});readonly reduceMotion=input<boolean,boolean|undefined>(false,{transform:value=>value===undefined?false:value});readonly color=input<string,string|undefined>('currentColor',{transform:value=>value===undefined?'currentColor':value});readonly className=input<string,string|undefined>('',{transform:value=>value===undefined?'':value});readonly dotSize=computed(()=>Math.max(4,this.size()*.18));readonly lineSize=computed(()=>Math.max(3,this.size()*.08));readonly centerSize=computed(()=>Math.max(4,this.size()*.2));constructor(){installLoaderMotion(this.variant,this.reduceMotion);}
 }

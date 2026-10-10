@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, input, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
  selector:"kittu-not-found", standalone:true,

@@ -55,7 +55,11 @@ for (const { angularVersion, typescript } of matrix) {
     { cwd: target, stdio: "inherit" },
   );
   if (install.status !== 0) process.exit(install.status ?? 1);
-  const consumerSources = [
+  const loaderOptionalConsumer = `import {Component} from '@angular/core';
+import {KittuLoaderComponent, type LoaderVariant} from 'kittu-ui-angular';
+@Component({selector:'loader-optional-consumer',imports:[KittuLoaderComponent],template:'<kittu-loader [size]="size" [variant]="variant" [label]="label" [reduceMotion]="motion" [color]="color" [className]="classes" [aria-label]="ariaLabel"/>'})
+export class LoaderOptionalConsumer {size:number|undefined;variant:LoaderVariant|undefined;label:string|undefined;motion:boolean|undefined;color:string|undefined;classes:string|undefined;ariaLabel:string|undefined;}`;
+  const consumerSources = [loaderOptionalConsumer,
 `import { Component } from '@angular/core';
 import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type ActivityEvent } from 'kittu-ui-angular';
 @Component({selector:'consumer-app-0',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
@@ -208,6 +212,22 @@ import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, 
   <kittu-ai-prompt-composer [sendHandler]="send" />
 \`})
 export class ConsumerApp8 { readonly optionalColor:string|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalHandler:SpotlightCardMouseHandler|undefined=undefined;readonly moved:SpotlightCardMouseHandler=event=>{this.height=event.clientX;}; height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
+`,
+`import { Component } from '@angular/core';
+import { ${portImports}, KittuElasticSheetComponent, KittuSmartUploadComponent, KittuLiquidCommandPaletteComponent, KittuHoldToConfirmComponent, KittuSwipeActionListComponent, KittuInteractiveDataCardComponent, KittuTimelineScrubberComponent, KittuAIPromptComposerComponent, type UploadHandler, type SendHandler, type MorphingIconStyle } from 'kittu-ui-angular';
+@Component({selector:'consumer-app-9',imports:[${portImports}, KittuElasticSheetComponent,KittuSmartUploadComponent,KittuLiquidCommandPaletteComponent,KittuHoldToConfirmComponent,KittuSwipeActionListComponent,KittuInteractiveDataCardComponent,KittuTimelineScrubberComponent,KittuAIPromptComposerComponent],template:\`
+  ${portTemplates}
+  <kittu-morphing-icon [from]="genericIcon" [to]="genericIcon" [active]="optionalActive" [size]="optionalSize" [duration]="optionalDuration" [className]="optionalClass" [style]="optionalStyle"/>
+  <kittu-elastic-sheet [snapPositions]="[35,65,90]" (snapChange)="height = $event" />
+  <kittu-smart-upload [upload]="upload" [maxFiles]="2" />
+  <kittu-liquid-command-palette [commands]="[]" />
+  <kittu-hold-to-confirm [duration]="500" (confirmed)="done = true" />
+  <kittu-swipe-action-list [items]="[]" />
+  <kittu-interactive-data-card summary="Consumer summary">Consumer detail</kittu-interactive-data-card>
+  <kittu-timeline-scrubber [events]="[]" (eventChange)="height = $event.index" />
+  <kittu-ai-prompt-composer [sendHandler]="send" />
+\`})
+export class ConsumerApp9 { readonly optionalActive:boolean|undefined=undefined;readonly optionalSize:number|undefined=undefined;readonly optionalDuration:number|undefined=undefined;readonly optionalClass:string|undefined=undefined;readonly optionalStyle:MorphingIconStyle|undefined=undefined;height=0;done=false;readonly upload:UploadHandler=async(_file,{onProgress})=>{onProgress(100);};readonly send:SendHandler=async()=>{}; }
 `
   ];
   consumerSources.forEach((source, index) => fs.writeFileSync(path.join(target, `app${index}.ts`), source));
@@ -248,7 +268,7 @@ export class ConsumerApp8 { readonly optionalColor:string|undefined=undefined;re
   );
   if (compile.status !== 0) process.exit(compile.status ?? 1);
   const installed = path.join(target, "node_modules/kittu-ui-angular");
-  for (const asset of ["styles.css", "LICENSE", "UPSTREAM-MIT.txt"])
+  for (const asset of ["styles.css", "LICENSE", "UPSTREAM-MIT.txt", "LUCIDE.txt", "LUCIDE-LICENSE.txt"])
     if (!fs.existsSync(path.join(installed, asset)))
       throw new Error(`Missing package asset: ${asset}`);
   console.log(

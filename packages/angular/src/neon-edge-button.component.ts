@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, ElementRef, computed, inject, input } from '@angular/core';
+import { Component, ElementRef, computed, inject, input } from '@angular/core';
 import {ViewEncapsulation,booleanAttribute} from '@angular/core';
 import {NgTemplateOutlet} from '@angular/common';
 @Component({

@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, computed, input, model } from '@angular/core';
+import { Component, computed, input, model } from '@angular/core';
 
 @Component({
  selector:"kittu-slide-pagination", standalone:true,

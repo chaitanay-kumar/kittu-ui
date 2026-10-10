@@ -1,11 +1,11 @@
 /* Native Angular ports; theme tokens are optional and have light defaults. */
-[data-kittu] {
+[data-kittu]:where(:not(.k-morphing-parity)) {
   min-width: 0;
 }
 [data-kittu] [hidden] {
   display: none !important;
 }
-[data-kittu]
+[data-kittu]:where(:not(.k-morphing-parity))
   :is(button, input, textarea, select, summary, a, [tabindex]):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;

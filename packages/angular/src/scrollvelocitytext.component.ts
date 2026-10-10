@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component, DestroyRef, HostListener, computed, inject, input, signal } from '@angular/core';
+import { Component, DestroyRef, HostListener, computed, inject, input, signal } from '@angular/core';
 
 @Component({
  selector:"kittu-scrollvelocitytext", standalone:true,

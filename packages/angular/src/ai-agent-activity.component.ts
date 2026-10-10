@@ -1,5 +1,5 @@
 // Generated from authored native templates in scripts/generate-angular-ports.ts.
-import { ViewEncapsulation, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { forwardRef, ViewEncapsulation } from '@angular/core';
 import { KittuAgentActivityController } from './agent-activity-controller';
 import { KittuAgentActivityHeaderComponent, KittuAgentActivityTimelineComponent } from './agent-activity-parts';

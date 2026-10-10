@@ -26,8 +26,9 @@ for (const theme of ["light", "dark"]) {
           dispatchEvent(new PopStateEvent("popstate"));
         }, port.id);
         const roots = page.locator(`[data-kittu="${port.id}"]`);
-        if(port.id === "button") await expect(roots).toHaveCount(11);
-        const component = port.id === "button" ? roots.first() : roots;
+        const expectedCount = port.id === "button" ? 11 : port.id === "morphing-icon" ? 6 : 1;
+        await expect(roots).toHaveCount(expectedCount);
+        const component = roots.first();
         await expect(component).toBeVisible();
         await expect(
           page.getByText("Select an available Angular component."),

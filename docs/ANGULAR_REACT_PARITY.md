@@ -2,9 +2,9 @@
 
 React is the source of truth for component appearance, interactions, data contracts, options and defaults. Angular implementations stay native; template projection and output events provide Angular equivalents for React nodes and callbacks. Catalog coverage does not establish parity.
 
-Current progress: 9 components have validated baselines and 107 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
+Current progress: 10 components have validated baselines and 106 await review. Activity Feed is in [PR #1](https://github.com/chaitanay-kumar/kittu-ui/pull/1). Advanced Data Table is in [PR #2](https://github.com/chaitanay-kumar/kittu-ui/pull/2). AI Agent Activity is in [PR #3](https://github.com/chaitanay-kumar/kittu-ui/pull/3). AI Prompt Composer is in [PR #4](https://github.com/chaitanay-kumar/kittu-ui/pull/4). Loader is in [PR #5](https://github.com/chaitanay-kumar/kittu-ui/pull/5). Each component fix gets its own branch and pull request against `feat/kittu-ui-library`.
 
-User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kittu-ui/pull/6). Neon Edge Button is in [PR #7](https://github.com/chaitanay-kumar/kittu-ui/pull/7). Orbital Loading Ring is in [PR #8](https://github.com/chaitanay-kumar/kittu-ui/pull/8). Spotlight Card is in [PR #9](https://github.com/chaitanay-kumar/kittu-ui/pull/9). Next quick review: Morphing Icon. The original inventory order remains below for tracking, not execution priority.
+User priority: finish simpler components first. AI Response work is preserved on `feat/angular-ai-response-parity` and remains in progress. Button is in [PR #6](https://github.com/chaitanay-kumar/kittu-ui/pull/6). Neon Edge Button is in [PR #7](https://github.com/chaitanay-kumar/kittu-ui/pull/7). Orbital Loading Ring is in [PR #8](https://github.com/chaitanay-kumar/kittu-ui/pull/8). Spotlight Card is in [PR #9](https://github.com/chaitanay-kumar/kittu-ui/pull/9). Morphing Icon is in [PR #10](https://github.com/chaitanay-kumar/kittu-ui/pull/10). New component work is paused at the user’s request. Press Button and Magnetic Button remain possible next reviews when resumed. The original inventory order remains below for tracking, not execution priority.
 
 ## Review requirements
 
@@ -20,10 +20,10 @@ User priority: finish simpler components first. AI Response work is preserved on
 
 | Order | Component | ID | Status | Report |
 | --- | --- | --- | --- | --- |
-| 1 | Activity Feed | `activity-feed` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-activity-feed-parity/docs/parity/activity-feed.md) |
-| 2 | Advanced Data Table | `advanced-data-table` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-advanced-data-table-parity/docs/parity/advanced-data-table.md) |
-| 3 | AI Agent Activity | `ai-agent-activity` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-agent-activity-parity/docs/parity/ai-agent-activity.md) |
-| 4 | AI Prompt Composer | `ai-prompt-composer` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-ai-prompt-composer-parity/docs/parity/ai-prompt-composer.md) |
+| 1 | Activity Feed | `activity-feed` | Validated baseline | [Review](parity/activity-feed.md) |
+| 2 | Advanced Data Table | `advanced-data-table` | Validated baseline | [Review](parity/advanced-data-table.md) |
+| 3 | AI Agent Activity | `ai-agent-activity` | Validated baseline | [Review](parity/ai-agent-activity.md) |
+| 4 | AI Prompt Composer | `ai-prompt-composer` | Validated baseline | [Review](parity/ai-prompt-composer.md) |
 | 5 | AI Response | `ai-response` | In progress, deferred for simpler controls | Local audit on deferred branch |
 | 6 | Airport Matrix Clock | `airport-matrix-clock` | Queued | — |
 | 7 | Animated File Upload | `animated-file-upload` | Queued | — |
@@ -33,7 +33,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 11 | Batch Gesture Tray | `batch-gesture-tray` | Queued | — |
 | 12 | Book Call Button | `book-call-button` | Queued | — |
 | 13 | Branching Submenu | `branching-submenu` | Queued | — |
-| 14 | Button | `button` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-button-parity/docs/parity/button.md) |
+| 14 | Button | `button` | Validated baseline | [Review](parity/button.md) |
 | 15 | Car Smoke Page Transition | `car-smoke-page-transition` | Queued | — |
 | 16 | Chat | `chat` | Queued | — |
 | 17 | Circular Orbit | `circular-orbit` | Queued | — |
@@ -71,7 +71,7 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 49 | Liquid Command Palette | `liquid-command-palette` | Queued | — |
 | 50 | Liquid Ripple Button | `liquid-ripple-button` | Queued | — |
 | 51 | Liquid Toggle | `liquid-toggle` | Queued | — |
-| 52 | Loader | `loader` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-loader-parity/docs/parity/loader.md) |
+| 52 | Loader | `loader` | Validated baseline | [Review](parity/loader.md) |
 | 53 | LockInput | `lock-input` | Queued | — |
 | 54 | Login | `login` | Queued | — |
 | 55 | macOS Folder Cards | `mac-os-folder-cards` | Queued | — |
@@ -81,14 +81,14 @@ User priority: finish simpler components first. AI Response work is preserved on
 | 59 | Morphing Blob | `morphing-blob` | Queued | — |
 | 60 | Morphing Button | `morphing-button` | Queued | — |
 | 61 | Morphing Dialog | `morphing-dialog` | Queued | — |
-| 62 | Morphing Icon | `morphing-icon` | Queued | — |
+| 62 | Morphing Icon | `morphing-icon` | Validated baseline | [Review](parity/morphing-icon.md) |
 | 63 | Morphing Shape Loader | `morphing-shape-loader` | Queued | — |
-| 64 | Neon Edge Button | `neon-edge-button` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-neon-edge-button-parity/docs/parity/neon-edge-button.md) |
+| 64 | Neon Edge Button | `neon-edge-button` | Validated baseline | [Review](parity/neon-edge-button.md) |
 | 65 | Nimbu Mirchi | `nimbu-mirchi` | Queued | — |
 | 66 | Not Found | `not-found` | Queued | — |
 | 67 | Notification Bell | `notification-bell` | Queued | — |
 | 68 | Notification Stack | `notification-stack` | Queued | — |
-| 69 | Orbital Loading Ring | `orbital-loading-ring` | Validated baseline | [Review](https://github.com/chaitanay-kumar/kittu-ui/blob/feat/angular-orbital-loading-ring-parity/docs/parity/orbital-loading-ring.md) |
+| 69 | Orbital Loading Ring | `orbital-loading-ring` | Validated baseline | [Review](parity/orbital-loading-ring.md) |
 | 70 | OriginDropdown | `origin-dropdown` | Queued | — |
 | 71 | OTP Input | `otp-input` | Queued | — |
 | 72 | Particle Delete | `particle-delete` | Queued | — |

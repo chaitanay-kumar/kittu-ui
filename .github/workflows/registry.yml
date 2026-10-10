@@ -71,6 +71,8 @@ jobs:
         run: npm run test:orbital-loading-ring
       - name: Verify native Spotlight Card contract
         run: npm run test:spotlight-card
+      - name: Verify native Morphing Icon contract
+        run: npm run test:morphing-icon
 
       - name: Verify Angular package in a separate consumer
         run: npm run test:angular-package
