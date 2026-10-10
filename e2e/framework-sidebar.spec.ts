@@ -13,7 +13,7 @@ test('component search navigation survives framework switching', async ({ page }
   const switches = page.getByRole('group', { name: 'Component framework' });
   await switches.getByRole('button', { name: 'Angular', exact: true }).click();
   await expect(page).toHaveURL(/typewriter-button\?framework=angular/);
-  await expect(page.frameLocator('iframe').locator('kit-typewriter-button')).toBeVisible();
+  await expect(page.frameLocator('iframe').getByRole('button', {name:'npx kit-ui add button',exact:true})).toBeVisible();
   if (mobile) await toggle.click();
   await expect(search).toHaveValue('Button');
   await expect(search).toBeVisible();
