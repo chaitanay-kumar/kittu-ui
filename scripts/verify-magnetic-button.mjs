@@ -1,0 +1,10 @@
+import '@angular/compiler';
+import assert from 'node:assert/strict';
+import {JSDOM} from 'jsdom';
+import {provideZonelessChangeDetection} from '@angular/core';
+import {TestBed} from '@angular/core/testing';
+import {BrowserTestingModule,platformBrowserTesting} from '@angular/platform-browser/testing';
+import {KitMagneticButtonComponent} from '../packages/angular/dist/fesm2022/kit-ui-angular.mjs';
+const dom=new JSDOM('<html><body></body></html>');for(const key of ['window','document','HTMLElement','Element','Node'])globalThis[key]=dom.window[key];globalThis.cancelAnimationFrame=()=>{};
+TestBed.initTestEnvironment(BrowserTestingModule,platformBrowserTesting());TestBed.configureTestingModule({imports:[KitMagneticButtonComponent],providers:[provideZonelessChangeDetection()]});const fixture=TestBed.createComponent(KitMagneticButtonComponent);fixture.detectChanges();const instance=fixture.componentInstance,button=fixture.nativeElement.querySelector('button');
+try{assert.equal(instance.strength(),.35);assert.equal(instance.variant(),'primary');assert.equal(instance.size(),'md');assert.equal(instance.glow(),true);assert.equal(button.type,'submit');for(const [name,value] of Object.entries({strength:-.5,variant:'outline',size:'lg',glow:false,type:'reset',disabled:true,className:'consumer'})){fixture.componentRef.setInput(name,value);fixture.detectChanges();}assert.equal(instance.strength(),-.5);assert.equal(button.type,'reset');assert.equal(button.disabled,true);assert.ok(button.classList.contains('consumer'));for(const name of ['strength','variant','size','glow','className','type']){fixture.componentRef.setInput(name,undefined);fixture.detectChanges();}assert.equal(instance.strength(),.35);assert.equal(instance.glow(),true);assert.equal(button.type,'submit');assert.ok(button.classList.contains('k-magnetic-primary'));assert.equal(button.classList.contains('undefined'),false);console.log('Magnetic packaged contract passed: defaults, optional inputs, native types/disabled, variants, sizes and unclamped strength.');}finally{fixture.destroy();TestBed.resetTestingModule();dom.window.close();}

@@ -34,3 +34,6 @@ body:has(kit-orbital-loading-ring-demo){padding:0;background:#f1f1f2;font-family
 .dark body:has(kit-orbital-loading-ring-demo){background:#18181b}
 body:has(kit-spotlight-card-demo){padding:0;background:#f1f1f2;font-family:"Inter Variable",sans-serif;font-size:16px;line-height:24px;letter-spacing:-.011em;font-feature-settings:'cv02','cv03','cv04','cv11';-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .dark body:has(kit-spotlight-card-demo){background:#18181b}
+
+body:has(kit-magnetic-button-demo){padding:0;background:#f1f1f2;font-family:"Inter Variable",sans-serif;font-size:16px;line-height:24px;letter-spacing:-.011em;font-feature-settings:'cv02','cv03','cv04','cv11';-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.dark body:has(kit-magnetic-button-demo){background:#18181b}

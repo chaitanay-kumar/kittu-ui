@@ -197,7 +197,7 @@ All 116 catalog components have native standalone Angular implementations. Use t
 - [LockInput for Angular](http://localhost:5173/components/lock-input?framework=angular): A password field with a deliberate edit lock and accessible visibility control.
 - [Login for Angular](http://localhost:5173/components/login?framework=angular): Validated native fields, password visibility, cancellable application submission and preserved errors.
 - [macOS Folder Cards for Angular](http://localhost:5173/components/mac-os-folder-cards?framework=angular): A configurable content card collection with selection, disclosure, disabled items and projected details.
-- [Magnetic Button for Angular](http://localhost:5173/components/magnetic-button?framework=angular): A pointer-attracted button with bounded movement, keyboard activation and reduced-motion support.
+- [Magnetic Button for Angular](http://localhost:5173/components/magnetic-button?framework=angular): React-matched magnetic spring button with projected content, four variants, three sizes, hover glow and native form attributes/events.
 - [Meteors for Angular](http://localhost:5173/components/meteors?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.
 - [Metric HUD for Angular](http://localhost:5173/components/metric-hud?framework=angular): A metric readout with bounded progress, signed trend and application-controlled loading/error states.
 - [Morphing Blob for Angular](http://localhost:5173/components/morphing-blob?framework=angular): A native Canvas 2D visual with pointer response, pause controls, offscreen suspension and reduced motion.

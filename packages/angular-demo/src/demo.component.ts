@@ -1,4 +1,5 @@
 import {PressButtonDemoComponent} from "./press-button-demo";
+import {MagneticButtonDemoComponent} from "./magnetic-button-demo";
 import {ButtonDemoComponent} from "./button-demo";
 import {NeonEdgeButtonDemoComponent} from "./neon-edge-button-demo";
 import {OrbitalLoadingRingDemoComponent} from "./orbital-loading-ring-demo";
@@ -49,7 +50,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
   selector: "kit-angular-demo",
   standalone: true,
   imports: [
-    PressButtonDemoComponent,ButtonDemoComponent,
+    PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
     SpotlightCardDemoComponent,
@@ -73,6 +74,7 @@ function wait(ms: number, signal?: AbortSignal): Promise<void> {
       @case ("ai-agent-activity") { <kit-agent-demo/> }
       @case("loader"){<kit-loader-demo/>}
       @case("press-button"){<kit-press-button-demo/>}
+      @case("magnetic-button"){<kit-magnetic-button-demo/>}
       @case("button"){<kit-button-demo/>}
       @case("neon-edge-button"){<kit-neon-edge-button-demo/>}
       @case("orbital-loading-ring"){<kit-orbital-loading-ring-demo/>}
