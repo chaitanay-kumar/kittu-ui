@@ -1,3 +1,4 @@
+export type {RevealCardContent} from "./reveal-card-types";
 export * from "./types";
 export * from "./magnetic-button-types";
 export * from "./elastic-sheet.component";

@@ -1464,24 +1464,13 @@ export const ANGULAR_PORTS = [
     "name": "Reveal Card",
     "exportName": "KitRevealCardComponent",
     "selector": "kit-reveal-card",
-    "description": "A configurable content card collection with selection, disclosure, disabled items and projected details.",
+    "description": "React-matched projected 3D tilt card with optional persistent reveal content, dynamic glare and pointer-following spring rotation.",
     "inputs": [
-      "items: KitItem[]",
-      "label: string",
-      "disabled: boolean",
-      "loading: boolean",
-      "error: string",
-      "selected: string (two-way)",
-      "selectedIds: string[] (two-way)",
-      "action: KitCollectionAction"
+      "revealContent: RevealCardContent",
+      "maxTilt: number",
+      "className: string"
     ],
-    "outputs": [
-      "itemSelect: KitItem",
-      "actionRequested: KitItem[]",
-      "actionComplete: KitItem[]",
-      "selectedChange: string",
-      "selectedIdsChange: string[]"
-    ]
+    "outputs": []
   },
   {
     "id": "rocket-party-popper",

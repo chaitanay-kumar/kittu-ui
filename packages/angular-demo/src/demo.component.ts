@@ -1,3 +1,4 @@
+import {RevealCardDemoComponent} from "./reveal-card-demo";
 import {PressButtonDemoComponent} from "./press-button-demo";
 import {MagneticButtonDemoComponent} from "./magnetic-button-demo";
 import {MorphingButtonDemoComponent} from "./morphing-button-demo";
@@ -53,7 +54,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
 @Component({
   selector: "kit-angular-demo",
   standalone: true,
-  imports: [
+  imports: [RevealCardDemoComponent,
     PressButtonDemoComponent,ButtonDemoComponent,MagneticButtonDemoComponent,MorphingButtonDemoComponent,TypewriterButtonDemoComponent,RainbowButtonDemoComponent,
     NeonEdgeButtonDemoComponent,
     OrbitalLoadingRingDemoComponent,
@@ -85,6 +86,7 @@ import {RainbowButtonDemoComponent} from "./rainbow-button-demo";
       @case("button"){<kit-button-demo/>}
       @case("neon-edge-button"){<kit-neon-edge-button-demo/>}
       @case("orbital-loading-ring"){<kit-orbital-loading-ring-demo/>}
+      @case("reveal-card"){<kit-reveal-card-demo/>}
       @case("spotlight-card"){<kit-spotlight-card-demo/>}
       @case("morphing-icon"){<kit-morphing-icon-demo/>}
       @case ("elastic-sheet") {

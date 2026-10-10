@@ -9,6 +9,7 @@ import {rainbowButtonPort} from "./angular-rainbow-button";
 import {buttonPort} from "./angular-button";
 import {neonEdgeButtonPort} from "./angular-neon-edge-button";
 import {orbitalLoadingRingPort} from "./angular-orbital-loading-ring";
+import {revealCardPort} from "./angular-reveal-card";
 import {spotlightCardPort} from "./angular-spotlight-card";
 import {morphingIconPort} from "./angular-morphing-icon";
 import fs from "node:fs";
@@ -416,7 +417,6 @@ for (const [id, title, layout] of [
   ["profile-card", "Alex Morgan", "profile"],
   ["wallet-card", "Your wallet", "wallet"],
   ["peek-card", "A closer look", "peek"],
-  ["reveal-card", "Reveal the details", "reveal"],
   ["mac-os-folder-cards", "Project folders", "folders"],
   ["stacked-cards", "Your collection", "stacked"],
   ["story-card", "Your stories", "stories"],
@@ -429,6 +429,7 @@ for (const [id, title, layout] of [
     `spot(event:PointerEvent):void{if(this.disabled())return;const el=event.currentTarget as HTMLElement;const r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(event.clientX-r.left)+'px');el.style.setProperty('--spot-y',(event.clientY-r.top)+'px');}clearSpot(event:PointerEvent):void{(event.currentTarget as HTMLElement).style.removeProperty('--spot-x');}`,
   );
 }
+add("reveal-card","plain",revealCardPort.description,revealCardPort.template,revealCardPort.body,revealCardPort);
 add("spotlight-card", "plain", spotlightCardPort.description, spotlightCardPort.template, spotlightCardPort.body, spotlightCardPort);
 add(
   "avatar-stack",
@@ -785,14 +786,6 @@ const cardDefaults: Record<
       label: "A closer look",
       description:
         "A quiet hint of what is inside. Expand to explore the details.",
-    },
-  ],
-  "reveal-card": [
-    {
-      id: "reveal",
-      label: "Behind the surface",
-      description:
-        "Uncover another layer of information, with the keyboard or a pointer.",
     },
   ],
 };
